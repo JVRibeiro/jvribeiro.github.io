@@ -8,7 +8,7 @@
 <link rel="icon" href="https://cloud.githubusercontent.com/assets/8026741/3679572/e082677e-12a5-11e4-9476-721e0ace980b.png" />
 <link rel="stylesheet" href="miley.css" media="all" />
 
-<script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
+<script src="jquery-2.1.0.min.js"></script>
 <script src="miley.brain.js"></script>
 <script src="right_btn.js"></script>
 <script src="tts.js"></script>
@@ -90,6 +90,30 @@ d.getElementById("locked").style.display = "none"; d.getElementById("m_rep").inn
 <audio id="voz" src="" autoplay="autoplay"></audio>
 </div><!-- .hidden -->
 <input id="API" type="hidden" value="https://api.voicerss.org/" />
+
+<div class="config" style="padding: 15px; position: fixed; top: 200px; left: 450px;">
+  <label for="Nome">Nome</label><br>
+  <input type="text" id="userName" value="" placeholder="Seu nome" /><br><br>
+  
+  <label for="Gênero">Gênero</label><br>
+  <select id="userGender">
+<option>Masculino</option> <option>Feminino</option> <option>Outro (o chamarei de você)</option>
+  </select><br><br>
+  
+  <label for="Nascimento">Data de nascimento</label><br>
+  <select id="userBirthDay">
+<option>1</option> <option>2</option> <option>3</option> <option>4</option> <option>5</option> <option>6</option> <option>7</option> <option>8</option> <option>9</option> <option>10</option> <option>11</option> <option>12</option> <option>13</option> <option>14</option> <option>15</option> <option>16</option> <option>17</option> <option>18</option> <option>19</option> <option>20</option> <option>21</option> <option>22</option> <option>23</option> <option>24</option> <option>25</option> <option>26</option> <option>27</option> <option>28</option> <option>29/option> <option>30</option> <option>31</option>
+  </select>
+  
+  <select id="userBirthMonth">
+<option>Janeiro</option> <option>Fevereiro</option> <option>Março</option> <option>Abril</option> <option>Maio</option> <option>Junho</option> <option>Julho</option> <option>Agosto</option> <option>Setembro</option> <option>Outubro</option> <option>Novembro</option> <option>Dezembro</option>
+  </select> 
+  
+  <input type="text" id="userBirthYear" value="" maxLength="4" placeholder="Ano (ex.: 1990)" /><br><br>
+  
+  <button onclick="salvarDados()">Salvar Alterações</button>
+  <button onclick="apagarDados()">Limpar seus dados</button>
+</div><!-- .config -->
 
 <div class="cc">
 <a rel="license" href="http://creativecommons.org/licenses/by/2.0/br/" target="_blank">
