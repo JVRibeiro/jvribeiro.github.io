@@ -134,7 +134,7 @@ max-height: 120px;
 
 #locked {
 position: absolute;
-top: 380px;
+top: 400px;
 margin-top: 200px;
 max-width: 100%;
 height: auto;
@@ -454,7 +454,7 @@ transition: .2s ease-in-out;
 position: fixed;
 top: 0;
 right: 0px;
-border-left: 10px solid #B464E6;
+border-left: 15px solid #B464E6;
 }
 
 #botao {
