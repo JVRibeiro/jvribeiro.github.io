@@ -10,7 +10,6 @@
 
 <script src="jquery-2.1.0.min.js"></script>
 <script src="miley.brain.js"></script>
-<script src="config.js"></script>
 <script src="right_btn.js"></script>
 <script src="tts.js"></script>
 <script src="tts_hora.js"></script>
@@ -93,7 +92,6 @@ d.getElementById("locked").style.display = "none"; d.getElementById("m_rep").inn
 <input id="API" type="hidden" value="https://api.voicerss.org/" />
 
 <div id="config" style="padding: 15px; position: fixed; top: 160px; left: 450px;">
-<div style="position: absolute; top: 10px; right: 10px;"><a onclick="closeConfig()">x</a></div>
   <label for="Nome">Nome</label><br>
   <input type="text" id="userName" value="" placeholder="Seu nome" /><br><br>
   
@@ -115,7 +113,25 @@ d.getElementById("locked").style.display = "none"; d.getElementById("m_rep").inn
   
   <button onclick="salvarDados()">Salvar Alterações</button>
   <button onclick="apagarDados()">Limpar seus dados</button>
-</div><!-- .config -->
+  </div><!-- .config -->
+  
+  <script>
+  var nome = document.getElementById('userName');
+  var genero = document.getElementById('userGender');
+  var aniversario = document.getElementById('userBirth');
+  
+    function salvarDados() {
+      window.localStorage.setItem('nome',nome.value);
+      window.localStorage.setItem('genero',genero.value);
+      window.localStorage.setItem('aniversario',aniversario.value);
+      document.location.href = "index.html";
+    }
+    
+    function apagarDados() {
+      window.localStorage.clear();
+      document.location.href = "index.html";
+    }
+  </script>
 
 <div class="cc">
 <a rel="license" href="http://creativecommons.org/licenses/by/2.0/br/" target="_blank">
