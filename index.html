@@ -113,6 +113,7 @@ d.getElementById("locked").style.display = "none"; d.getElementById("m_rep").inn
   
   <button onclick="salvarDados()">Salvar Alterações</button>
   <button onclick="apagarDados()">Limpar seus dados</button>
+  <button onclick="closeConfig()">Cancelar</button>
   </div><!-- .config -->
   
   <script>
@@ -131,6 +132,14 @@ d.getElementById("locked").style.display = "none"; d.getElementById("m_rep").inn
       window.localStorage.clear();
       document.location.href = "index.html";
     }
+  </script>
+  <script>
+    function config() {
+  document.getElementById('config').style.display = 'block';
+};
+function closeConfig() {
+  document.getElementById('config').style.display = 'none';
+};
   </script>
 
 <div class="cc">
