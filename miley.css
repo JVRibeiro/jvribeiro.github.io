@@ -110,6 +110,10 @@ select, .beta, #right_btn, .cc {
 display: none;
 }
 
+.lado2 {
+z-index: 95169825986519862654982541986519865985967;
+}
+
 .miley_c {
 display: block;
 padding: none;
@@ -543,4 +547,3 @@ transition: 0.2s ease-in-out;
 
 .cc:hover {
 bottom: 0px;
-}
