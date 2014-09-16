@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Miley 1.0</title>
+<link rel="icon" href="https://cloud.githubusercontent.com/assets/8026741/3679572/e082677e-12a5-11e4-9476-721e0ace980b.png" />
+<link rel="stylesheet" href="miley.css" media="all" />
+
+<script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
+<script src="miley.brain.js"></script>
+<script src="right_btn.js"></script>
+<script src="tts.js"></script>
+<script src="tts_hora.js"></script>
+<script src="annyang.js"></script>
+<script src="comandos.js"></script>
+
+</head>
+
+<body onLoad="mileyIni(); STT();">
+<img width="50px" height="50px" src="https://cloud.githubusercontent.com/assets/8026741/3919963/a6ed5214-23b0-11e4-87e0-43a2a323a969.png" onclick="c_cc()" id="b_cc_m" title="" />
+
+
+
+<script>
+var d = document;
+function c_cc() {var image = d.getElementById('b_cc'); var image_m = d.getElementById('b_cc_m');
+if (image.src.match("feed5a80da5c")) {image.src = "https://cloud.githubusercontent.com/assets/8026741/3919963/a6ed5214-23b0-11e4-87e0-43a2a323a969.png"; // APAGADA
+image_m.src = "https://cloud.githubusercontent.com/assets/8026741/3919963/a6ed5214-23b0-11e4-87e0-43a2a323a969.png"; // APAGADA
+d.getElementById("locked").style.display = "block"; d.getElementById("m_rep").innerHTML = "<audio src=\'https:\/\/api.voicerss.org\/?key=" +_apikey+ "&hl=pt-br&c=ogg&f=8khz_16bit_mono&src=O teclado está bloqueado\' autoplay><\/audio>";} else {
+image.src = "https://cloud.githubusercontent.com/assets/8026741/3920011/625c3bdc-23b1-11e4-846b-feed5a80da5c.png"; // ACESA
+image_m.src = "https://cloud.githubusercontent.com/assets/8026741/3920011/625c3bdc-23b1-11e4-846b-feed5a80da5c.png"; // ACESA
+d.getElementById("locked").style.display = "none"; d.getElementById("m_rep").innerHTML = "<audio src=\'https:\/\/api.voicerss.org\/?key=" +_apikey+ "&hl=pt-br&c=ogg&f=8khz_16bit_mono&src=Desbloqueei o teclado\' autoplay><\/audio>";}}
+</script>
+
+<center>
+<div class='miley_c'></div>
+</center>
+
+<div id='content'>
+
+<center>
+
+<form name="miley" onkeypress="if(event.keyCode == 13) {rotina(); STT(); espera(); return false};">
+
+<table align="center">
+  <tr>
+    <td>
+
+<textarea id="dialogo" style='display: none;' name="dialogo" rows="30" cols="30"></textarea><br />
+
+<div id='wait'></div>
+
+<textarea id="resposta" class='resposta text_box' readonly name="Resposta" rows="6" cols="30" onChange="STT(); espera();"></textarea><br />
+<textarea id='pergunta' class="pergunta" readonly name="Pergunta" rows="2" cols="30" onChange="rotina(); STT(); espera();"></textarea><br />
+
+<div id="locked">O teclado está bloqueado. Para usar o teclado, diga "Liberar teclado", ou clique/toque no botão roxo.</div>
+<textarea id="texto" placeholder="Digite e aperte Enter..." name="Texto" rows="2" cols="25"></textarea>
+
+  <input id="botaoFalar" class="button falar" type="button" value="&#8594;" name="falar" onClick="rotina(); STT(); espera();" title="Falar" />
+  <input class="ajuda" type="button" value="O que posso dizer?" onClick="abrir('ajuda.htm'); abrirAjuda(); STT();" title="Clique para obter ajuda" />
+    </td>
+  </tr>
+</table>
+
+</form>
+
+</center>
+</div><!-- #content -->
+
+<script>function abrir(URL) {window.open(URL,'janela','width=550, height=640, top=25, left=400');}</script>
+<div id="right_btn"></div>
+<div id="context_menu">
+<ul>
+<li onclick="window.location.reload();">Atualizar</li>
+<li onclick="abrir('ajuda.htm'); abrirAjuda(); STT();">Ajuda</li>
+</ul>
+</div><!-- #context_menu -->
+
+<div title='Mudar idioma'>
+<select id="miley_idioma" class="text_box">
+<option value="pt-br">Português do Brasil</option>
+<option value="pt-pt">Português de Portugal</option>
+</select>
+</div><!-- title:Mudar idioma -->
+
+<div id="m_rep"></div>
+<div id="m_voz" class="hidden">
+<audio id="voz" src="" autoplay="autoplay"></audio>
+</div><!-- .hidden -->
+<input id="API" type="hidden" value="https://api.voicerss.org/" />
+
+<div class="cc">
+<a rel="license" href="http://creativecommons.org/licenses/by/2.0/br/" target="_blank">
+<img alt="Licença Creative Commons" title="Licença Creative Commons" style="border-width:0" src="https://cloud.githubusercontent.com/assets/8026741/4149526/ebfdcd72-3434-11e4-86ce-30827504b4f1.png" /></a><br />
+O Projeto Miley A.I. está licenciado com <br>
+uma Licença <a rel="license" href="http://creativecommons.org/licenses/by/2.0/br/">Creative Commons Atribuição 2.0 Brasil</a>.<br>
+Projeto Miley é um projeto de <a rel="nofollow" title="Twitter (@JVRibeiiro)" onClick="abrir('http://twitter.com/JVRibeiiro')">Victor Ribeiro</a>.
+</div>
+
+<div class='lado2'>
+<center>
+<img src="https://cloud.githubusercontent.com/assets/8026741/3919963/a6ed5214-23b0-11e4-87e0-43a2a323a969.png" onclick="c_cc()" id="b_cc" title="" />
+<br><br>
+<b>Novidades (Changelog):</b>
+<br><br>
+<p align='left'>
+<li>Recurso TTS (texto para voz) da <b>VoiceRSS</b>;</li>
+<li>Recurso de Reconhecimento de fala <b><a href="https://github.com/TalAter/annyang/" target="_blank">Annyang.js</a></b>;</li>
+<li>Pesquisa por voz - Google e Bing - com a expressão "Procura por [sua pesquisa] no Google/Bing;</li>
+<li>Navegação por voz no Facebook (Feed, perfil, fotos, notificações e mensagens);</li>
+<li>Conversa (no modo de comandos) dizendo "Miley", "Me fala/diz", "E", "Pergunta" ou "Tenho uma dúvida" ao início da frase;</li>
+
+</p>
+<div class='version'>Versão 1.0</div>
+</center>
+</div> <!-- .lado2 -->
+
+</body>
+</html>
