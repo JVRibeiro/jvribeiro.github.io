@@ -1,0 +1,534 @@
+/*
+MILEY.CSS
+Autor: Victor "JV" Ribeiro
+Esse arquivo faz parte do projeto Miley.
+
+Visite em https://jvribeiro.github.io/miley/
+*/
+
+input[type=text] {
+outline: none
+}
+
+input:focus {
+outline: none;
+}
+
+textarea:focus {
+outline: none;
+}
+
+select:focus {
+outline: none;
+}
+
+/*///////////////////////////////////////////////////////////*/
+@media screen and (min-width: 951px) {
+#b_cc_m {
+visibility: hidden;
+}
+}
+
+@media screen and (max-width: 950px) {
+#content {
+width: 100%;
+float: center;
+margin-top: 60px;
+ }
+
+.falar {
+display: inline;
+float: right;
+ }
+
+#texto {
+display: inline;
+float: center;
+ }
+ 
+ #b_cc_m {
+visibility: hidden;
+}
+}
+
+@media screen and (max-width: 700px) { /* Tablets */
+#content {
+width: 100%;
+float: center;
+margin-top: 60px;
+}
+
+#b_cc_m {
+visibility: hidden;
+}
+
+.cc {
+display: none;
+}
+}
+
+@media screen and (max-width: 480px) { /* Dispositivos móveis*/
+#content {
+width: 100%;
+float: center;
+margin-top: 0;
+}
+
+#b_cc_m {
+visibility: visible;
+position: fixed; 
+top: 30px; 
+right: 10px;
+}
+
+.resposta {
+font-family: Segoe UI Light, Arial, sans-serif;
+font-size: 10px;
+float: left;
+max-width: 80%;
+min-height: 90px;
+max-height: 90px;
+}
+
+.pergunta {
+font-family: Segoe UI Light, Arial, sans-serif;
+font-size: 8px;
+float: left;
+max-width: 90%;
+min-height: 90px;
+}
+
+#texto {
+font-family: Segoe UI Light, Arial, sans-serif;
+font-size: 10pt;
+float: left;
+max-width: 80%;
+display: block;
+}
+
+select, .beta, #right_btn, .lado2, .cc {
+display: none;
+}
+
+.miley_c {
+display: block;
+padding: none;
+position: relative;
+margin-top: 40px;
+}
+
+.button {
+max-width: 80%;
+float: left;
+margin-left:
+}
+
+.falar {
+float: left;
+}
+
+#wait {
+max-width: 100%;
+max-height: 120px;
+}
+
+#locked {
+position: absolute;
+top: 380px;
+margin-top: 200px;
+max-width: 100%;
+height: auto;
+background: #000;
+opacity: 0.9;
+z-index: 95169825986519862654982541986519865985966;
+text-shadow: 0 0 5px #EE56FC;
+color: #fff;
+font-size: 11px;
+text-align: center;
+}
+
+.ajuda {
+ margin-top: 15px;
+}
+}
+
+
+/*//////////////////////////////////////////////////////////////*/
+
+::-webkit-scrollbar {
+visibility: hidden;
+}
+ 
+::-webkit-scrollbar-track {
+background: #111;
+}
+ 
+::-webkit-scrollbar-thumb {
+background: #242424;
+}
+
+::-webkit-scrollbar-thumb:hover {
+background: #585858;
+}
+
+/*//////////////////////////////////////////////////////////////*/
+
+.config {
+display: none;
+width: 500px;
+height: 300px;
+border: 1px solid #fff;
+border-radius: 10px;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+-ms-border-radius: 10px;
+-o-border-radius: 10px;
+}
+
+body {
+background: #000;
+font-family: Segoe UI Light, Arial, sans-serif;
+color: #fff;
+font-size: 10pt;
+max-width: 100%;
+min-width: 100%;
+}
+
+a {
+color: #EDA3FF;
+font-size: 12pt;
+font-family: Segoe UI;
+cursor: pointer;
+transition: 0.2s ease-in-out;
+-moz-transition: 0.2s ease-in-out;
+-webkit-transition: 0.2s ease-in-out;
+}
+
+a:hover {
+margin-left: 5px;
+color: #B739D6;
+}
+
+#hora {
+background: #000; 
+color: #000; 
+border: none; 
+}
+
+.button {
+padding: 10px;
+display: inline-block;
+font-family: Segoe UI Light, Segoe UI;
+font-size: 12pt;
+width: 100px;
+background: #000;
+color: #fff;
+border: 2px solid #fff;
+margin: 10px;
+}
+
+.button:hover {
+background: #B739D6;
+border: 2px solid #B739D6;
+}
+
+.button:active {
+background: #fff;
+color: #000;
+}
+
+.ajuda {
+padding: 5px;
+display: inline;
+font-family: Segoe UI, Arial;
+font-size: 10pt;
+width: 125px;
+background: #000;
+color: #fff;
+border: none;
+align: right;
+}
+
+.ajuda:hover {
+background: #B739D6;
+}
+
+.ajuda:active {
+background: #FFF;
+color: #000;
+}
+
+#botaoFalar {
+display: inline-block;
+}
+
+#content {
+margin-top: 0;
+}
+
+textarea {
+border-radius: 5px;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+-ms-border-radius: 5px;
+border-top: none;
+border-right: none;
+border-left: none;
+border-bottom: 1px solid #fff;
+margin-left: 20px;
+width: 90%;
+background: #fff;
+color: #000;
+font-family: Segoe UI Light, Segoe UI;
+font-size: 14pt;
+resize: none;
+}
+
+.resposta {
+padding: 15px;
+text-align: center;
+font-family: Segoe UI Light, Segoe UI;
+font-size: 20pt;
+background: transparent;
+color: #EDA3FF;
+-webkit-user-select: none;
+-moz-user-select: none;
+-o-user-select: none;
+-ms-user-select: none;
+cursor: default;
+resize: none;
+border-bottom: none;
+margin-top: 50px;
+}
+
+.pergunta {
+font-family: Segoe UI Light, Segoe UI;
+font-size: 16pt;
+background-color: #000;
+color: #A4A5B1;
+-webkit-user-select: none;
+-moz-user-select: none;
+-o-user-select: none;
+-ms-user-select: none;
+cursor: default;
+resize: none;
+border-top: 1px solid #fff;
+border-right: none;
+border-left: none;
+border-bottom: none;
+width: 100%;
+}
+
+.resposta_ajuda {
+padding: 15px;
+text-align: left;
+font-family: Segoe UI Light, Segoe UI;
+font-size: 16pt;
+background: transparent;
+color: #EDA3FF;
+-webkit-user-select: none; -moz-user-select: none; -o-user-select: none; -ms-user-select: none; cursor: default;
+border-bottom: none;
+}
+.pergunta_ajuda {
+font-family: Segoe UI Light, Segoe UI;
+font-size: 14pt;
+background: #000;
+color: #A4A5B1;
+-webkit-user-select: none; -moz-user-select: none; -o-user-select: none; -ms-user-select: none; cursor: default;
+border-top: 1px solid #fff;
+border-right: none;
+border-left: none;
+border-bottom: none;
+width: 90%;
+text-align: left;
+}
+
+.a {
+color: #eda3ff;
+}
+
+.b ul, li {
+color: #a4a5b1;
+list-style: square;
+}
+
+.falar {
+font-family: Calibri;
+height: 45px;
+width: 45px;
+margin-top: 3px;
+margin-left: -10px;
+font-weight: bold;
+float: left;
+}
+
+#texto {
+border: 1px solid #B739D6;
+max-width: 90%;
+height: 40px;
+width: 54%;
+padding: 5px;
+float: left;
+}
+
+td {
+font-family: Segoe UI, Arial;
+font-size: 10pt;
+}
+
+* {
+margin: 0;
+padding: 0;
+font-family: Segoe UI, sans-serif;
+user-select: none;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+-o-user-select: none;
+}
+
+ul {
+list-style: none;
+}
+
+#context_menu {
+color: #000;
+border: 2px solid #A020F0;
+background: #fff;
+width: 200px;
+font-size: 12pt;
+position: absolute;
+display: none;
+z-index: 95169825986519862654982541986519865985965;
+-ms-border-radius: 0px 15px 15px 15px;
+-moz-border-radius: 0px 15px 15px 15px;
+-webkit-border-radius: 0px 15px 15px 15px;
+border-radius: 0px 15px 15px 15px;
+}
+
+#context_menu ul li {
+padding: 2px 10px;
+cursor: default;
+transition: .1s ease-in-out;
+-moz-transition: .1s ease-in-out;
+-webkit-transition: .1s ease-in-out;
+}
+
+#context_menu ul li:hover {
+background: #A020F0;
+color: #FFF;
+-ms-border-radius: 0px 15px 15px 15px;
+-moz-border-radius: 0px 15px 15px 15px;
+-webkit-border-radius: 0px 15px 15px 15px;
+border-radius: 0px 15px 15px 15px;
+}
+
+.lado2 {
+border-left: 10px solid #A020F0;
+background: #000;
+width: 150px;
+height: 100%;
+padding: 15px;
+position: fixed;
+top: 0;
+right: -178px;
+transition: .2s ease-in-out;
+-webkit-transition: .2s ease-in-out;
+-moz-transition: .2s ease-in-out;
+-ms-transition: .2s ease-in-out;
+}
+
+.lado2:hover {
+position: fixed;
+top: 0;
+right: 0px;
+border-left: 10px solid #B464E6;
+}
+
+#botao {
+padding: 10px;
+}
+
+#botao:hover {
+background: #67A3B;
+}
+
+.miley_c {
+height: 100px;
+width: 100px;
+background: url("https://cloud.githubusercontent.com/assets/8026741/3484302/c9efae36-03a5-11e4-9b95-a6927aa33ddd.GIF") center center;
+background-size: 100% 100%;
+background-repeat: no-repeat;
+margin: none;
+-webkit-border-radius: 50%;
+-moz-border-radius: 50%;
+-o-border-radius: 50%;
+-ms-border-radius: 50%;
+border-radius: 50%;
+position: relative;
+top: 0;
+-webkit-box-shadow: 0px 0px 30px #EE56FC;
+-moz-box-shadow: 0px 0px 30px #EE56FC;
+-o-box-shadow: 0px 0px 30px #EE56FC;
+-ms-box-shadow: 0px 0px 30px #EE56FC;
+box-shadow: 0px 0px 30px #EE56FC;
+}
+
+.version {
+position: relative;
+color: #EE56FC;
+font-size: 11pt;
+font-family: Segoe UI Light, Segoe UI;
+padding: 15px;
+}
+
+#wait {
+display: none;
+position: absolute;
+margin-top: 50px;
+width: 530px;
+height: 248px;
+background: #000;
+transition: 1s ease-out;
+}
+
+#locked {
+position: absolute;
+margin-top: 0px;
+width: 530px;
+height: 65px;
+background: #000;
+opacity: 0.9;
+z-index: 95169825986519862654982541986519865985966;
+transition: 1s ease-out;
+text-shadow: 0 0 10px #EE56FC;
+color: fff;
+font-size: 14pt;
+text-align: center;
+font-family: Segoe UI Light, Arial, sans-serif;
+}
+
+#miley_idioma {
+width: 200px; 
+background: #000; 
+color: #FFF; 
+position: absolute; 
+top: 10px; 
+left: 10px;
+font-family: Segoe UI Light, Arial, sans-serif;
+}
+
+.cc {
+position: fixed;
+bottom: -60px;
+left: 15px;
+padding-bottom: 5px;
+transition: 0.2s ease-in-out;
+-webkit-transition: 0.2s ease-in-out;
+-moz-transition: 0.2s ease-in-out;
+-ms-transition: 0.2s ease-in-out;
+}
+
+.cc:hover {
+bottom: 0px;
+}
