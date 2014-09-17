@@ -168,7 +168,8 @@ height: auto;
 /*//////////////////////////////////////////////////////////////*/
 
 ::-webkit-scrollbar {
-display: nome;
+width: 1px;
+height: 1px;
 }
  
 ::-webkit-scrollbar-track {
@@ -440,14 +441,14 @@ border-radius: 0px 15px 15px 15px;
 }
 
 .lado2 {
-border-left: 10px solid #A020F0;
+border-left: 15px solid #A020F0;
 background: #000;
 width: 150px;
 height: 100%;
 padding: 15px;
 position: fixed;
 top: 0;
-right: -178px;
+right: -180px;
 transition: .2s ease-in-out;
 -webkit-transition: .2s ease-in-out;
 -moz-transition: .2s ease-in-out;
@@ -455,8 +456,6 @@ transition: .2s ease-in-out;
 }
 
 .lado2:hover {
-position: fixed;
-top: 0;
 right: 0px;
 border-left: 15px solid #B464E6;
 }
@@ -503,47 +502,4 @@ display: none;
 position: absolute;
 margin-top: 50px;
 width: 530px;
-height: 248px;
-background: #000;
-transition: 1s ease-out;
-}
-
-#locked {
-position: absolute;
-margin-top: 0px;
-width: 530px;
-height: 65px;
-background: #000;
-opacity: 0.9;
-z-index: 95169825986519862654982541986519865985966;
-transition: 1s ease-out;
-text-shadow: 0 0 10px #EE56FC;
-color: fff;
-font-size: 14pt;
-text-align: center;
-font-family: Segoe UI Light, Arial, sans-serif;
-}
-
-#miley_idioma {
-width: 200px; 
-background: #000; 
-color: #FFF; 
-position: absolute; 
-top: 10px; 
-left: 10px;
-font-family: Segoe UI Light, Arial, sans-serif;
-}
-
-.cc {
-position: fixed;
-bottom: -60px;
-left: 15px;
-padding-bottom: 5px;
-transition: 0.2s ease-in-out;
--webkit-transition: 0.2s ease-in-out;
--moz-transition: 0.2s ease-in-out;
--ms-transition: 0.2s ease-in-out;
-}
-
-.cc:hover {
-bottom: 0px;
+height: 
