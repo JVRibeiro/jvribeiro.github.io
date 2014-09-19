@@ -71,6 +71,9 @@
   border: 3px solid transparent;
   border-top-color: #EE56FC;
   animation: spin 1s linear infinite;
+  -webkit-animation: spin 1s linear infinite;
+  -moz-animation: spin 1s linear infinite;
+  -ms-animation: spin 1s linear infinite;
   z-index: 11;
 }
   #loader:before {
@@ -84,6 +87,9 @@
     border: 3px solid transparent;
     border-top-color: #EE56FC;
     animation: spin-reverse 2s linear infinite;
+    -webkit-animation: spin-reverse 2s linear infinite;
+    -moz-animation: spin-reverse 2s linear infinite;
+    -ms-animation: spin-reverse 2s linear infinite;
   }
   
   #loader:after {
@@ -95,18 +101,23 @@
     bottom: 15px;
     border-radius: 50%;
     border: 3px solid #fff;
-    animation: spin 2s linear infinite;
     box-shadow: 0 0 75px #EE56FC, inset 0 0 35px #EE56FC;
+    animation: spin 2s linear infinite;
+    -webkit-animation: spin 2s linear infinite;
+    -moz-animation: spin 2s linear infinite;
+    -ms-animation: spin 2s linear infinite;
   }
 
 @keyframes spin {
     0%   {
         -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
         -ms-transform: rotate(0deg);
         transform: rotate(0deg);
     }
     100% { 
         -webkit-transform: rotate(360deg); 
+        -moz-transform: rotate(360deg); 
         -ms-transform: rotate(360deg);
         transform: rotate(360deg);
     }
@@ -115,11 +126,13 @@
 @keyframes spin-reverse {
     0%   {
         -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
         -ms-transform: rotate(0deg);
         transform: rotate(0deg);
     }
     100% { 
         -webkit-transform: rotate(360deg); 
+        -mozt-transform: rotate(360deg); 
         -ms-transform: rotate(360deg);
         transform: rotate(360deg);
     }
@@ -146,23 +159,44 @@
 
 .loaded #loader-wrapper .loader-section.section-left {
   transform: translateX(-100%);
+  -webkit-transform: translateX(-100%);
+  -moz-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
   transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+  -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+  -moz-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+  -ms-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
 }
 
 .loaded #loader-wrapper .loader-section.section-right {
   transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+  -moz-transform: translateX(100%);
+  -ms-transform: translateX(100%);
   transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+  -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+  -moz-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+  -ms-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
 }
 
 .loaded #loader {
   opacity: 0;
   transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
 }
 
 .loaded #loader-wrapper {
   visibility: hidden;
   transform: translateY(-100%);
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
   transition: all 0.3s 1s ease-out;
+  -webkit-transition: all 0.3s 1s ease-out;
+  -moz-transition: all 0.3s 1s ease-out;
+  -ms-transition: all 0.3s 1s ease-out;
 }
 /* ************ Fim do preloader ************ */
 </STYLE>
