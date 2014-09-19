@@ -18,6 +18,23 @@
 </head>
 
 <body onLoad="mileyIni(); STT();">
+<div id="loader-wrapper">
+  <div id="loader"></div>
+ <center><div id="loadCap">Inicializando...</div></center>
+  <div class="loader-section section-left"></div>
+  <div class="loader-section section-right"></div>
+</div>
+<script>
+  $(document).ready(function() {
+ 
+  // Fakes the loading setting a timeout
+    setTimeout(function() {
+        $('body').addClass('loaded');
+    }, 5000);
+ 
+});
+</script>
+
 <img width="50px" height="50px" src="https://cloud.githubusercontent.com/assets/8026741/3919963/a6ed5214-23b0-11e4-87e0-43a2a323a969.png" onclick="c_cc()" id="b_cc_m" title="" />
 <div style="position: fixed; top: 5px; left: 3px;"><a style="font-size: 20pt; color: #fff" onclick="config();"><b>☰</b></a></div>
 
