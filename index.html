@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,235 +21,40 @@
 <body onLoad="mileyIni(); STT();">
 <!-- teste -->
 <div id="loader-wrapper">
-    <div id="loader"></div>
-    <div id="loadCap">Inicializando...</div>
- 
-    <div class="loader-section section-left"></div>
-    <div class="loader-section section-right"></div>
- 
+	<div id="loader"></div>
+		<div id="loadCap">Inicializando</div>
+<div class="loader-section section-left"></div><div class="loader-section section-right"></div>
 </div>
 
 <script>
-    $(document).ready(function() {
- 
-  // Fakes the loading setting a timeout
-    setTimeout(function() {
-        $('body').addClass('loaded');
-    }, 5000);
-  
-});
+	$(document).ready(function() {
+	setTimeout(function() {
+	$('body').addClass('loaded');
+	}, 1000);
+	});
 </script>
-<STYLE>
-    /* ******** O preloader ************* */
 
-#loader-wrapper {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 999999999999999999999999999998;
-  overflow: hidden;
-} 
-
-#loadCap { 
-  display: block;
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  z-index: 12;
-  color: #fff;
-  font-family: Segoe UI Light, Segoe UI;
-} 
-
-#loader { 
-  display: block;
-  position: relative;
-  left: 50%;
-  top: 50%;
-  width: 150px;
-  height: 150px;
-  margin: -75px 0 0 -75px;
-  border-radius: 50%;
-  border: 3px solid transparent;
-  border-top-color: #EE56FC;
-  animation: spin 1s linear infinite;
-  -webkit-animation: spin 1s linear infinite;
-  -moz-animation: spin 1s linear infinite;
-  -ms-animation: spin 1s linear infinite;
-  z-index: 999999999999999999999999999999;
-}
-  #loader:before {
-    content: "";
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    right: 5px;
-    bottom: 5px;
-    border-radius: 50%;
-    border: 3px solid transparent;
-    border-top-color: #EE56FC;
-    animation: spin-reverse 2s linear infinite;
-    -webkit-animation: spin-reverse 2s linear infinite;
-    -moz-animation: spin-reverse 2s linear infinite;
-    -ms-animation: spin-reverse 2s linear infinite;
-  }
-  
-  #loader:after {
-    content: "";
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    right: 15px;
-    bottom: 15px;
-    border-radius: 50%;
-    border: 3px solid #fff;
-    box-shadow: 0 0 75px #EE56FC, inset 0 0 35px #EE56FC;
-    animation: spin 2s linear infinite;
-    -webkit-animation: spin 2s linear infinite;
-    -moz-animation: spin 2s linear infinite;
-    -ms-animation: spin 2s linear infinite;
-  }
-
-@keyframes spin {
-    0%   {
-        -webkit-transform: rotate(0deg);
-        -moz-transform: rotate(0deg);
-        -ms-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
-    100% { 
-        -webkit-transform: rotate(360deg); 
-        -moz-transform: rotate(360deg); 
-        -ms-transform: rotate(360deg);
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes spin-reverse {
-    0%   {
-        -webkit-transform: rotate(0deg);
-        -moz-transform: rotate(0deg);
-        -ms-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
-    100% { 
-        -webkit-transform: rotate(360deg); 
-        -moz-transform: rotate(360deg); 
-        -ms-transform: rotate(360deg);
-        transform: rotate(360deg);
-    }
-}
-
-@-webkit-keyframes spin {
-    0%   {
-        -webkit-transform: rotate(0deg);
-        -moz-transform: rotate(0deg);
-        -ms-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
-    100% { 
-        -webkit-transform: rotate(360deg); 
-        -moz-transform: rotate(360deg); 
-        -ms-transform: rotate(360deg);
-        transform: rotate(360deg);
-    }
-}
-
-@-webkit-keyframes spin-reverse {
-    0%   {
-        -webkit-transform: rotate(0deg);
-        -moz-transform: rotate(0deg);
-        -ms-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
-    100% { 
-        -webkit-transform: rotate(360deg); 
-        -moz-transform: rotate(360deg); 
-        -ms-transform: rotate(360deg);
-        transform: rotate(360deg);
-    }
-}
-
-#loader-wrapper .loader-section {
-  position: fixed;
-  top: 0;
-  width: 51%;
-  height: 100%;
-  background: #0E0E0E;
-  z-index: 10;
-}
-
-#loader-wrapper .loader-section.section-left {
-  left: 0;
-}
-
-#loader-wrapper .loader-section.section-right {
-  right: 0;
-}
-
-/* Estilos ao carregar */
-
-.loaded #loader-wrapper .loader-section.section-left {
-  transform: translateX(-100%);
-  -webkit-transform: translateX(-100%);
-  -moz-transform: translateX(-100%);
-  -ms-transform: translateX(-100%);
-  transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
-  -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
-  -moz-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
-  -ms-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
-}
-
-.loaded #loader-wrapper .loader-section.section-right {
-  transform: translateX(100%);
-  -webkit-transform: translateX(100%);
-  -moz-transform: translateX(100%);
-  -ms-transform: translateX(100%);
-  transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
-  -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
-  -moz-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
-  -ms-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
-}
-
-.loaded #loader {
-  opacity: 0;
-  transition: all 0.3s ease-out;
-  -webkit-transition: all 0.3s ease-out;
-  -moz-transition: all 0.3s ease-out;
-  -ms-transition: all 0.3s ease-out;
-}
-
-.loaded #loader-wrapper {
-  visibility: hidden;
-  transform: translateY(-100%);
-  -webkit-transform: translateY(-100%);
-  -moz-transform: translateY(-100%);
-  -ms-transform: translateY(-100%);
-  transition: all 0.3s 1s ease-out;
-  -webkit-transition: all 0.3s 1s ease-out;
-  -moz-transition: all 0.3s 1s ease-out;
-  -ms-transition: all 0.3s 1s ease-out;
-}
-/* ************ Fim do preloader ************ */
-</STYLE>
-
-<img width="50px" height="50px" src="https://cloud.githubusercontent.com/assets/8026741/3919963/a6ed5214-23b0-11e4-87e0-43a2a323a969.png" onclick="c_cc()" id="b_cc_m" title="" />
-<div style="position: fixed; top: 5px; left: 3px;"><a style="font-size: 20pt; color: #fff" onclick="config();"><b>☰</b></a></div>
+<img width="30px" height="20px" src="https://cloud.githubusercontent.com/assets/8026741/4377002/b5d0fc40-434a-11e4-8ea8-ba80811acc4a.png" onclick="c_cc()" id="b_cc_m" title="Teclado bloqueado (clique para desloquear)" />
+<div title="Opções" onClick="config()"><a class="options" onClick="config()" style="position: fixed; top: 5px; left: 3px; font-size: 20pt; color: #fff; font-weight: bold; cursor: pointer;">☰</a></div>
 
 
 <script>
 var d = document;
 function c_cc() {var image = d.getElementById('b_cc'); var image_m = d.getElementById('b_cc_m');
-if (image.src.match("feed5a80da5c")) {image.src = "https://cloud.githubusercontent.com/assets/8026741/3919963/a6ed5214-23b0-11e4-87e0-43a2a323a969.png"; // APAGADA
-image_m.src = "https://cloud.githubusercontent.com/assets/8026741/3919963/a6ed5214-23b0-11e4-87e0-43a2a323a969.png"; // APAGADA
+if (image.src.match("268929c6233e")) {image.src = "https://cloud.githubusercontent.com/assets/8026741/4377002/b5d0fc40-434a-11e4-8ea8-ba80811acc4a.png"; // APAGADA
+image_m.src = "https://cloud.githubusercontent.com/assets/8026741/4377002/b5d0fc40-434a-11e4-8ea8-ba80811acc4a.png"; // APAGADA
+image.title = "Teclado bloqueado";
+image_m.title = "Teclado bloqueado";
 d.getElementById("locked").style.display = "block"; d.getElementById("m_rep").innerHTML = "<audio src=\'https:\/\/api.voicerss.org\/?key=" +_apikey+ "&hl=pt-br&c=ogg&f=8khz_16bit_mono&src=O teclado está bloqueado\' autoplay><\/audio>";} else {
-image.src = "https://cloud.githubusercontent.com/assets/8026741/3920011/625c3bdc-23b1-11e4-846b-feed5a80da5c.png"; // ACESA
-image_m.src = "https://cloud.githubusercontent.com/assets/8026741/3920011/625c3bdc-23b1-11e4-846b-feed5a80da5c.png"; // ACESA
+image.src = "https://cloud.githubusercontent.com/assets/8026741/4377049/1dac41b2-434b-11e4-81a1-268929c6233e.png"; // ACESA
+image_m.src = "https://cloud.githubusercontent.com/assets/8026741/4377049/1dac41b2-434b-11e4-81a1-268929c6233e.png"; // ACESA
+image.title = "Teclado desbloqueado";
+image_m.title = "Teclado desbloqueado";
 d.getElementById("locked").style.display = "none"; d.getElementById("m_rep").innerHTML = "<audio src=\'https:\/\/api.voicerss.org\/?key=" +_apikey+ "&hl=pt-br&c=ogg&f=8khz_16bit_mono&src=Desbloqueei o teclado\' autoplay><\/audio>";}}
 </script>
 
 <center>
+<BR><BR>
 <div class="Ex"></div>
 <div class="In"></div>
 </center>
@@ -288,16 +94,9 @@ d.getElementById("locked").style.display = "none"; d.getElementById("m_rep").inn
 <div id="context_menu">
 <ul>
 <li onclick="window.location.reload();">Atualizar</li>
-<li onclick="abrir('ajuda.htm'); abrirAjuda(); STT();">Ajuda</li>
+<li onclick="abrir('ajuda.html'); abrirAjuda(); STT();">Ajuda</li>
 </ul>
 </div><!-- #context_menu -->
-
-<div title='Mudar idioma'>
-<select id="miley_idioma" class="text_box">
-<option value="pt-br">Português do Brasil</option>
-<option value="pt-pt">Português de Portugal</option>
-</select>
-</div><!-- title:Mudar idioma -->
 
 <div id="m_rep"></div>
 <div id="m_voz" class="hidden">
@@ -305,13 +104,32 @@ d.getElementById("locked").style.display = "none"; d.getElementById("m_rep").inn
 </div><!-- .hidden -->
 <input id="API" type="hidden" value="https://api.voicerss.org/" />
 
-<div id="config" style="padding: 15px;">
+<div id="config">
+<h2>Configurações e opções - <span id="nomeAtual"></span></h2>
   <label for="Nome">Nome</label><br>
-  <input type="text" id="userName" value="" placeholder="Seu nome" /><br><br>
-  
-  <button onClick="salvarDados()">Salvar Alterações</button>
-  <button onClick="apagarDados()">Limpar seus dados</button>
-  <button onClick="closeConfig()">Cancelar</button>
+  <input type="text" id="userName" class="nomeField" value="" placeholder="Seu nome" />
+<br><br>
+<script>
+var nomeAtual = window.localStorage.getItem('nome'); 
+document.getElementById('nomeAtual').innerHTML = nomeAtual;
+</script>
+
+<br><br>
+  <label for="Idioma de fala">Idioma de fala</label><br>
+<div title='Mudar idioma'>
+<select id="miley_idioma" class="text_box">
+<option value="pt-br">Português do Brasil</option>
+<option value="pt-pt">Português de Portugal</option>
+</select>
+</div><!-- title:Mudar idioma -->
+
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+  <button class="save" onClick="salvarDados()">Salvar Alterações</button>
+  <button class="clear" onClick="apagarDados()">Limpar seus dados</button>
+  <button class="close" onClick="closeConfig()" title="Fechar configurações">x</button>
   </div><!-- .config -->
   
   <script>
@@ -319,21 +137,17 @@ d.getElementById("locked").style.display = "none"; d.getElementById("m_rep").inn
   
     function salvarDados() {
       window.localStorage.setItem('nome',nome.value);
-      document.location.href = "index.html";
+      document.location.href = "";
     }
     
     function apagarDados() {
       window.localStorage.clear();
-      document.location.href = "index.html";
+      document.location.href = "";
     }
   </script>
+
   <script>
-    function config() {
-  document.getElementById('config').style.display = 'block';
-};
-function closeConfig() {
-  document.getElementById('config').style.display = 'none';
-};
+function config() {document.getElementById('config').style.display = 'block';}; function closeConfig() {document.getElementById('config').style.display = 'none';};
   </script>
 
 <div class="cc">
@@ -346,9 +160,7 @@ Projeto Miley é um projeto de <a rel="nofollow" title="Twitter (@JVRibeiiro)" o
 
 <div class='lado2'>
 <center>
-<img src="https://cloud.githubusercontent.com/assets/8026741/3919963/a6ed5214-23b0-11e4-87e0-43a2a323a969.png" onclick="c_cc()" id="b_cc" title="" />
-<br><br>
-<a onclick="config();">Configurar</a>
+<img src="https://cloud.githubusercontent.com/assets/8026741/4377002/b5d0fc40-434a-11e4-8ea8-ba80811acc4a.png" onclick="c_cc()" id="b_cc" title="Teclado bloqueado (clique para desloquear)" />
 <br><br>
 <b>Novidades (Changelog):</b>
 <br><br>
