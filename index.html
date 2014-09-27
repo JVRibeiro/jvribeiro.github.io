@@ -27,7 +27,7 @@
 </div>
 
 <div onClick="config()" class="options" title="Opções e configurações"></div>
-<img src="TP.png" id="b_cc_m" onclick="c_cc()" title="Teclado livre (clique para bloquear)" />
+<img src="https://cloud.githubusercontent.com/assets/8026741/4432174/1a4eed1c-4689-11e4-901c-19bad6b47e91.png" id="b_cc_m" onclick="c_cc()" title="Teclado livre (clique para bloquear)" />
 
 <center>
 <br><br>
@@ -119,7 +119,7 @@ var nome = d.getElementById('userName'); var genero = d.getElementById('gen'); f
 
 <div class="cc">
 <a rel="license" href="http://creativecommons.org/licenses/by/2.0/br/" target="_blank">
-<img alt="Licença Creative Commons" title="Licença Creative Commons" style="border-width:0" src="ebfdcd72-3434-11e4-86ce-30827504b4f1.png" /></a><br />
+<img alt="Licença Creative Commons" title="Licença Creative Commons" style="border-width:0" src="https://cloud.githubusercontent.com/assets/8026741/4432163/9c7d1d32-4688-11e4-8530-69e58eb79484.png" /></a><br />
 O Projeto Miley A.I. está licenciado com <br>
 uma Licença <a rel="license" href="http://creativecommons.org/licenses/by/2.0/br/">Creative Commons Atribuição 2.0 Brasil</a>.<br>
 Projeto Miley é um projeto de <a rel="nofollow" title="Twitter (@JVRibeiiro)" onClick="abrir('http://twitter.com/JVRibeiiro')">Victor Ribeiro</a>.
@@ -127,7 +127,7 @@ Projeto Miley é um projeto de <a rel="nofollow" title="Twitter (@JVRibeiiro)" o
 
 <div class='lado2'>
 <center>
-<img src="TP.png" onclick="c_cc()" id="b_cc" title="Teclado livre (clique para bloquear)" />
+<img src="https://cloud.githubusercontent.com/assets/8026741/4432174/1a4eed1c-4689-11e4-901c-19bad6b47e91.png" onclick="c_cc()" id="b_cc" title="Teclado livre (clique para bloquear)" />
 <br><br>
 <b>Novidades (Changelog):</b>
 <br><br>
@@ -137,7 +137,9 @@ Projeto Miley é um projeto de <a rel="nofollow" title="Twitter (@JVRibeiiro)" o
 <li>Navegação por voz no Facebook (Feed, perfil, fotos, notificações e mensagens);</li>
 
 </p>
-<div class='version'>Versão <script>d.writeIn(version);</script></div>
+<div class='version'>Versão <div id="ver"></div>
+<script>d.getElementById('ver').innerHTML = version;</script>
+</div>
 Última atualização: 27/09/14
 </center>
 </div> <!-- .lado2 -->
