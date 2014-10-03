@@ -7,8 +7,9 @@ var d = document;
 var _apikey = "8f0b4a57a6ac49a683224f7bb8d795e9"; // cd58d3ed06b54f7fa19979932b4ddd40 - 8f0b4a57a6ac49a683224f7bb8d795e9
 var _codec = "mp3"; // mp3 - ogg - wav - aac - caff
 var nome = w.localStorage.getItem('nome');
-"use strict"; if (annyang) 
-{	var fecharMiley = function() {window.location.href = "about:blank";};
+"use strict"; 
+if (annyang) {	
+	var fecharMiley = function() {window.location.href = "about:blank";};
 	var refresh = function() {w.location.reload();};
 	var dialog_true = function() {d.getElementById("dialogo").style.display = "block"; d.getElementById("m_rep").innerHTML = "<audio src=\'https:\/\/api.voicerss.org\/?key=" + _apikey + "&hl=pt-br&c="+_codec+"&f=8khz_16bit_mono&src=Certo. Aqui está nosso histórico de conversa.\' autoplay><\/audio>";}; // Mostra o histórico de conversação da sessão
 	var dialog_false = function() {d.getElementById("dialogo").style.display = "none";  d.getElementById("m_rep").innerHTML = "<audio src=\'https:\/\/api.voicerss.org\/?key=" + _apikey + "&hl=pt-br&c="+_codec+"&f=8khz_16bit_mono&src=Entendido. Ocultei nosso histórico de conversa.\' autoplay><\/audio>";}; // Esconde o histórico de conversação da sessão
@@ -291,6 +292,6 @@ d.getElementById("texto").value = "000111011010101011111000010101000110011000111
 });
 
 annyang.start();
-}
+};
 
 else {c_cc();}
