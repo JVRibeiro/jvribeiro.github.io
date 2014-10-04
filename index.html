@@ -53,11 +53,11 @@ Miley BETA
 <div id="locked">O teclado está oculto. Para usar o teclado, diga "Liberar teclado", ou clique/toque no icone do teclado.</div>
 
 		<div id="teclado">
-	<textarea id="texto" placeholder="Digite e aperte Enter" name="Texto" rows="2" cols="25" onkeypress="if(event.keyCode == 13) {rotina(); STT(); espera(); saveHist(); return false};" autofocus></textarea>
-	<input id="botaoFalar" class="button falar" type="button" value="&#8594;" name="falar" onClick="rotina(); STT(); espera(); saveHist();" title="Falar" />
+	<textarea id="texto" placeholder="Digite e aperte Enter" name="Texto" rows="2" cols="25" onkeypress="if(event.keyCode == 13) {rotina(); voz(); espera(); saveHist(); return false};" autofocus></textarea>
+	<input id="botaoFalar" class="button falar" type="button" value="&#8594;" name="falar" onClick="rotina(); voz(); espera(); saveHist();" title="Falar" />
 		</div><!-- #teclado -->
 
-  <input class="ajuda" type="button" value="O que posso dizer?" onClick="abrir('ajuda.html'); abrirAjuda(); STT();" title="Clique para obter ajuda" />
+  <input class="ajuda" type="button" value="O que posso dizer?" onClick="abrir('ajuda.html'); abrirAjuda(); voz();" title="Clique para obter ajuda" />
 
     </td>
   </tr>
@@ -72,7 +72,7 @@ Miley BETA
 <li onclick="w.location.reload();">
 
 Atualizar	</li>
-<li onclick="abrir('ajuda.html'); abrirAjuda(); STT();">
+<li onclick="abrir('ajuda.html'); abrirAjuda(); voz();">
 
 Ajuda		</li>
 <li onclick="d.getElementById('dialogo').style.display = 'block'; d.getElementById('dialogo').focus();">
