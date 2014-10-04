@@ -1,7 +1,7 @@
 // **************************
 //  ** miley.brain.js
 // **************************
-// ** Versão/Version: 1.0.5
+// ** Versão/Version: 1.0.6
 // ** Autor/Author: Victor Ribeiro (@JVRibeiiro)
 // ** Baseado no projeto de inteligência artificial E.L.I.Z.A.
 // ***************************
@@ -9,7 +9,7 @@
 //
 var AIname = "Miley"; // Nome da I.A.
 var AInick = "Mi"; // Apelido da I.A.
-var version = "1.0.5"; // Versão da I.A.
+var version = "1.0.6"; // Versão da I.A.
 //
 var w = window;
 var d = document;
@@ -56,8 +56,8 @@ if (imagem.src.match("tp")) {
 d.getElementById("teclado").style.display = "none";
 d.getElementById("locked").style.display = "block";
 d.getElementById("texto").value = lock; rotina(); STT(); espera();
-imagem.src = "img/tb.png"; // BLOQUEADO
-imagem_m.src = "img/tb.png"; // BLOQUEADO
+imagem.src = "https://cloud.githubusercontent.com/assets/8026741/4514134/177779c2-4b5e-11e4-9d13-c9720b236139.png"; // BLOQUEADO
+imagem_m.src = "https://cloud.githubusercontent.com/assets/8026741/4514134/177779c2-4b5e-11e4-9d13-c9720b236139.png"; // BLOQUEADO
 imagem.title = "Teclado bloqueado"; imagem_m.title = "Teclado bloqueado";
 }
 
@@ -65,8 +65,8 @@ else {
 d.getElementById("teclado").style.display = "block";
 d.getElementById("locked").style.display = "none";
 d.getElementById("texto").value = unlock; rotina(); STT(); espera();
-imagem.src = "img/tp.png"; // PERMITIDO
-imagem_m.src = "img/tp.png"; // PERMITIDO
+imagem.src = "https://cloud.githubusercontent.com/assets/8026741/4514135/177ae580-4b5e-11e4-8a4f-173e4dd0de01.png"; // PERMITIDO
+imagem_m.src = "https://cloud.githubusercontent.com/assets/8026741/4514135/177ae580-4b5e-11e4-8a4f-173e4dd0de01.png"; // PERMITIDO
 imagem.title = "Teclado desbloqueado";
 imagem_m.title = "Teclado desbloqueado";
  }
