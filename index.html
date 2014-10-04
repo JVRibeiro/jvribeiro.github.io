@@ -1,148 +1,184 @@
 
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset='utf-8'>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Miley 1.0</title>
-<link rel="icon" href="https://cloud.githubusercontent.com/assets/8026741/3679572/e082677e-12a5-11e4-9476-721e0ace980b.png" />
-<link rel="stylesheet" href="miley.css" media="all" />
+<title>
+Miley BETA
+</title>
+		<link rel="icon" href="https://cloud.githubusercontent.com/assets/8026741/3679572/e082677e-12a5-11e4-9476-721e0ace980b.png" />
+		<link rel="stylesheet" href="miley.estilo.css" media="all" />
 
-<script src="jquery-2.1.0.min.js"></script>
-<script src="miley.brain.js"></script>
-<script src="miley.comandos.js"></script>
-<script src="right_btn.js"></script>
-<script src="tts.js"></script>
-<script src="annyang.js"></script>
+	<script src="jquery.min.js">		</script>
+	<script src="miley.brain.js">   </script>
+	<script src="miley.comandos.js"></script>
+	<script src="annyang.js">	      </script>
 
-</head>
+	</head>
 
-<body onLoad="mileyIni(); autocom(); STT()">
-<!-- teste -->
-<div id="loader-wrapper">
-<div id="loader"></div>
-<div id="loadCap">Inicializando</div>
-<div class="loader-section section-left"></div><div class="loader-section section-right"></div>
-</div>
+<body onLoad="mileyIni(); getHist()">
 
-<div onClick="config()" class="options" title="Opções e configurações"></div>
-<img src="https://cloud.githubusercontent.com/assets/8026741/4432174/1a4eed1c-4689-11e4-901c-19bad6b47e91.png" id="b_cc_m" onclick="c_cc()" title="Teclado livre (clique para bloquear)" />
 
-<center>
+		<div id="loader-wrapper">
+	<div id="loader"></div><div id="loadCap">Inicializando...</div>
+<div class="loader-section section-left"></div>
+	<div class="loader-section section-right"></div>
+		</div> <!-- #loader-wrapper -->
+
+
+<div onClick="config(); autocom()" class="options" title="Opções e configurações"></div>
+<img src="https://cloud.githubusercontent.com/assets/8026741/4514135/177ae580-4b5e-11e4-8a4f-173e4dd0de01.png" id="b_cc_m" onclick="c_cc()" title="Teclado livre (clique para bloquear)" />
+
+
+		<center>
 <br><br>
-<div class="Ex"></div>
-<div class="In"></div>
-</center>
+	<div class="Ex"></div><!-- Ciclo externo -->
+	<div class="In"></div><!-- Ciclo interno -->
+		</center>
 
 
-<center>
-
-<form name="miley" onkeypress="if(event.keyCode == 13) {rotina(); STT(); espera(); return false};">
-
+		<center>
+	<form name="miley">
 <table align="center">
   <tr>
     <td>
+	<textarea id="dialogo" style="display: none;" name="dialogo" rows="30" cols="30" onBlur="d.getElementById('dialogo').style.display = 'none';"></textarea><br />
 
-<textarea id="dialogo" style='display: none;' name="dialogo" rows="30" cols="30"></textarea><br />
+	<textarea id="resposta" class="resposta text_box" readonly name="Resposta" rows="6" cols="30"></textarea><br />
+	<textarea id="pergunta" class="pergunta" readonly name="Pergunta" rows="2" cols="30"></textarea><br />
 
-<div id='wait'></div>
+<div id="m_fix"></div><!-- Box semitransparente atrás da div #texto em dispositivos de 480px -->
 
-<textarea id="resposta" class='resposta text_box' readonly name="Resposta" rows="6" cols="30" onChange="STT(); espera();"></textarea><br />
-<textarea id='pergunta' class="pergunta" readonly name="Pergunta" rows="2" cols="30" onChange="rotina(); STT(); espera();"></textarea><br />
+<div id="locked">O teclado está oculto. Para usar o teclado, diga "Liberar teclado", ou clique/toque no icone do teclado.</div>
 
-<div id="locked">O teclado está bloqueado. Para usar o teclado, diga "Liberar teclado", ou clique/toque no icone do teclado.</div>
-<textarea id="texto" placeholder="Digite e aperte Enter..." name="Texto" rows="2" cols="25"></textarea>
+		<div id="teclado">
+	<textarea id="texto" placeholder="Digite e aperte Enter" name="Texto" rows="2" cols="25" onkeypress="if(event.keyCode == 13) {rotina(); STT(); espera(); saveHist(); return false};" autofocus></textarea>
+	<input id="botaoFalar" class="button falar" type="button" value="&#8594;" name="falar" onClick="rotina(); STT(); espera(); saveHist();" title="Falar" />
+		</div><!-- #teclado -->
 
-  <input id="botaoFalar" class="button falar" type="button" value="&#8594;" name="falar" onClick="rotina(); STT(); espera();" title="Falar" />
-  <input class="ajuda" type="button" value="O que posso dizer?" onClick="abrir('ajuda.htm'); abrirAjuda(); STT();" title="Clique para obter ajuda" />
+  <input class="ajuda" type="button" value="O que posso dizer?" onClick="abrir('ajuda.html'); abrirAjuda(); STT();" title="Clique para obter ajuda" />
+
     </td>
   </tr>
 </table>
+	</form>
+		</center>
 
-</form>
 
-</center>
-</div><!-- #content -->
+		<div id="right_btn"></div>
+		<div id="context_menu">
+	<ul>
+<li onclick="w.location.reload();">
 
-<div id="right_btn"></div>
-<div id="context_menu">
-<ul>
-<li onclick="w.location.reload();">Atualizar</li>
-<li onclick="abrir('ajuda.html'); abrirAjuda(); STT();">Ajuda</li>
-</ul>
-</div><!-- #context_menu -->
+Atualizar	</li>
+<li onclick="abrir('ajuda.html'); abrirAjuda(); STT();">
 
-<div id="m_rep"></div>
+Ajuda		</li>
+<li onclick="d.getElementById('dialogo').style.display = 'block'; d.getElementById('dialogo').focus();">
+
+Histórico	</li>
+	</ul>
+		</div><!-- #context_menu -->
+
+
+	<div id="m_rep"></div>
 <div id="m_voz" class="hidden">
 <audio id="voz" src="" autoplay="autoplay"></audio>
 </div><!-- .hidden -->
 <input id="API" type="hidden" value="https://api.voicerss.org/" />
 
 
-<div id="config">
+		<div id="config">
 <h2>Configurações e opções - <span id="nomeAtual"></span></h2>
-  <label for="Nome">Nome</label><br>
-  <input autocomplete="on" type="text" id="userName" class="nomeField" value="" placeholder="Seu nome" onClick="autocom()" />
+
+  <label for="Nome">
+	Seu nome	</label>
+<br>
+	<input type="text" id="userName" class="nomeField" placeholder="Seu nome" onClick="autocom()" />
 <br><br>
+
+  <label for="Gênero">
+	Gênero		</label> <span title="Isso mudará a forma que eu tratarei você (ex.: senhor, senhorita ou você)." style="cursor: pointer;"><sup>?</sup></span>
+<br>
+	<div title="Mudar seu gênero">
+	<select id="gen" class="miley_gen">
+		<option value="senhor">Masculino</option>
+		<option value="senhorita">Feminino</option>
+		<option value="você" selected>Não quero dizer</option>
+	</select>
+	</div><!-- title:Mudar seU gênero -->
 <br><br>
-  <label for="Gênero">Gênero</label> <span title="Isso mudará a forma que eu tratarei você (ex.: senhor, senhorita ou você)." style="cursor: pointer;"><sup>?</sup></span><br>
-<div title="Mudar seu gênero">
-<select id="gen" class="miley_gen">
-<option value="senhor">Masculino (senhor)</option>
-<option value="senhorita">Feminino (senhorita)</option>
-<option value="você" selected>Não quero dizer (você)</option>
-</select>
-</div><!-- title:Mudar sexo -->
+
+<button class="clear" onClick="clearHist()">Apagar conversa</button> (isso me reiniciará)
+<br><br>
+  <label for="Idioma de fala">
+	Idioma de fala	</label>
+<br>
+	<div title='Mudar idioma de fala'>
+	<select id="miley_idioma" class="text_box">
+		<option value="pt-br">Português do Brasil</option>
+		<option value="pt-pt">Português de Portugal</option>
+	</select>
+	</div><!-- title:Mudar idioma de fala-->
 
 <br><br>
-  <label for="Idioma de fala">Idioma de fala</label><br>
-<div title='Mudar idioma de fala'>
-<select id="miley_idioma" class="text_box">
-<option value="pt-br">Português do Brasil</option>
-<option value="pt-pt">Português de Portugal</option>
-</select>
-</div><!-- title:Mudar idioma -->
+<br><br>
+<br><br>
+<br><br>
 
-<br><br>
-<br><br>
-<br><br>
-<br><br>
-  <button class="save" onClick="salvarDados()">Salvar Alterações</button>
-  <button class="clear" onClick="apagarDados()">Limpar seus dados</button>
+  <button class="save" onClick="salvarDados()">
+	Salvar Alterações	</button>
+  <button class="clear" onClick="apagarDados()">
+	Limpar seus dados	</button>
+
   <button class="close" onClick="closeConfig()" title="Fechar configurações">x</button>
-  </div><!-- .config -->
+		</div><!-- .config -->
   
 <script>
-var nome = d.getElementById('userName'); var genero = d.getElementById('gen'); function salvarDados() {w.localStorage.setItem('nome',nome.value); w.localStorage.setItem('genero',genero.value); d.location.href = "";} function apagarDados() {confirmar = confirm("Use esse botão com cuidado!\n\n Seus dados não poderão ser recuperados.\n\n Você tem certeza que deseja apagar seus dados?"); if (confirmar == true) {w.localStorage.clear(); alert("Seus dados foram apagados"); d.location.href = "";} else {return false;}}; var nomeAtual = window.localStorage.getItem('nome'); document.getElementById('nomeAtual').innerHTML = nomeAtual;
+var nome = d.getElementById('userName'); var genero = d.getElementById('gen'); var idioma = d.getElementById('miley_idioma'); function salvarDados() {w.localStorage.setItem('nome',nome.value); w.localStorage.setItem('genero',genero.value); w.localStorage.setItem('idioma',idioma.value); d.location.href = "";} function apagarDados() {confirmar = confirm("Use esse botão com cuidado!\n\n Seus dados não poderão ser recuperados.\n\n Você tem certeza que deseja apagar seus dados?"); if (confirmar == true) {w.localStorage.clear(); alert("Seus dados foram apagados"); d.location.href = "";} else {return false;}}; var nomeAtual = w.localStorage.getItem('nome'); document.getElementById('nomeAtual').innerHTML = nomeAtual; dialog = d.getElementById('dialogo'); function getHist() {w.localStorage.getItem('dialog');} function saveHist() {w.localStorage.setItem('histórico',dialog.value);} function clearHist() {w.localStorage.removeItem('histórico'); d.location.href = "";};
 </script>
 
-<div class="cc">
-<a rel="license" href="http://creativecommons.org/licenses/by/2.0/br/" target="_blank">
-<img alt="Licença Creative Commons" title="Licença Creative Commons" style="border-width:0" src="https://cloud.githubusercontent.com/assets/8026741/4432163/9c7d1d32-4688-11e4-8530-69e58eb79484.png" /></a><br />
-O Projeto Miley A.I. está licenciado com <br>
-uma Licença <a rel="license" href="http://creativecommons.org/licenses/by/2.0/br/">Creative Commons Atribuição 2.0 Brasil</a>.<br>
-Projeto Miley é um projeto de <a rel="nofollow" title="Twitter (@JVRibeiiro)" onClick="abrir('http://twitter.com/JVRibeiiro')">Victor Ribeiro</a>.
-</div>
+		<div class="cc">
+	<a rel="license" onClick="d.location.href = 'http://creativecommons.org/licenses/by/2.0/br/';">
+	<img alt="Licença Creative Commons" title="Licença Creative Commons" src="https://cloud.githubusercontent.com/assets/8026741/4514132/1644d6ee-4b5e-11e4-9914-8b88c2932301.png" />
+	</a>
+<br>
 
-<div class='lado2'>
-<center>
-<img src="https://cloud.githubusercontent.com/assets/8026741/4432174/1a4eed1c-4689-11e4-901c-19bad6b47e91.png" onclick="c_cc()" id="b_cc" title="Teclado livre (clique para bloquear)" />
+O Projeto Miley A.I. está licenciado com <br>
+uma Licença 
+<a rel="license" onClick="d.location.href = 'http://creativecommons.org/licenses/by/2.0/br/';">
+Creative Commons Atribuição 2.0 Brasil
+</a>.
+
+<br>
+"Miley A.I." é um projeto de 
+	<a rel="nofollow" title="Twitter (@JVRibeiiro)" onClick="abrir('http://twitter.com/JVRibeiiro')">
+	Victor Ribeiro
+	</a>.
+		</div><!-- .cc (Creative Commons) -->
+
+    <div class='lado2'>
+  <center>
 <br><br>
-<b>Novidades (Changelog):</b>
+<img src="https://cloud.githubusercontent.com/assets/8026741/4514135/177ae580-4b5e-11e4-8a4f-173e4dd0de01.png" onclick="c_cc()" id="b_cc" title="Teclado livre (clique para bloquear)" />
 <br><br>
-<p align='left'>
+<b>Changelog:</b>
+<br><br>
+
+<li>Melhorias no design do menu de opções e recurso de memorização do histórico de conversa;</li>
 <li>Recurso de Reconhecimento de fala <b><a href="https://github.com/TalAter/annyang/" target="_blank">Annyang.js</a></b>;</li>
 <li>Pesquisa por voz - Google e Bing - com a expressão "Procura por [sua pesquisa] no Google/Bing;</li>
 <li>Navegação por voz no Facebook (Feed, perfil, fotos, notificações e mensagens);</li>
 
-</p>
-<div class='version'>Versão <div id="ver"></div>
-<script>d.getElementById('ver').innerHTML = version;</script>
+<div class='version'>Versão BETA <div id="v"></div>
+<script>d.getElementById("v").innerHTML = "v"+version;</script>
 </div>
-Última atualização: 27/09/14
-</center>
-</div> <!-- .lado2 -->
+Última atualização: 03/10/14.
+
+  </center>
+    </div> <!-- .lado2 -->
 
 </body>
 </html>
