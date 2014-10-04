@@ -35,12 +35,12 @@ var nome = window.localStorage.getItem('nome');
 var gen = window.localStorage.getItem('genero');
 var dialog = window.localStorage.getItem('histórico');
 
-if (gen == null) {gen = "usuário";};
+if (gen == null)  {gen = "usuário";};
 if (nome == null) {nome = "anônimo";};
 if (dialog == null) {dialog = "";};
-if (nome == "" && gen == "senhor") {nome = "anônimo";};
+if (nome == "" && gen == "senhor")    {nome = "anônimo";};
 if (nome == "" && gen == "senhorita") {nome = "anônima";};
-if (nome == "" && gen == "você") {gen = "pessoa";};
+if (nome == "" && gen == "você")      {gen = "pessoa";};
 if (nome.length > 0 && gen == "você") {gen = "";};
 
 function autocom() {d.getElementById("userName").value = nomeAtual;};
@@ -52,10 +52,10 @@ var lock = "00011100011111110010101000111000000011100110000000011001100111100001
 var unlock = "1111000101000100101111101010011010001001001111010001010111110010101010011111010000010101010010111111010101010010101011101010001";
 
 function c_cc() {var imagem = d.getElementById('b_cc'); var imagem_m = d.getElementById('b_cc_m');
-if (imagem.src.match("tp")) {
+if (imagem.src.match("173e4dd0de01")) {
 d.getElementById("teclado").style.display = "none";
 d.getElementById("locked").style.display = "block";
-d.getElementById("texto").value = lock; rotina(); STT(); espera();
+d.getElementById("texto").value = lock; rotina(); voz(); espera();
 imagem.src = "https://cloud.githubusercontent.com/assets/8026741/4514134/177779c2-4b5e-11e4-9d13-c9720b236139.png"; // BLOQUEADO
 imagem_m.src = "https://cloud.githubusercontent.com/assets/8026741/4514134/177779c2-4b5e-11e4-9d13-c9720b236139.png"; // BLOQUEADO
 imagem.title = "Teclado bloqueado"; imagem_m.title = "Teclado bloqueado";
@@ -64,7 +64,7 @@ imagem.title = "Teclado bloqueado"; imagem_m.title = "Teclado bloqueado";
 else {
 d.getElementById("teclado").style.display = "block";
 d.getElementById("locked").style.display = "none";
-d.getElementById("texto").value = unlock; rotina(); STT(); espera();
+d.getElementById("texto").value = unlock; rotina(); voz(); espera();
 imagem.src = "https://cloud.githubusercontent.com/assets/8026741/4514135/177ae580-4b5e-11e4-8a4f-173e4dd0de01.png"; // PERMITIDO
 imagem_m.src = "https://cloud.githubusercontent.com/assets/8026741/4514135/177ae580-4b5e-11e4-8a4f-173e4dd0de01.png"; // PERMITIDO
 imagem.title = "Teclado desbloqueado";
@@ -270,16 +270,4 @@ function abrir(URL) {w.open(URL,'janela','width=550, height=640, top=25, left=40
 // ** Script por: Henrique Barcelos.
 // ** link: http://forum.imasters.com.br/topic/374916-menu-de-contexto-personalizado-boto-direito-do-mouse/ 
 
-function click(e){d.getElementById("right_btn").innerHTML="";var t=d.getElementById("context_menu");var n=e||event;if(n.button==2||n.button==3){mostrar(n);t.onmouseout=function(e){var t=e||event;var n=t.relatedTarget||t.toElement;if(n.nodeName!="LI"){}}}if(n.button==0||n.button==1){esconder()}}function mostrar(e){var t=d.getElementById("context_menu");t.style.display="block";t.style.top=e.clientY+0+"px";t.style.left=e.clientX+2+"px"}function esconder(){setTimeout(function(){var e=d.getElementById("context_menu");e.style.display="none"},300)}d.onmousedown=click;d.oncontextmenu=function(){return false};
-//
-function STT() {
-var keyUm = "8f0b4a57a6ac49a683224f7bb8d795e9";
-var keyDois = "cd58d3ed06b54f7fa19979932b4ddd40";
-var formato = "8khz_16bit_mono";
-var apikey = keyUm;
-var idioma = w.localStorage.getItem('idioma');
-var texto = d.getElementById("resposta").value;
-var link = d.getElementById("API").value;
-var codec = "mp3";
-d.getElementById("voz").src = link+"?key="+apikey+"&hl="+idioma+"&src="+texto+"&c="+codec+"&f="+formato;
-};
+function click(e){d.getElementById("right_btn").innerHTML="";var t=d.getElementById("context_menu");var n=e||event;if(n.button==2||n.button==3){mostrar(n);t.onmouseout=function(e){var t=e||event;var n=t.relatedTarget||t.toElement;if(n.nodeName!="LI"){}}}if(n.button==0||n.button==1){e
