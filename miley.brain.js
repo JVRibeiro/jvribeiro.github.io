@@ -16,15 +16,15 @@ var d = document;
 var nome = window.localStorage.getItem('nome');
 var gen = window.localStorage.getItem('genero');
 var dialog = window.localStorage.getItem('histórico');
-var keyUm = "8f0b4a57a6ac49a683224f7bb8d795e9";
-var keyDois = "cd58d3ed06b54f7fa19979932b4ddd40";
-var formato = "8khz_16bit_mono";
-var apikey = keyUm;
-var idioma = w.localStorage.getItem('idioma');
-var texto = d.getElementById("resposta").value;
-var link = d.getElementById("API").value;
-var codec = "mp3";
-var voz = d.getElementById("voz").src;
+keyUm = "8f0b4a57a6ac49a683224f7bb8d795e9";
+keyDois = "cd58d3ed06b54f7fa19979932b4ddd40";
+formato = "8khz_16bit_mono";
+apikey = keyUm;
+idioma = w.localStorage.getItem('idioma');
+texto = d.getElementById("resposta").value;
+link = d.getElementById("API").value;
+codec = "mp3";
+voz = d.getElementById("voz").src;
 var bname = navigator.appCodeName;
 var agora = new Date();
 var hora = agora.getHours(), min = agora.getMinutes(), seg = agora.getSeconds(), ano = agora.getFullYear(), dia = agora.getDate();
@@ -293,8 +293,4 @@ function abrir(URL) {w.open(URL,'janela','width=550, height=640, top=25, left=40
 // ****************************************** 
 // ** Menu de contexto com botão direto do mouse.
 // ** Script por: Henrique Barcelos.
-// ** link: http://forum.imasters.com.br/topic/374916-menu-de-contexto-personalizado-boto-direito-do-mouse/ 
-
-function click(e){d.getElementById("right_btn").innerHTML="";var t=d.getElementById("context_menu");var n=e||event;if(n.button==2||n.button==3){mostrar(n);t.onmouseout=function(e){var t=e||event;var n=t.relatedTarget||t.toElement;if(n.nodeName!="LI"){}}}if(n.button==0||n.button==1){esconder()}}function mostrar(e){var t=d.getElementById("context_menu");t.style.display="block";t.style.top=e.clientY+0+"px";t.style.left=e.clientX+2+"px"}function esconder(){setTimeout(function(){var e=d.getElementById("context_menu");e.style.display="none"},300)}d.onmousedown=click;d.oncontextmenu=function(){return false};
-//
-function voz() {voz = link+"?key="+apikey+"&hl="+idioma+"&src="+texto+"&c="+codec+"&f="+formato;};
+// ** link: http://forum.imasters.com.br/topic/37
