@@ -300,6 +300,6 @@ d.getElementById("texto").value = "000111011010101011111000010101000110011000111
 });
 
 annyang.start();
-};
+}
 
-else {c_cc();}
+else {STT()}
