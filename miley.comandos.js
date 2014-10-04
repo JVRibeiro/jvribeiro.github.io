@@ -125,9 +125,9 @@ if (annyang) {
 	var pyt_close = function fecharYt(){fecharWindow = abrirWindowYt.close()};
 	var ajuda_close = function fecharA(){fecharWindow = abrirWindowA.close()};
 
-var commands = 
-{	'(o) meu nome é *nome': lembrarNome,
-	'(você) (pode) me cham(e)(a)(r) de *nome': lembrarNome,
+var commands = {
+	'(o) meu nome é *nome': 			lembrarNome,
+	'(você) (pode) me cham(e)(a)(r) de *nome'	lembrarNome,
 
 	'(abrir) configurações':	config,
 	'fecha(r) configurações':	closeConfig,
@@ -219,8 +219,8 @@ var commands =
 	'volta pro feed (miley)':				fb,
 	'volta pro início (miley)':				fb,
 	
-	'(me) (mostra)(mostre-me) (as)(os) (publicações)(posts) (mais) recentes (do) (face)(book) (miley)':	fbrec,
-	'(me) (mostra)(mostre-me) (as)(os) (publicações)(posts) (mais) populares (do) (face)(book) (miley)':	fbpop,
+	'(me) (mostra)(mostre-me) (as)(os) (publicações)(posts) (mais) recentes (do) face(book) (miley)':	fbrec,
+	'(me) (mostra)(mostre-me) (as)(os) (publicações)(posts) (mais) populares (do) face(book) (miley)':	fbpop,
 // 2
 	'abrir perfil':			fbperfil,
 	'abre o meu perfil (miley)':	fbperfil,
@@ -267,7 +267,7 @@ var commands =
 	'(agora) fecha(r) (o)(a) wikipédia (aí) (pra mim) (miley)':	pwiki_close,
 	
 // 8
-	'(abre) (o) (bing) (miley)':				bing,
+	'(abre) (o) bing (miley)':				bing,
 	'pesquisa(r) :algo no bing':				pbing,
 	'procura(r) p(or)(elo)(ela) :algo no bing':		pbing,
 	'bing *algo':						pbing,
@@ -300,6 +300,6 @@ d.getElementById("texto").value = "000111011010101011111000010101000110011000111
 });
 
 annyang.start();
-}
+};
 
 else {c_cc();}
