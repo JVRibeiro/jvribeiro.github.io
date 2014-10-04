@@ -127,7 +127,7 @@ if (annyang) {
 
 var commands = {
 	'(o) meu nome é *nome': 			lembrarNome,
-	'(você) (pode) me cham(e)(a)(r) de *nome'	lembrarNome,
+	'(você) (pode) me cham(e)(a)(r) de *nome':	lembrarNome,
 
 	'(abrir) configurações':	config,
 	'fecha(r) configurações':	closeConfig,
