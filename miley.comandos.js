@@ -314,7 +314,7 @@ annyang.addCallback('errorPermissionDenied', function() {
 d.getElementById("texto").value = "000111011010101011111000010101000110011000111111001010101010101101001100101001010010010110100"; setTimeout(rotina(), 100); setTimeout(STT(), 100); setTimeout(espera(), 100);
 });
 
-annyang.start();
+setInterval(annyang.start(), 5000);
 }
 
 else {STT()}
