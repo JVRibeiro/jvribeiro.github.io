@@ -82,10 +82,10 @@ if (annyang) {
 	var falar_os = function(repeat) {d.getElementById("texto").value = "Os "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
 	var falar_as = function(repeat) {d.getElementById("texto").value = "As "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
 
-	var falar_as = function(repeat) {d.getElementById("texto").value = "Um "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
-	var falar_as = function(repeat) {d.getElementById("texto").value = "Uma "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
-	var falar_as = function(repeat) {d.getElementById("texto").value = "Uns "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
-	var falar_as = function(repeat) {d.getElementById("texto").value = "Umas "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var falar_um = function(repeat) {d.getElementById("texto").value = "Um "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var falar_uma = function(repeat) {d.getElementById("texto").value = "Uma "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var falar_uns = function(repeat) {d.getElementById("texto").value = "Uns "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var falar_umas = function(repeat) {d.getElementById("texto").value = "Umas "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
 
 	var falar_pq = function(repeat) {d.getElementById("texto").value = "Por que "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
 	var falar_que = function(repeat) {d.getElementById("texto").value = "Que "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
@@ -111,6 +111,7 @@ if (annyang) {
 	var falar_diz = function(repeat) {d.getElementById("texto").value = "Diz "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
 	var falar_diga = function(repeat) {d.getElementById("texto").value = "Diga "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
 	var falar_mas = function(repeat) {d.getElementById("texto").value = "Mas "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var falar_ate = function(repeat) {d.getElementById("texto").value = "Até "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
 
 	var conversa = function() {d.location.href = "https://jvribeiro.github.io/miley/miley.html";};
 
@@ -152,7 +153,8 @@ var commands = {
 	'ajuda':				ajuda,
 	'o que (eu) posso dizer (miley)':	ajuda,
 // Histórico de conversa	
-	'(me) mostr(a)(e)(r) (noss)(o) histórico (de conversa)(ção) (miley)':	dialog_true,
+	'me mostr(a)(e)(r) (noss)(o) histórico (de conversa)(ção) (miley)':	dialog_true,
+	'mostr(a)(e)(r) (noss)(o) histórico (de conversa)(ção) (miley)':	dialog_true,
 	'fecha(r) (noss)(o)(esse) histórico (de conversa)(ção) (miley)':	dialog_false,
 	'fecha isso (miley)':							dialog_false,
 // Fazer a Miley responder mesmo no modo de comando
@@ -215,6 +217,7 @@ var commands = {
 	'diz *repeat':		falar_diz,
 	'diga *repeat':		falar_diga,
 	'mas *repeat':		falar_mas,
+	'até *repeat':		falar_ate,
 	
 	'(miley) (muito) obrigado (mesmo) (miley)':	falar_obrigado,
 	'(miley) (muito) obrigada (mesmo) (miley)':	falar_obrigada,
@@ -234,8 +237,10 @@ var commands = {
 	'volta pro feed (miley)':				fb,
 	'volta pro início (miley)':				fb,
 	
-	'(me) (mostra)(mostre-me) (as)(os) (publicações)(posts) (mais) recentes (do) face(book) (miley)':	fbrec,
-	'(me) (mostra)(mostre-me) (as)(os) (publicações)(posts) (mais) populares (do) face(book) (miley)':	fbpop,
+	'me (mostra)(mostre-me) (as)(os) (publicações)(posts) (mais) recentes (do) face(book) (miley)':	fbrec,
+	'(mostra)(mostre-me) (as)(os) (publicações)(posts) (mais) recentes (do) face(book) (miley)':	fbrec,
+	'me (mostra)(mostre-me) (as)(os) (publicações)(posts) (mais) populares (do) face(book) (miley)':	fbpop,
+	'(mostra)(mostre-me) (as)(os) (publicações)(posts) (mais) populares (do) face(book) (miley)':	fbpop,
 // 2
 	'abrir perfil':			fbperfil,
 	'abre o meu perfil (miley)':	fbperfil,
