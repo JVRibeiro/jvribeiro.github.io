@@ -59,54 +59,58 @@ if (annyang) {
 
 // A variável "perguntar" e suas variantes retornam um ponto de interrogação ao final da frase.
 	var perguntar = function(repeat) {d.getElementById("texto").value = repeat+"?"; /* A variável perguntar_x adiciona uma interrogação ao final da frase */ setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
-	var perguntar_qual = function(repeat) {d.getElementById("texto").value = "qual "+repeat+"?"; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
-	var perguntar_como = function(repeat) {d.getElementById("texto").value = "como "+repeat+"?"; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
-	var perguntar_pq = function(repeat) {d.getElementById("texto").value = "por que "+repeat+"?"; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
-	var perguntar_oque = function(repeat) {d.getElementById("texto").value = "o que "+repeat+"?"; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
-	var perguntar_quantos = function(repeat) {d.getElementById("texto").value = "quantos "+repeat+"?"; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
-	var perguntar_quando = function(repeat) {d.getElementById("texto").value = "quando "+repeat+"?"; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
-	var perguntar_quem = function(repeat) {d.getElementById("texto").value = "quem "+repeat+"?"; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
-	var perguntar_doque = function(repeat) {d.getElementById("texto").value = "do que "+repeat+"?"; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var perguntar_qual = function(repeat) {d.getElementById("texto").value = "Qual "+repeat+"?"; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var perguntar_como = function(repeat) {d.getElementById("texto").value = "Como "+repeat+"?"; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var perguntar_pq = function(repeat) {d.getElementById("texto").value = "Por que "+repeat+"?"; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var perguntar_oque = function(repeat) {d.getElementById("texto").value = "O que "+repeat+"?"; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var perguntar_quantos = function(repeat) {d.getElementById("texto").value = "Quantos "+repeat+"?"; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var perguntar_quando = function(repeat) {d.getElementById("texto").value = "Quando "+repeat+"?"; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var perguntar_quem = function(repeat) {d.getElementById("texto").value = "Quem "+repeat+"?"; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var perguntar_doque = function(repeat) {d.getElementById("texto").value = "Do que "+repeat+"?"; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
 
 // As variáveis "falar_x" permitem que o usuário mantenha uma conversa mesmo estando no modo de comandos
-	var falar_eu = function(repeat) {d.getElementById("texto").value = "eu "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
-	var falar_tu = function(repeat) {d.getElementById("texto").value = "tu "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
-	var falar_vc = function(repeat) {d.getElementById("texto").value = "você "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
-	var falar_ele = function(repeat) {d.getElementById("texto").value = "ele "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
-	var falar_nohs = function(repeat) {d.getElementById("texto").value = "nós "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
-	var falar_vcs = function(repeat) {d.getElementById("texto").value = "vocês "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
-	var falar_eles = function(repeat) {d.getElementById("texto").value = "eles "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var falar_eu = function(repeat) {d.getElementById("texto").value = "Eu "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var falar_tu = function(repeat) {d.getElementById("texto").value = "Tu "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var falar_vc = function(repeat) {d.getElementById("texto").value = "Você "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var falar_ele = function(repeat) {d.getElementById("texto").value = "Ele "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var falar_nohs = function(repeat) {d.getElementById("texto").value = "Nós "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var falar_vcs = function(repeat) {d.getElementById("texto").value = "Vocês "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var falar_eles = function(repeat) {d.getElementById("texto").value = "Eles "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
 	
-	var falar_o = function(repeat) {d.getElementById("texto").value = "o "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
-	var falar_a = function(repeat) {d.getElementById("texto").value = "a "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
-	var falar_os = function(repeat) {d.getElementById("texto").value = "os "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
-	var falar_as = function(repeat) {d.getElementById("texto").value = "as "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
-	
-	var falar_pq = function(repeat) {d.getElementById("texto").value = "por que "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
-	var falar_que = function(repeat) {d.getElementById("texto").value = "que "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
-	var falar_oi = function(repeat) {d.getElementById("texto").value = "oi"; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
-	var falar_ola = function(repeat) {d.getElementById("texto").value = "olá"; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
-	var falar_obrigado = function(repeat) {d.getElementById("texto").value = "obrigado"; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
-	var falar_obrigada = function(repeat) {d.getElementById("texto").value = "obrigada"; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
-	var falar_me = function(repeat) {d.getElementById("texto").value = "me "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
-	var falar_eh = function(repeat) {d.getElementById("texto").value = "é "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
-	var falar_meu = function(repeat) {d.getElementById("texto").value = "meu "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
-	var falar_minha = function(repeat) {d.getElementById("texto").value = "minha "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
-	var falar_de = function(repeat) {d.getElementById("texto").value = "de "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
-	var falar_e = function(repeat) {d.getElementById("texto").value = "e "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
-	var falar_eai = function(repeat) {d.getElementById("texto").value = "e aí "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
-	var falar_nao = function(repeat) {d.getElementById("texto").value = "não "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
-	var falar_muito = function(repeat) {d.getElementById("texto").value = "muito "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
-	var falar_isso = function(repeat) {d.getElementById("texto").value = "isso "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
-	var falar_isto = function(repeat) {d.getElementById("texto").value = "isto "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
-	var falar_repete = function(repeat) {d.getElementById("texto").value = "repete "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
-	var falar_isto = function(repeat) {d.getElementById("texto").value = "isto "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
-	var falar_fala = function(repeat) {d.getElementById("texto").value = "fala "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
-	var falar_tudo = function(repeat) {d.getElementById("texto").value = "tudo "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
-	var falar_em = function(repeat) {d.getElementById("texto").value = "em "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
-	var falar_diz = function(repeat) {d.getElementById("texto").value = "diz "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
-	var falar_diga = function(repeat) {d.getElementById("texto").value = "diga "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
-	var falar_mas = function(repeat) {d.getElementById("texto").value = "mas "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var falar_o = function(repeat) {d.getElementById("texto").value = "O "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var falar_a = function(repeat) {d.getElementById("texto").value = "A "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var falar_os = function(repeat) {d.getElementById("texto").value = "Os "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var falar_as = function(repeat) {d.getElementById("texto").value = "As "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+
+	var falar_as = function(repeat) {d.getElementById("texto").value = "Um "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var falar_as = function(repeat) {d.getElementById("texto").value = "Uma "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var falar_as = function(repeat) {d.getElementById("texto").value = "Uns "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var falar_as = function(repeat) {d.getElementById("texto").value = "Umas "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+
+	var falar_pq = function(repeat) {d.getElementById("texto").value = "Por que "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var falar_que = function(repeat) {d.getElementById("texto").value = "Que "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var falar_oi = function(repeat) {d.getElementById("texto").value = "Oi"; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var falar_ola = function(repeat) {d.getElementById("texto").value = "Olá"; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var falar_obrigado = function(repeat) {d.getElementById("texto").value = "Obrigado"; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var falar_obrigada = function(repeat) {d.getElementById("texto").value = "Obrigada"; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var falar_me = function(repeat) {d.getElementById("texto").value = "Me "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var falar_eh = function(repeat) {d.getElementById("texto").value = "É "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var falar_meu = function(repeat) {d.getElementById("texto").value = "Meu "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var falar_minha = function(repeat) {d.getElementById("texto").value = "Minha "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var falar_de = function(repeat) {d.getElementById("texto").value = "De "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var falar_e = function(repeat) {d.getElementById("texto").value = "E "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var falar_eai = function(repeat) {d.getElementById("texto").value = "E aí "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var falar_nao = function(repeat) {d.getElementById("texto").value = "Não "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var falar_muito = function(repeat) {d.getElementById("texto").value = "Muito "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var falar_isso = function(repeat) {d.getElementById("texto").value = "Isso "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var falar_isto = function(repeat) {d.getElementById("texto").value = "Isto "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var falar_repete = function(repeat) {d.getElementById("texto").value = "Repete "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var falar_fala = function(repeat) {d.getElementById("texto").value = "Fala "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var falar_tudo = function(repeat) {d.getElementById("texto").value = "Tudo "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var falar_em = function(repeat) {d.getElementById("texto").value = "Em "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var falar_diz = function(repeat) {d.getElementById("texto").value = "Diz "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var falar_diga = function(repeat) {d.getElementById("texto").value = "Diga "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var falar_mas = function(repeat) {d.getElementById("texto").value = "Mas "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
 
 	var conversa = function() {d.location.href = "https://jvribeiro.github.io/miley/miley.html";};
 
@@ -182,6 +186,10 @@ var commands = {
 	'a *repeat':		falar_a,
 	'os *repeat':		falar_os,
 	'as *repeat':		falar_as,
+	'um *repeat':		falar_um,
+	'uma *repeat':		falar_uma,
+	'uns *repeat':		falar_uns,
+	'umas *repeat':		falar_umas,
 	
 	'que *repeat':		falar_que,
 	'porque *repeat':	falar_pq,
@@ -276,12 +284,14 @@ var commands = {
 // 8
 	'(abre)(abrir) (o) bing (miley)':			bing,
 	'pesquis(a)(o)(e)(r) :algo no bing':				pbing,
-	'procur(a)(o)(e)(r) p(or)(elo)(ela) :algo no bing':		pbing,
+	'procur(a)(o)(e)(r) p(or)(elo)(s)(ela)(s) :algo no bing':		pbing,
 	'bing *algo':						pbing,
 	'(agora) fech(a)(o)(r) (o) bing (aí) (pra mim) (miley)':	pbing_close,
 // 9
 	'procur(a)(o)(e)(r) (por) image(ns)(m) de *algo':			pbing_img,
+	'pesquis(a)(o)(e)(r) (por) image(ns)(m) de *algo':			pbing_img,
 	'procur(a)(o)(e)(r) (por) foto(s) de *algo':				pbing_img,
+	'pesquis(a)(o)(e)(r) (por) foto(s) de *algo':				pbing_img,
 	'me mostr(a)(e) (foto)(image)(m)(n)(s) d(e)(o)(a)(os)(as) *algo':	pbing_img,
 	'mostr(a)(e) (foto)(image)(m)(n)(s) d(e)(o)(a)(os)(as) *algo':		pbing_img,
 	'image(ns)(m) d(e)(a)(os)(as) *algo':					pbing_img,
@@ -293,8 +303,7 @@ var commands = {
 	'youtube *video': 					pyoutube,
 // 11
 	'procura (pel)(o) vídeo *video':					pbing_vid,
-	'acha o (vídeo) *video':						pbing_vid,
-	'quero assistir o (vídeo)(filme) *video':				pbing_vid,
+	'acha o vídeo *video':							pbing_vid,
 	'quero assistir (o)(a)(os)(as) *video':					pbing_vid,
 	'(procura)(acha)(pesquisa) (um) vídeo(s) d(e)(o)(a)(os)(as) *video':	pbing_vid
 };
