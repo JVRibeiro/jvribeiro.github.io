@@ -252,37 +252,39 @@ var commands = {
 	'mostra as minhas mensagens (miley)':	fbmensagens,
 	'facebook mensagens':			fbmensagens,
 // 5
-	'notificações':						fbnotificacoes,
-	'(me) mostra as notificações (miley)':			fbnotificacoes,
+	'me (mostra) (as) notificações (miley)':		fbnotificacoes,
+	'mostra as notificações (miley)':			fbnotificacoes,
 	'abre (pra mim) as notificações (pra mim) (miley)':	fbnotificacoes,
 	'facebook notificações':				fbnotificacoes,
 	'(agora) fecha(r) (o) face(book) (aí) (pra mim) (miley)':		fb_close,
 // 7
-	'pesquisa(r) global(mente) (sobre) *algo':			p_global,
-	
+	'pesquis(a)(e)(r) (global)(mente) (sobre) *algo':		p_global,
+	// Google
 	'(abre) (aí) (o) google (pra mim) (miley)':			google,
-	'pesquisa(r) no google *algo':					pgoogle,
-	'procura(r) p(or)(elo)(ela) :algo no google':			pgoogle,
+	'pesquis(a)(e)(r) no google *algo':				pgoogle,
+	'procur(a)(e)(r) p(or)(elo)(s)(ela)(s) :algo no google':		pgoogle,
 	'pesquisa(r) (por) :algo no google':				pgoogle,
 	'quanto é *algo':						pgoogle,
 	'google *algo':							pgoogle,
-	'(agora) fecha(r) (o) google (aí) (pra mim) (miley)':		pgoogle_close,
+	'(agora) fech(a)(o)(e)(r) (o) google (aí) (pra mim) (miley)':		pgoogle_close,
 	
 	'(procura)(vê)(olha) na wikipédia quem é *algo':			pwiki,
 	'(procura)(vê)(olha) na wikipédia o que é *algo':			pwiki,
-	'procura(r) p(or)(elo)(s)(ela)(s) :algo na wikipédia':		pwiki,
-	'(agora) fecha(r) (o)(a) wikipédia (aí) (pra mim) (miley)':	pwiki_close,
+	'procur(a)(o)(e)(r) p(or)(elo)(s)(ela)(s) :algo na wikipédia':		pwiki,
+	'(agora) fech(a)(o)(e)(r) (o)(a) wikipédia (aí) (pra mim) (miley)':	pwiki_close,
 	
 // 8
 	'(abre)(abrir) (o) bing (miley)':			bing,
-	'pesquisa(r) :algo no bing':				pbing,
-	'procura(r) p(or)(elo)(ela) :algo no bing':		pbing,
+	'pesquis(a)(o)(e)(r) :algo no bing':				pbing,
+	'procur(a)(o)(e)(r) p(or)(elo)(ela) :algo no bing':		pbing,
 	'bing *algo':						pbing,
 	'(agora) fech(a)(o)(r) (o) bing (aí) (pra mim) (miley)':	pbing_close,
 // 9
-	'procura(r) (por) (imagens)(fotos) de *algo':				pbing_img,
-	'(me) mostr(a)(e) (foto)(image)(m)(n)(s) d(e)(o)(a)(os)(as) *algo':	pbing_img,
-	'imagens d(e)(a)(os)(as) *algo':					pbing_img,
+	'procur(a)(o)(e)(r) (por) image(ns)(m) de *algo':			pbing_img,
+	'procur(a)(o)(e)(r) (por) foto(s) de *algo':				pbing_img,
+	'me mostr(a)(e) (foto)(image)(m)(n)(s) d(e)(o)(a)(os)(as) *algo':	pbing_img,
+	'mostr(a)(e) (foto)(image)(m)(n)(s) d(e)(o)(a)(os)(as) *algo':		pbing_img,
+	'image(ns)(m) d(e)(a)(os)(as) *algo':					pbing_img,
 // 10
 	'procura no youtube por *video':			pyoutube,
 	'procura o vídeo *video':				pyoutube_t,
