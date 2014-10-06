@@ -93,7 +93,6 @@ if (annyang) {
 	var falar_ola = function(repeat) {d.getElementById("texto").value = "Olá"; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
 	var falar_obrigado = function(repeat) {d.getElementById("texto").value = "Obrigado"; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
 	var falar_obrigada = function(repeat) {d.getElementById("texto").value = "Obrigada"; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
-	var falar_me = function(repeat) {d.getElementById("texto").value = "Me "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
 	var falar_eh = function(repeat) {d.getElementById("texto").value = "É "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
 	var falar_meu = function(repeat) {d.getElementById("texto").value = "Meu "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
 	var falar_minha = function(repeat) {d.getElementById("texto").value = "Minha "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
@@ -210,7 +209,6 @@ var commands = {
 	'isso *repeat':		falar_isso,
 	'isto *repeat':		falar_isto,
 	'repete *repeat':	falar_repete,
-	'me *repeat':		falar_me,
 	'fala *repeat':		falar_fala,
 	'tudo *repeat':		falar_tudo,
 	'em *repeat':		falar_em,
