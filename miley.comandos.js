@@ -39,6 +39,7 @@ if (annyang) {
 		abrirWindowY = w.open('http://br.search.yahoo.com/search;_ylt=Anmgv8ykk.JD03hZwN3Ah2eU7q5_?p='+algo+'&toggle=1&cop=mss&ei=UTF-8&fr=yfp-t-403&fp=1', 'yahoo', 'width=800, height=700, top=25, left=800');
 	d.getElementById("m_rep").innerHTML = "<audio src=\'https:\/\/api.voicerss.org\/?key=" + _apikey + "&hl=pt-br&c="+_codec+"&f=8khz_16bit_mono&src=Tá bom. Vou procurar nos melhores mecanismos de buscas por "+algo+".\' autoplay><\/audio>";};
 
+var g1 = function(algo) {abrirWindowG1 = w.open('http://g1.globo.com/', 'g1', 'width=1400, height=640, top=25, left=0'); d.getElementById("m_rep").innerHTML = "<audio src=\'https:\/\/api.voicerss.org\/?key=" + _apikey + "&hl=pt-br&c="+_codec+"&f=8khz_16bit_mono&src=Okey. Vou abrir o G1.\' autoplay><\/audio>";};
 // Pesquisa individual - Google, Bing, Yahoo
 	// Google
 	var google = function(algo) {abrirWindowG = w.open('http://google.com/', 'google', 'width=1400, height=640, top=25, left=0'); d.getElementById("m_rep").innerHTML = "<audio src=\'https:\/\/api.voicerss.org\/?key=" + _apikey + "&hl=pt-br&c="+_codec+"&f=8khz_16bit_mono&src=Okey. Vou abrir o Google.\' autoplay><\/audio>";};
@@ -50,6 +51,9 @@ if (annyang) {
 	var pbing = function(algo) {abrirWindowB = w.open('http://bing.com/search?q='+algo, 'bing', 'width=1400, height=640, top=25, left=0'); d.getElementById("m_rep").innerHTML = "<audio src=\'https:\/\/api.voicerss.org\/?key=" + _apikey + "&hl=pt-br&c="+_codec+"&f=8khz_16bit_mono&src=Certo. Vou usar o Bing para fazer a busca.\' autoplay><\/audio>";};
 	var pbing_img = function(algo) {abrirWindowB = w.open('http://bing.com/images/search?q='+algo, 'bing', 'width=1400, height=640, top=25, left=0');  d.getElementById("m_voz").innerHTML = "<audio src=\'https:\/\/api.voicerss.org\/?key=" + _apikey + "&hl=pt-br&c="+_codec+"&f=8khz_16bit_mono&src=Okey. Vou procurar no Bing algumas imagens de "+algo+".\' autoplay><\/audio>";};
 	var pbing_vid = function(video) {abrirWindowB = w.open('http://bing.com/videos/search?q='+video, 'bing', 'width=1400, height=640, top=25, left=0'); d.getElementById("m_voz").innerHTML = "<audio src=\'https:\/\/api.voicerss.org\/?key=" + _apikey + "&hl=pt-br&c="+_codec+"&f=8khz_16bit_mono&src=Reuni alguns resultados de vídeo.\' autoplay><\/audio>";};
+	// Yahoo!
+	var yahoo = function(algo) {abrirWindowY = w.open('http://br.yahoo.com/', 'yahoo', 'width=1400, height=640, top=25, left=0'); d.getElementById("m_rep").innerHTML = "<audio src=\'https:\/\/api.voicerss.org\/?key=" + _apikey + "&hl=pt-br&c="+_codec+"&f=8khz_16bit_mono&src=Okey. Vou abrir o Yahoo.\' autoplay><\/audio>";};
+	var pyahoo = function(algo) {abrirWindowY = w.open('http://br.search.yahoo.com/search;_ylt=Anmgv8ykk.JD03hZwN3Ah2eU7q5_?p='+algo+'&toggle=1&cop=mss&ei=UTF-8&fr=yfp-t-403&fp=1', 'yahoo', 'width=1400, height=640, top=25, left=0'); d.getElementById("m_rep").innerHTML = "<audio src=\'https:\/\/api.voicerss.org\/?key=" + _apikey + "&hl=pt-br&c="+_codec+"&f=8khz_16bit_mono&src=Okey. Vou procurar por "+algo+" no Yahoo.\' autoplay><\/audio>";};
 	// YouTube
 	var pyoutube = function(video) {abrirWindowYt = w.open('http://youtube.com/results?search_query='+video, 'yt', 'width=1400, height=640, top=25, left=0'); d.getElementById("m_voz").innerHTML = "<audio src=\'https:\/\/api.voicerss.org\/?key=" + _apikey + "&hl=pt-br&c="+_codec+"&f=8khz_16bit_mono&src=Consegui achar esses vídeos de "+video+" no YouTube.\' autoplay><\/audio>";};
 	var pyoutube_t = function(video) {abrirWindowYt = w.open('http://youtube.com/results?search_query=allintitle:'+video, 'yt'); d.getElementById("m_rep").innerHTML = "<audio src=\'https:\/\/api.voicerss.org\/?key=" + _apikey + "&hl=pt-br&c="+_codec+"&f=8khz_16bit_mono&src=Estou procurando só pelo título dos vídeos.\' autoplay><\/audio>";};
@@ -139,6 +143,7 @@ if (annyang) {
 	var pwiki_close = function fecharW(){fecharWindow = abrirWindowW.close()};
 	var pyahoo_close = function fecharY(){fecharWindow = abrirWindowY.close()};
 	var pyt_close = function fecharYt(){fecharWindow = abrirWindowYt.close()};
+	var g1_close = function fecharG1(){fecharWindowG1 = abrirWindowG1.close()};
 	var ajuda_close = function fecharA(){fecharWindow = abrirWindowA.close()};
 
 var commands = {
@@ -242,6 +247,9 @@ var commands = {
 	'miley':		alfa,
 	'ei':			alfa,
 // 1
+
+	'me mostra as notícias de hoje': g1,
+	'(agora) fecha(r) (o) g1 (aí) (pra mim) (por favor) (miley) (por favor)':		g1_close,
 	'(abre)(abrir) (aí) (o) face(book) (aí) (por favor) (miley) (por favor)':	fb,
 	'início (do) (face)(book)':							fb,
 	'feed de notícias (do) (face)(book)':						fb,
