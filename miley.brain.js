@@ -16,7 +16,9 @@ var d = document;
 var nome = window.localStorage.getItem('nome');
 var gen = window.localStorage.getItem('genero');
 var dialog = window.localStorage.getItem('histórico');
-var bname = navigator.appCodeName;
+var bname = navigator.userAgent;
+if (bname.match("Chrome")) {bname = "Google Chrome"};
+if (bname.match("MSIE")) {bname = "Internet Explorer"};
 var agora = new Date();
 var hora = agora.getHours(), min = agora.getMinutes(), seg = agora.getSeconds(), ano = agora.getFullYear(), dia = agora.getDate();
 var idade = 2014 - ano + " anos";
@@ -52,8 +54,8 @@ function espera() {d.getElementById('resposta').style.opacity = '0'; setTimeout(
 
 $(document).ready(function() {setTimeout(function() {$('body').addClass('loaded');}, 500);});
 
-if (gen == null)  {gen = "usuário";};
-if (nome == null) {nome = "anônimo";};
+if (gen == null || gen == undefined)  {gen = "usuário";};
+if (nome == null || nome == undefined) {nome = "anônimo";};
 if (dialog == null) {dialog = "";};
 if (nome == "" && gen == "senhor")    {nome = "anônimo";};
 if (nome == "" && gen == "senhorita") {nome = "anônima";};
