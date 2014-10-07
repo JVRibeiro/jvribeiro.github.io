@@ -21,28 +21,28 @@ if (annyang) {
 	var refresh = function() {w.location.reload();};
 	var dialog_true = function() {d.getElementById("dialogo").style.display = "block"; d.getElementById("m_rep").innerHTML = "<audio src=\'https:\/\/api.voicerss.org\/?key=" + _apikey + "&hl=pt-br&c="+_codec+"&f=8khz_16bit_mono&src=Certo. Aqui está nosso histórico de conversa.\' autoplay><\/audio>";}; // Mostra o histórico de conversação da sessão
 	var dialog_false = function() {d.getElementById("dialogo").style.display = "none";  d.getElementById("m_rep").innerHTML = "<audio src=\'https:\/\/api.voicerss.org\/?key=" + _apikey + "&hl=pt-br&c="+_codec+"&f=8khz_16bit_mono&src=Entendido. Ocultei nosso histórico de conversa.\' autoplay><\/audio>";}; // Esconde o histórico de conversação da sessão
-	var alfa = function() {d.getElementById("m_rep").innerHTML = "<audio src=\'https:\/\/api.voicerss.org\/?key=" + _apikey + "&hl=pt-br&c="+_codec+"&f=8khz_16bit_mono&src=Estou aqui, "+nome+".\' autoplay><\/audio>";};
+	var alfa = function() {self.focus(); d.getElementById("reposta").value ="Estou aqui, "+nome+"."; voz();};
 
 // Navegação nas páginas do Facebook
-	var fb = function() {abrirFb = w.open('https://www.facebook.com/', 'fb', 'width=1400, height=640, top=25, left=0'); d.getElementById("m_rep").innerHTML = "<audio src=\'https:\/\/api.voicerss.org\/?key=" + _apikey + "&hl=pt-br&c="+_codec+"&f=8khz_16bit_mono&src=Tudo bem. Estou abrindo o feicebook.\' autoplay><\/audio>";};
-	var fbrec = function() {abrirFb = w.open('https://www.facebook.com/?sk=h_chr', 'fbrec', 'width=1400, height=640, top=25, left=0'); d.getElementById("m_rep").innerHTML = "<audio src=\'https:\/\/api.voicerss.org\/?key=" + _apikey + "&hl=pt-br&c="+_codec+"&f=8khz_16bit_mono&src=Okey. Mostrando as publicações mais recentes do feicebook.\' autoplay><\/audio>";};
-	var fbpop = function() {abrirFb = w.open('https://www.facebook.com/?sk=h_nor', 'fbpop', 'width=1400, height=640, top=25, left=0'); d.getElementById("m_rep").innerHTML = "<audio src=\'https:\/\/api.voicerss.org\/?key=" + _apikey + "&hl=pt-br&c="+_codec+"&f=8khz_16bit_mono&src=Okey. Mostrando as publicações mais populares do feicebook.\' autoplay><\/audio>";};
-	var fbperfil = function() {abrirFb = w.open('https://www.facebook.com/profile.php', 'fbperfil'); d.getElementById("m_rep").innerHTML = "<audio src=\'https:\/\/api.voicerss.org\/?key=" + _apikey + "&hl=pt-br&c="+_codec+"&f=8khz_16bit_mono&src=Tudo bem. Estou abrindo seu perfil do feicebook, "+nome+".\' autoplay><\/audio>";};
-	var fbalbum = function() {abrirFb = w.open('https://www.facebook.com/photos.php', 'fbalbum'); d.getElementById("m_rep").innerHTML = "<audio src=\'https:\/\/api.voicerss.org\/?key=" + _apikey + "&hl=pt-br&c="+_codec+"&f=8khz_16bit_mono&src=Aguarde. Vou abrir suas fotos do feicebook.\' autoplay><\/audio>";};
-	var fbmensagens = function() {abrirFb = w.open('https://www.facebook.com/messages', 'fbmensagens'); d.getElementById("m_rep").innerHTML = "<audio src=\'https:\/\/api.voicerss.org\/?key=" + _apikey + "&hl=pt-br&c="+_codec+"&f=8khz_16bit_mono&src=Vou tentar abrir suas mensagens.\' autoplay><\/audio>";};
-	var fbnotificacoes = function() {abrirFb = w.open('https://www.facebook.com/notifications.php', 'fbnotificacoes'); d.getElementById("m_rep").innerHTML = "<audio src=\'https:\/\/api.voicerss.org\/?key=" + _apikey + "&hl=pt-br&c="+_codec+"&f=8khz_16bit_mono&src=Certo. Estou abrindo suas notificações.\' autoplay><\/audio>";};
+	var fb = function() {abrirFb = w.open('http://www.facebook.com/', 'fb', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Tudo bem. Estou abrindo o feicebuqui."; voz();};
+	var fbrec = function() {abrirFb = w.open('http://www.facebook.com/?sk=h_chr', 'fb', 'width=1400, height=640, top=25, left=0'); d.getElementById("m_rep").innerHTML = "<audio src=\'https:\/\/api.voicerss.org\/?key=" + _apikey + "&hl=pt-br&c="+_codec+"&f=8khz_16bit_mono&src=Okey. Mostrando as publicações mais recentes do feicebook.\' autoplay><\/audio>";};
+	var fbpop = function() {abrirFb = w.open('http://www.facebook.com/?sk=h_nor', 'fb', 'width=1400, height=640, top=25, left=0'); d.getElementById("m_rep").innerHTML = "<audio src=\'https:\/\/api.voicerss.org\/?key=" + _apikey + "&hl=pt-br&c="+_codec+"&f=8khz_16bit_mono&src=Okey. Mostrando as publicações mais populares do feicebook.\' autoplay><\/audio>";};
+	var fbperfil = function() {abrirFb = w.open('http://www.facebook.com/profile.php', 'fb'); d.getElementById("m_rep").innerHTML = "<audio src=\'https:\/\/api.voicerss.org\/?key=" + _apikey + "&hl=pt-br&c="+_codec+"&f=8khz_16bit_mono&src=Tudo bem. Estou abrindo seu perfil do feicebook, "+nome+".\' autoplay><\/audio>";};
+	var fbalbum = function() {abrirFb = w.open('http://www.facebook.com/photos.php', 'fb'); d.getElementById("m_rep").innerHTML = "<audio src=\'https:\/\/api.voicerss.org\/?key=" + _apikey + "&hl=pt-br&c="+_codec+"&f=8khz_16bit_mono&src=Aguarde. Vou abrir suas fotos do feicebook.\' autoplay><\/audio>";};
+	var fbmensagens = function() {abrirFb = w.open('http://www.facebook.com/messages', 'fb'); d.getElementById("m_rep").innerHTML = "<audio src=\'https:\/\/api.voicerss.org\/?key=" + _apikey + "&hl=pt-br&c="+_codec+"&f=8khz_16bit_mono&src=Vou tentar abrir suas mensagens.\' autoplay><\/audio>";};
+	var fbnotificacoes = function() {abrirFb = w.open('http://www.facebook.com/notifications.php', 'fb'); d.getElementById("m_rep").innerHTML = "<audio src=\'https:\/\/api.voicerss.org\/?key=" + _apikey + "&hl=pt-br&c="+_codec+"&f=8khz_16bit_mono&src=Certo. Estou abrindo suas notificações.\' autoplay><\/audio>";};
 
 // Pesquisa global nos navegadores mais conhecidos - Google, Bing, Yahoo
 	var p_global = function(algo) {
-		abrirWindowG = w.open('https://google.com/#q='+algo, 'google', 'width=700, height=700, top=25, left=0'); 
-		abrirWindowB = w.open('https://bing.com/search?q='+algo, 'bing', 'width=700, height=700, top=25, left=500');
-		abrirWindowY = w.open('https://br.search.yahoo.com/search;_ylt=Anmgv8ykk.JD03hZwN3Ah2eU7q5_?p='+algo+'&toggle=1&cop=mss&ei=UTF-8&fr=yfp-t-403&fp=1', 'yahoo', 'width=800, height=700, top=25, left=800');
+		abrirWindowG = w.open('http://google.com/#q='+algo, 'google', 'width=700, height=700, top=25, left=0'); 
+		abrirWindowB = w.open('http://bing.com/search?q='+algo, 'bing', 'width=700, height=700, top=25, left=500');
+		abrirWindowY = w.open('http://br.search.yahoo.com/search;_ylt=Anmgv8ykk.JD03hZwN3Ah2eU7q5_?p='+algo+'&toggle=1&cop=mss&ei=UTF-8&fr=yfp-t-403&fp=1', 'yahoo', 'width=800, height=700, top=25, left=800');
 	d.getElementById("m_rep").innerHTML = "<audio src=\'https:\/\/api.voicerss.org\/?key=" + _apikey + "&hl=pt-br&c="+_codec+"&f=8khz_16bit_mono&src=Tá bom. Vou procurar nos melhores mecanismos de buscas por "+algo+".\' autoplay><\/audio>";};
 
 // Pesquisa individual - Google, Bing, Yahoo
 	// Google
-	var google = function(algo) {abrirWindowG = w.open('https://google.com/', 'google', 'width=1400, height=640, top=25, left=0'); d.getElementById("m_rep").innerHTML = "<audio src=\'https:\/\/api.voicerss.org\/?key=" + _apikey + "&hl=pt-br&c="+_codec+"&f=8khz_16bit_mono&src=Okey. Vou abrir o Google.\' autoplay><\/audio>";};
-	var pgoogle = function(algo) {abrirWindowG = w.open('https://google.com/#q='+algo, 'google', 'width=1400, height=640, top=25, left=0'); d.getElementById("m_rep").innerHTML = "<audio src=\'https:\/\/api.voicerss.org\/?key=" + _apikey + "&hl=pt-br&c="+_codec+"&f=8khz_16bit_mono&src=Okey. Vou procurar por "+algo+" no Google.\' autoplay><\/audio>";};
+	var google = function(algo) {abrirWindowG = w.open('http://google.com/', 'google', 'width=1400, height=640, top=25, left=0'); d.getElementById("m_rep").innerHTML = "<audio src=\'https:\/\/api.voicerss.org\/?key=" + _apikey + "&hl=pt-br&c="+_codec+"&f=8khz_16bit_mono&src=Okey. Vou abrir o Google.\' autoplay><\/audio>";};
+	var pgoogle = function(algo) {abrirWindowG = w.open('http://google.com/#q='+algo, 'google', 'width=1400, height=640, top=25, left=0'); d.getElementById("m_rep").innerHTML = "<audio src=\'https:\/\/api.voicerss.org\/?key=" + _apikey + "&hl=pt-br&c="+_codec+"&f=8khz_16bit_mono&src=Okey. Vou procurar por "+algo+" no Google.\' autoplay><\/audio>";};
 	// Wikipédia
 	var pwiki = function(algo) {abrirWindowW = w.open('http://pt.wikipedia.com/wiki/'+algo, 'wiki', 'width=1400, height=640, top=25, left=0'); d.getElementById("m_rep").innerHTML = "<audio src=\'https:\/\/api.voicerss.org\/?key=" + _apikey + "&hl=pt-br&c="+_codec+"&f=8khz_16bit_mono&src=Vamos ver na Wikipédia.\' autoplay><\/audio>";};
 	// Bing
@@ -76,12 +76,12 @@ if (annyang) {
 	var falar_nohs = function(repeat) {d.getElementById("texto").value = "Nós "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
 	var falar_vcs = function(repeat) {d.getElementById("texto").value = "Vocês "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
 	var falar_eles = function(repeat) {d.getElementById("texto").value = "Eles "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
-	
+	// Artigos definidos
 	var falar_o = function(repeat) {d.getElementById("texto").value = "O "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
 	var falar_a = function(repeat) {d.getElementById("texto").value = "A "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
 	var falar_os = function(repeat) {d.getElementById("texto").value = "Os "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
 	var falar_as = function(repeat) {d.getElementById("texto").value = "As "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
-
+	// Artigos indefinidos
 	var falar_um = function(repeat) {d.getElementById("texto").value = "Um "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
 	var falar_uma = function(repeat) {d.getElementById("texto").value = "Uma "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
 	var falar_uns = function(repeat) {d.getElementById("texto").value = "Uns "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
@@ -111,6 +111,10 @@ if (annyang) {
 	var falar_diga = function(repeat) {d.getElementById("texto").value = "Diga "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
 	var falar_mas = function(repeat) {d.getElementById("texto").value = "Mas "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
 	var falar_ate = function(repeat) {d.getElementById("texto").value = "Até "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var falar_mediz = function(repeat) {d.getElementById("texto").value = "Me diz "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var falar_mediga = function(repeat) {d.getElementById("texto").value = "Me diga "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var falar_mefala = function(repeat) {d.getElementById("texto").value = "Me fala "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var falar_mefale = function(repeat) {d.getElementById("texto").value = "Me fale "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
 
 	var conversa = function() {d.location.href = "https://jvribeiro.github.io/miley/miley.html";};
 
@@ -145,7 +149,11 @@ var commands = {
 
 	'(se) atualiza(r) (por favor) (miley) (por favor)': refresh,
 
-	'(tchau)(adeus)(se fecha)(bye bye)(good bye)': fecharMiley,
+	'tchau': fecharMiley,
+	'adeus': fecharMiley,
+	'se fecha': fecharMiley,
+	'bye bye': fecharMiley,
+	'good bye': fecharMiley,
 
 	'libera o teclado (por favor) (miley) (por favor)':	cap,
 	'bloqueia o teclado (por favor) (miley) (por favor)':	cap,
@@ -169,10 +177,10 @@ var commands = {
 	'quando *repeat':			perguntar_quando,
 	'quem *repeat':				perguntar_quem,
 	'do que *repeat':			perguntar_doque,
-	'(pergunta)(e) porque *repeat':		perguntar_pq, /*-------------------------*/
-	'(pergunta)(e) por que *repeat':	perguntar_pq, //  Aqui se encontram as   //
-	'(pergunta)(e) porquê *repeat':		perguntar_pq, // Variações dos "porquês" //
-	'(pergunta)(e) por quê *repeat':	perguntar_pq, /*-------------------------*/
+	'(pergunta)(e) porque *repeat pergunta':		perguntar_pq, /*-------------------------*/
+	'(pergunta)(e) por que *repeat pergunta':		perguntar_pq, //  Aqui se encontram as   //
+	'(pergunta)(e) porquê *repeat pergunta':		perguntar_pq, // Variações dos "porquês" //
+	'(pergunta)(e) por quê *repeat pergunta':		perguntar_pq, /*-------------------------*/
 //
 	
 	'eu *repeat':		falar_eu,
@@ -216,6 +224,10 @@ var commands = {
 	'diga *repeat':		falar_diga,
 	'mas *repeat':		falar_mas,
 	'até *repeat':		falar_ate,
+	'me diz *repeat':	falar_mediz,
+	'me diga *repeat':	falar_mediga,
+	'me fala *repeat':	falar_mefala,
+	'me fale *repeat':	falar_mefale,
 	
 	'(miley) (muito) obrigado (mesmo) (miley)':	falar_obrigado,
 	'(miley) (muito) obrigada (mesmo) (miley)':	falar_obrigada,
@@ -274,19 +286,19 @@ var commands = {
 	'(abre) (aí) (o) google (pra mim) (miley)':			google,
 	'pesquis(a)(e)(r) no google *algo':				pgoogle,
 	'procur(a)(e)(r) p(or)(elo)(s)(ela)(s) *algo no google':		pgoogle,
-	'pesquisa(r) (por) :algo no google':				pgoogle,
+	'pesquisa(r) (por) *algo no google':				pgoogle,
 	'quanto é *algo':						pgoogle,
 	'google *algo':							pgoogle,
 	'(agora) fech(a)(o)(e)(r) (o) google (aí) (pra mim) (miley)':		pgoogle_close,
 	
 	'(procura)(vê)(olha) na wikipédia quem é *algo':			pwiki,
 	'(procura)(vê)(olha) na wikipédia o que é *algo':			pwiki,
-	'procur(a)(o)(e)(r) p(or)(elo)(s)(ela)(s) :algo na wikipédia':		pwiki,
+	'procur(a)(o)(e)(r) p(or)(elo)(s)(ela)(s) *algo na wikipédia':		pwiki,
 	'(agora) fech(a)(o)(e)(r) (o)(a) wikipédia (aí) (pra mim) (miley)':	pwiki_close,
 	
 // 8
 	'(abre)(abrir) (o) bing (miley)':			bing,
-	'pesquis(a)(o)(e)(r) :algo no bing':				pbing,
+	'pesquis(a)(o)(e)(r) *algo no bing':				pbing,
 	'procur(a)(o)(e)(r) p(or)(elo)(s)(ela)(s) *algo no bing':		pbing,
 	'bing *algo':						pbing,
 	'(agora) fech(a)(o)(r) (o) bing (aí) (pra mim) (miley)':	pbing_close,
@@ -313,7 +325,7 @@ var commands = {
 
 annyang.debug(); annyang.addCommands(commands); annyang.setLanguage('pt-BR');
 annyang.addCallback('resultNoMatch', function() {
-d.getElementById("texto").value = ""; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);
+d.getElementById("texto").value = ""; rotina(); voz(); espera();
 });
 
 annyang.addCallback('errorPermissionDenied', function() {
