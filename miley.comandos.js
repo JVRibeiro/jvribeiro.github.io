@@ -129,7 +129,7 @@ if (annyang) {
 	salvarDados();
 	};
 
-	var config = function() {config_voice()};
+	var config = function() {config_voice(); autocom()};
 	var closeConfig = function() {closeConfig_voice()};
 	
 	var fb_close = function() {abrirFb.close()};
@@ -141,8 +141,7 @@ if (annyang) {
 	var ajuda_close = function fecharA(){fecharWindow = abrirWindowA.close()};
 
 var commands = {
-	'(o) meu nome é :nome (miley)': 		lembrarNome,
-	'(você) (pode) me cham(e)(a)(r) de :nome':	lembrarNome,
+	'(você) (pode) me cham(e)(a)(r) de :nome (miley)':	lembrarNome,
 
 	'(agora) (abrir)(abre as) configurações (por favor) (miley) (por favor)':	config,
 	'(agora) fecha(r) (as) configurações (por favor) (miley) (por favor)':		closeConfig,
