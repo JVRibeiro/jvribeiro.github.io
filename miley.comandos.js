@@ -21,7 +21,7 @@ if (annyang) {
 	var refresh = function() {w.location.reload();};
 	var dialog_true = function() {d.getElementById("dialogo").style.display = "block"; d.getElementById("m_rep").innerHTML = "<audio src=\'https:\/\/api.voicerss.org\/?key=" + _apikey + "&hl=pt-br&c="+_codec+"&f=8khz_16bit_mono&src=Certo. Aqui está nosso histórico de conversa.\' autoplay><\/audio>";}; // Mostra o histórico de conversação da sessão
 	var dialog_false = function() {d.getElementById("dialogo").style.display = "none";  d.getElementById("m_rep").innerHTML = "<audio src=\'https:\/\/api.voicerss.org\/?key=" + _apikey + "&hl=pt-br&c="+_codec+"&f=8khz_16bit_mono&src=Entendido. Ocultei nosso histórico de conversa.\' autoplay><\/audio>";}; // Esconde o histórico de conversação da sessão
-	var alfa = function() {self.focus(); d.getElementById("reposta").value = "Estou aqui, "+nome+"."; voz();};
+	var alfa = function() {self.focus();};
 
 // Navegação nas páginas do Facebook
 	var fb = function() {abrirFb = w.open('http://www.facebook.com/', 'fb', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Tudo bem. Estou abrindo o feicebuqui."; voz();};
