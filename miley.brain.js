@@ -187,7 +187,7 @@ imagem_m.title = "Teclado desbloqueado";
   new Array ("(.*)(por que|porque|pq) sim(.*)",""),
   new Array ("(.*)(por que|porque|pq) (não|n|nao|ñ)",""),
   new Array ("(.*)(por que|porque|pq) (não|n|nao|ñ)(, | )(não|n|nao|ñ) (é|e) resposta(.*)","É sim.","É resposta sim\!","É resposta e ponto\!"),
-  new Array ("^(po(rr|h)a|p****|(k|c|q)ara(lh|i)o|puta|b(o|u)(ss|c)eta|pi(k|c)a|(|(t|s)eu )c(u|ú))(| )(.*)","Não há necessidade do uso de palavrões.","Sua mãe não lhe ensinou que palavrões são feios\?","Por favor, sem palavrões.","Fale direito comigo, por favor.","Peço que não aja como uma pessoa idiota. Agradeço desde já."),
+  new Array ("^(po(rr|h)a|(k|c|q)ara(lh|i)o|puta|b(o|u)(ss|c)eta|pi(k|c)a|(|(t|s)eu )c(u|ú))(| )(.*)","Não há necessidade do uso de palavrões.","Sua mãe não lhe ensinou que palavrões são feios\?","Por favor, sem palavrões.","Fale direito comigo, por favor.","Peço que não aja como uma pessoa idiota. Agradeço desde já."),
   new Array ("(.*)(|eu )(não|n|nao|ñ) (quero|qro)(.*)","Respeito sua decisão.","Respeito isso.","Respeito sua escolha."),
   new Array ("(.*)lega(u|l)(.*)","É legal sim.","Legal mesmo.","Muito legal.","","Legal demais."),
   new Array ("(.*)verdade(.*)","É sim.","Agora me fale de você. Gosta da ideia de falar com um computador\?"),
