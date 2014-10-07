@@ -115,6 +115,7 @@ if (annyang) {
 	var falar_mediga = function(repeat) {d.getElementById("texto").value = "Me diga "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
 	var falar_mefala = function(repeat) {d.getElementById("texto").value = "Me fala "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
 	var falar_mefale = function(repeat) {d.getElementById("texto").value = "Me fale "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
+	var falar_tbm = function(repeat) {d.getElementById("texto").value = "Também "+repeat; setTimeout(rotina(), 100); setTimeout(voz(), 100); setTimeout(espera(), 100);};
 
 	var conversa = function() {d.location.href = "https://jvribeiro.github.io/miley/miley.html";};
 
@@ -159,6 +160,7 @@ var commands = {
 // Ajuda
 	'ajuda':				ajuda,
 	'o que (eu) posso dizer (miley)':	ajuda,
+	'(agora) fecha(r) (a) (página de) ajuda (aí) (pra mim) (por favor) (miley) (por favor)':	ajuda_close,
 // Histórico de conversa	
 	'me mostr(a)(e)(r) (noss)(o) histórico (de conversa)(ção) (por favor) (miley) (por favor)':	dialog_true,
 	'mostr(a)(e)(r) (noss)(o) histórico (de conversa)(ção) (por favor) (miley) (por favor)':	dialog_true,
@@ -227,22 +229,24 @@ var commands = {
 	'me diga *repeat':	falar_mediga,
 	'me fala *repeat':	falar_mefala,
 	'me fale *repeat':	falar_mefale,
+	'também *repeat':	falar_tbm,
 	
 	'(miley) (muito) obrigado (mesmo) (miley)':	falar_obrigado,
 	'(miley) (muito) obrigada (mesmo) (miley)':	falar_obrigada,
 	
 // Mudar para o modo de conversa (não executa comandos)
-	'quero conversar (miley)':	conversa,
-	'modo de conversa (miley)':	conversa,
-	'vamos conversar (miley)':	conversa,
+//	'quero conversar (miley)':	conversa, ************ Função desabilitada
+//	'modo de conversa (miley)':	conversa,
+//	'vamos conversar (miley)':	conversa,
+
 	'miley':		alfa,
 	'ei':			alfa,
 // 1
 	'(abre)(abrir) (aí) (o) face(book) (aí) (por favor) (miley) (por favor)':	fb,
-	'início':						fb,
-	'feed de notícias':					fb,
-	'feed':							fb,
-	'mostra (o) (meu) feed (por favor) (miley) (por favor)':			fb,
+	'início (do) (face)(book)':							fb,
+	'feed de notícias (do) (face)(book)':						fb,
+	'feed (do) (face)(book)':							fb,
+	'mostra (o) (meu) feed (do) (face)(book) (por favor) (miley) (por favor)':	fb,
 	'volta pro feed (por favor) (miley) (por favor)':				fb,
 	'volta pro início (por favor) (miley) (por favor)':				fb,
 	
@@ -251,20 +255,20 @@ var commands = {
 	'me (mostra)(mostre-me) (as)(os) (publicações)(posts) (mais) populares (do) face(book) (por favor) (miley) (por favor)':	fbpop,
 	'(mostra)(mostre-me) (as)(os) (publicações)(posts) (mais) populares (do) face(book) (por favor) (miley) (por favor)':	fbpop,
 // 2
-	'abrir perfil':			fbperfil,
-	'abre o meu perfil (por favor) (miley) (por favor)':	fbperfil,
-	'abre o perfil (por favor) (miley) (por favor)':	fbperfil,
-	'mostra o meu perfil (por favor) (miley) (por favor)':	fbperfil,
-	'agora o meu perfil (por favor) (miley) (por favor)':	fbperfil,
-	'facebook perfil':		fbperfil,
-	'perfil':			fbperfil,
+	'abrir perfil (do) (face)(book)':					fbperfil,
+	'abre o meu perfil (do) (face)(book) (por favor) (miley) (por favor)':	fbperfil,
+	'abre o perfil (do) (face)(book) (por favor) (miley) (por favor)':	fbperfil,
+	'mostra o meu perfil (do) (face)(book) (por favor) (miley) (por favor)':fbperfil,
+	'agora o meu perfil (do) (face)(book) (por favor) (miley) (por favor)':	fbperfil,
+	'facebook perfil':							fbperfil,
+	'perfil (do) (face)(book)':						fbperfil,
 // 3
 	'abrir álbuns':				fbalbum,
-	'quero ver as (minhas) fotos (miley)':	fbalbum,
+	'quero ver as (minhas) fotos (do) (face)(book) (miley)':	fbalbum,
 	'fotos':				fbalbum,
-	'mostra as minhas fotos (por favor) (miley) (por favor)':	fbalbum,
-	'abre as fotos (por favor) (miley) (por favor)':		fbalbum,
-	'agora as (minhas) fotos (por favor) (miley) (por favor)':		fbalbum,
+	'mostra as minhas fotos (do) (face)(book) (por favor) (miley) (por favor)':	fbalbum,
+	'abre as fotos (do) (face)(book) (por favor) (miley) (por favor)':		fbalbum,
+	'agora as (minhas) fotos (do) (face)(book) (por favor) (miley) (por favor)':		fbalbum,
 	'abre as minhas fotos do face(book) (por favor) (miley) (por favor)':	fbalbum,
 	'facebook álbuns':			fbalbum,
 // 4
@@ -274,9 +278,9 @@ var commands = {
 	'(me) mostra as minhas mensagens (por favor) (miley) (por favor)':	fbmensagens,
 	'facebook mensagens':			fbmensagens,
 // 5
-	'me (mostra) (as) notificações (por favor) (miley) (por favor)':		fbnotificacoes,
-	'mostra as notificações (por favor) (miley) (por favor)':			fbnotificacoes,
-	'abre (pra mim) as notificações (pra mim) (por favor) (miley) (por favor)':	fbnotificacoes,
+	'me (mostra) (as) notificações (do) (face)(book) (por favor) (miley) (por favor)':		fbnotificacoes,
+	'mostra as notificações (do) (face)(book) (por favor) (miley) (por favor)':			fbnotificacoes,
+	'abre (pra mim) as notificações (do) (face)(book) (pra mim) (por favor) (miley) (por favor)':	fbnotificacoes,
 	'facebook notificações':				fbnotificacoes,
 	'(agora) fecha(r) (o) face(book) (aí) (pra mim) (por favor) (miley) (por favor)':		fb_close,
 // 7
@@ -290,8 +294,16 @@ var commands = {
 	'google *algo':							pgoogle,
 	'(agora) fech(a)(o)(e)(r) (o) google (aí) (pra mim) (miley)':		pgoogle_close,
 	
-	'(procura)(vê)(olha) na wikipédia quem é *algo':			pwiki,
-	'(procura)(vê)(olha) na wikipédia o que é *algo':			pwiki,
+	// Yahoo!
+	'(abre) (aí) (o) yahoo (pra mim) (miley)':			yahoo,
+	'pesquis(a)(e)(r) no yahoo *algo':				pyahoo,
+	'procur(a)(e)(r) p(or)(elo)(s)(ela)(s) *algo no yahoo':		pyahoo,
+	'pesquisa(r) (por) *algo no yahoo':				pyahoo,
+	'yahoo *algo':							pyahoo,
+	'(agora) fech(a)(o)(e)(r) (o) yahoo (aí) (pra mim) (miley)':		pyahoo_close,
+	
+	'(procura)(vê)(olha) na wikipédia quem (é)(foi)(era) *algo':			pwiki,
+	'(procura)(vê)(olha) na wikipédia o que (é)(foi)(era) *algo':			pwiki,
 	'procur(a)(o)(e)(r) p(or)(elo)(s)(ela)(s) *algo na wikipédia':		pwiki,
 	'(agora) fech(a)(o)(e)(r) (o)(a) wikipédia (aí) (pra mim) (miley)':	pwiki_close,
 	
