@@ -137,7 +137,8 @@ Histórico	</li>
   
 <script>
 var Unome = d.getElementById('userName'); 
-var Ugenero = d.getElementById('gen'); 
+w.localStorage.getItem('nome').value = gUnome;
+function autocom() {d.getElementById("userName").value = gUnome;};
 function salvarDados() {
 	w.localStorage.setItem('nome',Unome.value); 
 	w.localStorage.setItem('genero',Ugenero.value); 
