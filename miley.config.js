@@ -1,7 +1,7 @@
 var d = document;
 var w = window;
-var nome == d.getElementById('userName'); 
-var genero == d.getElementById('gen'); 
+nome = d.getElementById('userName'); 
+genero = d.getElementById('gen'); 
 
 function salvarDados() {
 	w.localStorage.setItem('nome',nome.value); 
