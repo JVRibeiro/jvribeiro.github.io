@@ -136,11 +136,11 @@ Histórico	</li>
 		</div><!-- .config -->
   
 <script>
-nome = d.getElementById('userName'); 
-genero = d.getElementById('gen'); 
+var Unome = d.getElementById('userName'); 
+var Ugenero = d.getElementById('gen'); 
 function salvarDados() {
-	w.localStorage.setItem('nome',nome.value); 
-	w.localStorage.setItem('genero',genero.value); 
+	w.localStorage.setItem('nome',Unome.value); 
+	w.localStorage.setItem('genero',Ugenero.value); 
 	setTimeout(d.location.href = "", 2000);
 } 
 function apagarDados() {
