@@ -21,8 +21,7 @@ function apagarDados() {
 	}
 }; 
 
-var nomeAtual = d.localStorage.getItem('nome'); 
-d.getElementById('nomeAtual').innerHTML == nomeAtual; 
+
 dialog = d.getElementById('dialogo'); 
 
 function getHist() {
