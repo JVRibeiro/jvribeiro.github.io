@@ -3,15 +3,15 @@ nome = d.getElementById('userName');
 genero = d.getElementById('gen'); 
 
 function salvarDados() {
-	window.localStorage.setItem('nome',nome.value); 
-	window.localStorage.setItem('genero',genero.value); 
+	document.localStorage.setItem('nome',nome.value); 
+	document.localStorage.setItem('genero',genero.value); 
 	setTimeout(d.location.href = "", 2000);
 } 
 
 function apagarDados() {
 	confirmar = confirm("Use esse botão com cuidado!\n\n Seus dados não poderão ser recuperados.\n\n Você tem certeza que deseja apagar seus dados?"); 
 	if (confirmar == true) {
-		window.localStorage.clear(); 
+		document.localStorage.clear(); 
 		alert("Seus dados foram apagados. Aperte Ok para atualizar."); 
 		setTimeout(d.location.href = "", 2000);
 	} 
