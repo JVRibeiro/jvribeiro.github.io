@@ -1,42 +1,37 @@
 var d = document;
+var w = window;
 nome = d.getElementById('userName'); 
 genero = d.getElementById('gen'); 
 
 function salvarDados() {
-	document.localStorage.setItem('nome',nome.value); 
-	document.localStorage.setItem('genero',genero.value); 
+	w.localStorage.setItem('nome',nome.value); 
+	w.localStorage.setItem('genero',genero.value); 
 	setTimeout(d.location.href = "", 2000);
 } 
 
 function apagarDados() {
-	confirmar = confirm("Use esse botão com cuidado!\n\n Seus dados não poderão ser recuperados.\n\n Você tem certeza que deseja apagar seus dados?"); 
+	confirmar = confirm("Seus dados não poderão ser recuperados.\n\n Você tem certeza que deseja apagar seus dados?"); 
 	if (confirmar == true) {
-		document.localStorage.clear(); 
+		w.localStorage.clear(); 
 		alert("Seus dados foram apagados. Aperte Ok para atualizar."); 
 		setTimeout(d.location.href = "", 2000);
-	} 
-	else {
+} else {
 	return false;
-	}
+ }
 }; 
 
-
 dialog = d.getElementById('dialogo'); 
-
 function getHist() {
-	window.localStorage.getItem('dialog');
+	w.localStorage.getItem('dialog');
 } 
-
 function saveHist() {
-	window.localStorage.setItem('histórico',dialog.value);
+	w.localStorage.setItem('histórico',dialog.value);
 } 
-
 function clearHist() {
-	window.localStorage.removeItem('histórico'); 
+	w.localStorage.removeItem('histórico'); 
 	setTimeout(d.location.href = "", 2000);
 } 
-
 function clearNome() {
-	window.localStorage.removeItem('nome'); 
+	w.localStorage.removeItem('nome'); 
 	setTimeout(d.location.href = "", 2000);
 };
