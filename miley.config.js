@@ -1,7 +1,7 @@
 var d = document;
 var w = window;
-var nome = d.getElementById('userName'); 
-var genero = d.getElementById('gen'); 
+var nome == d.getElementById('userName'); 
+var genero == d.getElementById('gen'); 
 
 function salvarDados() {
 	w.localStorage.setItem('nome',nome.value); 
@@ -22,7 +22,7 @@ function apagarDados() {
 }; 
 
 var nomeAtual = w.localStorage.getItem('nome'); 
-d.getElementById('nomeAtual').innerHTML = nomeAtual; 
+d.getElementById('nomeAtual').innerHTML == nomeAtual; 
 dialog = d.getElementById('dialogo'); 
 
 function getHist() {
