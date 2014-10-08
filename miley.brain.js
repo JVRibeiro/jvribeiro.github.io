@@ -66,8 +66,6 @@ if (nome.length > 0 && gen == "você") {gen = "";};
 
 if(hora < 5.59) {saud = "Boa madrugada";} else if(hora < 8) {saud = "Bom dia";} else if(hora < 11.59) {saud = "Bom dia";} else if(hora < 18) {saud = "Boa tarde";} else {saud = "Boa noite";}
 
-function autocom() {d.getElementById("userName").value = nomeAtual;};
-
 function config() {document.getElementById('config').style.display = 'block';}; function closeConfig() {document.getElementById('config').style.display = 'none';};
 function config_voice() {document.getElementById('config').style.display = 'block';}; function closeConfig_voice() {document.getElementById('config').style.display = 'none';};
 
