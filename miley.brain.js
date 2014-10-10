@@ -54,7 +54,7 @@ function mostra() {d.getElementById('resposta').style.opacity = '1';};
 function espera() {d.getElementById('resposta').style.opacity = '0'; setTimeout("mostra()", 2000);};
 //
 
-$(document).ready(function() {setTimeout(function() {$('body').addClass('loaded');}, 500);});
+$(document).ready(function() {$('body').addClass('loaded');});
 
 if (gen == null || gen == undefined)  {gen = "usuário";};
 if (nome == null || nome == undefined) {nome = "anônimo";};
