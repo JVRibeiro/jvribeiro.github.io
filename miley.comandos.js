@@ -22,6 +22,7 @@ dialogo = d.getElementById("dialogo");
 
 function _EaDsVr() {
 espera(); rotina(); voz();
+w.localStorage.setItem('histórico',dialogo.value);
 };
 
 
