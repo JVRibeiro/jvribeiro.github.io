@@ -703,24 +703,24 @@ background: #67A3B;
 }
 
 @-moz-keyframes spinoffShine {
-0% {box-shadow: 0 0 75px #EE56FC, inset 0 0 5px #EE56FC;}
-20% {box-shadow: 0 0 20px #EE56FC, inset 0 0 40px #EE56FC;}
-80% {box-shadow: 0 0 20px #EE56FC, inset 0 0 20px #EE56FC;}
-100% {box-shadow: 0 0 75px #EE56FC, inset 0 0 5px #EE56FC;};
+0% {-moz-box-shadow: 0 0 75px #EE56FC, inset 0 0 5px #EE56FC;}
+20% {-moz-box-shadow: 0 0 20px #EE56FC, inset 0 0 40px #EE56FC;}
+80% {-moz-box-shadow: 0 0 20px #EE56FC, inset 0 0 20px #EE56FC;}
+100% {-moz-box-shadow: 0 0 75px #EE56FC, inset 0 0 5px #EE56FC;};
 }
 
 @-webkit-keyframes spinoffShine {
-0% {box-shadow: 0 0 75px #EE56FC, inset 0 0 5px #EE56FC;}
-20% {box-shadow: 0 0 20px #EE56FC, inset 0 0 40px #EE56FC;}
-80% {box-shadow: 0 0 20px #EE56FC, inset 0 0 20px #EE56FC;}
-100% {box-shadow: 0 0 75px #EE56FC, inset 0 0 5px #EE56FC;};
+0% {-webkit-box-shadow: 0 0 75px #EE56FC, inset 0 0 5px #EE56FC;}
+20% {-webkit-box-shadow: 0 0 20px #EE56FC, inset 0 0 40px #EE56FC;}
+80% {-webkit-box-shadow: 0 0 20px #EE56FC, inset 0 0 20px #EE56FC;}
+100% {-webkit-box-shadow: 0 0 75px #EE56FC, inset 0 0 5px #EE56FC;};
 }
 
 @-ms-keyframes spinoffShine {
-0% {box-shadow: 0 0 75px #EE56FC, inset 0 0 5px #EE56FC;}
-20% {box-shadow: 0 0 20px #EE56FC, inset 0 0 40px #EE56FC;}
-80% {box-shadow: 0 0 20px #EE56FC, inset 0 0 20px #EE56FC;}
-100% {box-shadow: 0 0 75px #EE56FC, inset 0 0 5px #EE56FC;};
+0% {-ms-box-shadow: 0 0 75px #EE56FC, inset 0 0 5px #EE56FC;}
+20% {-ms-box-shadow: 0 0 20px #EE56FC, inset 0 0 40px #EE56FC;}
+80% {-ms-box-shadow: 0 0 20px #EE56FC, inset 0 0 20px #EE56FC;}
+100% {-ms-box-shadow: 0 0 75px #EE56FC, inset 0 0 5px #EE56FC;};
 }
 
 /* ************* Fim do avatar ********************* */
@@ -987,7 +987,7 @@ left: 3px;
 cursor: pointer;
 width: 35px;
 height: 30px;
-background: url('https://cloud.githubusercontent.com/assets/8026741/4514133/171361da-4b5e-11e4-9c45-463b238fed51.png') no-repeat;
+background: url('op.png') no-repeat;
 background-size: 100% 100%;
 z-index: 6;
 }
