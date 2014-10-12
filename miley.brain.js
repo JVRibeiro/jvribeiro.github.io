@@ -242,7 +242,7 @@ function rotina() {nome = window.localStorage.getItem('nome');
  historico = historico + nome + " disse: " + usuario +  '\r' + "\n";
  padroesMiley();
  historico = historico  +  '\r' + "\n";
- saveHist();
+ w.localStorage.setItem('histórico',dialog.value);
  atualizarTela();
 }
 //
