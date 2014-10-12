@@ -1,7 +1,7 @@
-// **************************
+﻿// **************************
 //  ** miley.brain.js
 // **************************
-// ** Versão/Version: 1.0.6
+// ** Versão/Version: 1.0.7
 // ** Autor/Author: Victor Ribeiro (@JVRibeiiro)
 // ** Baseado no projeto de inteligência artificial E.L.I.Z.A.
 // ***************************
@@ -9,7 +9,7 @@
 //
 var AIname = "Miley"; // Nome da I.A.
 var AInick = "Mi"; // Apelido da I.A.
-var version = "1.0.6"; // Versão da I.A.
+var version = "1.0.7"; // Versão da I.A.
 //
 var w = window;
 var d = document;
@@ -49,6 +49,7 @@ var omes = mes[agora.getMonth()];
 var osem = sem[agora.getDay()];
 var lock = "00011100011111110010101000111000000011100110000000011001100111100001111111010101010101110100011100101011010100001001100001000111010";
 var unlock = "1111000101000100101111101010011010001001001111010001010111110010101010011111010000010101010010111111010101010010101011101010001";
+var config = d.getElementById('config');
 //
 function mostra() {d.getElementById('resposta').style.opacity = '1';};
 function espera() {d.getElementById('resposta').style.opacity = '0'; setTimeout("mostra()", 2000);};
@@ -66,16 +67,16 @@ if (nome.length > 0 && gen == "você") {gen = "";};
 
 if(hora < 5.59) {saud = "Boa madrugada";} else if(hora < 8) {saud = "Bom dia";} else if(hora < 11.59) {saud = "Bom dia";} else if(hora < 18) {saud = "Boa tarde";} else {saud = "Boa noite";}
 
-function config() {document.getElementById('config').style.display = 'block';}; function closeConfig() {document.getElementById('config').style.display = 'none';};
-function config_voice() {document.getElementById('config').style.display = 'block';}; function closeConfig_voice() {document.getElementById('config').style.display = 'none';};
+function config() {config.style.display = 'block';}; function closeConfig() {config.style.display = 'none';};
+function config_voice() {config.style.display = 'block';}; function closeConfig_voice() {config.style.display = 'none';};
 
 function c_cc() {var imagem = d.getElementById('b_cc'); var imagem_m = d.getElementById('b_cc_m');
-if (imagem.src.match("173e4dd0de01")) {
+if (imagem.src.match("tp")) {
 d.getElementById("teclado").style.display = "none";
 d.getElementById("locked").style.display = "block";
 d.getElementById("texto").value = lock; rotina(); voz(); espera();
-imagem.src = "https://cloud.githubusercontent.com/assets/8026741/4514134/177779c2-4b5e-11e4-9d13-c9720b236139.png"; // BLOQUEADO
-imagem_m.src = "https://cloud.githubusercontent.com/assets/8026741/4514134/177779c2-4b5e-11e4-9d13-c9720b236139.png"; // BLOQUEADO
+imagem.src = "tb.png"; // BLOQUEADO
+imagem_m.src = "tb.png"; // BLOQUEADO
 imagem.title = "Teclado bloqueado"; imagem_m.title = "Teclado bloqueado";
 }
 
@@ -83,8 +84,8 @@ else {
 d.getElementById("teclado").style.display = "block";
 d.getElementById("locked").style.display = "none";
 d.getElementById("texto").value = unlock; rotina(); voz(); espera();
-imagem.src = "https://cloud.githubusercontent.com/assets/8026741/4514135/177ae580-4b5e-11e4-8a4f-173e4dd0de01.png"; // PERMITIDO
-imagem_m.src = "https://cloud.githubusercontent.com/assets/8026741/4514135/177ae580-4b5e-11e4-8a4f-173e4dd0de01.png"; // PERMITIDO
+imagem.src = "tp.png"; // PERMITIDO
+imagem_m.src = "tp.png"; // PERMITIDO
 imagem.title = "Teclado desbloqueado";
 imagem_m.title = "Teclado desbloqueado";
  }
