@@ -30,13 +30,13 @@ if (annyang) {
 	var alfa = function() {self.focus();};
 
 // Navegação nas páginas do Facebook
-	var fb = function() {abrirFb = w.open('http://www.facebook.com/', 'fb', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Tudo bem. Estou abrindo sua rede social, "+gen+" "+nome+"."; voz();};
-	var fbrec = function() {abrirFb = w.open('http://www.facebook.com/?sk=h_chr', 'fb', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Okey. Mostrando as publicações mais recentes do feicebook."; voz();};
-	var fbpop = function() {abrirFb = w.open('http://www.facebook.com/?sk=h_nor', 'fb', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Okey. Mostrando as publicações mais populares do feicebook."; voz();};
-	var fbperfil = function() {abrirFb = w.open('http://www.facebook.com/profile.php', 'fb'); d.getElementById("resposta").value = "Tudo bem. Estou abrindo seu perfil do feicebook, "+nome+"."; voz();};
-	var fbalbum = function() {abrirFb = w.open('http://www.facebook.com/photos.php', 'fb'); d.getElementById("resposta").value = "Aguarde. Vou abrir suas fotos do feicebook."; voz();};
-	var fbmensagens = function() {abrirFb = w.open('http://www.facebook.com/messages', 'fb'); d.getElementById("resposta").value = "Vou tentar abrir suas mensagens."; voz();};
-	var fbnotificacoes = function() {abrirFb = w.open('http://www.facebook.com/notifications.php', 'fb'); d.getElementById("resposta").value = "Certo. Estou abrindo suas notificações."; voz();};
+	var fb = function(facebook) {abrirFb = w.open('http://www.facebook.com/', 'facebook', 'width=1400, height=740, top=25, left=0'); d.getElementById("resposta").value = "Tudo bem. Estou abrindo sua rede social, "+gen+" "+nome+"."; voz();};
+	var fbrec = function(facebook) {abrirFb = w.open('http://www.facebook.com/?sk=h_chr', 'facebook', 'width=1400, height=740, top=25, left=0'); d.getElementById("resposta").value = "Okey. Mostrando as publicações mais recentes do feicebook."; voz();};
+	var fbpop = function(facebook) {abrirFb = w.open('http://www.facebook.com/?sk=h_nor', 'facebook', 'width=1400, height=740, top=25, left=0'); d.getElementById("resposta").value = "Okey. Mostrando as publicações mais populares do feicebook."; voz();};
+	var fbperfil = function(facebook) {abrirFb = w.open('http://www.facebook.com/profile.php', 'facebook', 'width=1400, height=740, top=25, left=0'); d.getElementById("resposta").value = "Tudo bem. Estou abrindo seu perfil do feicebook, "+nome+"."; voz();};
+	var fbalbum = function(facebook) {abrirFb = w.open('http://www.facebook.com/photos.php', 'facebook', 'width=1400, height=740, top=25, left=0'); d.getElementById("resposta").value = "Aguarde. Vou abrir suas fotos do feicebook."; voz();};
+	var fbmensagens = function(facebook) {abrirFb = w.open('http://www.facebook.com/messages', 'facebook', 'width=1400, height=740, top=25, left=0'); d.getElementById("resposta").value = "Vou tentar abrir suas mensagens."; voz();};
+	var fbnotificacoes = function(facebook) {abrirFb = w.open('http://www.facebook.com/notifications.php', 'facebook', 'width=1400, height=740, top=25, left=0'); d.getElementById("resposta").value = "Certo. Estou abrindo suas notificações."; voz();};
 	
 // Pesquisa global nos navegadores mais conhecidos - Google, Bing, Yahoo
 	var p_global = function(algo) {
