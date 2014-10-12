@@ -295,7 +295,7 @@ function voz() {
 var keyUm = "8f0b4a57a6ac49a683224f7bb8d795e9";
 var keyDois = "cd58d3ed06b54f7fa19979932b4ddd40";
 var formato = "8khz_16bit_mono";
-var apikey = keyDois;
+var apikey = keyUm;
 var idioma = "pt-br";
 var texto = d.getElementById("resposta").value;
 var link = d.getElementById("API").value;
