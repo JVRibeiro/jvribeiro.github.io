@@ -16,7 +16,6 @@ var d = document;
 var nome = w.localStorage.getItem('nome');
 var gen = w.localStorage.getItem('genero');
 var permissaoNegada = "000111011010101011111000010101000110011000111111001010101010101101001100101001010010010110100";
-var textoValor = d.getElementById("texto").value;
 
 function _EaDsVr() {
 espera(); rotina(); voz(); saveHist();
@@ -99,7 +98,7 @@ var g1 = function(algo) {abrirWindowG1 = w.open('http://g1.globo.com/', 'g1', 'w
 
 	var falar_pq = function(repeat) {d.getElementById("texto").value = "Por que "+repeat; _EaDsVr();};
 	var falar_que = function(repeat) {d.getElementById("texto").value = "Que "+repeat; _EaDsVr();};
-	var falar_oi = function(repeat) {textoValor = "Oi"; _EaDsVr();};
+	var falar_oi = function(repeat) {d.getElementById("texto").value = "Oi"; _EaDsVr();};
 	var falar_ola = function(repeat) {d.getElementById("texto").value = "Olá"; _EaDsVr();};
 	var falar_obrigado = function(repeat) {d.getElementById("texto").value = "Obrigado"; _EaDsVr();};
 	var falar_obrigada = function(repeat) {d.getElementById("texto").value = "Obrigada"; _EaDsVr();};
