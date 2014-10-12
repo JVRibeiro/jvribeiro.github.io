@@ -334,7 +334,7 @@ var commands = {
 	'obrigada *repeat':	falar_obrigadaAlgo,
 	'olá *repeat':		falar_olaAlgo,
 	'oi *repeat':		falar_oiAlgo,
-	'miley *repeat':	falar_miley,
+	'miley *repeat':	falar_mileyAlgo,
 	
 // Mudar para o modo de conversa (não executa comandos)
 //	'quero conversar (miley)':	conversa, ************ Função desabilitada
