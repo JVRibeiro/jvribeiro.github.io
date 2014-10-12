@@ -1,4 +1,4 @@
-﻿//! annyang
+//! annyang
 //! version : 1.1.0
 //! author  : Tal Ater @TalAter
 //! license : MIT
@@ -16,9 +16,9 @@ var d = document;
 var nome = w.localStorage.getItem('nome');
 var gen = w.localStorage.getItem('genero');
 var permissaoNegada = "000111011010101011111000010101000110011000111111001010101010101101001100101001010010010110100";
-var texto = d.getElementById("texto");
-var resposta = d.getElementById("resposta");
-var dialogo = d.getElementById("dialogo");
+texto = d.getElementById("texto");
+resposta = d.getElementById("resposta");
+dialogo = d.getElementById("dialogo");
 
 function _EaDsVr() {
 espera(); rotina(); voz();
