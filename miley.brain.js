@@ -240,9 +240,10 @@ historico = dialog;
 function rotina() {nome = window.localStorage.getItem('nome');
  usuario = d.miley.Texto.value;
  historico = historico + nome + " disse: " + usuario +  '\r' + "\n";
- padroesMiley()
+ padroesMiley();
  historico = historico  +  '\r' + "\n";
- atualizarTela()
+ saveHist();
+ atualizarTela();
 }
 //
 function padroesMiley() {
