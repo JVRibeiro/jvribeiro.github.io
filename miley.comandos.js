@@ -207,6 +207,9 @@ abrirWindowW = w.open('http://pt.wikipedia.com/wiki/'+algo, 'wiki', 'width=1400,
 	var falar_boa = function(repeat) {d.getElementById("texto").value = "Boa "+repeat; _EaDsVr();};
 	var falar_mal = function(repeat) {d.getElementById("texto").value = "Mal "+repeat; _EaDsVr();};
 	var falar_mau = function(repeat) {d.getElementById("texto").value = "Mau "+repeat; _EaDsVr();};
+	var falar_mah = function(repeat) {d.getElementById("texto").value = "Má "+repeat; _EaDsVr();};
+	var falar_pessimo = function(repeat) {d.getElementById("texto").value = "Péssimo "+repeat; _EaDsVr();};
+	var falar_pessima = function(repeat) {d.getElementById("texto").value = "Péssima "+repeat; _EaDsVr();};
 	var falar_melhor = function(repeat) {d.getElementById("texto").value = "Melhor "+repeat; _EaDsVr();};
 	var falar_desculpaAlgo = function(repeat) {d.getElementById("texto").value = "Desculpa "+repeat; _EaDsVr();};
 	var falar_sua = function(repeat) {d.getElementById("texto").value = "Sua "+repeat; _EaDsVr();};
