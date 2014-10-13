@@ -58,12 +58,12 @@ var g1 = function(algo) {abrirWindowG1 = w.open('http://g1.globo.com/', 'g1', 'w
 
 // * Wikipédia
 	var pwiki = function(algo) {
-var url = "http://pt.wikipedia.org/wiki/"+algo;
+var url = "https://pt.wikipedia.org/wiki/"+algo;
 var title = url.split("/");
 title = title[title.length - 1];
 
 //Get Leading paragraphs (section 0)
-$.getJSON("http://pt.wikipedia.org/w/api.php?action=parse&page=" + title + "&prop=text&section=0&format=json&callback=?", function (data) {
+$.getJSON("https://pt.wikipedia.org/w/api.php?action=parse&page=" + title + "&prop=text&section=0&format=json&callback=?", function (data) {
     for (text in data.parse.text) {
         var text = data.parse.text[text].split("<p>");
         var pText = "";
@@ -92,7 +92,7 @@ $.getJSON("http://pt.wikipedia.org/w/api.php?action=parse&page=" + title + "&pro
         }
         pText = pText.substring(0, pText.length - 2); //Remove extra newline
         pText = pText.replace(/\[\d+\]/g, ""); //Remove reference tags (e.x. [1], [4], etc)
-        document.getElementById('resposta').value = pText
+        document.getElementById('resposta').value = pText;
     }
 });
 
