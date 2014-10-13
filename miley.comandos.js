@@ -92,13 +92,13 @@ $.getJSON("https://pt.wikipedia.org/w/api.php?action=parse&page=" + title + "&pr
         }
         pText = pText.substring(0, pText.length - 2); //Remove extra newline
         pText = pText.replace(/\[\d+\]/g, ""); //Remove reference tags (e.x. [1], [4], etc)
-        document.getElementById('resposta').value = pText;
+        document.getElementById('resposta').value = pText; voz();
     }
 });
 
 
 
-abrirWindowW = w.open('http://pt.wikipedia.com/wiki/'+algo, 'wiki', 'width=1400, height=640, top=25, left=0'); voz();};
+abrirWindowW = w.open('http://pt.wikipedia.com/wiki/'+algo, 'wiki', 'width=1400, height=640, top=25, left=0')};
 
 // * Bing
 	var bing = function(algo) {abrirWindowB = w.open('http://bing.com/', 'bing', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Certo. Vou abrir o Bing."; voz();};
