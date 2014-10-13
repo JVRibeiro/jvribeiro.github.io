@@ -57,7 +57,48 @@ var g1 = function(algo) {abrirWindowG1 = w.open('http://g1.globo.com/', 'g1', 'w
 	var pgoogle = function(algo) {abrirWindowG = w.open('http://google.com/#q='+algo, 'google', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Okey. Vou procurar por "+algo+" no Google."; voz();};
 
 // * Wikipédia
-	var pwiki = function(algo) {abrirWindowW = w.open('http://pt.wikipedia.com/wiki/'+algo, 'wiki', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Vamos ver na Wikipédia."; voz();};
+	var pwiki = function(algo) {
+var url = "http://pt.wikipedia.org/wiki/"+algo;
+var title = url.split("/");
+title = title[title.length - 1];
+
+//Get Leading paragraphs (section 0)
+$.getJSON("http://pt.wikipedia.org/w/api.php?action=parse&page=" + title + "&prop=text&section=0&format=json&callback=?", function (data) {
+    for (text in data.parse.text) {
+        var text = data.parse.text[text].split("<p>");
+        var pText = "";
+
+        for (p in text) {
+            //Remove html comment
+            text[p] = text[p].split("<!--");
+            if (text[p].length > 1) {
+                text[p][0] = text[p][0].split(/\r\n|\r|\n/);
+                text[p][0] = text[p][0][0];
+                text[p][0] += "</p> ";
+            }
+            text[p] = text[p][0];
+
+            //Construct a string from paragraphs
+            if (text[p].indexOf("</p>") == text[p].length - 5) {
+                var htmlStrip = text[p].replace(/<(?:.|\n)*?>/gm, '') //Remove HTML
+                var splitNewline = htmlStrip.split(/\r\n|\r|\n/); //Split on newlines
+                for (newline in splitNewline) {
+                    if (splitNewline[newline].substring(0, 11) != "Cite error:") {
+                        pText += splitNewline[newline];
+                        pText += "\n";
+                    }
+                }
+            }
+        }
+        pText = pText.substring(0, pText.length - 2); //Remove extra newline
+        pText = pText.replace(/\[\d+\]/g, ""); //Remove reference tags (e.x. [1], [4], etc)
+        document.getElementById('resposta').value = pText
+    }
+});
+
+
+
+abrirWindowW = w.open('http://pt.wikipedia.com/wiki/'+algo, 'wiki', 'width=1400, height=640, top=25, left=0'); voz();};
 
 // * Bing
 	var bing = function(algo) {abrirWindowB = w.open('http://bing.com/', 'bing', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Certo. Vou abrir o Bing."; voz();};
@@ -94,25 +135,31 @@ var g1 = function(algo) {abrirWindowG1 = w.open('http://g1.globo.com/', 'g1', 'w
 	var falar_tu = function(repeat) {d.getElementById("texto").value = "Tu "+repeat; _EaDsVr();};
 	var falar_vc = function(repeat) {d.getElementById("texto").value = "Você "+repeat; _EaDsVr();};
 	var falar_ele = function(repeat) {d.getElementById("texto").value = "Ele "+repeat; _EaDsVr();};
+	var falar_ela = function(repeat) {d.getElementById("texto").value = "Ela "+repeat; _EaDsVr();};
 	var falar_nohs = function(repeat) {d.getElementById("texto").value = "Nós "+repeat; _EaDsVr();};
 	var falar_vcs = function(repeat) {d.getElementById("texto").value = "Vocês "+repeat; _EaDsVr();};
 	var falar_eles = function(repeat) {d.getElementById("texto").value = "Eles "+repeat; _EaDsVr();};
+	var falar_elas = function(repeat) {d.getElementById("texto").value = "Elas "+repeat; _EaDsVr();};
+
 // * Artigos definidos
 	var falar_o = function(repeat) {d.getElementById("texto").value = "O "+repeat; _EaDsVr();};
 	var falar_a = function(repeat) {d.getElementById("texto").value = "A "+repeat; _EaDsVr();};
 	var falar_os = function(repeat) {d.getElementById("texto").value = "Os "+repeat; _EaDsVr();};
 	var falar_as = function(repeat) {d.getElementById("texto").value = "As "+repeat; _EaDsVr();};
+
 // * Artigos indefinidos
 	var falar_um = function(repeat) {d.getElementById("texto").value = "Um "+repeat; _EaDsVr();};
 	var falar_uma = function(repeat) {d.getElementById("texto").value = "Uma "+repeat; _EaDsVr();};
 	var falar_uns = function(repeat) {d.getElementById("texto").value = "Uns "+repeat; _EaDsVr();};
 	var falar_umas = function(repeat) {d.getElementById("texto").value = "Umas "+repeat; _EaDsVr();};
+
 // * Palavras avulsas
 	var falar_oi = function(repeat) {d.getElementById("texto").value = "Oi."; _EaDsVr();};
 	var falar_ola = function(repeat) {d.getElementById("texto").value = "Olá."; _EaDsVr();};
 	var falar_obrigado = function(repeat) {d.getElementById("texto").value = "Obrigado."; _EaDsVr();};
 	var falar_obrigada = function(repeat) {d.getElementById("texto").value = "Obrigada."; _EaDsVr();};
 	var falar_desculpa = function(repeat) {d.getElementById("texto").value = "Desculpa."; _EaDsVr();};
+
 // * Pronomes possessivos
 	var falar_meu = function(repeat) {d.getElementById("texto").value = "Meu "+repeat; _EaDsVr();};
 	var falar_minha = function(repeat) {d.getElementById("texto").value = "Minha "+repeat; _EaDsVr();};
@@ -156,6 +203,8 @@ var g1 = function(algo) {abrirWindowG1 = w.open('http://g1.globo.com/', 'g1', 'w
 	var falar_tbm = function(repeat) {d.getElementById("texto").value = "Também "+repeat; _EaDsVr();};
 
 	var falar_bem = function(repeat) {d.getElementById("texto").value = "Bem "+repeat; _EaDsVr();};
+	var falar_bom = function(repeat) {d.getElementById("texto").value = "Bom "+repeat; _EaDsVr();};
+	var falar_boa = function(repeat) {d.getElementById("texto").value = "Boa "+repeat; _EaDsVr();};
 	var falar_mal = function(repeat) {d.getElementById("texto").value = "Mal "+repeat; _EaDsVr();};
 	var falar_mau = function(repeat) {d.getElementById("texto").value = "Mau "+repeat; _EaDsVr();};
 	var falar_melhor = function(repeat) {d.getElementById("texto").value = "Melhor "+repeat; _EaDsVr();};
@@ -263,9 +312,11 @@ var commands = {
 	'tu *repeat':		falar_tu,
 	'você *repeat':		falar_vc,
 	'ele *repeat':		falar_ele,
+	'ela *repeat':		falar_ela,
 	'nós *repeat':		falar_nohs,
 	'vocês *repeat':	falar_vcs,
 	'eles *repeat':		falar_eles,
+	'elas *repeat':		falar_elas,
 
 // * Artigos definidos
 	'o *repeat':		falar_o,
@@ -334,7 +385,14 @@ var commands = {
 	'obrigada *repeat':	falar_obrigadaAlgo,
 	'olá *repeat':		falar_olaAlgo,
 	'oi *repeat':		falar_oiAlgo,
-	'miley *repeat':	falar_mileyAlgo,
+	'bem *repeat':		falar_bem,
+	'bom *repeat':		falar_bom,
+	'boa *repeat':		falar_boa,
+	'mal *repeat':		falar_mal,
+	'mau *repeat':		falar_mau,
+	'má *repeat':		falar_mah,
+	'péssimo *repeat':	falar_pessimo,
+	'péssima *repeat':	falar_pessima,
 	
 // Mudar para o modo de conversa (não executa comandos)
 //	'quero conversar (miley)':	conversa, ************ Função desabilitada
