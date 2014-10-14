@@ -57,7 +57,7 @@ var g1 = function(algo) {abrirWindowG1 = w.open('http://g1.globo.com/', 'g1', 'w
 	var pgoogle = function(algo) {abrirWindowG = w.open('http://google.com/#q='+algo, 'google', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Okey. Vou procurar por "+algo+" no Google."; voz();};
 
 // * Wikipédia
-	var pwiki = function(algo) {
+	var pwiki = function(algo) {startFetch(100, 500);}
     
     var textbox = document.getElementById("resposta");
 
@@ -77,6 +77,7 @@ var g1 = function(algo) {abrirWindowG1 = w.open('http://g1.globo.com/', 'g1', 'w
         + "?action=query&titles="+algo+"&prop=extracts"
         + "&exchars="+maxchars+"&format=json&callback=onFetchComplete&requestid=&redirects="
         + Math.floor(Math.random()*999999).toString();
+      document.body.appendChild(tempscript);
       // onFetchComplete invoked when finished
     }
     
@@ -107,9 +108,6 @@ var g1 = function(algo) {abrirWindowG1 = w.open('http://g1.globo.com/', 'g1', 'w
       return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
     }
     
-startFetch(100, 500);
-};
-
 // * Bing
 	var bing = function(algo) {abrirWindowB = w.open('http://bing.com/', 'bing', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Certo. Vou abrir o Bing."; voz();};
 	var pbing = function(algo) {abrirWindowB = w.open('http://bing.com/search?q='+algo, 'bing', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Certo. Vou usar o Bing para fazer a busca."; voz();};
