@@ -68,7 +68,7 @@ var g1 = function(algo) {abrirWindowG1 = w.open('http://g1.globo.com/', 'g1', 'w
         success: function (data, textStatus, jqXHR) {
             console.log(data);
 
-            var markup = data.query.pages["extract"];
+            var markup = data.query.6530["extract"];
             var i = markup;
  
             $('#resposta').val(i);
