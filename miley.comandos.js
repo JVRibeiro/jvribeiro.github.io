@@ -83,7 +83,6 @@ var g1 = function(algo) {abrirWindowG1 = w.open('http://g1.globo.com/', 'g1', 'w
         error: function (errorMessage) {
         }
     });
-});
 
 };
 
