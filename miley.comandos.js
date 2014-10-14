@@ -61,7 +61,7 @@ var g1 = function(algo) {abrirWindowG1 = w.open('http://g1.globo.com/', 'g1', 'w
  
     $.ajax({
         type: "GET",
-        url: "https://pt.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&exchars=450&exlimit=10&exintro=&explaintext=&exsectionformat=plain&titles=" +algo+ "&redirects=&callback=?",
+        url: "https://pt.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&exchars=450&exlimit=10&exintro=&explaintext=&exsectionformat=plain&titles=" +algo+ "&redirects=&callback=? ",
         contentType: "application/json; charset=utf-8",
         async: false,
         dataType: "json",
