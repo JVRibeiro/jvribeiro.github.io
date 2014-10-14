@@ -70,7 +70,7 @@ var g1 = function(algo) {abrirWindowG1 = w.open('http://g1.globo.com/', 'g1', 'w
         success: function (data, textStatus, jqXHR) {
             console.log(data);
 
-            var markup = data.parse.text["*"];
+            var markup = data.query.extracts["*"];
             var i = $('<div></div>').html(markup);
  
             // remove links as they will not work
