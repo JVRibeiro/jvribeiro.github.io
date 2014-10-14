@@ -71,7 +71,7 @@ var g1 = function(algo) {abrirWindowG1 = w.open('http://g1.globo.com/', 'g1', 'w
             var markup = data.query.pages["extract"];
             var i = markup;
  
-            $('#resposta').val(i);
+            d.getElementById('resposta').value = markup;
         },
         error: function (errorMessage) {
         }
