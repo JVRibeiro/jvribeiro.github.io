@@ -63,7 +63,7 @@ var title = url.split("/");
 title = title[title.length - 1];
 
 //Get Leading paragraphs (section 0)
-$.getJSON("https://pt.wikipedia.org/w/api.php?action=query&prop=extracts&format=jsonp&exchars=450&exlimit=10&exintro=&explaintext=&exsectionformat=plain&titles=" + title + "&redirects=", function (data) {
+$.getJSON("https://pt.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&exchars=450&exlimit=10&exintro=&explaintext=&exsectionformat=plain&titles=" + title + "&callback=?&redirects=", function (data) {
     for (text in data.parse.text) {
         var text = data.parse.text[text].split("<p>");
         var pText = "";
