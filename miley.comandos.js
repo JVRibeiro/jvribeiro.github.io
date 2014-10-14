@@ -59,6 +59,7 @@ var g1 = function(algo) {abrirWindowG1 = w.open('http://g1.globo.com/', 'g1', 'w
 // * Wikipédia
 	var pwiki = function(algo) {startFetch(100, 500);}
     
+function(algo) {
     var textbox = document.getElementById("resposta");
 
     var tempscript = null, minchars, maxchars, attempts;
@@ -107,6 +108,7 @@ var g1 = function(algo) {abrirWindowG1 = w.open('http://g1.globo.com/', 'g1', 'w
       e.innerHTML = input;
       return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
     }
+}
     
 // * Bing
 	var bing = function(algo) {abrirWindowB = w.open('http://bing.com/', 'bing', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Certo. Vou abrir o Bing."; voz();};
