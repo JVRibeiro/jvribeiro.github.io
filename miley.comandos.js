@@ -63,7 +63,7 @@ var title = url.split("/");
 title = title[title.length - 1];
 
 //Get Leading paragraphs (section 0)
-$.getJSON("https://pt.wikipedia.org/w/api.php?action=parse&page=" + title + "&prop=text&section=0&format=json&callback=?", function (data) {
+$.getJSON("https://pt.wikipedia.org/w/api.php?action=parse&exchars=450&page=" + title + "&prop=text&section=0&format=json&callback=?", function (data) {
     for (text in data.parse.text) {
         var text = data.parse.text[text].split("<p>");
         var pText = "";
@@ -85,7 +85,7 @@ $.getJSON("https://pt.wikipedia.org/w/api.php?action=parse&page=" + title + "&pr
                 for (newline in splitNewline) {
                     if (splitNewline[newline].substring(0, 11) != "Cite error:") {
                         pText += splitNewline[newline];
-                        pText += "\n";
+                        pText += "\n ";
                     }
                 }
             }
@@ -98,7 +98,7 @@ $.getJSON("https://pt.wikipedia.org/w/api.php?action=parse&page=" + title + "&pr
 
 
 
-abrirWindowW = w.open('http://pt.wikipedia.com/wiki/'+algo, 'wiki', 'width=1400, height=640, top=25, left=0')};
+}; //==========
 
 // * Bing
 	var bing = function(algo) {abrirWindowB = w.open('http://bing.com/', 'bing', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Certo. Vou abrir o Bing."; voz();};
