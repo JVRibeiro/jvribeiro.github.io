@@ -65,17 +65,8 @@ title = title[title.length - 1];
 //Get Leading paragraphs (section 0)
 $.getJSON("https://pt.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&exchars=450&exlimit=10&exintro=&explaintext=&exsectionformat=plain&titles=" + algo + "&callback=?&redirects=", function (data) {
     for (text in data.parse.text) {
-        var text = data.parse.text[text].split("<p>");
         var pText = "";
 
-        for (p in text) {
-            //Remove html comment
-            text[p] = text[p].split("<!--");
-            if (text[p].length > 1) {
-                text[p][0] = text[p][0].split(/\r\n|\r|\n/);
-                text[p][0] = text[p][0][0];
-                text[p][0] += "</p> ";
-            }
             text[p] = text[p][0];
 
             //Construct a string from paragraphs
