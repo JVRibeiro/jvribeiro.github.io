@@ -71,17 +71,17 @@ var g1 = function(algo) {abrirWindowG1 = w.open('http://g1.globo.com/', 'g1', 'w
             console.log(data);
 
             var markup = data.parse.text["*"];
-            var blurb = markup;
+            var i = $('<textarea></textarea>').val(markup);
  
             // remove links as they will not work
-            blurb.find('a').each(function() { $(this).replaceWith($(this).html()); });
+            i.find('a').each(function() { $(this).replaceWith($(this).html()); });
  
             // remove any references
-            blurb.find('sup').remove();
+            i.find('sup').remove();
  
             // remove cite error
-            blurb.find('.mw-ext-cite-error').remove();
-            $('#resposta').val(blurb);
+            i.find('.mw-ext-cite-error').remove();
+            $('#resposta').val(i);
         },
         error: function (errorMessage) {
         }
