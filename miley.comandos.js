@@ -92,7 +92,7 @@ var algo;
         startFetch(0, 0, true); // retry
       }
     }
-}
+
     
     function getFirstProp(obj) {
       for (var i in obj) return obj[i];
