@@ -58,25 +58,57 @@ var g1 = function(algo) {abrirWindowG1 = w.open('http://g1.globo.com/', 'g1', 'w
 
 // * Wikipédia
 	var pwiki = function(algo) {
- 
-    $.ajax({
-        type: "GET",
-        url: "https://pt.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&exchars=450&exlimit=10&exintro=&explaintext=&exsectionformat=plain&titles=" +algo+ "&callback=onWikipedia&redirects=",
-        contentType: "application/json; charset=utf-8",
-        async: false,
-        dataType: "json",
-        success: function (data, textStatus, jqXHR) {
-            console.log(data);
+    
+    var textbox = document.getElementById("resposta");
 
-            var markup = data.query.pages["extract"];
-            var i = markup;
- 
-            d.getElementById('resposta').value = markup;
-        },
-        error: function (errorMessage) {
-        }
-    });
-
+    var tempscript = null, minchars, maxchars, attempts;
+    
+    function startFetch(minimumCharacters, maximumCharacters, isRetry) {
+      if (tempscript) return; // a fetch is already in progress
+      if (!isRetry) {
+        attempts = 0;
+        minchars = minimumCharacters; // save params in case retry needed
+        maxchars = maximumCharacters;
+      }
+      tempscript = document.createElement("script");
+      tempscript.type = "text/javascript";
+      tempscript.id = "tempscript";
+      tempscript.src = "http://pt.wikipedia.org/w/api.php"
+        + "?action=query&titles="+algo+"&prop=extracts"
+        + "&exchars="+maxchars+"&format=json&callback=onFetchComplete&requestid=&redirects="
+        + Math.floor(Math.random()*999999).toString();
+      document.body.appendChild(tempscript);
+      // onFetchComplete invoked when finished
+    }
+    
+    function onFetchComplete(data) {
+      document.body.removeChild(tempscript);
+      tempscript = null
+      var s = getFirstProp(data.query.pages).extract;
+      s = htmlDecode(stripTags(s));
+      if (s.length > minchars || attempts++ > 5) {
+        textbox.value = s;
+      } else {
+        startFetch(0, 0, true); // retry
+      }
+    }
+    
+    function getFirstProp(obj) {
+      for (var i in obj) return obj[i];
+    }
+    
+    // This next bit borrowed from Prototype / hacked together
+    // You may want to replace with something more robust
+    function stripTags(s) {
+      return s.replace(/<\w+(\s+("[^"]*"|'[^']*'|[^>])+)?>|<\/\w+>/gi, "");
+    }
+    function htmlDecode(input){
+      var e = document.createElement("div");
+      e.innerHTML = input;
+      return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+    }
+    
+startFetch(100, 500);
 };
 
 // * Bing
