@@ -58,34 +58,34 @@ var g1 = function(algo) {abrirWindowG1 = w.open('http://g1.globo.com/', 'g1', 'w
 
 // * Wikipédia
 	var pwiki = function(algo) {
-var url = "https://pt.wikipedia.org/wiki/"+algo;
-var title = url.split("/");
-title = title[title.length - 1];
-
-//Get Leading paragraphs (section 0)
-$.getJSON("https://pt.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&exchars=450&exlimit=10&exintro=&explaintext=&exsectionformat=plain&titles=" + algo + "&callback=?&redirects=", function (data) {
-    for (text in data.parse.text) {
-        var pText = "";
-
-            text[p] = text[p][0];
-
-            //Construct a string from paragraphs
-            if (text[p].indexOf("</p>") == text[p].length - 5) {
-                var htmlStrip = text[p].replace(/<(?:.|\n)*?>/gm, '') //Remove HTML
-                var splitNewline = htmlStrip.split(/\r\n|\r|\n/); //Split on newlines
-                for (newline in splitNewline) {
-                    if (splitNewline[newline].substring(0, 11) != "Cite error:") {
-                        pText += splitNewline[newline];
-                        pText += "\n ";
-                    }
-                }
-            }
+    $.ajax({
+        type: "GET",
+        url: "http://en.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&exchars=450&exlimit=10&exintro=&explaintext=&exsectionformat=plain&titles=" +algo+ "&redirects=&callback=? ",
+        contentType: "application/json; charset=utf-8",
+        async: false,
+        dataType: "json",
+        success: function (data, textStatus, jqXHR) {
+ 
+            var markup = data.parse.text["*"];
+            var blurb = $('<div></div>').html(markup);
+ 
+            // remove links as they will not work
+            blurb.find('a').each(function() { $(this).replaceWith($(this).html()); });
+ 
+            // remove any references
+            blurb.find('sup').remove();
+ 
+            // remove cite error
+            blurb.find('.mw-ext-cite-error').remove();
+            $('#resposta').val($(blurb).find('p'));
+ 
+        },
+        error: function (errorMessage) {
         }
-        pText = pText.substring(0, pText.length - 2); //Remove extra newline
-        pText = pText.replace(/\[\d+\]/g, ""); //Remove reference tags (e.x. [1], [4], etc)
-        document.getElementById('resposta').value = pText; voz();
-
+    });
 });
+
+};
 
 // * Bing
 	var bing = function(algo) {abrirWindowB = w.open('http://bing.com/', 'bing', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Certo. Vou abrir o Bing."; voz();};
