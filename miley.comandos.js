@@ -59,9 +59,9 @@ var g1 = function(algo) {abrirWindowG1 = w.open('http://g1.globo.com/', 'g1', 'w
 // * Wikipédia
 	var pwiki = function() {startFetch(100, 500);}
     
-function(algo) {
+function() {
     var textbox = document.getElementById("resposta");
-
+var algo;
     var tempscript = null, minchars, maxchars, attempts;
     
     function startFetch(minimumCharacters, maximumCharacters, isRetry) {
