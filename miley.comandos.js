@@ -58,31 +58,22 @@ var g1 = function(algo) {abrirWindowG1 = w.open('http://g1.globo.com/', 'g1', 'w
 
 // * Wikipédia
 	var pwiki = function(algo) {
+
+  $(document).ready(function(){
+ 
     $.ajax({
         type: "GET",
-        url: "https://pt.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&exchars=450&exlimit=10&exintro=&explaintext=&exsectionformat=plain&titles=" +algo+ "&callback=?&redirects=",
+        url: "https://pt.wikipedia.org/w/api.php?action=parse&format=json&prop=text&section=0&page="+algo+"&redirects=&callback=?",
         contentType: "application/json; charset=utf-8",
         async: false,
         dataType: "json",
         success: function (data, textStatus, jqXHR) {
- 
-            var markup = data.parse.text["*"];
-            var blurb = $('<div></div>').html(markup);
- 
-            // remove links as they will not work
-            blurb.find('a').each(function() { $(this).replaceWith($(this).html()); });
- 
-            // remove any references
-            blurb.find('sup').remove();
- 
-            // remove cite error
-            blurb.find('.mw-ext-cite-error').remove();
-            $('#resposta').val($(blurb).find('p'));
- 
+            console.log(data);
         },
         error: function (errorMessage) {
         }
     });
+});
 
 };
 
