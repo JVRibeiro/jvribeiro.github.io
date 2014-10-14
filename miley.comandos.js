@@ -77,7 +77,6 @@ var g1 = function(algo) {abrirWindowG1 = w.open('http://g1.globo.com/', 'g1', 'w
         + "?action=query&titles="+algo+"&prop=extracts"
         + "&exchars="+maxchars+"&format=json&callback=onFetchComplete&requestid=&redirects="
         + Math.floor(Math.random()*999999).toString();
-      document.body.appendChild(tempscript);
       // onFetchComplete invoked when finished
     }
     
