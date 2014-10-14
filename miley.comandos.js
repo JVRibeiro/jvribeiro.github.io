@@ -71,7 +71,7 @@ var g1 = function(algo) {abrirWindowG1 = w.open('http://g1.globo.com/', 'g1', 'w
             console.log(data);
 
             var markup = data.parse.text["*"];
-            var i = $('<textarea></textarea>').val(markup);
+            var i = $('<div></div>').html(markup);
  
             // remove links as they will not work
             i.find('a').each(function() { $(this).replaceWith($(this).html()); });
