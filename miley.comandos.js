@@ -57,7 +57,7 @@ var g1 = function(algo) {abrirWindowG1 = w.open('http://g1.globo.com/', 'g1', 'w
 	var pgoogle = function(algo) {abrirWindowG = w.open('http://google.com/#q='+algo, 'google', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Okey. Vou procurar por "+algo+" no Google."; voz();};
 
 // * Wikipédia
-	var pwiki = function(algo) {startFetch(100, 500);}
+	var pwiki = function() {startFetch(100, 500);}
     
 function(algo) {
     var textbox = document.getElementById("resposta");
@@ -93,6 +93,7 @@ function(algo) {
         startFetch(0, 0, true); // retry
       }
     }
+}
     
     function getFirstProp(obj) {
       for (var i in obj) return obj[i];
