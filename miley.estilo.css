@@ -59,7 +59,7 @@ float: right;
 display: inline;
 float: center;
  }
- 
+
  #b_cc_m {
 visibility: hidden;
 }
@@ -125,8 +125,8 @@ margin-top: 0;
 
 #b_cc_m {
 visibility: visible;
-position: fixed; 
-top: 40px; 
+position: fixed;
+top: 40px;
 left: 5px;
 width: 30px;
 height: 20px;
@@ -229,11 +229,11 @@ right: 0;
 width: 1px;
 height: 1px;
 }
- 
+
 ::-webkit-scrollbar-track {
 background: transparent;
 }
- 
+
 ::-webkit-scrollbar-thumb {
 background: transparent;
 }
@@ -735,9 +735,9 @@ background: #67A3B;
   height: 100%;
   z-index: 999999999999999999999999999998;
   overflow: hidden;
-} 
+}
 
-#loadCap { 
+#loadCap {
   display: block;
   position: relative;
   top: 20px;
@@ -745,9 +745,9 @@ background: #67A3B;
   z-index: 12;
   color: #fff;
   font-family: Segoe UI Light, Segoe UI;
-} 
+}
 
-#loader { 
+#loader {
   display: block;
   position: relative;
   left: 50%;
@@ -779,7 +779,7 @@ background: #67A3B;
     -moz-animation: spin-reverse 2s linear infinite;
     -ms-animation: spin-reverse 2s linear infinite;
   }
-  
+
   #loader:after {
     content: "";
     position: absolute;
@@ -803,9 +803,9 @@ background: #67A3B;
         -ms-transform: rotate(0deg);
         transform: rotate(0deg);
     }
-    100% { 
-        -webkit-transform: rotate(360deg); 
-        -moz-transform: rotate(360deg); 
+    100% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
         -ms-transform: rotate(360deg);
         transform: rotate(360deg);
     }
@@ -818,9 +818,9 @@ background: #67A3B;
         -ms-transform: rotate(0deg);
         transform: rotate(0deg);
     }
-    100% { 
-        -webkit-transform: rotate(360deg); 
-        -moz-transform: rotate(360deg); 
+    100% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
         -ms-transform: rotate(360deg);
         transform: rotate(360deg);
     }
@@ -833,9 +833,9 @@ background: #67A3B;
         -ms-transform: rotate(0deg);
         transform: rotate(0deg);
     }
-    100% { 
-        -webkit-transform: rotate(360deg); 
-        -moz-transform: rotate(360deg); 
+    100% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
         -ms-transform: rotate(360deg);
         transform: rotate(360deg);
     }
@@ -848,9 +848,9 @@ background: #67A3B;
         -ms-transform: rotate(0deg);
         transform: rotate(0deg);
     }
-    100% { 
-        -webkit-transform: rotate(360deg); 
-        -moz-transform: rotate(360deg); 
+    100% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
         -ms-transform: rotate(360deg);
         transform: rotate(360deg);
     }
@@ -945,9 +945,9 @@ display: none;
 }
 
 #miley_idioma {
-width: 200px; 
-background: #000; 
-color: #fff; 
+width: 200px;
+background: #000;
+color: #fff;
 position: relative;
 font-family: Segoe UI Light, Arial, sans-serif;
 font-size: 11pt;
@@ -957,9 +957,9 @@ border: none;
 }
 
 .miley_gen {
-width: 200px; 
-background: #000; 
-color: #fff; 
+width: 200px;
+background: #000;
+color: #fff;
 position: relative;
 font-family: Segoe UI Light, Arial, sans-serif;
 font-size: 11pt;
@@ -981,8 +981,8 @@ bottom: 0px;
 }
 
 .options {
-position: fixed; 
-top: 5px; 
+position: fixed;
+top: 5px;
 left: 3px;
 cursor: pointer;
 width: 35px;
@@ -1048,4 +1048,20 @@ font-family: Segoe UI Light, Segoe UI, sans-serif;
 }
 100% {box-shadow: 0 0 20px #EE56FC, inset 0 0 20px #EE56FC;
 }
+}
+
+/* * Relogio digital * */
+#rel {border: 1px solid #fff; width: 150px; padding: 5px; z-index: 10; box-shadow: 0 0 15px #ee56fc, inset 0 0 15px #ee56fc;}
+
+#hor {color: #fff; font-family: Agency FB, Segoe UI, sans-serif; font-size: 45pt; text-shadow: 0 0 20px #EE56FC; background: transparent; width: 50px; border-right-color: #ee56fc; border-top-color: transparent; border-left-color: transparent; border-bottom-color:transparent; z-index: 1;}
+#min {color: #fff; font-family: Agency FB, Segoe UI, sans-serif; font-size: 45pt; text-shadow: 0 0 20px #EE56FC; background: transparent; width: 50px; border: none; z-index: 1;}
+#seg {color: #fff; font-family: Agency FB, Segoe UI, sans-serif; font-size: 18pt; vertical-align: top; text-shadow: 0 0 10px #EE56FC; background: transparent; width: 20px; border: none; z-index: 2;}
+
+#rel-decoracao {display: block; position: fixed; top: 300px; left: 200px; width: 150px; height: 150px; margin: -75px 0 0 -75px; border-radius: 50%; border: 3px solid transparent; z-index: 1;}
+#rel-decoracao:before {content: ""; padding: 20px; position: absolute; top: -13px; left: -13px; right: -13px; bottom: -13px; border-radius: 50%; border: 3px solid transparent; border-top-color: #EE56FC; border-right-color: #EE56FC; border-bottom-color: #EE56FC; -webkit-animation: spin 60s linear infinite; z-index: 1;}
+#rel-decoracao:after {content: ""; position: absolute; top: 12px; left: 12px; right: 12px; bottom: 12px; border-radius: 50%; border: 3px solid transparent; border-top-color: #ee56fc; -webkit-animation: spin 1s linear infinite; z-index: 1;}
+
+@-webkit-keyframes spin {
+0% {-webkit-transform: rotate(0deg);}
+100% {-webkit-transform: rotate(360deg);}
 }

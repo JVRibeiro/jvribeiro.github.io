@@ -16,7 +16,7 @@ Miley BETA
 
 	</head>
 
-<body onLoad="mileyIni(); getHist()">
+<body onLoad="mileyIni(); getHist(); clock()">
 
 
 		<div id="loader-wrapper">
@@ -36,6 +36,11 @@ Miley BETA
 	<div class="In"></div><!-- Ciclo interno -->
 		</center>
 
+<div id="rel-decoracao">
+	<div id='rel'>
+<input id='hor'></span> <input id='min'></span> <sup><input id='seg'></span></sup>
+	</div>
+</div>
 
 		<center>
 	<form name="miley">
@@ -133,38 +138,38 @@ Histórico	</li>
 
   <button class="close" onClick="closeConfig()" title="Fechar configurações">x</button>
 		</div><!-- .config -->
-  
+
 <script>
-var Unome = d.getElementById('userName'); 
+var Unome = d.getElementById('userName');
 var gUnome = w.localStorage.getItem('nome');
 var Ugenero = d.getElementById('gen');
 function autocom() {d.getElementById("userName").value = gUnome;};
 function salvarDados() {
-	w.localStorage.setItem('nome',Unome.value); 
-	w.localStorage.setItem('genero',Ugenero.value); 
+	w.localStorage.setItem('nome',Unome.value);
+	w.localStorage.setItem('genero',Ugenero.value);
 	setTimeout(d.location.href = "", 2000);
-} 
+}
 function apagarDados() {
-confirmar = confirm("Seus dados não poderão ser recuperados.\n\n Você tem certeza que deseja apagar seus dados?"); 
+confirmar = confirm("Seus dados não poderão ser recuperados.\n\n Você tem certeza que deseja apagar seus dados?");
 	if (confirmar == true) {
-		w.localStorage.clear(); 
-		alert("Seus dados foram apagados. Aperte Ok para atualizar."); 
+		w.localStorage.clear();
+		alert("Seus dados foram apagados. Aperte Ok para atualizar.");
 		setTimeout(d.location.href = "", 2000);
 } else {return false;}
-}; 
-dialog = d.getElementById('dialogo'); 
+};
+dialog = d.getElementById('dialogo');
 function getHist() {
 	w.localStorage.getItem('dialog');
-} 
+}
 function saveHist() {
 	w.localStorage.setItem('histórico',dialog.value);
-} 
+}
 function clearHist() {
-	w.localStorage.removeItem('histórico'); 
+	w.localStorage.removeItem('histórico');
 	setTimeout(d.location.href = "", 2000);
-} 
+}
 function clearNome() {
-	w.localStorage.removeItem('nome'); 
+	w.localStorage.removeItem('nome');
 	setTimeout(d.location.href = "", 2000);
 };
 </script>
@@ -176,13 +181,13 @@ function clearNome() {
 <br>
 
 O Projeto Miley A.I. está licenciado com <br>
-uma Licença 
+uma Licença
 <a rel="license" onClick="d.location.href = 'http://creativecommons.org/licenses/by/2.0/br/';">
 Creative Commons Atribuição 2.0 Brasil
 </a>.
 
 <br>
-"Miley A.I." é um projeto de 
+"Miley A.I." é um projeto de
 	<a rel="nofollow" title="Twitter (@JVRibeiiro)" onClick="abrir('http://twitter.com/JVRibeiiro')">
 	Victor Ribeiro
 	</a>.

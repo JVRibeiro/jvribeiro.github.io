@@ -25,17 +25,17 @@ var agora = new Date();
 var hora = agora.getHours(), min = agora.getMinutes(), seg = agora.getSeconds(), ano = agora.getFullYear(), dia = agora.getDate();
 var idade = 2014 - ano + " anos";
 var mes = new Array();
-    mes[0] = "Janeiro"; 
-    mes[1] = "Fevereiro"; 
-    mes[2] = "Março"; 
-    mes[3] = "Abril"; 
-    mes[4] = "Maio"; 
-    mes[5] = "Junho"; 
-    mes[6] = "Julho"; 
-    mes[7] = "Agosto"; 
-    mes[8] = "Setembro"; 
-    mes[9] = "Outubro"; 
-    mes[10] = "Novembro"; 
+    mes[0] = "Janeiro";
+    mes[1] = "Fevereiro";
+    mes[2] = "Março";
+    mes[3] = "Abril";
+    mes[4] = "Maio";
+    mes[5] = "Junho";
+    mes[6] = "Julho";
+    mes[7] = "Agosto";
+    mes[8] = "Setembro";
+    mes[9] = "Outubro";
+    mes[10] = "Novembro";
     mes[11] = "Dezembro";
 var sem = new Array();
     sem[0] = "Domingo";
@@ -79,7 +79,6 @@ imagem.src = "tb.png"; // BLOQUEADO
 imagem_m.src = "tb.png"; // BLOQUEADO
 imagem.title = "Teclado bloqueado"; imagem_m.title = "Teclado bloqueado";
 }
-
 else {
 d.getElementById("teclado").style.display = "block";
 d.getElementById("locked").style.display = "none";
@@ -89,6 +88,17 @@ imagem_m.src = "tp.png"; // PERMITIDO
 imagem.title = "Teclado desbloqueado";
 imagem_m.title = "Teclado desbloqueado";
  }
+};
+
+function clock() {
+now = new Date(); h = now.getHours(); m = now.getMinutes(); s = now.getSeconds();
+strSeg = new String (s); if (strSeg.length == 1) {s = "0"+s};
+strMin = new String (m); if (strMin.length == 1) {m = "0"+m};
+strHor = new String (h); if (strHor.length == 1) {h = "0"+h};
+  d.getElementById('hor').value = h;
+  d.getElementById('min').value = m;
+  d.getElementById('seg').value = s;
+     setInterval("clock()",1000);
 };
 
   var brain = new Array (
@@ -277,17 +287,17 @@ loop;
 function abrirAjuda() {
 var EaDsJvCr = new Array (new Array ("Abrir ajuda"));
 for (train=0; train < EaDsJvCr.length; train++) {
- d.miley.Texto.value = EaDsJvCr[train]; 
+ d.miley.Texto.value = EaDsJvCr[train];
   rotina()
  }
 };
 //
 function abrir(URL) {w.open(URL,'janela','width=550, height=640, top=25, left=400, toolbar=no, fullscreen=yes');};
 //
-// ****************************************** 
+// ******************************************
 // ** Menu de contexto com botão direto do mouse.
 // ** Script por: Henrique Barcelos.
-// ** link: http://forum.imasters.com.br/topic/374916-menu-de-contexto-personalizado-boto-direito-do-mouse/ 
+// ** link: http://forum.imasters.com.br/topic/374916-menu-de-contexto-personalizado-boto-direito-do-mouse/
 
 function click(e){d.getElementById("right_btn").innerHTML="";var t=d.getElementById("context_menu");var n=e||event;if(n.button==2||n.button==3){mostrar(n);t.onmouseout=function(e){var t=e||event;var n=t.relatedTarget||t.toElement;if(n.nodeName!="LI"){}}}if(n.button==0||n.button==1){esconder()}}function mostrar(e){var t=d.getElementById("context_menu");t.style.display="block";t.style.top=e.clientY+0+"px";t.style.left=e.clientX+2+"px"}function esconder(){setTimeout(function(){var e=d.getElementById("context_menu");e.style.display="none"},300)}d.onmousedown=click;d.oncontextmenu=function(){return false};
 //

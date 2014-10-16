@@ -10,9 +10,8 @@
 
 // * ------------------------------------------------------
 // * miley.comandos.js
-// * Versão: 1.0.7
-// * Autor: Victor Ribeiro (@JVRibeiiro)
-// * ------------------------------------------------------
+// * versão	: 1.0.7
+// * autor	: Victor Ribeiro @JVRibeiiro
 "use strict";
 
 var w = window;
@@ -41,10 +40,10 @@ if (annyang) {
 	var fbalbum = function(facebook) {abrirFb = w.open('http://www.facebook.com/photos.php', 'facebook', 'width=1400, height=740, top=25, left=0'); d.getElementById("resposta").value = "Aguarde. Vou abrir suas fotos do feicebook."; voz();};
 	var fbmensagens = function(facebook) {abrirFb = w.open('http://www.facebook.com/messages', 'facebook', 'width=1400, height=740, top=25, left=0'); d.getElementById("resposta").value = "Vou tentar abrir suas mensagens."; voz();};
 	var fbnotificacoes = function(facebook) {abrirFb = w.open('http://www.facebook.com/notifications.php', 'facebook', 'width=1400, height=740, top=25, left=0'); d.getElementById("resposta").value = "Certo. Estou abrindo suas notificações."; voz();};
-	
+
 // Pesquisa global nos navegadores mais conhecidos - Google, Bing, Yahoo
 	var p_global = function(algo) {
-		abrirWindowG = w.open('http://google.com/#q='+algo, 'google', 'width=700, height=700, top=25, left=0'); 
+		abrirWindowG = w.open('http://google.com/#q='+algo, 'google', 'width=700, height=700, top=25, left=0');
 		abrirWindowB = w.open('http://bing.com/search?q='+algo, 'bing', 'width=700, height=700, top=25, left=500');
 		abrirWindowY = w.open('http://br.search.yahoo.com/search;_ylt=Anmgv8ykk.JD03hZwN3Ah2eU7q5_?p='+algo+'&toggle=1&cop=mss&ei=UTF-8&fr=yfp-t-403&fp=1', 'yahoo', 'width=800, height=700, top=25, left=800');
 	d.getElementById("resposta").value = "Tá bom. Vou procurar nos melhores mecanismos de buscas por "+algo+"."; voz();};
@@ -58,11 +57,11 @@ var g1 = function(algo) {abrirWindowG1 = w.open('http://g1.globo.com/', 'g1', 'w
 
 // * Wikipédia
 	var pwiki = function() {startFetch(100, 500);}
-    
+
     var textbox = document.getElementById("resposta");
 var algo;
     var tempscript = null, minchars, maxchars, attempts;
-    
+
     function startFetch(minimumCharacters, maximumCharacters, isRetry) {
       if (tempscript) return; // a fetch is already in progress
       if (!isRetry) {
@@ -80,7 +79,7 @@ var algo;
       document.body.appendChild(tempscript);
       // onFetchComplete invoked when finished
     }
-    
+
     function onFetchComplete(data) {
       document.body.removeChild(tempscript);
       tempscript = null
@@ -93,23 +92,11 @@ var algo;
       }
     }
 
-    
+
     function getFirstProp(obj) {
       for (var i in obj) return obj[i];
-    }
-    
-    // This next bit borrowed from Prototype / hacked together
-    // You may want to replace with something more robust
-    function stripTags(s) {
-      return s.replace(/<\w+(\s+("[^"]*"|'[^']*'|[^>])+)?>|<\/\w+>/gi, "");
-    }
-    function htmlDecode(input){
-      var e = document.createElement("div");
-      e.innerHTML = input;
-      return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
-    }
+    };
 
-    
 // * Bing
 	var bing = function(algo) {abrirWindowB = w.open('http://bing.com/', 'bing', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Certo. Vou abrir o Bing."; voz();};
 	var pbing = function(algo) {abrirWindowB = w.open('http://bing.com/search?q='+algo, 'bing', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Certo. Vou usar o Bing para fazer a busca."; voz();};
@@ -235,10 +222,10 @@ var algo;
 
 // * Abre uma pop-up de ajuda
 	var ajuda = function abrirA() {abrirWindowA = w.open('ajuda.html', 'ajuda', 'width=500, height=700, top=25, left=0'); abrirAjuda(); voz();};
-	
+
 // * Bloqueia ou desbloqueia o teclado
 	var cap = function() {c_cc()};
-	
+
 	var lembrarNome = function(nome) {
 	d.getElementById("userName").value = nome;
 	salvarDados();
@@ -246,7 +233,7 @@ var algo;
 
 	var config = function() {config_voice(); autocom()};
 	var closeConfig = function() {closeConfig_voice()};
-	
+
 	var fb_close = function() {abrirFb.close()};
 	var pgoogle_close = function() {abrirWindowG.close()};
 	var pbing_close = function() {abrirWindowB.close()};
@@ -297,7 +284,7 @@ var commands = {
 	'ajuda':				ajuda,
 	'o que (eu) posso dizer (miley)':	ajuda,
 	'(agora) fecha(r) (a) (página de) ajuda (aí) (pra mim) (por favor) (miley) (por favor)':	ajuda_close,
-// * Histórico de conversa	
+// * Histórico de conversa
 	'me mostr(a)(e)(r) (noss)(o) histórico (de conversa)(ção) (por favor) (miley) (por favor)':	dialog_true,
 	'mostr(a)(e)(r) (noss)(o) histórico (de conversa)(ção) (por favor) (miley) (por favor)':	dialog_true,
 	'fecha(r) (noss)(o)(esse) histórico (de conversa)(ção) (por favor) (miley) (por favor)':	dialog_false,
@@ -406,7 +393,7 @@ var commands = {
 	'má *repeat':		falar_mah,
 	'péssimo *repeat':	falar_pessimo,
 	'péssima *repeat':	falar_pessima,
-	
+
 // Mudar para o modo de conversa (não executa comandos)
 //	'quero conversar (miley)':	conversa, ************ Função desabilitada
 //	'modo de conversa (miley)':	conversa,
@@ -426,7 +413,7 @@ var commands = {
 	'mostra (o) (meu) feed (do) (face)(book) (por favor) (miley) (por favor)':	fb,
 	'volta pro feed (por favor) (miley) (por favor)':				fb,
 	'volta pro início (por favor) (miley) (por favor)':				fb,
-	
+
 	'me (mostra)(mostre-me) (as)(os) (publicações)(posts) (mais) recentes (do) face(book) (por favor) (miley) (por favor)':	fbrec,
 	'(mostra)(mostre-me) (as)(os) (publicações)(posts) (mais) recentes (do) face(book) (por favor) (miley) (por favor)':	fbrec,
 	'me (mostra)(mostre-me) (as)(os) (publicações)(posts) (mais) populares (do) face(book) (por favor) (miley) (por favor)':	fbpop,
@@ -471,7 +458,7 @@ var commands = {
 	'quanto é *algo':						pgoogle,
 	'google *algo':							pgoogle,
 	'(agora) fech(a)(o)(e)(r) (o) google (aí) (pra mim) (miley)':		pgoogle_close,
-	
+
 	// Yahoo!
 	'(abre) (aí) (o) yahoo (pra mim) (miley)':			yahoo,
 	'pesquis(a)(e)(r) no yahoo *algo':				pyahoo,
@@ -479,12 +466,12 @@ var commands = {
 	'pesquisa(r) (por) *algo no yahoo':				pyahoo,
 	'yahoo *algo':							pyahoo,
 	'(agora) fech(a)(o)(e)(r) (o) yahoo (aí) (pra mim) (miley)':		pyahoo_close,
-	
+
 	'(procura)(vê)(olha) na wikipédia quem (é)(foi)(era) *algo':			pwiki,
 	'(procura)(vê)(olha) na wikipédia o que (é)(foi)(era) *algo':			pwiki,
 	'procur(a)(o)(e)(r) p(or)(elo)(s)(ela)(s) *algo na wikipédia':		pwiki,
 	'(agora) fech(a)(o)(e)(r) (o)(a) wikipédia (aí) (pra mim) (miley)':	pwiki_close,
-	
+
 // 8
 	'(abre)(abrir) (o) bing (miley)':			bing,
 	'pesquis(a)(o)(e)(r) *algo no bing':				pbing,
@@ -512,8 +499,8 @@ var commands = {
 	'(procura)(acha)(pesquisa) (um) vídeo(s) d(e)(o)(a)(os)(as) *video':	pbing_vid
 };
 
-annyang.debug(); 
-annyang.addCommands(commands); 
+annyang.debug();
+annyang.addCommands(commands);
 annyang.setLanguage('pt-BR');
 annyang.addCallback('resultNoMatch', function() {d.getElementById("texto").value = "Comando desconhecido."; _EaDsVr();
 });
