@@ -98,7 +98,7 @@ strHor = new String (h); if (strHor.length == 1) {h = "0"+h};
   d.getElementById('hor').value = h;
   d.getElementById('min').value = m;
   d.getElementById('seg').value = s;
-     setInterval("clock()",1000);
+     setTimeout("clock()",1000);
 };
 
   var brain = new Array (
