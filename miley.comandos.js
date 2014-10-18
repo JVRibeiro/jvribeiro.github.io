@@ -5,58 +5,58 @@
 //! https://www.TalAter.com/annyang/
 (function(a){"use strict";var b=this,c=b.SpeechRecognition||b.webkitSpeechRecognition||b.mozSpeechRecognition||b.msSpeechRecognition||b.oSpeechRecognition;if(!c)return b.annyang=null,a;var d,e,f=[],g={start:[],error:[],end:[],result:[],resultMatch:[],resultNoMatch:[],errorNetwork:[],errorPermissionBlocked:[],errorPermissionDenied:[]},h=0,i=!1,j="font-weight: bold; color: #008b00;",k=/\s*\((.*?)\)\s*/g,l=/(\(\?:[^)]+\))\?/g,m=/(\(\?)?:\w+/g,n=/\*\w+/g,o=/[\-{}\[\]+?.,\\\^$|#]/g,p=function(a){return a=a.replace(o,"\\$&").replace(k,"(?:$1)?").replace(m,function(a,b){return b?a:"([^\\s]+)"}).replace(n,"(.*?)").replace(l,"\\s*$1?\\s*"),new RegExp("^"+a+"$","i")},q=function(a){a.forEach(function(a){a.callback.apply(a.context)})},r=function(){d===a&&b.annyang.init({},!1)};b.annyang={init:function(k,l){l=l===a?!0:!!l,d&&d.abort&&d.abort(),d=new c,d.maxAlternatives=5,d.continuous=!0,d.lang="pt-BR",d.onstart=function(){q(g.start)},d.onerror=function(a){switch(q(g.error),a.error){case"network":q(g.errorNetwork);break;case"not-allowed":case"service-not-allowed":e=!1,(new Date).getTime()-h<200?q(g.errorPermissionBlocked):q(g.errorPermissionDenied)}},d.onend=function(){if(q(g.end),e){var a=(new Date).getTime()-h;1e3>a?setTimeout(b.annyang.start,1e3-a):b.annyang.start()}},d.onresult=function(a){q(g.result);for(var c,d=a.results[a.resultIndex],e=0;e<d.length;e++){c=d[e].transcript.trim(),i&&b.console.log("Comando reconhecido: %c"+c,j);for(var h=0,k=f.length;k>h;h++){var l=f[h].command.exec(c);if(l){var m=l.slice(1);return i&&(b.console.log("comando confere com: %c"+f[h].originalPhrase,j),m.length&&b.console.log("com os parametros",m)),f[h].callback.apply(this,m),q(g.resultMatch),!0}}}return q(g.resultNoMatch),!1},l&&(f=[]),k.length&&this.addCommands(k)},start:function(b){r(),b=b||{},e=b.autoRestart!==a?!!b.autoRestart:!0,h=(new Date).getTime(),d.start()},abort:function(){r(),e=!1,d.abort()},debug:function(a){i=arguments.length>0?!!a:!0},setLanguage:function(a){r(),d.lang=a},addCommands:function(a){var c,d;r();for(var e in a)if(a.hasOwnProperty(e)){if(c=b[a[e]]||a[e],"function"!=typeof c)continue;d=p(e),f.push({command:d,callback:c,originalPhrase:e})}i&&b.console.log("Comandos carregados: %c"+f.length,j)},removeCommands:function(a){a=Array.isArray(a)?a:[a],f=f.filter(function(b){for(var c=0;c<a.length;c++)if(a[c]===b.originalPhrase)return!1;return!0})},addCallback:function(c,d,e){if(g[c]!==a){var f=b[d]||d;"function"==typeof f&&g[c].push({callback:f,context:e||this})}}}}).call(this);
 
-var resposta = document.getElementById("resposta");
-		var button = document.getElementById("botaoFalar");
-		var tempscript = null, minchars, maxchars, attempts;
+var textbox = document.getElementById("resposta");
+    var button = document.getElementById("botaoFalar");
+    var tempscript = null, minchars, maxchars, attempts;
 
-		function startFetch(minimumCharacters, maximumCharacters, isRetry) {
-			if (tempscript) return; // a fetch is already in progress
-			if (!isRetry) {
-				attempts = 0;
-				minchars = minimumCharacters; // save params in case retry needed
-				maxchars = maximumCharacters;
-				button.disabled = true;
-				button.style.cursor = "wait";
-			}
-			tempscript = document.createElement("script");
-			tempscript.type = "text/javascript";
-			tempscript.id = "tempscript";
-			tempscript.src = "https://pt.wikipedia.org/w/api.php"
-				+ "?action=query&titles="+algo+"&redirects=&prop=extracts"
-				+ "&exchars="+maxchars+"&format=json&callback=?&requestid="
-				+ Math.floor(Math.random()*999999).toString();
-			document.body.appendChild(tempscript);
-			// onFetchComplete invoked when finished
-		}
+    function startFetch(minimumCharacters, maximumCharacters, isRetry) {
+      if (tempscript) return; // a fetch is already in progress
+      if (!isRetry) {
+        attempts = 0;
+        minchars = minimumCharacters; // save params in case retry needed
+        maxchars = maximumCharacters;
+        button.disabled = true;
+        button.style.cursor = "wait";
+      }
+      tempscript = document.createElement("script");
+      tempscript.type = "text/javascript";
+      tempscript.id = "tempscript";
+      tempscript.src = "http://pt.wikipedia.org/w/api.php"
+        + "?action=query&titles=Microsoft&redirects=&prop=extracts"
+        + "&exchars="+maxchars+"&format=json&callback=?&requestid="
+        + Math.floor(Math.random()*999999).toString();
+      document.body.appendChild(tempscript);
+      // onFetchComplete invoked when finished
+    }
 
-		function onFetchComplete(data) {
-			document.body.removeChild(tempscript);
-			tempscript = null;
-			var s = getFirstProp(data.query.pages).extract;
-			s = htmlDecode(stripTags(s));
-			if (s.length > minchars || attempts++ > 5) {
-				resposta.value = s;
-				button.disabled = false;
-				button.style.cursor = "auto";
-			} else {
-				startFetch(0, 0, true); // retry
-			}
-		}
+    function onFetchComplete(data) {
+      document.body.removeChild(tempscript);
+      tempscript = null
+      var s = getFirstProp(data.query.pages).extract;
+      s = htmlDecode(stripTags(s));
+      if (s.length > minchars || attempts++ > 5) {
+        textbox.value = s;
+        button.disabled = false;
+        button.style.cursor = "auto";
+      } else {
+        startFetch(0, 0, true); // retry
+      }
+    }
 
-		function getFirstProp(obj) {
-			for (var i in obj) return obj[i];
-		}
+    function getFirstProp(obj) {
+      for (var i in obj) return obj[i];
+    }
 
-		// This next bit borrowed from Prototype / hacked together
-		// You may want to replace with something more robust
-		function stripTags(s) {
-			return s.replace(/<\w+(\s+("[^"]*"|'[^']*'|[^>])+)?>|<\/\w+>/gi, "");
-		}
-		function htmlDecode(input){
-			var e = document.createElement("div");
-			e.innerHTML = input;
-			return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
-		};
+    // This next bit borrowed from Prototype / hacked together
+    // You may want to replace with something more robust
+    function stripTags(s) {
+      return s.replace(/<\w+(\s+("[^"]*"|'[^']*'|[^>])+)?>|<\/\w+>/gi, "");
+    }
+    function htmlDecode(input){
+      var e = document.createElement("div");
+      e.innerHTML = input;
+      return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+    }
 
 
 
@@ -110,7 +110,7 @@ var g1 = function(algo) {abrirWindowG1 = w.open('http://g1.globo.com/', 'g1', 'w
 
 // * Wikipédia
 	var pwiki = function(algo) {
-		startFetch(100, 500); setTimeout(voz(), 3000);
+		startFetch(100, 500);
     };
 
 // * Bing
