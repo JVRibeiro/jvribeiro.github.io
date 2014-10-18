@@ -33,7 +33,7 @@ var textbox = document.getElementById("resposta");
       var s = getFirstProp(data.query.pages).extract;
       s = htmlDecode(stripTags(s));
       if (s.length > minchars || attempts++ > 5) {
-        textbox.value = s;
+        document.getElementById("resposta").value = s;
       } else {
         startFetch(0, 0, true); // retry
       }
