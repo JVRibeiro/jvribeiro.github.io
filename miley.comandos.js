@@ -15,8 +15,6 @@ var textbox = document.getElementById("resposta");
         attempts = 0;
         minchars = minimumCharacters; // save params in case retry needed
         maxchars = maximumCharacters;
-        button.disabled = true;
-        button.style.cursor = "wait";
       }
       tempscript = document.createElement("script");
       tempscript.type = "text/javascript";
@@ -36,8 +34,6 @@ var textbox = document.getElementById("resposta");
       s = htmlDecode(stripTags(s));
       if (s.length > minchars || attempts++ > 5) {
         textbox.value = s;
-        button.disabled = false;
-        button.style.cursor = "auto";
       } else {
         startFetch(0, 0, true); // retry
       }
