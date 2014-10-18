@@ -85,7 +85,7 @@ var resposta = document.getElementById("resposta");
       document.body.removeChild(tempscript);
       tempscript = null
       var s = getFirstProp(data.query.pages).extract;
-      s = htmlDecode(stripTags(s));
+      
       if (s.length > minchars || attempts++ > 5) {
         resposta.value = s;
         button.disabled = false;
