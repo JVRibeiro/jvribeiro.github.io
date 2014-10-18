@@ -85,7 +85,7 @@ var resposta = document.getElementById("resposta");
       document.body.removeChild(tempscript);
       tempscript = null
       var s = getFirstProp(data.query.pages).extract;
-
+s = htmlDecode(stripTags(s));
       if (s.length > minchars || attempts++ > 5) {
         resposta.value = s;
         button.disabled = false;
@@ -104,6 +104,11 @@ var resposta = document.getElementById("resposta");
     function stripTags(s) {
       return s.replace(/<\w+(\s+("[^"]*"|'[^']*'|[^>])+)?>|<\/\w+>/gi, "");
     }
+    function htmlDecode(input){
+      var e = document.createElement("div");
+      e.innerHTML = input;
+      return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+    };
 
 
 		startFetch(100, 500); setTimeout(voz(), 3000);
