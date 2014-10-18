@@ -104,11 +104,7 @@ var resposta = document.getElementById("resposta");
     function stripTags(s) {
       return s.replace(/<\w+(\s+("[^"]*"|'[^']*'|[^>])+)?>|<\/\w+>/gi, "");
     }
-    function htmlDecode(input){
-      var e = document.createElement("div");
-      e.innerHTML = input;
-      return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
-    }
+
 
 		startFetch(100, 500); setTimeout(voz(), 3000);
     };
