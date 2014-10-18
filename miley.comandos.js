@@ -56,10 +56,9 @@ var g1 = function(algo) {abrirWindowG1 = w.open('http://g1.globo.com/', 'g1', 'w
 	var pgoogle = function(algo) {abrirWindowG = w.open('http://google.com/#q='+algo, 'google', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Okey. Vou procurar por "+algo+" no Google."; voz();};
 
 // * Wikipédia
-	var pwiki = function() {startFetch(100, 500);}
-
-    var textbox = document.getElementById("resposta");
-var algo;
+	var pwiki = function(algo) {
+var resposta = document.getElementById("resposta");
+    var button = document.getElementById("botaoFalar");
     var tempscript = null, minchars, maxchars, attempts;
 
     function startFetch(minimumCharacters, maximumCharacters, isRetry) {
@@ -68,13 +67,15 @@ var algo;
         attempts = 0;
         minchars = minimumCharacters; // save params in case retry needed
         maxchars = maximumCharacters;
+        button.disabled = true;
+        button.style.cursor = "wait";
       }
       tempscript = document.createElement("script");
       tempscript.type = "text/javascript";
       tempscript.id = "tempscript";
       tempscript.src = "https://pt.wikipedia.org/w/api.php"
-        + "?action=query&titles="+algo+"&prop=extracts"
-        + "&exchars="+maxchars+"&format=json&callback=onFetchComplete&requestid=&redirects="
+        + "?action=query&titles="+algo+"&redirects=&prop=extracts"
+        + "&exchars="+maxchars+"&format=json&callback=onFetchComplete&requestid="
         + Math.floor(Math.random()*999999).toString();
       document.body.appendChild(tempscript);
       // onFetchComplete invoked when finished
@@ -86,15 +87,30 @@ var algo;
       var s = getFirstProp(data.query.pages).extract;
       s = htmlDecode(stripTags(s));
       if (s.length > minchars || attempts++ > 5) {
-        textbox.value = s;
+        resposta.value = s;
+        button.disabled = false;
+        button.style.cursor = "auto";
       } else {
         startFetch(0, 0, true); // retry
       }
     }
 
-
     function getFirstProp(obj) {
       for (var i in obj) return obj[i];
+    }
+
+    // This next bit borrowed from Prototype / hacked together
+    // You may want to replace with something more robust
+    function stripTags(s) {
+      return s.replace(/<\w+(\s+("[^"]*"|'[^']*'|[^>])+)?>|<\/\w+>/gi, "");
+    }
+    function htmlDecode(input){
+      var e = document.createElement("div");
+      e.innerHTML = input;
+      return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+    }
+
+		startFetch(100, 500); setTimeout(voz(), 3000);
     };
 
 // * Bing
@@ -467,6 +483,7 @@ var commands = {
 	'yahoo *algo':							pyahoo,
 	'(agora) fech(a)(o)(e)(r) (o) yahoo (aí) (pra mim) (miley)':		pyahoo_close,
 
+  'defina *algo': pwiki,
 	'(procura)(vê)(olha) na wikipédia quem (é)(foi)(era) *algo':			pwiki,
 	'(procura)(vê)(olha) na wikipédia o que (é)(foi)(era) *algo':			pwiki,
 	'procur(a)(o)(e)(r) p(or)(elo)(s)(ela)(s) *algo na wikipédia':		pwiki,

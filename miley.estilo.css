@@ -1053,7 +1053,7 @@ font-family: Segoe UI Light, Segoe UI, sans-serif;
 }
 
 /* * Relogio digital * */
-#rel {border: 1px solid #fff; width: 150px; padding: 5px; z-index: 10; box-shadow: 0 0 15px #ee56fc, inset 0 0 15px #ee56fc;}
+#rel {border: none; width: 150px; padding: 5px; z-index: 10;}
 
 #hor {color: #fff; font-family: Agency FB, Segoe UI, sans-serif; font-size: 45pt; text-shadow: 0 0 20px #EE56FC; background: transparent; width: 50px; border-right-color: #ee56fc; border-top-color: transparent; border-left-color: transparent; border-bottom-color:transparent; z-index: 1;}
 #min {color: #fff; font-family: Agency FB, Segoe UI, sans-serif; font-size: 45pt; text-shadow: 0 0 20px #EE56FC; background: transparent; width: 50px; border: none; z-index: 1;}
