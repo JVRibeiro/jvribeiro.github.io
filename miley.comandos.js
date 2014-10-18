@@ -23,7 +23,7 @@ var resposta = document.getElementById("resposta");
 			tempscript.id = "tempscript";
 			tempscript.src = "https://pt.wikipedia.org/w/api.php"
 				+ "?action=query&titles="+algo+"&redirects=&prop=extracts"
-				+ "&exchars="+maxchars+"&format=json&callback=onFetchComplete&requestid="
+				+ "&exchars="+maxchars+"&format=json&callback=?&requestid="
 				+ Math.floor(Math.random()*999999).toString();
 			document.body.appendChild(tempscript);
 			// onFetchComplete invoked when finished
