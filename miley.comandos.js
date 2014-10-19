@@ -51,13 +51,13 @@ if (annyang) {
   }
 
   function onFetchComplete(data) {
-    voz();
+
     document.body.removeChild(tempscript);
     tempscript = null
     var s = getFirstProp(data.query.pages).extract;
     s = htmlDecode(stripTags(s));
     if (s.length > minchars || attempts++ > 5) {
-      document.getElementById("resposta").value = s;
+      document.getElementById("resposta").value = s; voz();
     } else {
       startFetch(0, 0, true); // retry
 
