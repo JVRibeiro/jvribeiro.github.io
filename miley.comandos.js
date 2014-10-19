@@ -53,9 +53,7 @@ function startFetch(algo, minimumCharacters, maximumCharacters, isRetry) {
     for (var i in obj) return obj[i];
   }
   // You may want to replace with something more robust
-  function stripTags(s, data, query, pages) {
-    var s = getFirstProp(data.query.pages).extract; return s.replace(/<\w+(\s+("[^"]*"|'[^']*'|[^>])+)?>|<\/\w+>/gi, "");
-  }
+
   function htmlDecode(input){
     var e = document.createElement("div"); e.innerHTML = input; return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
   }
