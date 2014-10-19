@@ -51,6 +51,7 @@ if (annyang) {
   }
 
   function onFetchComplete(data) {
+    voz();
     document.body.removeChild(tempscript);
     tempscript = null
     var s = getFirstProp(data.query.pages).extract;
@@ -59,7 +60,7 @@ if (annyang) {
       document.getElementById("resposta").value = s;
     } else {
       startFetch(0, 0, true); // retry
-      voz();
+
     }
   }
 
