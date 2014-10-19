@@ -67,29 +67,6 @@ if (nome.length > 0 && gen == "você") {gen = "";};
 
 if(hora < 5.59) {saud = "Boa madrugada";} else if(hora < 8) {saud = "Bom dia";} else if(hora < 11.59) {saud = "Bom dia";} else if(hora < 18) {saud = "Boa tarde";} else {saud = "Boa noite";}
 
-function config() {d.getElementById('config').style.display = 'block';}; function closeConfig() {d.getElementById('config').style.display = 'none';};
-function config_voice() {d.getElementById('config').style.display = 'block';}; function closeConfig_voice() {d.getElementById('config').style.display = 'none';};
-
-function c_cc() {var imagem = d.getElementById('b_cc'); var imagem_m = d.getElementById('b_cc_m');
-if (imagem.src.match("tp")) {
-d.getElementById("teclado").style.display = "none";
-d.getElementById("locked").style.display = "block";
-d.getElementById("texto").value = lock; rotina(); voz(); espera();
-imagem.src = "tb.png"; // BLOQUEADO
-imagem_m.src = "tb.png"; // BLOQUEADO
-imagem.title = "Teclado bloqueado"; imagem_m.title = "Teclado bloqueado";
-}
-else if (imagem.src.match("tb")) {
-d.getElementById("teclado").style.display = "block";
-d.getElementById("locked").style.display = "none";
-d.getElementById("texto").value = unlock; rotina(); voz(); espera();
-imagem.src = "tp.png"; // PERMITIDO
-imagem_m.src = "tp.png"; // PERMITIDO
-imagem.title = "Teclado desbloqueado";
-imagem_m.title = "Teclado desbloqueado";
- }
-};
-
 function clock() {
 now = new Date(); h = now.getHours(); m = now.getMinutes(); s = now.getSeconds();
 strSeg = new String (s); if (strSeg.length == 1) {s = "0"+s};
