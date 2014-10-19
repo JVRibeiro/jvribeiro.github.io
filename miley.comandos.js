@@ -110,7 +110,7 @@ var g1 = function(algo) {abrirWindowG1 = w.open('http://g1.globo.com/', 'g1', 'w
 
 // * Wikipédia
 	var pwiki = function(algo) {
-		startFetch(algo, 100, 500);
+		startFetch(algo, 100, 500); voz();
     };
 
 // * Bing
