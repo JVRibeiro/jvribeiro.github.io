@@ -32,7 +32,7 @@ if (annyang) {
   var button = document.getElementById("botaoFalar");
   var tempscript = null, minchars, maxchars, attempts;
 
-  function startFetch(minimumCharacters, maximumCharacters, isRetry) {
+  function startFetch(algo, minimumCharacters, maximumCharacters, isRetry) {
     if (tempscript) return; // a fetch is already in progress
     if (!isRetry) {
       attempts = 0;
