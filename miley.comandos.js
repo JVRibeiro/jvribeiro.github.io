@@ -57,7 +57,7 @@ function startFetch(algo, minimumCharacters, maximumCharacters, isRetry) {
     var s = getFirstProp(data.query.pages).extract; return s.replace(/<\w+(\s+("[^"]*"|'[^']*'|[^>])+)?>|<\/\w+>/gi, "");
   }
   function htmlDecode(input){
-    var createDiv = document.createElement("div"); createDiv.innerHTML = input; return createDiv.childNodes.length === 0 ? "" : createDiv.childNodes[0].nodeValue;
+    var e = document.createElement("div"); e.innerHTML = input; return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
   }
 
 

@@ -276,7 +276,7 @@ function abrir(URL) {w.open(URL,'janela','width=550, height=640, top=25, left=40
 // ** Script por: Henrique Barcelos.
 // ** link: http://forum.imasters.com.br/topic/374916-menu-de-contexto-personalizado-boto-direito-do-mouse/
 
-function click(e){d.getElementById("right_btn").innerHTML="";var t=d.getElementById("context_menu");var n=e||event;if(n.button==2||n.button==3){mostrar(n);t.onmouseout=function(e){var t=e||event;var n=t.relatedTarget||t.toElement;if(n.nodeName!="LI"){}}}if(n.button==0||n.button==1){esconder()}}function mostrar(e){var t=d.getElementById("context_menu");t.style.display="block";t.style.top=e.clientY+0+"px";t.style.left=e.clientX+2+"px"}function esconder(){setTimeout(function(){var e=d.getElementById("context_menu");e.style.display="none"},300)}d.onmousedown=click;d.oncontextmenu=function(){return false};
+function click(z){d.getElementById("right_btn").innerHTML="";var t=d.getElementById("context_menu");var n=z||event;if(n.button==2||n.button==3){mostrar(n);t.onmouseout=function(z){var t=z||event;var n=t.relatedTarget||t.toElement;if(n.nodeName!="LI"){}}}if(n.button==0||n.button==1){esconder()}}function mostrar(z){var t=d.getElementById("context_menu");t.style.display="block";t.style.top=z.clientY+0+"px";t.style.left=z.clientX+2+"px"}function esconder(){setTimeout(function(){var z=d.getElementById("context_menu");z.style.display="none"},300)}d.onmousedown=click;d.oncontextmenu=function(){return false};
 //
 function voz() {
 var keyUm = "8f0b4a57a6ac49a683224f7bb8d795e9";
