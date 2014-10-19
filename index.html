@@ -172,6 +172,33 @@ function clearNome() {
 	w.localStorage.removeItem('nome');
 	setTimeout(d.location.href = "", 2000);
 };
+
+
+
+
+
+function config() {d.getElementById('config').style.display = 'block';}; function closeConfig() {d.getElementById('config').style.display = 'none';};
+function config_voice() {d.getElementById('config').style.display = 'block';}; function closeConfig_voice() {d.getElementById('config').style.display = 'none';};
+
+function c_cc() {var imagem = d.getElementById('b_cc'); var imagem_m = d.getElementById('b_cc_m');
+if (imagem.src.match("tp")) {
+d.getElementById("teclado").style.display = "none";
+d.getElementById("locked").style.display = "block";
+d.getElementById("texto").value = lock; rotina(); voz(); espera();
+imagem.src = "tb.png"; // BLOQUEADO
+imagem_m.src = "tb.png"; // BLOQUEADO
+imagem.title = "Teclado bloqueado"; imagem_m.title = "Teclado bloqueado";
+}
+else if (imagem.src.match("tb")) {
+d.getElementById("teclado").style.display = "block";
+d.getElementById("locked").style.display = "none";
+d.getElementById("texto").value = unlock; rotina(); voz(); espera();
+imagem.src = "tp.png"; // PERMITIDO
+imagem_m.src = "tp.png"; // PERMITIDO
+imagem.title = "Teclado desbloqueado";
+imagem_m.title = "Teclado desbloqueado";
+}
+};
 </script>
 
 		<div class="cc">
