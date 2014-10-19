@@ -92,7 +92,10 @@ var g1 = function(algo) {abrirWindowG1 = w.open('http://g1.globo.com/', 'g1', 'w
 	var pgoogle = function(algo) {abrirWindowG = w.open('http://google.com/#q='+algo, 'google', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Okey. Vou procurar por "+algo+" no Google."; voz();};
 
 // * Wikipédia
-	var pwiki = function(algo) {startFetch(algo, 100, 500);};
+  var pwiki = function(algo) {abrirWindowW = w.open('http://pt.wikipedia.org/wiki/'+algo, 'wiki', 'width=600, height=700, top=25, right=0')};
+
+// * Definições
+	var definir = function(algo) {startFetch(algo, 100, 500);};
 
 // * Bing
 	var bing = function(algo) {abrirWindowB = w.open('http://bing.com/', 'bing', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Certo. Vou abrir o Bing."; voz();};
@@ -464,7 +467,7 @@ var commands = {
 	'yahoo *algo':							pyahoo,
 	'(agora) fech(a)(o)(e)(r) (o) yahoo (aí) (pra mim) (miley)':		pyahoo_close,
 
-  'defina *algo': pwiki,
+  '(miley) defin(e)(a) (a)(o)(as)(os) *algo': definir,
 	'(procura)(vê)(olha) na wikipédia quem (é)(foi)(era) *algo':			pwiki,
 	'(procura)(vê)(olha) na wikipédia o que (é)(foi)(era) *algo':			pwiki,
 	'procur(a)(o)(e)(r) p(or)(elo)(s)(ela)(s) *algo na wikipédia':		pwiki,
