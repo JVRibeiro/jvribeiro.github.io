@@ -79,7 +79,7 @@ imagem.src = "tb.png"; // BLOQUEADO
 imagem_m.src = "tb.png"; // BLOQUEADO
 imagem.title = "Teclado bloqueado"; imagem_m.title = "Teclado bloqueado";
 }
-else {
+else if (imagem.src.match("tb")) {
 d.getElementById("teclado").style.display = "block";
 d.getElementById("locked").style.display = "none";
 d.getElementById("texto").value = unlock; rotina(); voz(); espera();
