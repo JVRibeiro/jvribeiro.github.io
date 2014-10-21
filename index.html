@@ -10,13 +10,29 @@ Miley BETA
 		<link rel="icon" href="https://cloud.githubusercontent.com/assets/8026741/3679572/e082677e-12a5-11e4-9476-721e0ace980b.png" />
 		<link rel="stylesheet" href="miley.estilo.css" media="all" />
 
-	<script src="jquery.min.js">		</script>
+	<script src="jquery.min.js">			</script>
 	<script src="miley.brain.js">   	</script>
 	<script src="miley.comandos.js">	</script>
 
+
 	</head>
 
-<body onLoad="mileyIni(); getHist(); clock()">
+<body onLoad="mileyIni(); getHist(); clock(); onLoad()">
+
+	<div id="reference"></div>
+	<div id="canvas"><input autocomplete="off" id="q" name="q" value="" class="3d" style="position: absolute; top: 50px; right: 50px;"><input type="submit" value=" → " class="3d" style="visibility: hidden" onclick="search(this)">
+	</div>
+
+	<script src="api"></script>
+	<script src="default+pt_BR.I.js"></script>
+	<script src="sphere1.js"></script>
+	<script src="sphere2.js"></script>
+	<script src="sphere3.js"></script>
+	<script src="sphere4.js"></script>
+	<script src="sphere5.js"></script>
+	<script src="sphere6.js"></script>
+	<script src="sphere7.js"></script>
+
 
 
 		<div id="loader-wrapper">
