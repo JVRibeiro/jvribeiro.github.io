@@ -95,7 +95,7 @@ var g1 = function(algo) {abrirWindowG1 = w.open('http://g1.globo.com/', 'g1', 'w
   var pwiki = function(algo) {abrirWindowW = w.open('http://pt.wikipedia.org/wiki/'+algo, 'wiki', 'width=600, height=700, top=25, right=0')};
 
 // * Definições
-	var definir = function(algo) {startFetch(algo, 100, 500);};
+	var definir = function(algo) {startFetch(algo, 100, 500); d.getElementById('q').value = algo; search();};
 
 // * Bing
 	var bing = function(algo) {abrirWindowB = w.open('http://bing.com/', 'bing', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Certo. Vou abrir o Bing."; voz();};
