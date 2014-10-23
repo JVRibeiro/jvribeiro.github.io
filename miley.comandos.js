@@ -96,7 +96,8 @@ var g1 = function(algo) {abrirWindowG1 = w.open('http://g1.globo.com/', 'g1', 'w
 // * Definições
 	var definir = function(algo) {startFetch(algo, 100, 500); d.getElementById('q').value = algo; search();};
 
-  var p_img = function(algo) {d.getElementById('q').value = algo; search(); setTimeout(search(), 4000); setTimeout(search(), 7000); setTimeout(search(), 10000); setTimeout(search(), 13000);};
+  var p_img = function(algo) {d.getElementById('q').value = algo; search();};
+  var p_img_mais = function() {search();};
   var p_img_del = function() {d.getElementById('q').value = ""; search();};
 
 // * Bing
@@ -475,6 +476,10 @@ var commands = {
   '(miley) defin(e)(a) as *algo': definir,
   '(miley) defin(e)(a) os *algo': definir,
 
+  '(miley) quem (é)(foi)(era) *algo':			definir,
+  '(miley) o que (é)(foi)(era) *algo':			definir,
+  '(miley) informação d(e)(o)(a)(os)(as) *algo':		definir,
+
   'procur(a)(o)(e)(r) (por) image(ns)(m) de *algo':		p_img,
   'pesquis(a)(o)(e)(r) (por) image(ns)(m) de *algo':	p_img,
   'procur(a)(o)(e)(r) (por) foto(s) de *algo':				p_img,
@@ -483,7 +488,10 @@ var commands = {
   'mostr(a)(e) (foto)(image)(m)(n)(s) d(e)(o)(a)(os)(as) *algo':		p_img,
   'image(ns)(m) d(e)(a)(os)(as) *algo':			       		p_img,
   'fecha(r) (as)(às) imagens': p_img_del,
+  'fecha(s) imagens': p_img_del,
+  'ficha(s) imagens': p_img_del,
   'tira(r) (as)(às) imagens': p_img_del,
+  'tira(s) imagens': p_img_del,
   'não quero ver (as)(às) imagens': p_img_del,
   'não quero ver (as)(às) fotos': p_img_del,
 
