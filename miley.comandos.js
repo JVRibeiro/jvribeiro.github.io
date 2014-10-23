@@ -10,7 +10,6 @@
 
 // * ------------------------------------------------------
 // * miley.comandos.js
-// * versão	: 1.0.7
 // * autor	: Victor Ribeiro @JVRibeiiro
 "use strict";
 
@@ -97,6 +96,9 @@ var g1 = function(algo) {abrirWindowG1 = w.open('http://g1.globo.com/', 'g1', 'w
 // * Definições
 	var definir = function(algo) {startFetch(algo, 100, 500); d.getElementById('q').value = algo; search();};
 
+  var p_img = function(algo) {d.getElementById('q').value = algo; search(); setTimeout(search(), 4000); setTimeout(search(), 7000); setTimeout(search(), 10000); setTimeout(search(), 13000);};
+  var p_img_del = function() {d.getElementById('q').value = ""; search();};
+
 // * Bing
 	var bing = function(algo) {abrirWindowB = w.open('http://bing.com/', 'bing', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Certo. Vou abrir o Bing."; voz();};
 	var pbing = function(algo) {abrirWindowB = w.open('http://bing.com/search?q='+algo, 'bing', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Certo. Vou usar o Bing para fazer a busca."; voz();};
@@ -107,7 +109,7 @@ var g1 = function(algo) {abrirWindowG1 = w.open('http://g1.globo.com/', 'g1', 'w
 	var yahoo = function(algo) {abrirWindowY = w.open('http://br.yahoo.com/', 'yahoo', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Okey. Vou abrir o Yahoo."; voz();};
 	var pyahoo = function(algo) {abrirWindowY = w.open('http://br.search.yahoo.com/search;_ylt=Anmgv8ykk.JD03hZwN3Ah2eU7q5_?p='+algo+'&toggle=1&cop=mss&ei=UTF-8&fr=yfp-t-403&fp=1', 'yahoo', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Okey. Vou procurar por "+algo+" no Yahoo."; voz();};
 
-// * ouTube
+// * YouTube
 	var pyoutube = function(video) {abrirWindowYt = w.open('http://youtube.com/results?search_query='+video, 'yt', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Consegui achar esses vídeos de "+video+" no YouTube."; voz();};
 	var pyoutube_t = function(video) {abrirWindowYt = w.open('http://youtube.com/results?search_query=allintitle:'+video, 'yt'); d.getElementById("resposta").value = "Estou procurando só pelo título dos vídeos."; voz();};
 
@@ -272,8 +274,8 @@ var commands = {
 
 	'(se) atualiza(r) (por favor) (miley) (por favor)': refresh,
 
-	'tchau':	fecharMiley,
-	'adeus':	fecharMiley,
+	'tchau':	  fecharMiley,
+	'adeus':	  fecharMiley,
 	'se fecha':	fecharMiley,
 	'bye bye':	fecharMiley,
 	'good bye':	fecharMiley,
@@ -290,21 +292,21 @@ var commands = {
 	'fecha(r) (noss)(o)(esse) histórico (de conversa)(ção) (por favor) (miley) (por favor)':	dialog_false,
 // * Fazer a Miley responder mesmo no modo de comando
 	'agora me diz *repeat':	escrever,
-	'pergunta *repeat':			perguntar,
-	'tenho uma dúvida *repeat':		perguntar,
-	'tenho uma pergunta *repeat':		perguntar,
-	'e se eu (te)(lhe) perguntar *repeat':	perguntar,
-	'qual *repeat':				perguntar_qual,
-	'como *repeat':				perguntar_como,
-	'o (que é) que *repeat':		perguntar_oque,
-	'quantos *repeat':			perguntar_quantos,
-	'quando *repeat':			perguntar_quando,
-	'quem *repeat':				perguntar_quem,
-	'do que *repeat':			perguntar_doque,
-	'(pergunta)(e) porque *repeat pergunta':		perguntar_pq, /*-------------------------*/
-	'(pergunta)(e) por que *repeat pergunta':		perguntar_pq, //  Aqui se encontram as   //
-	'(pergunta)(e) porquê *repeat pergunta':		perguntar_pq, // Variações dos "porquês" //
-	'(pergunta)(e) por quê *repeat pergunta':		perguntar_pq, /*-------------------------*/
+	'pergunta *repeat':			                      perguntar,
+	'tenho uma dúvida *repeat':	                 	perguntar,
+	'tenho uma pergunta *repeat':	               	perguntar,
+	'e se eu (te)(lhe) perguntar *repeat':	      perguntar,
+	'qual *repeat':			                         	perguntar_qual,
+	'como *repeat':			                         	perguntar_como,
+	'o (que é) que *repeat':	                  	perguntar_oque,
+	'quantos *repeat':			                      perguntar_quantos,
+	'quando *repeat':		                        	perguntar_quando,
+	'quem *repeat':			                         	perguntar_quem,
+	'do que *repeat':		                         	perguntar_doque,
+	'(pergunta)(e) porque *repeat pergunta':	  	perguntar_pq, /*-------------------------*/
+	'(pergunta)(e) por que *repeat pergunta':	   	perguntar_pq, //  Aqui se encontram as   //
+	'(pergunta)(e) porquê *repeat pergunta':	  	perguntar_pq, // Variações dos "porquês" //
+	'(pergunta)(e) por quê *repeat pergunta':	   	perguntar_pq, /*-------------------------*/
 //
 
 // * Pronomes pessoais
@@ -401,8 +403,8 @@ var commands = {
 
 	'miley':		alfa,
 	'ei':			alfa,
-// 1
 
+// * Facebook
 	'me mostra as notícias de hoje':						g1,
 	'(agora) fecha(r) (o) g1 (aí) (pra mim) (por favor) (miley) (por favor)':	g1_close,
 
@@ -418,7 +420,7 @@ var commands = {
 	'(mostra)(mostre-me) (as)(os) (publicações)(posts) (mais) recentes (do) face(book) (por favor) (miley) (por favor)':	fbrec,
 	'me (mostra)(mostre-me) (as)(os) (publicações)(posts) (mais) populares (do) face(book) (por favor) (miley) (por favor)':	fbpop,
 	'(mostra)(mostre-me) (as)(os) (publicações)(posts) (mais) populares (do) face(book) (por favor) (miley) (por favor)':		fbpop,
-// 2
+
 	'abrir perfil (do) (face)(book)':					fbperfil,
 	'abre o meu perfil (do) (face)(book) (por favor) (miley) (por favor)':	fbperfil,
 	'abre o perfil (do) (face)(book) (por favor) (miley) (por favor)':	fbperfil,
@@ -426,7 +428,7 @@ var commands = {
 	'agora o meu perfil (do) (face)(book) (por favor) (miley) (por favor)':	fbperfil,
 	'facebook perfil':							fbperfil,
 	'perfil (do) (face)(book)':						fbperfil,
-// 3
+
 	'abrir álbuns':				fbalbum,
 	'quero ver as (minhas) fotos (do) (face)(book) (miley)':			fbalbum,
 	'fotos':									fbalbum,
@@ -435,20 +437,20 @@ var commands = {
 	'agora as (minhas) fotos (do) (face)(book) (por favor) (miley) (por favor)':	fbalbum,
 	'abre as minhas fotos do face(book) (por favor) (miley) (por favor)':		fbalbum,
 	'facebook álbuns':								fbalbum,
-// 4
+
 	'abrir mensagens':							fbmensagens,
 	'mensagens':								fbmensagens,
 	'abre as minhas mensagens (por favor) (miley) (por favor)':		fbmensagens,
 	'(me) mostra as minhas mensagens (por favor) (miley) (por favor)':	fbmensagens,
 	'facebook mensagens':							fbmensagens,
-// 5
+
 	'me (mostra) (as) notificações (do) (face)(book) (por favor) (miley) (por favor)':		fbnotificacoes,
 	'mostra as notificações (do) (face)(book) (por favor) (miley) (por favor)':			fbnotificacoes,
 	'abre (pra mim) as notificações (do) (face)(book) (pra mim) (por favor) (miley) (por favor)':	fbnotificacoes,
 	'facebook notificações':									fbnotificacoes,
 
 	'(agora) fecha(r) (o) face(book) (aí) (pra mim) (por favor) (miley) (por favor)':		fb_close,
-// 7
+// * Pesquisa global
 	'pesquis(a)(e)(r) (global)(mente) (sobre) *algo':		p_global, // * Faz uma pesquisa global em três mecanismos de busca diferentes ao mesmo tempo
 	// Google
 	'(abre) (aí) (o) google (pra mim) (miley)':			google,
@@ -460,40 +462,56 @@ var commands = {
 	'(agora) fech(a)(o)(e)(r) (o) google (aí) (pra mim) (miley)':		pgoogle_close,
 
 	// Yahoo!
-	'(abre) (aí) (o) yahoo (pra mim) (miley)':			yahoo,
-	'pesquis(a)(e)(r) no yahoo *algo':				pyahoo,
+	'(abre) (aí) (o) yahoo (pra mim) (miley)':			          yahoo,
+	'pesquis(a)(e)(r) no yahoo *algo':			                	pyahoo,
 	'procur(a)(e)(r) p(or)(elo)(s)(ela)(s) *algo no yahoo':		pyahoo,
-	'pesquisa(r) (por) *algo no yahoo':				pyahoo,
-	'yahoo *algo':							pyahoo,
+	'pesquisa(r) (por) *algo no yahoo':			                 	pyahoo,
+	'yahoo *algo':					                              		pyahoo,
 	'(agora) fech(a)(o)(e)(r) (o) yahoo (aí) (pra mim) (miley)':		pyahoo_close,
 
-  '(miley) defin(e)(a) (a)(o)(as)(os) *algo': definir,
+// * Definições (retorna a definição de uma palavra com recursos visuais)
+  '(miley) defin(e)(a) *algo': definir,
+  '(miley) defin(e)(a) a *algo': definir,
+  '(miley) defin(e)(a) o *algo': definir,
+  '(miley) defin(e)(a) as *algo': definir,
+  '(miley) defin(e)(a) os *algo': definir,
+
+  'procur(a)(o)(e)(r) (por) image(ns)(m) de *algo':		p_img,
+  'pesquis(a)(o)(e)(r) (por) image(ns)(m) de *algo':	p_img,
+  'procur(a)(o)(e)(r) (por) foto(s) de *algo':				p_img,
+  'pesquis(a)(o)(e)(r) (por) foto(s) de *algo':				p_img,
+  'me mostr(a)(e) (foto)(image)(m)(n)(s) d(e)(o)(a)(os)(as) *algo':	p_img,
+  'mostr(a)(e) (foto)(image)(m)(n)(s) d(e)(o)(a)(os)(as) *algo':		p_img,
+  'image(ns)(m) d(e)(a)(os)(as) *algo':			       		p_img,
+  'fecha as imagens': p_img_del,
+
+  // Wikipédia
 	'(procura)(vê)(olha) na wikipédia quem (é)(foi)(era) *algo':			pwiki,
 	'(procura)(vê)(olha) na wikipédia o que (é)(foi)(era) *algo':			pwiki,
 	'procur(a)(o)(e)(r) p(or)(elo)(s)(ela)(s) *algo na wikipédia':		pwiki,
 	'(agora) fech(a)(o)(e)(r) (o)(a) wikipédia (aí) (pra mim) (miley)':	pwiki_close,
 
-// 8
+  // Bing
 	'(abre)(abrir) (o) bing (miley)':			bing,
 	'pesquis(a)(o)(e)(r) *algo no bing':				pbing,
 	'procur(a)(o)(e)(r) p(or)(elo)(s)(ela)(s) *algo no bing':		pbing,
 	'bing *algo':						pbing,
 	'(agora) fech(a)(o)(r) (o) bing (aí) (pra mim) (miley)':	pbing_close,
-// 9
-	'procur(a)(o)(e)(r) (por) image(ns)(m) de *algo':			pbing_img,
-	'pesquis(a)(o)(e)(r) (por) image(ns)(m) de *algo':			pbing_img,
-	'procur(a)(o)(e)(r) (por) foto(s) de *algo':				pbing_img,
-	'pesquis(a)(o)(e)(r) (por) foto(s) de *algo':				pbing_img,
-	'me mostr(a)(e) (foto)(image)(m)(n)(s) d(e)(o)(a)(os)(as) *algo':	pbing_img,
-	'mostr(a)(e) (foto)(image)(m)(n)(s) d(e)(o)(a)(os)(as) *algo':		pbing_img,
-	'image(ns)(m) d(e)(a)(os)(as) *algo':					pbing_img,
-// 10
+
+	'procur(a)(o)(e)(r) (por) image(ns)(m) de *algo no bing':		pbing_img,
+	'pesquis(a)(o)(e)(r) (por) image(ns)(m) de *algo no bing':	pbing_img,
+	'procur(a)(o)(e)(r) (por) foto(s) de *algo no bing':				pbing_img,
+	'pesquis(a)(o)(e)(r) (por) foto(s) de *algo no bing':				pbing_img,
+	'me mostr(a)(e) (foto)(image)(m)(n)(s) d(e)(o)(a)(os)(as) *algo no bing':	pbing_img,
+	'mostr(a)(e) (foto)(image)(m)(n)(s) d(e)(o)(a)(os)(as) *algo no bing':		pbing_img,
+	'image(ns)(m) d(e)(a)(os)(as) *algo no bing':			       		pbing_img,
+// Youtube
 	'procura no youtube por *video':			pyoutube,
 	'procura o vídeo *video':				pyoutube_t,
 	'procurar p(or)(elo)(s)(ela)(s) :video no youtube':	pyoutube,
 	'procurar (o)(a)(os)(as) :video no youtube':		pyoutube,
 	'youtube *video': 					pyoutube,
-// 11
+// Bing Vídeos
 	'procura (pel)(o) vídeo *video':					pbing_vid,
 	'acha o vídeo *video':							pbing_vid,
 	'quero assistir (o)(a)(os)(as) *video':					pbing_vid,
@@ -503,7 +521,7 @@ var commands = {
 annyang.debug();
 annyang.addCommands(commands);
 annyang.setLanguage('pt-BR');
-annyang.addCallback('resultNoMatch', function() {d.getElementById("texto").value = "Comando desconhecido."; _EaDsVr();
+annyang.addCallback('resultNoMatch', function() {d.getElementById("texto").value = "Comando ou sentença desconhecidos."; _EaDsVr();
 });
 annyang.addCallback('errorPermissionDenied', function() {d.getElementById("texto").value = permissaoNegada; _EaDsVr();
 });

@@ -15,62 +15,51 @@ Miley BETA
 	<script src="miley.brain.js">   	</script>
 	<script src="miley.comandos.js">	</script>
 
+<script src="api"></script>
+<script src="default+pt_BR.I.js"></script>
+<script src="sphere1.js"></script>
+<script src="sphere2.js"></script>
+<script src="sphere3.js"></script>
+<script src="sphere4.js"></script>
+<script src="sphere5.js"></script>
+<script src="sphere6.js"></script>
+<script src="sphere7.js"></script>
 
 	</head>
 
 <body onLoad="mileyIni(); getHist(); clock(); onLoad()">
 
-	<div id="reference"></div>
-	<div id="canvas"><input autocomplete="off" id="q" name="q" value="" class="" style="position: absolute; top: 50px; right: 50px;"><input type="submit" value=" → " class="3d" style="visibility: hidden" onclick="search(this)">
-	</div>
-
-	<script src="api"></script>
-	<script src="default+pt_BR.I.js"></script>
-	<script src="sphere1.js"></script>
-	<script src="sphere2.js"></script>
-	<script src="sphere3.js"></script>
-	<script src="sphere4.js"></script>
-	<script src="sphere5.js"></script>
-	<script src="sphere6.js"></script>
-	<script src="sphere7.js"></script>
-
-
-
-		<div id="loader-wrapper">
-	<div id="loader"></div><div id="loadCap">Inicializando...</div>
-<div class="loader-section section-left"></div>
-	<div class="loader-section section-right"></div>
-		</div> <!-- #loader-wrapper -->
-
 
 <div onclick="config(); autocom();" class="options" title="Opções e configurações"></div>
-<img src="tp.png" id="b_cc_m" onclick="c_cc();" title="Teclado livre (clique para bloquear)" />
 
-
-		<center>
-<br><br>
-	<div class="Ex"></div><!-- Ciclo externo -->
-	<div class="In"></div><!-- Ciclo interno -->
-		</center>
-
-<div id="rel-decoracao">
+<div id="rel-decoracao" style="">
 	<div id='rel'>
 <input id='hor' value=""></span> <input id='min' value=""></span> <sup><input id='seg' value=""></span></sup>
 	</div>
 </div>
-		<center>
-	<form name="miley">
-<table align="center">
-  <tr>
-    <td>
+
+<br><br><br><br><br><br>
+
+	<div id="reference"></div>
+	<div id="canvas">
+		<input autocomplete="off" id="q" name="q" value="" class="3d" placeholder="Pesquisar imagens">
+	</div>
+
+
+
+<div class="miley">
+	<center>
+	<form name="miley" class="miley">
+
+	<div class="Ex"></div><!-- Ciclo externo -->
+	<div class="In"></div><!-- Ciclo interno -->
+
 	<textarea id="dialogo" style="display: none;" name="dialogo" rows="30" cols="30" onBlur="d.getElementById('dialogo').style.display = 'none';"></textarea><br />
 
 	<textarea id="resposta" class="resposta text_box" readonly name="Resposta" rows="6" cols="30"></textarea><br />
 	<textarea id="pergunta" class="pergunta" readonly name="Pergunta" rows="2" cols="30"></textarea><br />
 
 <div id="m_fix"></div><!-- Box semitransparente atrás da div #texto em dispositivos de 480px -->
-
-<div id="locked">O teclado está oculto. Para usar o teclado, diga "Liberar teclado", ou clique/toque no icone do teclado.</div>
 
 		<div id="teclado">
 	<textarea id="texto" placeholder="Digite e aperte Enter" name="Texto" rows="2" cols="25" onkeypress="if(event.keyCode == 13) {rotina(); voz(); espera(); saveHist(); return false};" autofocus></textarea>
@@ -79,11 +68,9 @@ Miley BETA
 
   <input class="ajuda" type="button" value="O que posso dizer?" onClick="abrir('ajuda.html'); abrirAjuda(); voz();" title="Clique para obter ajuda" />
 
-    </td>
-  </tr>
-</table>
 	</form>
-		</center>
+</center>
+</div>
 
 
 		<div id="right_btn"></div>
@@ -190,34 +177,9 @@ function clearNome() {
 };
 
 
-
-
-
 function config() {d.getElementById('config').style.display = 'block';}; function closeConfig() {d.getElementById('config').style.display = 'none';};
 function config_voice() {d.getElementById('config').style.display = 'block';}; function closeConfig_voice() {d.getElementById('config').style.display = 'none';};
 
-function c_cc() {
-var imagem = d.getElementById('b_cc');
-var imagem_m = d.getElementById('b_cc_m');
-
-if (imagem.src == "tp.png") {
-d.getElementById("teclado").style.display = "none";
-d.getElementById("locked").style.display = "block";
-d.getElementById("texto").value = lock; rotina(); voz(); espera();
-imagem.src = "tb.png"; // BLOQUEADO
-imagem_m.src = "tb.png"; // BLOQUEADO
-imagem.title = "Teclado bloqueado"; imagem_m.title = "Teclado bloqueado";
-}
-else {
-d.getElementById("teclado").style.display = "block";
-d.getElementById("locked").style.display = "none";
-d.getElementById("texto").value = unlock; rotina(); voz(); espera();
-imagem.src = "tp.png"; // PERMITIDO
-imagem_m.src = "tp.png"; // PERMITIDO
-imagem.title = "Teclado desbloqueado";
-imagem_m.title = "Teclado desbloqueado";
-}
-};
 </script>
 
 		<div class="cc">
@@ -242,7 +204,6 @@ Creative Commons Atribuição 2.0 Brasil
     <div class='lado2'>
   <center>
 <br><br>
-<img src="tp.png" onclick="c_cc()" id="b_cc" title="Teclado livre (clique para bloquear)" alt="Bloquear/Desbloquear teclado" />
 <br><br>
 <b>Changelog:</b>
 <br><br>
@@ -256,7 +217,7 @@ Creative Commons Atribuição 2.0 Brasil
 <div class='version'>Versão BETA <div id="v"></div>
 <script>d.getElementById("v").innerHTML = "v"+version;</script>
 </div>
-Última atualização: 21/10/14.
+Última atualização: 23/10/14.
 
   </center>
     </div> <!-- .lado2 -->
