@@ -470,8 +470,7 @@ var commands = {
 	'(agora) fech(a)(o)(e)(r) (o) yahoo (aí) (pra mim) (miley)':		pyahoo_close,
 
 // * Definições (retorna a definição de uma palavra com recursos visuais)
-  '(miley) defin(e)(a) *algo': definir,
-  '(miley) defin(e)(a) a *algo': definir,
+  '(miley) defin(e)(a) (a) *algo': definir,
   '(miley) defin(e)(a) o *algo': definir,
   '(miley) defin(e)(a) as *algo': definir,
   '(miley) defin(e)(a) os *algo': definir,
