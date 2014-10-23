@@ -494,6 +494,7 @@ var commands = {
   'tira(s) imagens': p_img_del,
   'não quero ver (as)(às) imagens': p_img_del,
   'não quero ver (as)(às) fotos': p_img_del,
+  'mostra(r) mais (imagens)': p_img_mais,
 
   // Wikipédia
 	'(procura)(vê)(olha) na wikipédia quem (é)(foi)(era) *algo':			pwiki,
