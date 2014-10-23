@@ -482,7 +482,10 @@ var commands = {
   'me mostr(a)(e) (foto)(image)(m)(n)(s) d(e)(o)(a)(os)(as) *algo':	p_img,
   'mostr(a)(e) (foto)(image)(m)(n)(s) d(e)(o)(a)(os)(as) *algo':		p_img,
   'image(ns)(m) d(e)(a)(os)(as) *algo':			       		p_img,
-  'fecha as imagens': p_img_del,
+  'fecha(r) (as)(às) imagens': p_img_del,
+  'tira(r) (as)(às) imagens': p_img_del,
+  'não quero ver (as)(às) imagens': p_img_del,
+  'não quero ver (as)(às) fotos': p_img_del,
 
   // Wikipédia
 	'(procura)(vê)(olha) na wikipédia quem (é)(foi)(era) *algo':			pwiki,
