@@ -508,6 +508,7 @@ var commands = {
 	'procur(a)(o)(e)(r) p(or)(elo)(s)(ela)(s) *algo no bing':		pbing,
 	'bing *algo':						pbing,
 	'(agora) fech(a)(o)(r) (o) bing (aí) (pra mim) (miley)':	pbing_close,
+  '(agora) fech(a)(o)(r) (o) ping (aí) (pra mim) (miley)':	pbing_close,
 
 	'procur(a)(o)(e)(r) (por) image(ns)(m) de *algo no bing':		pbing_img,
 	'pesquis(a)(o)(e)(r) (por) image(ns)(m) de *algo no bing':	pbing_img,

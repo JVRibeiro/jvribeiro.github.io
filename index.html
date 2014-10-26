@@ -13,21 +13,21 @@ Miley BETA
 
 	<script src="jquery.min.js">			</script>
 	<script src="miley.brain.js">   	</script>
+	<script src="miley.js">   	</script>
 	<script src="miley.comandos.js">	</script>
 
 <script src="api"></script>
 <script src="default+pt_BR.I.js"></script>
-<script src="sphere1.js"></script>
-<script src="sphere2.js"></script>
-<script src="sphere3.js"></script>
-<script src="sphere4.js"></script>
-<script src="sphere5.js"></script>
-<script src="sphere6.js"></script>
-<script src="sphere7.js"></script>
+<script src="sphere.js"></script>
+
 
 	</head>
 
 <body onLoad="mileyIni(); getHist(); clock(); onLoad()">
+
+<div id="reference"></div>
+<div id="canvas"></div>
+	<input id="q" name="q" value="" class="3d" placeholder="Pesquisar imagens" />
 
 
 <div onclick="config(); autocom();" class="options" title="Opções e configurações"></div>
@@ -38,14 +38,7 @@ Miley BETA
 	</div>
 </div>
 
-<br><br><br><br><br><br>
-
-	<div id="reference"></div>
-	<div id="canvas">
-		<input autocomplete="off" id="q" name="q" value="" class="3d" placeholder="Pesquisar imagens">
-	</div>
-
-
+<br><br><br><br>
 
 <div class="miley">
 	<center>
@@ -63,9 +56,9 @@ Miley BETA
 
 		<div id="teclado">
 	<textarea id="texto" placeholder="Digite e aperte Enter" name="Texto" rows="2" cols="25" onkeypress="if(event.keyCode == 13) {rotina(); voz(); espera(); saveHist(); return false};" autofocus></textarea>
-	<input id="botaoFalar" class="button falar" type="button" value="&#8594;" name="falar" onClick="rotina(); voz(); espera(); saveHist();" title="Falar" />
+	<input id="botaoFalar" class="falar" type="button" value="&#8594;" name="falar" onClick="rotina(); voz(); espera(); saveHist();" title="Falar" />
 		</div><!-- #teclado -->
-
+<br><br>
   <input class="ajuda" type="button" value="O que posso dizer?" onClick="abrir('ajuda.html'); abrirAjuda(); voz();" title="Clique para obter ajuda" />
 
 	</form>
@@ -102,7 +95,7 @@ Histórico	</li>
   <label for="Nome">
 	Seu nome	</label>
 <br>
-	<input type="text" id="userName" class="nomeField" placeholder="Seu nome" /> <button class="clear" onClick="clearNome()">Esquecer nome</button>
+	<input type="text" id="userName" class="nomeField" placeholder="Seu nome" /> <a class="tooltip" tooltip="Se clicar aqui passarei a chamar você de 'anônimo'" onClick="clearNome()">Esquecer nome</a>
 <br><br>
 
   <label for="Gênero">
@@ -139,10 +132,10 @@ Histórico	</li>
   <button class="clear" onClick="apagarDados()">
 	Limpar seus dados	</button>
 
-  <button class="close" onClick="closeConfig()" title="Fechar configurações">x</button>
+  <button aria-label="Close" class="close" onClick="closeConfig()" title="Fechar configurações">x</button>
 		</div><!-- .config -->
 
-<script>
+<script id="config">
 var Unome = d.getElementById('userName');
 var gUnome = w.localStorage.getItem('nome');
 var Ugenero = d.getElementById('gen');
@@ -168,17 +161,25 @@ function saveHist() {
 	w.localStorage.setItem('histórico',dialog.value);
 }
 function clearHist() {
+	confirmar = confirm("Você tem certeza que deseja apagar o histórico de conversa?");
+		if (confirmar == true) {
 	w.localStorage.removeItem('histórico');
 	setTimeout(d.location.href = "", 2000);
-}
+} else {return false;}
+};
 function clearNome() {
+	confirmar = confirm("Você tem certeza que deseja apagar seu nome?");
+		if (confirmar == true) {
 	w.localStorage.removeItem('nome');
 	setTimeout(d.location.href = "", 2000);
+} else {return false;}
 };
 
 
-function config() {d.getElementById('config').style.display = 'block';}; function closeConfig() {d.getElementById('config').style.display = 'none';};
-function config_voice() {d.getElementById('config').style.display = 'block';}; function closeConfig_voice() {d.getElementById('config').style.display = 'none';};
+function config() {d.getElementById('config').style.display = 'block';};
+function closeConfig() {d.getElementById('config').style.display = 'none';};
+function config_voice() {d.getElementById('config').style.display = 'block';};
+function closeConfig_voice() {d.getElementById('config').style.display = 'none';};
 
 </script>
 
@@ -208,16 +209,14 @@ Creative Commons Atribuição 2.0 Brasil
 <b>Changelog:</b>
 <br><br>
 
-<li>Melhoras no script de conversação;</li>
-<li>Melhorias no design do menu de opções e recurso de memorização do histórico de conversa;</li>
+<li>Repaginação do design;</li>
+<li>Recurso novo: Definição de palavras (Não funciona ainda com nomes próprios compostos por mais de uma palavra);</li>
 <li>Recurso de Reconhecimento de fala <b><a href="https://github.com/TalAter/annyang/" target="_blank">Annyang.js</a></b>;</li>
-<li>Pesquisa por voz - Google e Bing - com a expressão "Procura por [sua pesquisa] no Google/Bing;</li>
-<li>Navegação por voz no Facebook (Feed, perfil, fotos, notificações e mensagens);</li>
 
 <div class='version'>Versão BETA <div id="v"></div>
 <script>d.getElementById("v").innerHTML = "v"+version;</script>
 </div>
-Última atualização: 23/10/14.
+Última atualização: 26/10/14.
 
   </center>
     </div> <!-- .lado2 -->
