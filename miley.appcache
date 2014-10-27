@@ -1,9 +1,10 @@
 CACHE MANIFEST
-# 03:21 27/10/2014
+# 03:32 27/10/2014
 
 CACHE:
 index.html
 api
+js/default+pt_BR.I.js
 js/jquery.min.js
 js/miley.brain.js
 js/miley.comandos.js
