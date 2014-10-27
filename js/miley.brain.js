@@ -171,9 +171,6 @@ rotina()
 function abrir(URL) {w.open(URL,'janela','width=550, height=640, top=25, left=400, toolbar=no, fullscreen=yes');};
 //
 
-// * Função de Pesquisa de imagens
-// * ****************************************************************
-
 
 // * *****************************************
 // * * Menu de contexto com botão direto do mouse.
