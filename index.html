@@ -171,12 +171,14 @@ function clearNome() {
 } else {return false;}
 };
 
-
 function config() {d.getElementById('config').style.display = 'block';};
 function closeConfig() {d.getElementById('config').style.display = 'none';};
 function config_voice() {d.getElementById('config').style.display = 'block';};
 function closeConfig_voice() {d.getElementById('config').style.display = 'none';};
 
+if (window.location.protocol != "https:") {
+window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
+}
 </script>
 
 		<div class="cc">
