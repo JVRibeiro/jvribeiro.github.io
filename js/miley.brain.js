@@ -173,18 +173,7 @@ function abrir(URL) {w.open(URL,'janela','width=550, height=640, top=25, left=40
 
 // * Função de Pesquisa de imagens
 // * ****************************************************************
-function pImagens() {
-d.getElementById('q').style.display = "block";
-d.getElementById('b-im-tr').innerHTML = "Fechar Miley imagens";
-d.getElementById('b-im-tr').setAttribute("onclick","pImagensClose(); removeResults();")
-};
 
-function pImagensClose() {
-d.getElementById('q').style.display = "none";
-d.getElementById('b-im-tr').innerHTML = "Pesquisa de imagens";
-d.getElementById('b-im-tr').setAttribute("onclick","pImagens()")
-};
-//
 
 // * *****************************************
 // * * Menu de contexto com botão direto do mouse.
