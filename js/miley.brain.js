@@ -107,7 +107,7 @@ var idioma = "pt-br";
 var texto = d.getElementById("resposta").value;
 var link = d.getElementById("API").value;
 var codec = "mp3";
-d.getElementById("voz").src = link+"?key="+apikey+"&hl="+idioma+"&src="+texto+"&c="+codec+"&f="+formato;};
+d.getElementById("voz").src = link+"?key="+apikey+"&hl="+idioma+"&src="+texto+"&c="+codec;};
 //
 
 // * Algoritmo de conversação

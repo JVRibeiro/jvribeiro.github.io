@@ -176,7 +176,7 @@ function closeConfig() {d.getElementById('config').style.display = 'none';};
 function config_voice() {d.getElementById('config').style.display = 'block';};
 function closeConfig_voice() {d.getElementById('config').style.display = 'none';};
 
-if (window.location.protocol != "https:") {
+if (window.location.protocol == "http:") {
 window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
 }
 </script>
