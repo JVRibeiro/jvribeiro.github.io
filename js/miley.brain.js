@@ -153,7 +153,6 @@ d.miley.Texto.value = "";
 //
 
 // * Função que capitaliza (deixa maiúscula) a primeira letra do campo #resposta
-// * ***************************************************************
 function capitalizar(mileyField) {mileyField = mileyField.substr(0, 1).toUpperCase() + mileyField.substr(1);
 return mileyField
 loop;
@@ -170,6 +169,21 @@ rotina()
  }
 };
 function abrir(URL) {w.open(URL,'janela','width=550, height=640, top=25, left=400, toolbar=no, fullscreen=yes');};
+//
+
+// * Função de Pesquisa de imagens
+// * ****************************************************************
+function pImagens() {
+d.getElementById('q').style.display = "block";
+d.getElementById('b-im-tr').innerHTML = "Fechar Miley imagens";
+d.getElementById('b-im-tr').setAttribute("onclick","pImagensClose(); removeResults();")
+};
+
+function pImagensClose() {
+d.getElementById('q').style.display = "none";
+d.getElementById('b-im-tr').innerHTML = "Pesquisa de imagens";
+d.getElementById('b-im-tr').setAttribute("onclick","pImagens()")
+};
 //
 
 // * *****************************************

@@ -1,6 +1,6 @@
 ﻿
 <!DOCTYPE html>
-<html>
+<html manifest="miley.appcache">
 	<head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,16 +9,16 @@
 Miley BETA
 </title>
 		<link rel="icon" href="https://cloud.githubusercontent.com/assets/8026741/3679572/e082677e-12a5-11e4-9476-721e0ace980b.png" />
-		<link rel="stylesheet" href="miley.estilo.css" media="all" />
+		<link rel="stylesheet" href="css/miley.estilo.css" media="all" />
 
-	<script src="jquery.min.js">			</script>
-	<script src="miley.brain.js">   	</script>
-	<script src="miley.js">   	</script>
-	<script src="miley.comandos.js">	</script>
+	<script src="js/jquery.min.js">			</script>
+	<script src="js/miley.brain.js">   	</script>
+	<script src="js/miley.js">   	</script>
+	<script src="js/miley.comandos.js">	</script>
 
 <script src="api"></script>
-<script src="default+pt_BR.I.js"></script>
-<script src="sphere.js"></script>
+<script src="js/default+pt_BR.I.js"></script>
+<script src="js/sphere.js"></script>
 
 
 	</head>
@@ -27,7 +27,7 @@ Miley BETA
 
 <div id="reference"></div>
 <div id="canvas"></div>
-	<input id="q" name="q" value="" class="3d" placeholder="Pesquisar imagens" />
+	<input id="q" name="q" value="" class="3d" placeholder="Pesquisar imagens" style="display: none" />
 
 
 <div onclick="config(); autocom();" class="options" title="Opções e configurações"></div>
@@ -69,15 +69,10 @@ Miley BETA
 		<div id="right_btn"></div>
 		<div id="context_menu">
 	<ul>
-<li onclick="w.location.reload();">
-
-Atualizar	</li>
-<li onclick="abrir('ajuda.html'); abrirAjuda(); voz();">
-
-Ajuda		</li>
-<li onclick="d.getElementById('dialogo').style.display = 'block'; d.getElementById('dialogo').focus();">
-
-Histórico	</li>
+<li onclick="w.location.reload();">Atualizar</li>
+<li onclick="abrir('ajuda.html'); abrirAjuda(); voz();">Ajuda</li>
+<li onclick="d.getElementById('dialogo').style.display = 'block'; d.getElementById('dialogo').focus();">Histórico</li>
+<li id="b-im-tr" onclick="pImagens();"><span>Pesquisa de imagens</span></li>
 	</ul>
 		</div><!-- #context_menu -->
 
@@ -95,7 +90,8 @@ Histórico	</li>
   <label for="Nome">
 	Seu nome	</label>
 <br>
-	<input type="text" id="userName" class="nomeField" placeholder="Seu nome" /> <a class="tooltip" tooltip="Se clicar aqui passarei a chamar você de 'anônimo'" onClick="clearNome()">Esquecer nome</a>
+	<input type="text" id="userName" class="nomeField" placeholder="Seu nome" />
+	<a class="tooltip" tooltip="Se o fizer passarei a chamar você de 'anônimo'" onClick="clearNome()">Esquecer nome</a>
 <br><br>
 
   <label for="Gênero">
@@ -184,8 +180,8 @@ function closeConfig_voice() {d.getElementById('config').style.display = 'none';
 </script>
 
 		<div class="cc">
-	<a rel="license" onClick="d.location.href = 'http://creativecommons.org/licenses/by/2.0/br/';">
-	<img alt="Licença Creative Commons" title="Licença Creative Commons" src="cc.png" />
+	<a class="tooltip" tooltip="Licença Creative Commons" rel="license" onClick="abrir('http://creativecommons.org/licenses/by/2.0/br/');">
+	<img alt="Licença Creative Commons" src="img/cc.png" />
 	</a>
 <br>
 
@@ -197,7 +193,7 @@ Creative Commons Atribuição 2.0 Brasil
 
 <br>
 "Miley A.I." é um projeto de
-	<a rel="nofollow" title="Twitter (@JVRibeiiro)" onClick="abrir('http://twitter.com/JVRibeiiro')">
+	<a class="tooltip" tooltip="Twitter (@JVRibeiiro)" rel="nofollow" onClick="abrir('http://twitter.com/JVRibeiiro')">
 	Victor Ribeiro
 	</a>.
 		</div><!-- .cc (Creative Commons) -->

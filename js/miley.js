@@ -48,18 +48,19 @@ new Array (
 
 new Array (
 "(.*)(obrigad(o|a)|agrade(ç|c|ss|ciment)o)(.*)",
-"Disponha.","De nada. ;)",
-"Não tem de quê. ",
-"Por nada. ^_^",
-"Não precisa agradecer. ",
-"Não por isso. ;)",
-"Não há de quê. ;)"
+"Disponha.",
+"De nada.",
+"Não tem de quê.",
+"Por nada.",
+"Não precisa agradecer.",
+"Não por isso.",
+"Não há de quê."
 ),
 
 new Array (
-"(.*)((voc(ê|e)|vc|tu) (é|está|estava|ficou|és|e) (uma |muito |)|sua )((ó|o)tima|linda|bacana|perfeita|maravilhosa|charmosa|elegante|exuberante|espl(ê|e)ndida|magn(í|i)fica|extraordin(á|a)ria|encantadora|demais|bela|bonita|um luxo|belezura|supimpa|engraçada|uma gra(ça|cinha)|uma maravilha|inteligente|cute( |-)cute|simp(a|á)tica|legal)(.*)",
-"Obrigada. Você também é uma gracinha ",
-"Muito obrigada. ",
+"(.*)((voc(ê|e)|vc|tu) (é|está|estava|ficou|és|e|t(a|á)) (|uma |muito )|sua )((ó|o)tima|linda|bacana|perfeita|maravilhosa|charmosa|elegante|exuberante|espl(ê|e)ndida|magn(í|i)fica|extraordin(á|a)ria|encantadora|demais|bela|bonita|um luxo|belezura|supimpa|engraçada|uma gra(ça|cinha)|uma maravilha|inteligente|cute( |-)cute|simp(a|á)tica|legal)(.*)",
+"Obrigada. Você também é uma gracinha.",
+"Muito obrigada.",
 "Obrigada. É bom receber elogios de você.",
 "Que gentileza! Obrigada.",
 "Gentileza sua. Obrigada.",
@@ -108,7 +109,7 @@ new Array (
 
 new Array (
 "(.*)(vamos nos apresentar|que tal (se |)(a gente se apresentar|nos apresentarmos|uma apresentação)|se apresente)(.*)",
-"Claro! Meu nome é Miley e o seu? Diga algo como: \'meu nome é Fulano\' ou \'me chamo Fulano\'. Não diga apenas o seu nome."
+"Claro! Meu nome é Miley. E o seu? Diga algo como: \'meu nome é Fulano\' ou \'me chamo Fulano\'. Não diga apenas o seu nome."
 ),
 
 new Array (
@@ -277,7 +278,7 @@ new Array (
   "Sou uma robô que sonha em ser um Jarvis (Inteligência Artificial do filme Homem de Ferro) um dia. Me chamo "+AIname+".",
   "O que deseja saber de mim?","Basicamente: meu nome é "+AIname+", fui criada em Moju por Victor Ribeiro."
   ),
-  
+
 new Array (
 "^(o( |)que|quem|qm) (você|vc|é) (você|vc|é)(.*?)",
 "O meu nome é "+AIname+". Sou um protótipo de inteligência artificial criada para ser sua assistente pessoal. Posso fazer algumas coisas como abrir sua rede social, dizer as horas, fazer pesquisas na internet, e muitas outras coisas. Se quiser saber mais sobre mim, diga \'tudo sobre a "+AIname+"\'.",
@@ -567,16 +568,6 @@ new Array (
 ),
 
 new Array (
-"^(não|nao|ñ|nem (merda|porra|pensar|a pa(u|l)|f(ude|erra)ndo|a bala))(.*)",
-"Entendo.","Okey.",
-"Tudo bem.",
-"Certo."),
-new Array (
-"^(sim|yes|é|eh|yeah|isso|aha(n|m)|afirmativo|positivo)(.*)",
-"..."
-),
-
-new Array (
 "(.*)eu (t|te|amo) (você|vc|voce|amo)(.*)",
 "Você sabe o que é o amor?",
 "O que você acha que é o amor?",
@@ -820,8 +811,18 @@ new Array (
 //  Ela não sabe responder ou não responde
 // * ************************************************
 new Array (
+"^(não|nao|ñ|nem (merda|porra|pensar|a pa(u|l)|f((u|o)de|erra)ndo|a bala))(.*)",
+"..."
+),
+
+new Array (
+"^(sim|yes|é|eh|yeah|isso|aha(n|m)|afirmativo|positivo)(.*)",
+"..."
+),
+
+new Array (
 "(.*)que horas (são|tem|é)(.*)",
-"Desculpe, ainda não sei dizer as horas. Mas você pode ver no seu dispositivo."
+"Desculpe, ainda não sei dizer as horas."
 ),
 
 new Array (
