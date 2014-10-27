@@ -3,7 +3,7 @@ CACHE MANIFEST
 
 CACHE:
 index.html
-js/default+pt_BR.I.js
+api
 js/jquery.min.js
 js/miley.brain.js
 js/miley.comandos.js
