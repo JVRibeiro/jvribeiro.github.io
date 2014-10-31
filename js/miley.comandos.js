@@ -28,7 +28,7 @@ espera(); rotina(); voz(); saveHist();
 
 
 if (annyang) {
-	var calcularSoma = function(val1, val2) {
+	var calcularSoma = Number(val1, val2) {
 		var result = console.log(val1 + val2);
 		d.getElementById('resposta').value = result;
 		}
