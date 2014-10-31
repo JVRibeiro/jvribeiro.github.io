@@ -28,7 +28,10 @@ espera(); rotina(); voz(); saveHist();
 
 
 if (annyang) {
-	var calcularSoma = function(val1, val2) {d.getElementById('resposta').value = val1 + val2;}
+	var calcularSoma = function(val1, val2) {
+		var result = console.log(val1 + val2);
+		d.getElementById('resposta').value = result;
+		}
 
 	var fecharMiley = function() {d.getElementById("resposta").value = "Tchau tchau!"; voz(); setTimeout(w.location.href = "about:blank", 5000);};
 	var refresh = function() {w.location.reload();};
