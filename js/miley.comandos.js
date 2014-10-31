@@ -36,7 +36,7 @@ if (annyang) {
 		var n2 = Number(valor2);
 
 		var result = console.log(n1 + n2);
-		d.getElementById('resposta').value = result;
+		d.getElementById('resposta').value = n1 + n2;
 		}
 
 	var fecharMiley = function() {d.getElementById("resposta").value = "Tchau tchau!"; voz(); setTimeout(w.location.href = "about:blank", 5000);};
