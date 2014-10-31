@@ -100,7 +100,7 @@ function getFirstProp(obj) {
 for (var i in obj) return obj[i];
 }
 function stripTags(s) {
-return s.replace(/<\w+(\s+("[^"]*"|'[^']*'|[^>])+)?>|<\/\w+>/gi, "");
+return s.replace(/<\w+(\s+("[^"]*"|'[^']*'|[^>])+)?>|<\/\w+>/gi/\s*\(.*?\)\s*/g, "");
 }
 function htmlDecode(input){
 var e = document.createElement("div"); e.innerHTML = input; return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
