@@ -28,8 +28,14 @@ espera(); rotina(); voz(); saveHist();
 
 
 if (annyang) {
-	var calcularSoma = Number(val1, val2) {
-		var result = console.log(val1 + val2);
+	var calcularSoma = function(val1, val2) {
+		var valor1 = val1;
+		var valor2 = val2;
+
+		var n1 = Number(valor1);
+		var n2 = Number(valor2);
+
+		var result = console.log(n1 + n2);
 		d.getElementById('resposta').value = result;
 		}
 
