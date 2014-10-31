@@ -28,37 +28,7 @@ espera(); rotina(); voz(); saveHist();
 
 
 if (annyang) {
-
-
-var textbox = document.getElementById("resposta"); var button = document.getElementById("botaoFalar"); var tempscript = null, minchars, maxchars, attempts;
-function startFetch(algo, minimumCharacters, maximumCharacters, isRetry) {
-if (tempscript) return; // a fetch is already in progress
-if (!isRetry) {attempts = 0; minchars = minimumCharacters; maxchars = maximumCharacters;
-}
-tempscript = document.createElement("script"); tempscript.type = "text/javascript"; tempscript.id = "tempscript";
-tempscript.src = "https://pt.wikipedia.org/w/api.php?action=query&titles="+algo+"&redirects=&prop=extracts&exchars="+maxchars+"&format=json&callback=onFetchComplete&requestid="
-+ Math.floor(Math.random()*999999).toString(); document.body.appendChild(tempscript); // onFetchComplete invoked when finished
-}
-function onFetchComplete(data) {
-document.body.removeChild(tempscript);
-tempscript = null
-var s = getFirstProp(data.query.pages).extract;
-s = htmlDecode(stripTags(s));
-if (s.length > minchars || attempts++ > 5) {
-document.getElementById("resposta").value = s; document.getElementById("pergunta").value = "Definindo..."; voz(); espera();
-} else {
-startFetch(0, 0, true); // retry
-}
-}
-function getFirstProp(obj) {
-for (var i in obj) return obj[i];
-}
-function stripTags(s) {
-return s.replace(/<\w+(\s+("[^"]*"|'[^']*'|[^>])+)?>|<\/\w+>/gi, "");
-}
-function htmlDecode(input){
-var e = document.createElement("div"); e.innerHTML = input; return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
-}
+	var calcularSoma = function(val1, val2) {d.getElementById('resposta').value = val1 + val2;}
 
 	var fecharMiley = function() {d.getElementById("resposta").value = "Tchau tchau!"; voz(); setTimeout(w.location.href = "about:blank", 5000);};
 	var refresh = function() {w.location.reload();};
@@ -97,10 +67,41 @@ var g1 = function(algo) {abrirWindowG1 = w.open('http://g1.globo.com/', 'g1', 'w
 
 // * Definições
 	var definir = function(algo) {startFetch(algo, 100, 500); d.getElementById("pergunta").value = "Definir > "+algo; d.getElementById('q').value = algo; search();};
+var textbox = document.getElementById("resposta"); var button = document.getElementById("botaoFalar"); var tempscript = null, minchars, maxchars, attempts;
+function startFetch(algo, minimumCharacters, maximumCharacters, isRetry) {
+if (tempscript) return; // a fetch is already in progress
+if (!isRetry) {attempts = 0; minchars = minimumCharacters; maxchars = maximumCharacters;
+}
+tempscript = document.createElement("script"); tempscript.type = "text/javascript"; tempscript.id = "tempscript";
+tempscript.src = "https://pt.wikipedia.org/w/api.php?action=query&titles="+algo+"&redirects=&prop=extracts&exchars="+maxchars+"&exintro&format=json&callback=onFetchComplete&requestid="
++ Math.floor(Math.random()*999999).toString(); document.body.appendChild(tempscript); // onFetchComplete invoked when finished
+}
+function onFetchComplete(data) {
+document.body.removeChild(tempscript);
+tempscript = null
+var s = getFirstProp(data.query.pages).extract;
+s = htmlDecode(stripTags(s));
+if (s.length > minchars || attempts++ > 5) {
+document.getElementById("resposta").value = s; document.getElementById("pergunta").value = "Definindo..."; voz(); espera();
+} else {
+startFetch(0, 0, true); // retry
+}
+}
+function getFirstProp(obj) {
+for (var i in obj) return obj[i];
+}
+function stripTags(s) {
+return s.replace(/<\w+(\s+("[^"]*"|'[^']*'|[^>])+)?>|<\/\w+>/gi, "");
+}
+function htmlDecode(input){
+var e = document.createElement("div"); e.innerHTML = input; return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+}
 
+// * Pesquisa de imagens interna*
   var p_img = function(algo) {d.getElementById('q').style.display = "block"; d.getElementById('q').value = algo; search();};
   var p_img_mais = function() {search();};
   var p_img_del = function() {d.getElementById('q').value = ""; search();};
+	// * *A I.A. usa o Google Imagens para obter as imagens e o Google Sphere (Mr. Doob) com algumas modificações.
 
 // * Bing
 	var bing = function(algo) {abrirWindowB = w.open('http://bing.com/', 'bing', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Certo. Vou abrir o Bing."; voz();};
@@ -272,6 +273,11 @@ var g1 = function(algo) {abrirWindowG1 = w.open('http://g1.globo.com/', 'g1', 'w
 // * --------------------------------------------------------------------------------------------------------------------
 
 var commands = {
+	'soma :val1 mais :val2': calcularSoma,
+	'soma :val1 + :val2': calcularSoma,
+	'quanto é :val1 mais :val2': calcularSoma,
+	'quanto é :val1 + :val2': calcularSoma,
+
   'sim': sim,
   'não': nao,
 

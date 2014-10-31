@@ -76,7 +76,7 @@ if (dialog == null)                   {dialog = "";};
 if (nome == "" && gen == "senhor")    {nome = "anônimo";};
 if (nome == "" && gen == "senhorita") {nome = "anônima";};
 if (nome == "" && gen == "você")      {gen = "pessoa";};
-if (nome.length > 0 && gen == "você") {gen = "";};
+if (nome.length > 0 && gen == "você") {gen = "\b";};
 //
 
 // * Algoritmo de saudações dependentes do horário
@@ -131,7 +131,7 @@ function padroesMiley() {
 for (i=0; i < brain.length; i++) { // Inicia um loop que executa apenas uma vez cada elemento da array brain.
 exReg = new RegExp (brain[i][0], "i"); // Usando o contador [i] do loop, coloca um padrão da array no mecanismo de expressão regular na variável "exReg".
 if (exReg.test(usuario)) { // testa a entrada do usuário contra o "exReg" e se ele corresponder executa o próximo bloco de instruções - se não houver correspondência o loop vai continuar a carregar o próximo valor.
-tamanho = brain[i].length - 1; // cria uma variável "len" e a deixa igual ao número de respostas possíveis
+tamanho = brain[i].length - 1; // cria uma variável "tamanho" e a deixa igual ao número de respostas possíveis
 index = Math.ceil(tamanho * Math.random());
 reply = brain[i][index];
 sistema = usuario.replace(exReg, reply);
