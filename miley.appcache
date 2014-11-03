@@ -1,5 +1,5 @@
-CACHE MANIFEST
-# 03:38 03/11/2014
+﻿CACHE MANIFEST
+# 03:48 03/11/2014
 # * Opção nova: seleção de cor de interface;
 # * Ao falar com o teclado, a resposta é dada só em texto;
 # * Ciclos giram mais lentamente;
@@ -7,7 +7,7 @@ CACHE MANIFEST
 
 CACHE:
 index.html
-api
+js/api
 jscolor/arrow.gif
 jscolor/cross.gif
 jscolor/hs.png
