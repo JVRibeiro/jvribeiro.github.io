@@ -1,21 +1,30 @@
 ﻿// **************************
 //  ** miley.brain.js
 // ***************************
-// ** Versão/Version: 1.0.8
+// ** Versão/Version: 1.1.3
 // ** Autor/Author: Victor Ribeiro (@JVRibeiiro)
 // ** Licença: MIT
-// ** Baseado no projeto de inteligência artificial E.L.I.Z.A.
 // ***************************
 
 // * Informações da I.A.
 var AIname = "Miley";   // * Nome da I.A.
 var AInick = "Mi";      // * Apelido da I.A.
-var version = "1.0.9";  // * Versão da I.A.
+var version = "1.1.3";  // * Versão da I.A.
 //
 
 // * Abreviação de window e document
 var w = window;
 var d = document;
+//
+
+// * Simplificação das chamadas de funções
+function mileyOnLoad() {mileyCorGet(); mileyIni(); getHist(); clock(); onLoad(); d.getElementById("v").innerHTML = "v"+version;}
+function mileyOps() {config(); autocom();}
+function textoEnter() {textoFalar();}
+function textoFalar() {rotina(); espera(); saveHist(); d.getElementById('texto').focus();}
+function mileyAbrirAjuda() {d.getElementById('ajuda').focus(); w.open('ajuda.html', 'ajuda', 'width=500, height=700, top=25, left=0'); abrirAjuda(); voz();}
+function mileyHistorico() {d.getElementById('dialogo').style.display = 'block'; d.getElementById('dialogo').focus();}
+function mileyHistoricoClose() {d.getElementById('dialogo').style.display = 'none';}
 //
 
 // * Dados na localStorage
@@ -60,7 +69,7 @@ var omes = mes[agora.getMonth()];
 var osem = sem[agora.getDay()];
 //
 
-// * Idade da I.A.
+// * Idade da I.A. (tentando melhorar)
 var idade = 2014 - ano + " anos";
 //
 
@@ -70,13 +79,13 @@ function espera() {d.getElementById('resposta').style.opacity = '0'; setTimeout(
 //
 
 // * Algoritmo de renomeação caso estejam vazio os campos de informação do usuário
-if (gen == null || gen == undefined)  {gen = "usuário";};
-if (nome == null || nome == undefined){nome = "anônimo";};
-if (dialog == null)                   {dialog = "";};
-if (nome == "" && gen == "senhor")    {nome = "anônimo";};
+if (gen == null || gen == undefined) {gen = "usuário";};
+if (nome == null || nome == undefined) {nome = "anônimo";};
+if (dialog == null) {dialog = "";};
+if (nome == "" && gen == "senhor") {nome = "anônimo";};
 if (nome == "" && gen == "senhorita") {nome = "anônima";};
-if (nome == "" && gen == "você")      {gen = "pessoa";};
-if (nome.length > 0 && gen == "você") {gen = "\b";};
+if (nome == "" && gen == "você") {gen = "pessoa";};
+if (nome.length > 0 && gen == "você") {gen = "";};
 //
 
 // * Algoritmo de saudações dependentes do horário
@@ -89,9 +98,9 @@ now = new Date(); h = now.getHours(); m = now.getMinutes(); s = now.getSeconds()
 strSeg = new String (s); if (strSeg.length == 1) {s = "0"+s};
 strMin = new String (m); if (strMin.length == 1) {m = "0"+m};
 strHor = new String (h); if (strHor.length == 1) {h = "0"+h};
-  d.getElementById('hor').value = h;
-  d.getElementById('min').value = m;
-  d.getElementById('seg').value = s;
+  d.getElementById('hor').innerHTML = h+":";
+  d.getElementById('min').innerHTML = m;
+  d.getElementById('seg').innerHTML = s;
      setTimeout("clock()",1000);
 };
 //
@@ -136,7 +145,7 @@ index = Math.ceil(tamanho * Math.random());
 reply = brain[i][index];
 sistema = usuario.replace(exReg, reply);
 sistema = capitalizar(sistema);
-historico = historico + "Eu ("+AIname+") disse: \n" +sistema+  "\r" + "\n\n\n";
+historico = historico + "Eu ("+AIname+") disse: \n" +sistema+  "\r" + "\n\n--------------------------------------------\n";
 break;
   }
  }
@@ -161,16 +170,9 @@ loop;
 
 // * Função de abrir ajuda
 // * ****************************************************************
-function abrirAjuda() {
-var ajuda = new Array (new Array ("Abrir ajuda"));
-for (h=0; h < ajuda.length; h++) {
-d.miley.Texto.value = ajuda[h];
-rotina()
- }
-};
+function abrirAjuda() {var ajuda = new Array (new Array ("Abrir ajuda"));for (h=0; h < ajuda.length; h++) {d.miley.Texto.value = ajuda[h];rotina()}};
 function abrir(URL) {w.open(URL,'janela','width=550, height=640, top=25, left=400, toolbar=no, fullscreen=yes');};
 //
-
 
 // * *****************************************
 // * * Menu de contexto com botão direto do mouse.

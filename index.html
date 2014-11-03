@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html manifest="miley.appcache">
 	<head>
-		<script src="js/miley.brain.js">   	</script>
+	<script src="js/miley.brain.js">   	</script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -14,18 +14,19 @@ Miley BETA
 
 	</head>
 
-<body onLoad="mileyIni(); getHist(); clock(); onLoad()">
+<body onLoad="mileyOnLoad()">
 
 <div id="reference"></div>
 <div id="canvas"></div>
 	<input id="q" name="q" value="" class="3d" placeholder="Pesquisar imagens" />
 
-
-<div onclick="config(); autocom();" class="options" title="Opções e configurações"></div>
+<div id="navbar">
+<div onclick="mileyOps()" class="options" title="Opções e configurações"></div>
+</div>
 
 <div id="rel-decoracao" style="">
 	<div id='rel'>
-<input id='hor' value=""></span> <input id='min' value=""></span> <sup><input id='seg' value=""></span></sup>
+<span id='hor'></span> <span id='min'></span> <sup><span id='seg'></span></sup>
 	</div>
 </div>
 
@@ -35,10 +36,10 @@ Miley BETA
 	<center>
 	<form name="miley" class="miley">
 
-	<div class="Ex"></div><!-- Ciclo externo -->
-	<div class="In"></div><!-- Ciclo interno -->
+	<div id="Ex"></div><!-- Ciclo externo -->
+	<div id="In"></div><!-- Ciclo interno -->
 
-	<textarea id="dialogo" style="display: none;" name="dialogo" rows="30" cols="30" onBlur="d.getElementById('dialogo').style.display = 'none';"></textarea><br />
+	<textarea id="dialogo" style="display: none;" name="dialogo" rows="30" cols="30" onBlur="mileyHistoricoClose()"></textarea><br />
 
 	<textarea id="resposta" class="resposta text_box" readonly name="Resposta" rows="6" cols="30"></textarea><br />
 	<textarea id="pergunta" class="pergunta" readonly name="Pergunta" rows="2" cols="30"></textarea><br />
@@ -46,11 +47,11 @@ Miley BETA
 <div id="m_fix"></div><!-- Box semitransparente atrás da div #texto em dispositivos de 480px -->
 
 		<div id="teclado">
-	<textarea id="texto" placeholder="Digite e aperte Enter" name="Texto" rows="2" cols="25" onkeypress="if(event.keyCode == 13) {rotina(); voz(); espera(); saveHist(); return false};" autofocus></textarea>
-	<input id="botaoFalar" class="falar" type="button" value="&#8594;" name="falar" onClick="rotina(); voz(); espera(); saveHist();" title="Falar" />
+	<textarea id="texto" placeholder="Digite e aperte Enter" name="Texto" rows="2" cols="25" onkeypress="if(event.keyCode == 13) {textoFalar(); return false;}" autofocus></textarea>
+	<input id="botaoFalar" class="falar" type="button" value="&#8594;" name="falar" onClick="textoFalar()" title="Falar" />
 		</div><!-- #teclado -->
 <br><br>
-  <input class="ajuda" type="button" value="O que posso dizer?" onClick="abrir('ajuda.html'); abrirAjuda(); voz();" title="Clique para obter ajuda" />
+  <input type="button" value="O que posso dizer?" id="ajuda" class="ajuda" onClick="mileyAbrirAjuda()" title="Clique para obter ajuda" />
 
 	</form>
 </center>
@@ -61,8 +62,8 @@ Miley BETA
 		<div id="context_menu">
 	<ul>
 <li onclick="w.location.reload();">Atualizar</li>
-<li onclick="abrir('ajuda.html'); abrirAjuda(); voz();">Ajuda</li>
-<li onclick="d.getElementById('dialogo').style.display = 'block'; d.getElementById('dialogo').focus();">Histórico</li>
+<li onclick="mileyAbrirAjuda()">Ajuda</li>
+<li onclick="mileyHistorico()">Histórico</li>
 <li onclick="d.location.href = 'https://jvribeiro.github.io/miley';">Versão anterior</li>
 	</ul>
 		</div><!-- #context_menu -->
@@ -82,7 +83,7 @@ Miley BETA
 	Seu nome	</label>
 <br>
 	<input type="text" id="userName" class="nomeField" placeholder="Seu nome" />
-	<a class="tooltip" tooltip="Se o fizer passarei a chamar você de 'anônimo'" onClick="clearNome()">Esquecer nome</a>
+	<a id="fgtnm-link" class="tooltip" tooltip="Se o fizer passarei a chamar você de 'anônimo'" onClick="clearNome()"> Esquecer nome</a>
 <br><br>
 
   <label for="Gênero">
@@ -108,7 +109,12 @@ Miley BETA
 		<option value="pt-pt">Português de Portugal</option>
 	</select>
 	</div><!-- title:Mudar idioma de fala-->
-
+<br>
+<input value="#E351FF" type="text" id="cor-hex" class="nomeField color" placeholder="Cor" />
+<input type="button" id="botaoPcor" onClick="mileyCor()" value="→" />
+<a id="ptcl-link" class="tooltip" tooltip="Retornarei à minha cor padrão (lilás)" onClick="corPadrao()"> Voltar à cor padrão</a>
+<br>
+<span id="csaved"></span>
 <br><br>
 <br><br>
 <br><br>
@@ -119,58 +125,9 @@ Miley BETA
   <button class="clear" onClick="apagarDados()">
 	Limpar seus dados	</button>
 
-  <button aria-label="Close" class="close" onClick="closeConfig()" title="Fechar configurações">x</button>
+  <button class="close" onClick="closeConfig()" title="Fechar configurações">x</button>
 		</div><!-- .config -->
 
-<script id="config">
-var Unome = d.getElementById('userName');
-var gUnome = w.localStorage.getItem('nome');
-var Ugenero = d.getElementById('gen');
-function autocom() {d.getElementById("userName").value = gUnome;};
-function salvarDados() {
-	w.localStorage.setItem('nome',Unome.value);
-	w.localStorage.setItem('genero',Ugenero.value);
-	setTimeout(d.location.href = "", 2000);
-}
-function apagarDados() {
-confirmar = confirm("Seus dados não poderão ser recuperados.\n\n Você tem certeza que deseja apagar seus dados?");
-	if (confirmar == true) {
-		w.localStorage.clear();
-		alert("Seus dados foram apagados. Aperte Ok para atualizar.");
-		setTimeout(d.location.href = "", 2000);
-} else {return false;}
-};
-dialog = d.getElementById('dialogo');
-function getHist() {
-	w.localStorage.getItem('dialog');
-}
-function saveHist() {
-	w.localStorage.setItem('histórico',dialog.value);
-}
-function clearHist() {
-	confirmar = confirm("Você tem certeza que deseja apagar o histórico de conversa?");
-		if (confirmar == true) {
-	w.localStorage.removeItem('histórico');
-	setTimeout(d.location.href = "", 2000);
-} else {return false;}
-};
-function clearNome() {
-	confirmar = confirm("Você tem certeza que deseja apagar seu nome?");
-		if (confirmar == true) {
-	w.localStorage.removeItem('nome');
-	setTimeout(d.location.href = "", 2000);
-} else {return false;}
-};
-
-function config() {d.getElementById('config').style.display = 'block';};
-function closeConfig() {d.getElementById('config').style.display = 'none';};
-function config_voice() {d.getElementById('config').style.display = 'block';};
-function closeConfig_voice() {d.getElementById('config').style.display = 'none';};
-
-if (window.location.protocol == "http:") {
-window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
-}
-</script>
 
 		<div class="cc">
 	<a class="tooltip" tooltip="Licença Creative Commons" rel="license" onClick="abrir('http://creativecommons.org/licenses/by/2.0/br/');">
@@ -180,18 +137,18 @@ window.location.href = "https:" + window.location.href.substring(window.location
 
 O Projeto Miley A.I. está licenciado com <br>
 uma Licença
-<a rel="license" onClick="d.location.href = 'http://creativecommons.org/licenses/by/2.0/br/';">
+<a id="cc-link" rel="license" onClick="d.location.href = 'http://creativecommons.org/licenses/by/2.0/br/';">
 Creative Commons Atribuição 2.0 Brasil
 </a>.
 
 <br>
 "Miley A.I." é um projeto de
-	<a class="tooltip" tooltip="Twitter (@JVRibeiiro)" rel="nofollow" onClick="abrir('http://twitter.com/JVRibeiiro')">
+	<a id="twt-link" class="tooltip" tooltip="Twitter (@JVRibeiiro)" rel="nofollow" onClick="abrir('http://twitter.com/JVRibeiiro')">
 	Victor Ribeiro
 	</a>.
 		</div><!-- .cc (Creative Commons) -->
 
-    <div class='lado2'>
+    <div id='lado2' class='lado2'>
   <center>
 <br><br>
 <br><br>
@@ -200,23 +157,26 @@ Creative Commons Atribuição 2.0 Brasil
 
 <li>Repaginação do design;</li>
 <li>Recurso novo: Definição de palavras (Não funciona ainda com nomes próprios compostos por mais de uma palavra);</li>
-<li>Recurso de Reconhecimento de fala <b><a href="https://github.com/TalAter/annyang/" target="_blank">Annyang.js</a></b>;</li>
+<li>Recurso de Reconhecimento de fala <b><a id="a-link" href="https://github.com/TalAter/annyang/" target="_blank">Annyang.js</a></b>;</li>
 
-<div class='version'>Versão BETA <div id="v"></div>
-<script>d.getElementById("v").innerHTML = "v"+version;</script>
+<div id='version'>
+	Versão BETA
+	<div id="v"></div>
 </div>
-Última atualização: 26/10/14.
 
   </center>
     </div> <!-- .lado2 -->
 
 
 <script src="js/jquery.min.js">			</script>
+
 <script src="js/miley.js">  			 	</script>
 <script src="js/miley.comandos.js">	</script>
+<script src="js/config.js"></script>
 
-<script src="api">									</script>
+<script src="js/api">								</script>
 <script src="js/default+pt_BR.I.js"></script>
 <script src="js/sphere.js">					</script>
+<script src="jscolor/jscolor.js">				</script>
 </body>
 </html>

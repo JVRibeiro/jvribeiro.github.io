@@ -1,9 +1,18 @@
 CACHE MANIFEST
-# 02:03 31/10/2014
+# 03:38 03/11/2014
+# * Opção nova: seleção de cor de interface;
+# * Ao falar com o teclado, a resposta é dada só em texto;
+# * Ciclos giram mais lentamente;
+# * Carregamento mais rápido.
 
 CACHE:
 index.html
 api
+jscolor/arrow.gif
+jscolor/cross.gif
+jscolor/hs.png
+jscolor/hv.png
+jscolor/jscolor.js
 js/default+pt_BR.I.js
 js/jquery.min.js
 js/miley.brain.js
@@ -13,6 +22,7 @@ js/sphere.js
 css/miley.estilo.css
 img/cc.png
 img/op.png
+
 
 # Resources that require the user to be online.
 NETWORK:

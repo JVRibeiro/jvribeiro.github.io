@@ -192,8 +192,8 @@ display: none;
 /*//////////////////////////////////////////////////////////////*/
 
 ::-webkit-scrollbar {
-width: 1px;
-height: 1px;
+width: 0;
+height: 0;
 }
 
 ::-webkit-scrollbar-track {
@@ -219,7 +219,7 @@ border: none;
 opacity: .8;
 }
 #canvas img:hover {
-border: 3px solid #ee56fc;
+border: 3px solid #E351FF;
 opacity: 1;
 }
 
@@ -232,7 +232,25 @@ border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -ms-bor
 }
 #q:hover {
 padding: 5px;
-border: 3px solid #ee56fc;
+border: 3px solid #E351FF;
+}
+
+#navbar {z-index: 5;
+position: fixed;
+top: 0;
+left: 0;
+background: #000;
+height: 40px;
+width: 100%;
+transition: .2s ease-in-out;
+-webkit-transition: .2s ease-in-out;
+-moz-transition: .2s ease-in-out;
+-ms-transition: .2s ease-in-out;
+}
+#navbar:hover {
+background: #E351FF;
+height: 50px;
+width: 100%;
 }
 
 #config {
@@ -240,7 +258,7 @@ opacity: .9;
 background: #000;
 display: none;
 width: 450px;
-height: auto;
+height: 100%;
 position: absolute;
 top: 0px;
 left: 0;
@@ -251,14 +269,23 @@ z-index: 20;
 cursor: default;
 }
 
+/* * Botão de opções * */
+.options {
+position: fixed;
+top: 5px;
+left: 3px;
+cursor: pointer;
+width: 35px;
+height: 30px;
+background: url('../img/op.png') no-repeat;
+background-size: 100% 100%;
+z-index: 6;
+}
+
 .nomeField {
 padding: 5px;
 border: 3px solid #fff;
 border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px;
-}
-.nomeField:hover {
-padding: 5px;
-border: 3px solid #ee56fc;
 }
 
 .save, .clear {
@@ -330,7 +357,7 @@ transition: 0.2s ease-in-out;
 }
 
 a:hover {
-color: #ee56fc;
+color: #E351FF;
 }
 
 .button { /* O que posso dizer */
@@ -345,8 +372,8 @@ margin: 10px;
 }
 
 .button:hover {
-background: #ee56fc;
-border: 2px solid #ee56fc;
+background: #E351FF;
+border: 2px solid #E351FF;
 }
 
 .button:active {
@@ -377,7 +404,7 @@ align: right;
 }
 
 .ajuda:hover {
-background: #ee56fc;
+background: #E351FF;
 }
 
 .ajuda:active {
@@ -396,7 +423,7 @@ list-style: square;
 
 #dialogo {
   -webkit-border-radius: 0 0 0 15px;
-border: 1px solid #ee56fc;
+border: 1px solid #E351FF;
 z-index: 16;
 width: 330px;
 height: 400px;
@@ -423,7 +450,7 @@ font-weight: lighter;
 text-shadow: 1px 1px 3px #000;
 font-size: 18pt;
 background: transparent;
-color: #ee56fc;
+color: #E351FF;
 user-select: none; -webkit-user-select: none; -moz-user-select: none; -o-user-select: none; -ms-user-select: none;
 cursor: default;
 resize: none;
@@ -488,8 +515,8 @@ margin-left: -20px;
 }
 
 .falar:hover, #botaoFalar:hover {
-background: #ee56fc;
-border: 2px solid #ee56fc;
+background: #E351FF;
+border: 2px solid #E351FF;
 }
 
 .falar:active, #botaoFalar:active {
@@ -582,15 +609,45 @@ padding: 10px;
 }
 
 #botao:hover {
-background: #ee56fc;
+background: #E351FF;
 }
 
+#cor-hex {
+cursor: pointer;
+}
+
+#botaoPcor {
+float: none;
+font-family: Calibri;
+font-size: 12pt;
+height: 40px;
+width: 40px;
+font-weight: bold;
+padding: 8px;
+background: #000;
+color: #fff;
+border: 2px solid #fff;
+margin-left: -20px;
+margin-top: 14px;
+}
+
+#botaoPcor:hover {
+background: #E351FF;
+border: 2px solid #E351FF;
+}
+
+#botaoPcor:active {
+background: #fff;
+border-color: transparent;
+color: #000;
+}
 /* ********* Avatar *************** */
-.Ex {
+#Ex {z-index: 1;
     background: transparent;
-    border: 5px solid #EE56FC;
     opacity: .9;
-  border-right: 5px solid transparent;
+  border-top: 5px solid #E351FF;
+    border-bottom: 5px solid #E351FF;
+    border-right: 5px solid transparent;
     border-left: 5px solid transparent;
   border-radius: 50%;
     -webkit-border-radius: 50%;
@@ -601,13 +658,13 @@ background: #ee56fc;
     height: 100px;
     float: center;
   -moz-animation: spinPulse 2s infinite ease-in-out;
-    -webkit-animation: spinPulse 2s infinite linear;
+    -webkit-animation: spinPulse 6s infinite linear;
     -ms-animation: spinPulse 2s infinite linear;
     -o-animation: spinPulse 2s infinite linear;
     animation: spinPulse 2s infinite linear;
 }
 
-.In {
+#In {z-index: 1;
     background: transparent;
     border-left: 2px solid #FBCEFF;
     border-right: 2px solid #FBCEFF;
@@ -623,7 +680,6 @@ background: #ee56fc;
     height: 70px;
     margin-top: -93px;
     float: center;
-  -moz-animation: spinoffPulse 4s infinite linear;
     -webkit-animation: spinoffShine 4s infinite linear;
     -ms-animation: spinoffShine 4s infinite linear;
     -o-animation: spinoffShine 4s infinite linear;
@@ -655,39 +711,41 @@ background: #ee56fc;
 }
 
 @keyframes spinoffShine {
-0% {box-shadow: 0 0 75px #EE56FC, inset 0 0 5px #EE56FC;}
-20% {box-shadow: 0 0 20px #EE56FC, inset 0 0 40px #EE56FC;}
-80% {box-shadow: 0 0 50px #EE56FC, inset 0 0 20px #EE56FC;}
-100% {box-shadow: 0 0 75px #EE56FC, inset 0 0 5px #EE56FC;};
+0% {box-shadow: 0 0 75px #E351FF, inset 0 0 5px #E351FF;}
+20% {box-shadow: 0 0 20px #E351FF, inset 0 0 40px #E351FF;}
+80% {box-shadow: 0 0 50px #E351FF, inset 0 0 20px #E351FF;}
+100% {box-shadow: 0 0 75px #E351FF, inset 0 0 5px #E351FF;};
 }
 
 @-moz-keyframes spinoffShine {
-0% {-moz-box-shadow: 0 0 75px #EE56FC, inset 0 0 5px #EE56FC;}
-20% {-moz-box-shadow: 0 0 20px #EE56FC, inset 0 0 40px #EE56FC;}
-80% {-moz-box-shadow: 0 0 20px #EE56FC, inset 0 0 20px #EE56FC;}
-100% {-moz-box-shadow: 0 0 75px #EE56FC, inset 0 0 5px #EE56FC;};
+0% {-moz-box-shadow: 0 0 75px #E351FF, inset 0 0 5px #E351FF;}
+20% {-moz-box-shadow: 0 0 20px #E351FF, inset 0 0 40px #E351FF;}
+80% {-moz-box-shadow: 0 0 20px #E351FF, inset 0 0 20px #E351FF;}
+100% {-moz-box-shadow: 0 0 75px #E351FF, inset 0 0 5px #E351FF;};
 }
 
 @-webkit-keyframes spinoffShine {
-0% {-webkit-box-shadow: 0 0 75px #EE56FC, inset 0 0 5px #EE56FC;}
-20% {-webkit-box-shadow: 0 0 20px #EE56FC, inset 0 0 40px #EE56FC;}
-80% {-webkit-box-shadow: 0 0 20px #EE56FC, inset 0 0 20px #EE56FC;}
-100% {-webkit-box-shadow: 0 0 75px #EE56FC, inset 0 0 5px #EE56FC;};
+0% {-webkit-box-shadow: 0 0 75px #E351FF, inset 0 0 5px #E351FF; -webkit-transform: rotate(0deg);}
+20% {-webkit-box-shadow: 0 0 20px #E351FF, inset 0 0 40px #E351FF; -webkit-transform: rotate(45deg);}
+80% {-webkit-box-shadow: 0 0 20px #E351FF, inset 0 0 20px #E351FF; -webkit-transform: rotate(90deg);}
+100% {-webkit-box-shadow: 0 0 75px #E351FF, inset 0 0 5px #E351FF; -webkit-transform: rotate(180deg);};
 }
 
 @-ms-keyframes spinoffShine {
-0% {-ms-box-shadow: 0 0 75px #EE56FC, inset 0 0 5px #EE56FC;}
-20% {-ms-box-shadow: 0 0 20px #EE56FC, inset 0 0 40px #EE56FC;}
-80% {-ms-box-shadow: 0 0 20px #EE56FC, inset 0 0 20px #EE56FC;}
-100% {-ms-box-shadow: 0 0 75px #EE56FC, inset 0 0 5px #EE56FC;};
+0% {-ms-box-shadow: 0 0 75px #E351FF, inset 0 0 5px #E351FF;}
+20% {-ms-box-shadow: 0 0 20px #E351FF, inset 0 0 40px #E351FF;}
+80% {-ms-box-shadow: 0 0 20px #E351FF, inset 0 0 20px #E351FF;}
+100% {-ms-box-shadow: 0 0 75px #E351FF, inset 0 0 5px #E351FF;};
 }
 
 /* ************* Fim do avatar ********************* */
 
 /* * Versão da I.A. * */
-.version {
-position: relative;
-color: #EE56FC;
+#version {
+position: absolute;
+bottom: 30px;
+right: 20px;
+color: #E351FF;
 font-size: 11pt;
 font-family: Segoe UI Light, Segoe UI;
 padding: 15px;
@@ -726,7 +784,7 @@ border: none;
 .cc {
 background: #000;
 position: fixed;
-bottom: -60px;
+bottom: -65px;
 left: 15px;
 padding-bottom: 5px;
 transition: 0.2s ease-in-out; -webkit-transition: 0.2s ease-in-out; -moz-transition: 0.2s ease-in-out; -ms-transition: 0.2s ease-in-out;
@@ -736,30 +794,12 @@ transition: 0.2s ease-in-out; -webkit-transition: 0.2s ease-in-out; -moz-transit
 bottom: 0px;
 }
 
-/* * Botão de opções * */
-.options {
-position: fixed;
-top: 5px;
-left: 3px;
-cursor: pointer;
-width: 35px;
-height: 30px;
-background: url('../img/op.png') no-repeat;
-background-size: 100% 100%;
-z-index: 6;
-}
-
-.options:hover {
-box-shadow: 0 0 20px #ee56fc;
--webkit-transition: .5s ease-in-out;
-}
-
 /* * Relogio digital * */
 #rel {border: none; width: 150px; padding: 5px; z-index: 10; position: absolute;}
 
-#hor {color: #fff; font-family: Agency FB, Segoe UI, sans-serif; font-size: 45pt; text-shadow: 0 0 20px #EE56FC; background: transparent; width: 50px; border-right-color: #ee56fc; border-top-color: transparent; border-left-color: transparent; border-bottom-color:transparent; z-index: 1;}
-#min {color: #fff; font-family: Agency FB, Segoe UI, sans-serif; font-size: 45pt; text-shadow: 0 0 20px #EE56FC; background: transparent; width: 50px; border: none; z-index: 1;}
-#seg {color: #fff; font-family: Agency FB, Segoe UI, sans-serif; font-size: 18pt; vertical-align: top; text-shadow: 0 0 10px #EE56FC; background: transparent; width: 20px; border: none; z-index: 2;}
+#hor {cursor: default; -webkit-user-select: none; -moz-user-select: none; color: #fff; font-family: Agency FB, Segoe UI, sans-serif; font-size: 45pt; text-shadow: 0 0 20px #E351FF; background: transparent; width: 50px; z-index: 1;}
+#min {cursor: default; -webkit-user-select: none; -moz-user-select: none; color: #fff; font-family: Agency FB, Segoe UI, sans-serif; font-size: 45pt; text-shadow: 0 0 20px #E351FF; background: transparent; width: 50px; border: none; z-index: 1;}
+#seg {cursor: default; -webkit-user-select: none; -moz-user-select: none; color: #fff; font-family: Agency FB, Segoe UI, sans-serif; font-size: 18pt; vertical-align: top; text-shadow: 0 0 10px #E351FF; background: transparent; width: 20px; border: none; z-index: 2;}
 
 #rel-decoracao {display: block; position: fixed; bottom: 20px; right: 32px; width: 150px; height: 150px; margin: -75px 0 0 -75px; border-radius: 50%; border: 3px solid transparent; z-index: 1;}
 #rel-decoracao:before {content: "";
@@ -767,15 +807,35 @@ padding: 20px;
 position: absolute;
 top: -13px; left: -13px; right: -13px; bottom: -13px;
 border-radius: 50%;
-border: 3px solid transparent; border-top-color: #EE56FC; border-right-color: #EE56FC; border-bottom-color: #EE56FC;
+border: 3px solid transparent; border-top-color: #E351FF; border-right-color: #E351FF; border-bottom-color: #E351FF;
 -webkit-animation: spin 60s linear infinite;
+-moz-animation: spin 60s linear infinite;
+-ms-animation: spin 60s linear infinite;
 z-index: 1;
 }
-#rel-decoracao:after {content: ""; position: absolute; top: 12px; left: 12px; right: 12px; bottom: 12px; border-radius: 50%; border: 3px solid transparent; border-top-color: #ee56fc; -webkit-animation: spin 1s linear infinite; z-index: 1;}
+#rel-decoracao:after {content: "";
+position: absolute; top: 12px; left: 12px; right: 12px; bottom: 12px;
+border-radius: 50%; border: 3px solid transparent; border-top-color: #E351FF;
+-webkit-animation: spin 1s linear infinite;
+-moz-animation: spin 1s linear infinite;
+-ms-animation: spin 1s linear infinite;
+z-index: 1;}
 
+@keyframes spin {
+0% {transform: rotate(0deg);}
+100% {transform: rotate(360deg);}
+}
 @-webkit-keyframes spin {
 0% {-webkit-transform: rotate(0deg);}
 100% {-webkit-transform: rotate(360deg);}
+}
+@-moz-keyframes spin {
+0% {-moz-transform: rotate(0deg);}
+100% {-moz-transform: rotate(360deg);}
+}
+@-ms-keyframes spin {
+0% {-ms-transform: rotate(0deg);}
+100% {-ms-transform: rotate(360deg);}
 }
 
 /* * Tooltip * */
