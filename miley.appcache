@@ -1,5 +1,5 @@
 ﻿CACHE MANIFEST
-# 03:48 03/11/2014
+# 23:14 04/11/2014
 # * Opção nova: seleção de cor de interface;
 # * Ao falar com o teclado, a resposta é dada só em texto;
 # * Ciclos giram mais lentamente;
@@ -15,6 +15,7 @@ jscolor/hv.png
 jscolor/jscolor.js
 js/default+pt_BR.I.js
 js/jquery.min.js
+js/miley.js
 js/miley.brain.js
 js/miley.comandos.js
 js/miley.js
