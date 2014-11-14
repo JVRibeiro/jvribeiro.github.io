@@ -17,11 +17,20 @@ var w = window;
 var d = document;
 //
 
+$(window).load(function rollDown(){
+
+$("#resposta").animate({
+scrollTop:$("#resposta")[0].scrollHeight - $("#resposta").height()
+},5000);
+});
+
+
+
+
 // * Simplificação das chamadas de funções
-function mileyOnLoad() {mileyCorGet(); mileyIni(); getHist(); clock(); onLoad(); d.getElementById("v").innerHTML = "v"+version;}
+function mileyOnLoad() {/*mileyCorGet();*/ mileyIni(); getHist(); clock(); onLoad(); d.getElementById("v").innerHTML = "v"+version;}
 function mileyOps() {config(); autocom();}
-function textoEnter() {textoFalar();}
-function textoFalar() {rotina(); espera(); saveHist(); d.getElementById('texto').focus();}
+function textoFalar() {d.getElementById('resposta').value = ""; rotina(); espera(); saveHist(); d.getElementById('texto').focus();}
 function mileyAbrirAjuda() {d.getElementById('ajuda').focus(); w.open('ajuda.html', 'ajuda', 'width=500, height=700, top=25, left=0'); abrirAjuda(); voz();}
 function mileyHistorico() {d.getElementById('dialogo').style.display = 'block'; d.getElementById('dialogo').focus();}
 function mileyHistoricoClose() {d.getElementById('dialogo').style.display = 'none';}
@@ -121,8 +130,16 @@ d.getElementById("voz").src = link+"?key="+apikey+"&hl="+idioma+"&src="+texto+"&
 
 // * Algoritmo de conversação
 // * ***************************************
+var f = d.getElementById('dialogo').value;
+intro = ", sou sua nova assistente";
+if (f == "" || f == null || f == undefined) {
+intro = ", sou sua nova assistente";
+}
+if (f !== "" || f !== null || f !== undefined) {
+intro = "";
+}
 usuario = "Aqui aparecerá sua fala. \nPara ajuda, diga \'O que posso dizer?\'";
-sistema = "Olá, "+gen+" "+nome+".";
+sistema = "Olá, "+gen+" "+nome+""+intro+".";
 historico = dialog;
 
 function rotina(nome) {

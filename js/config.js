@@ -1,4 +1,4 @@
-var Unome = d.getElementById('userName');
+﻿var Unome = d.getElementById('userName');
 var gUnome = w.localStorage.getItem('nome');
 var Ugenero = d.getElementById('gen');
 function autocom() {d.getElementById("userName").value = gUnome;};
@@ -53,7 +53,7 @@ if (window.location.protocol == "http:") {
 window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
 }
 
-// * Cores da Miley
+/* * Cores da Miley (função em teste)
 function mileyCor() {
 var cor = d.getElementById('cor-hex');
 window.localStorage.setItem('corIA',cor.value);
@@ -105,4 +105,4 @@ vers.style.color = getCor;
 
 navBar.style.background = getCor;
 }
-//
+*/

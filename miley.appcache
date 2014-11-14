@@ -1,25 +1,23 @@
 ﻿CACHE MANIFEST
-# 23:14 04/11/2014
-# * Opção nova: seleção de cor de interface;
-# * Ao falar com o teclado, a resposta é dada só em texto;
-# * Ciclos giram mais lentamente;
-# * Carregamento mais rápido.
+# 00:51 14/11/2014
+# * Correção de bugs
 
 CACHE:
 index.html
-js/api
-jscolor/arrow.gif
-jscolor/cross.gif
-jscolor/hs.png
-jscolor/hv.png
-jscolor/jscolor.js
-js/default+pt_BR.I.js
 js/jquery.min.js
+js/api.js
+# jscolor/arrow.gif
+# jscolor/cross.gif
+# jscolor/hs.png
+# jscolor/hv.png
+# jscolor/jscolor.js
+js/default+pt_BR.I.js
 js/miley.js
 js/miley.brain.js
 js/miley.comandos.js
 js/miley.js
 js/sphere.js
+js/config.js
 css/miley.estilo.css
 img/cc.png
 img/op.png

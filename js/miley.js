@@ -355,10 +355,12 @@ new Array (
 ),
 
 new Array (
-"(.*)((você|vc|voce|tu)|(|d |de |da )(onde|ond)) ((você|vc|voce|tu)|é|(de|d)|foi|mora) ((é|e)|(|de |d )((|a)onde|(|a)ond)|(você|vc|voce)|criada|mora|reside)(.*?)(.*)",
+"(.*)onde (vc|você|voce|tu) (é|foi)(.*)",
 "Fui criada na cidade de Moju, Pará.",
 "Moju, Pará.",
-"Fui desenvolvida em Moju, Pará."
+"Fui desenvolvida em Moju, Pará.",
+"Eu fui criada em Moju, Pará.",
+"Eu fui desenvolvida na cidade de Moju, Pará."
 ),
 
 new Array (
@@ -371,7 +373,7 @@ new Array (
 ),
 
 new Array (
-"(.*)(linguagem|linguagem de programação)(.*?)",
+"(.*)(linguagem|linguagem de programação) (vc|você|voce|tu)(.*)",
 "HTML5 e JavaScript.",
 "JavaScript e HTML5.",
 "HTML5 e JavaScript. Isso explica minha simplicidade e minhas limitações."
