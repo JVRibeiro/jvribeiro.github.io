@@ -72,12 +72,12 @@ Miley BETA
 <div id="m_voz" class="hidden">
 <audio id="voz" src="" autoplay="autoplay"></audio>
 </div><!-- .hidden -->
-<input id="API" type="hidden" value="https://api.voicerss.org/" />
 
 
 		<div id="config">
 <h2>Configurações e opções</h2>
-
+<br>
+	<h3>Geral</h3>
   <label for="Nome">
 	Seu nome	</label>
 <br>
@@ -86,28 +86,76 @@ Miley BETA
 <br><br>
 
   <label for="Gênero">
-	Gênero		</label> <span title="Isso mudará a forma que eu tratarei você (ex.: senhor, senhorita ou você)." style="cursor: pointer;"><sup>?</sup></span>
-<br>
+	Devo chamar você de		</label>
+	<br>
 	<div title="Mudar seu gênero">
 	<select id="gen" class="miley_gen">
-		<option value="senhor">Masculino</option>
-		<option value="senhorita">Feminino</option>
-		<option value="você" selected>Não quero dizer</option>
+		<option value="senhor">Senhor</option>
+		<option value="senhorita">Senhorita</option>
+		<option value="você" selected>Você</option>
 	</select>
-	</div><!-- title:Mudar seU gênero -->
+</div><!-- title:Mudar seu gênero -->
 <br><br>
 
 <button class="clear" onClick="clearHist()">Apagar conversa</button> (isso me reiniciará)
 <br><br>
+
+<h3>Opções de fala</h3>
+<br>
   <label for="Idioma de fala">
 	Idioma de fala	</label>
-<br>
-	<div title='Mudar idioma de fala'>
-	<select id="miley_idioma" class="text_box">
+
+	<select id="miley_idioma" class="text_box" title='Mudar idioma de fala'>
 		<option value="pt-br">Português do Brasil</option>
 		<option value="pt-pt">Português de Portugal</option>
 	</select>
-	</div><!-- title:Mudar idioma de fala-->
+
+<br><br>
+<label for="Velocidade de fala">
+Velocidade de fala	</label>
+
+<select id="miley_s_rate" title='Mudar velocidade de fala'>
+	<option value="0">Normal (padrão)</option>
+	<option value="-3">Mais lenta</option>
+	<option value="3">Mais rápida</option>
+</select>
+
+<br><br>
+<label for="Codec de fala">
+Codec de fala	</label>
+
+<select id="miley_s_codec" title='Mudar codec de fala'>
+	<option value="mp3">MP3 (padrão)</option>
+	<option value="wav">WAV</option>
+	<option value="aac">AAC</option>
+	<option value="ogg">OGG</option>
+	<option value="caf">CAF</option>
+</select>
+
+<br><br>
+<label for="Formato de áudio">
+Formato de áudio	(para Nerd's)</label>
+
+<select id="miley_s_format" title='Mudar formato de áudio'>
+	<optgroup label="Baixa qualidade">
+	<option value="8khz_8bit_mono">8 kHz, 8 Bit, Mono</option>
+	<option value="8khz_8bit_stereo">8 kHz, 8 Bit, Stereo</option>
+	<optgroup label="Média qualidade">
+	<option value="16khz_16bit_mono">16 kHz, 16 Bit, Mono</option>
+	<option value="16khz_16bit_stereo">16 kHz, 16 Bit, Stereo</option>
+	<optgroup label="Alta qualidade">
+	<option value="48khz_16bit_mono">48 kHz, 16 Bit, Mono</option>
+	<option value="48khz_16bit_stereo">48 kHz, 16 Bit, Stereo</option>
+</select>
+
+<br><br>
+<label for="Chave de ativação">
+Chave de ativação de áudio</label>
+
+<select id="miley_s_key" title='Mudar Chave de ativação'>
+	<option value="8f0b4a57a6ac49a683224f7bb8d795e9">8f0b4a57a6ac49a683224f7bb8d795e9</option>
+	<option value="cd58d3ed06b54f7fa19979932b4ddd40">cd58d3ed06b54f7fa19979932b4ddd40</option>
+</select>
 <br>
 <!--
 <input value="#E351FF" type="text" id="cor-hex" class="nomeField color" placeholder="Cor" />
@@ -159,6 +207,14 @@ Creative Commons Atribuição 2.0 Brasil
 <li>Repaginação do design;</li>
 <li>Recurso novo: Definição de palavras (Não funciona ainda com nomes próprios compostos por mais de uma palavra);</li>
 <li>Recurso de Reconhecimento de fala <b><a id="a-link" href="https://github.com/TalAter/annyang/" target="_blank">Annyang.js</a></b>;</li>
+
+<div id='services'>
+	Serviços orgulhosamente usados:
+	<br><br>
+	<a alt="VoiceRSS.org" title="Voice RSS - Adicione facilmente Text-to-Speech ao seu site!" rel="nofollow" href="http://voicerss.org/" target="_blank">
+	<div class="voicerss"></div>
+  </a>
+</div>
 
 <div id='version'>
 	Versão BETA

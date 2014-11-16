@@ -391,6 +391,14 @@ border-bottom: 1px solid #fff;
 color: #fff;
 }
 
+h3 {
+font-family: Segoe UI;
+font-weight: lighter;
+font-size: 16pt;
+border-bottom: 1px solid #fff;
+color: #fff;
+}
+
 .ajuda {
 padding: 5px;
 display: inline;
@@ -423,12 +431,12 @@ list-style: square;
 
 #dialogo {
   -webkit-border-radius: 0 0 0 15px;
-border: 1px solid #E351FF;
+border: 1px solid #00FFFF;
 z-index: 16;
 width: 330px;
 height: 400px;
 background: #000;
-color: #A4A5B1;
+color: #00FFFF;
 padding: 15px;
 font-family: "Segoe UI Light", Segoe UI, sans-serif;
 cursor: default;
@@ -754,32 +762,6 @@ padding: 15px;
 color: #fff;
 }
 
-/* * Opções de idimoa * */
-#miley_idioma {
-width: 200px;
-background: #000;
-color: #fff;
-position: relative;
-font-family: Segoe UI Light, Arial, sans-serif;
-font-size: 11pt;
-padding: 5px;
-border: none;
--ms-border-radius: 7px; -moz-border-radius: 7px; -webkit-border-radius: 7px; border-radius: 7px;
-}
-
-/* * Opções de gênero * */
-.miley_gen {
-width: 200px;
-background: #000;
-color: #fff;
-position: relative;
-font-family: Segoe UI Light, Arial, sans-serif;
-font-size: 11pt;
-padding: 5px;
-border: none;
--ms-border-radius: 7px; -moz-border-radius: 7px; -webkit-border-radius: 7px; border-radius: 7px;
-}
-
 /* * Creative Commons * */
 .cc {
 background: #000;
@@ -843,12 +825,26 @@ z-index: 1;}
 .tooltip:hover { text-decoration:none;}
 .tooltip:hover:after {
 background: #fff;
-opacity: 0.9; -ms-opacity: 0.9; -moz-opacity:0.9; -webkit-opacity:0.9;
-position: absolute; bottom: 18px; left: 45%; padding: 5px 15px; display: block;
+position: absolute; bottom: 18px; left: 5%; padding: 5px 15px; display: block;
 color: #000;
 content: attr(tooltip);
 white-space: nowrap;
 z-index: 98;
 font-family: sans-serif;
 font-size: 11px;}
-.tooltip:hover:before {border: solid; border-color: #fff transparent; border-width: 6px 6px 0 6px; bottom: 12px; content: ""; display: block; left: 50%; position: absolute; z-index: 99;}
+.tooltip:hover:before {border: solid; border-color: #fff transparent; border-width: 6px 6px 0 6px; bottom: 12px; content: ""; display: block; left: 80%; position: absolute; z-index: 99;}
+
+/* * Serviços * */
+#services {
+position: absolute;
+bottom: 100px;
+right: 200px;
+border: 1px solid #ee56fc;
+padding: 10px;
+}
+.voicerss {
+width: 80px;
+height: 55px;
+background-image: url('../img/voicerss.png');
+background-size: 100% 100%;
+}
