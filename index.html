@@ -86,13 +86,13 @@ Miley BETA
 <br><br>
 
   <label for="Gênero">
-	Devo chamar você de		</label>
+	Devo chamar você de:</label> <span id="Ugenero" class="saved-data-config"></span>
 	<br>
 	<div title="Mudar seu gênero">
 	<select id="gen" class="miley_gen">
-		<option value="senhor">Senhor</option>
-		<option value="senhorita">Senhorita</option>
-		<option value="você" selected>Você</option>
+		<option value="senhor" id="senhor">Senhor</option>
+		<option value="senhorita" id="senhorita">Senhorita</option>
+		<option value="você" id="você">Você</option>
 	</select>
 </div><!-- title:Mudar seu gênero -->
 <br><br>
@@ -103,58 +103,58 @@ Miley BETA
 <h3>Opções de fala</h3>
 <br>
   <label for="Idioma de fala">
-	Idioma de fala	</label>
-
+	Idioma de fala:</label> <span id="Uidioma" class="saved-data-config"></span>
+<br>
 	<select id="miley_idioma" class="text_box" title='Mudar idioma de fala'>
-		<option value="pt-br">Português do Brasil</option>
-		<option value="pt-pt">Português de Portugal</option>
+		<option value="pt-br" id="pt-br">[pt-br] - Português do Brasil (padrão)</option>
+		<option value="pt-pt" id="pt-pt">[pt-pt] - Português de Portugal</option>
 	</select>
 
 <br><br>
 <label for="Velocidade de fala">
-Velocidade de fala	</label>
-
+Velocidade de fala:</label> <span id="Usrate" class="saved-data-config"></span>
+<br>
 <select id="miley_s_rate" title='Mudar velocidade de fala'>
-	<option value="0">Normal (padrão)</option>
-	<option value="-3">Mais lenta</option>
-	<option value="3">Mais rápida</option>
+	<option value="0" id="0">[0] - Normal</option>
+	<option value="-2" id="-2">[-2] - Mais lenta</option>
+	<option value="3" id="3">[3] - Mais rápida</option>
 </select>
 
 <br><br>
 <label for="Codec de fala">
-Codec de fala	</label>
-
+Codec de fala:</label> <span id="Ucodec" class="saved-data-config"></span>
+<br>
 <select id="miley_s_codec" title='Mudar codec de fala'>
-	<option value="mp3">MP3 (padrão)</option>
-	<option value="wav">WAV</option>
-	<option value="aac">AAC</option>
-	<option value="ogg">OGG</option>
-	<option value="caf">CAF</option>
+	<option value="mp3" id="mp3">MP3 (padrão)</option>
+	<option value="wav" id="wav">WAV</option>
+	<option value="aac" id="aac">AAC</option>
+	<option value="ogg" id="ogg">OGG</option>
+	<option value="caf" id="caf">CAF</option>
 </select>
 
 <br><br>
 <label for="Formato de áudio">
-Formato de áudio	(para Nerd's)</label>
-
+Formato de áudio:</label> <span id="Uformato" class="saved-data-config"></span>
+<br>
 <select id="miley_s_format" title='Mudar formato de áudio'>
 	<optgroup label="Baixa qualidade">
-	<option value="8khz_8bit_mono">8 kHz, 8 Bit, Mono</option>
-	<option value="8khz_8bit_stereo">8 kHz, 8 Bit, Stereo</option>
+	<option value="8khz_8bit_mono" id="8khz_8bit_mono">8 kHz, 8 Bit, Mono</option>
+	<option value="8khz_8bit_stereo" id="8khz_8bit_stereo">8 kHz, 8 Bit, Stereo</option>
 	<optgroup label="Média qualidade">
-	<option value="16khz_16bit_mono">16 kHz, 16 Bit, Mono</option>
-	<option value="16khz_16bit_stereo">16 kHz, 16 Bit, Stereo</option>
+	<option value="16khz_16bit_mono" id="16khz_16bit_mono">16 kHz, 16 Bit, Mono</option>
+	<option value="16khz_16bit_stereo" id="16khz_16bit_stereo">16 kHz, 16 Bit, Stereo</option>
 	<optgroup label="Alta qualidade">
-	<option value="48khz_16bit_mono">48 kHz, 16 Bit, Mono</option>
-	<option value="48khz_16bit_stereo">48 kHz, 16 Bit, Stereo</option>
+	<option value="48khz_16bit_mono" id="48khz_16bit_mono">48 kHz, 16 Bit, Mono</option>
+	<option value="48khz_16bit_stereo" id="48khz_16bit_stereo">48 kHz, 16 Bit, Stereo</option>
 </select>
 
 <br><br>
 <label for="Chave de ativação">
-Chave de ativação de áudio</label>
-
+Chave de ativação de áudio:</label> <span id="Usapikey" class="saved-data-config"></span>
+<br>
 <select id="miley_s_key" title='Mudar Chave de ativação'>
-	<option value="8f0b4a57a6ac49a683224f7bb8d795e9">8f0b4a57a6ac49a683224f7bb8d795e9</option>
-	<option value="cd58d3ed06b54f7fa19979932b4ddd40">cd58d3ed06b54f7fa19979932b4ddd40</option>
+	<option value="8f0b4a57a6ac49a683224f7bb8d795e9" id="8f0b4a57a6ac49a683224f7bb8d795e9">8f0b4a57a6ac49a683224f7bb8d795e9</option>
+	<option value="cd58d3ed06b54f7fa19979932b4ddd40" id="cd58d3ed06b54f7fa19979932b4ddd40">cd58d3ed06b54f7fa19979932b4ddd40</option>
 </select>
 <br>
 <!--
@@ -201,19 +201,15 @@ Creative Commons Atribuição 2.0 Brasil
   <center>
 <br><br>
 <br><br>
-<b>Changelog:</b>
-<br><br>
-
-<li>Repaginação do design;</li>
-<li>Recurso novo: Definição de palavras (Não funciona ainda com nomes próprios compostos por mais de uma palavra);</li>
-<li>Recurso de Reconhecimento de fala <b><a id="a-link" href="https://github.com/TalAter/annyang/" target="_blank">Annyang.js</a></b>;</li>
 
 <div id='services'>
-	Serviços orgulhosamente usados:
+	Serviços orgulhosamente utilizados:
 	<br><br>
-	<a alt="VoiceRSS.org" title="Voice RSS - Adicione facilmente Text-to-Speech ao seu site!" rel="nofollow" href="http://voicerss.org/" target="_blank">
-	<div class="voicerss"></div>
-  </a>
+	<a alt="VoiceRSS.org" title="Voice RSS - o melhor serviço de Text-to-Speech!" rel="nofollow" href="http://voicerss.org/" target="_blank">
+	<div class="voicerss"></div></a>
+
+<a alt="Annyang.js" title="Annyang! - Biblioteca JavaScript para Speech Recognition" rel="nofollow" href="https://talater.com/annyang/" target="_blank">
+	<div class="annyang"></div></a>
 </div>
 
 <div id='version'>

@@ -1,7 +1,7 @@
 ﻿// **************************
 //  ** miley.brain.js
 // ***************************
-// ** Versão/Version: 1.1.3
+// ** Versão/Version: 1.2.0
 // ** Autor/Author: Victor Ribeiro (@JVRibeiiro)
 // ** Licença: MIT
 // ***************************
@@ -9,7 +9,7 @@
 // * Informações da I.A.
 var AIname = "Miley";   // * Nome da I.A.
 var AInick = "Mi";      // * Apelido da I.A.
-var version = "1.1.3";  // * Versão da I.A.
+var version = "1.2.0";  // * Versão da I.A.
 //
 
 // * Abreviação de window e document
@@ -74,7 +74,7 @@ var idade = 2014 - ano + " anos";
 
 // * Delay de 2s na resposta (sincroniza com a resposta falada)
 function mostra() {d.getElementById('resposta').style.opacity = '1';};
-function espera() {d.getElementById('resposta').style.opacity = '0'; setTimeout("mostra()", 2000);};
+function espera() {d.getElementById('resposta').style.opacity = '0'; setTimeout("mostra()", 3000);};
 //
 
 // * Algoritmo de renomeação caso estejam vazio os campos de informação do usuário
@@ -107,20 +107,27 @@ strHor = new String (h); if (strHor.length == 1) {h = "0"+h};
 // * Script de Síntese de voz (TTS) - Uma cortesia da VoiceRSS.org
 // * *************************************************************
 function voz() {
-var formato = d.getElementById("miley_s_format").value;
-var apikey = d.getElementById("miley_s_key").value;
-var rate = d.getElementById("miley_s_rate").value;
-var idioma = d.getElementById("miley_idioma").value;
-var texto = d.getElementById("resposta").value;
+  var gUsapikey = w.localStorage.getItem('sapikey');
+  var gUsrate = w.localStorage.getItem('srate');
+  var gUidioma = w.localStorage.getItem('idioma');
+  var gUcodec = w.localStorage.getItem('codec');
+  var gUformato = w.localStorage.getItem('formato');
+
 var link = "https://api.voicerss.org/";
-var codec = d.getElementById("miley_s_codec").value;
+var apikey = gUsapikey;
+var rate = gUsrate;
+var idioma = gUidioma;
+var codec = gUcodec;
+var formato = gUformato;
+var texto = d.getElementById("resposta").value;
+
 d.getElementById("voz").src = link
 + "?key=" + apikey
 + "&r=" + rate
 + "&hl=" + idioma
-+ "&src=" + texto
 + "&c=" + codec
 + "&f=" + formato
++ "&src=" + texto
 };
 //
 

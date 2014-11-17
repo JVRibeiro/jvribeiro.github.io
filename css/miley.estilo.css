@@ -183,7 +183,7 @@ right: 0;
  }
 
 /* * Elementos ocultos nesse tamanho de tela * */
-.cc, .lado2, #rel, #rel-decoracao:after, #rel-decoracao:before, #q {
+.cc, .lado2, #rel, #q, #canvas, #reference {
 display: none;
 }
 }
@@ -235,11 +235,13 @@ padding: 5px;
 border: 3px solid #E351FF;
 }
 
-#navbar {z-index: 5;
+#navbar {
+z-index: 5;
 position: fixed;
 top: 0;
 left: 0;
 background: #000;
+border-top: 4px solid #E351FF;
 height: 40px;
 width: 100%;
 transition: .2s ease-in-out;
@@ -254,7 +256,6 @@ width: 100%;
 }
 
 #config {
-opacity: .9;
 background: #000;
 display: none;
 width: 450px;
@@ -267,6 +268,7 @@ padding-left: 30px;
 padding-bottom: 300px;
 z-index: 20;
 cursor: default;
+border-right: 5px solid #ee56fc;
 }
 
 /* * Botão de opções * */
@@ -286,6 +288,10 @@ z-index: 6;
 padding: 5px;
 border: 3px solid #fff;
 border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px;
+}
+
+.saved-data-config {
+color: #EDA3FF;
 }
 
 .save, .clear {
@@ -586,7 +592,7 @@ color: #FFF;
 
 .lado2 {
 cursor: default;
-border-left: 15px solid #A020F0;
+border-left: 15px solid #E351FF;
 background: #000;
 width: 550px;
 height: 100%;
@@ -600,7 +606,7 @@ z-index: 17;
 
 .lado2:hover {
 right: 0;
-border-left: 15px solid #000;
+border-left: 1px solid #E351FF;
 box-shadow: -20px 0 50px #000;
 }
 
@@ -784,41 +790,6 @@ bottom: 0px;
 #seg {cursor: default; -webkit-user-select: none; -moz-user-select: none; color: #fff; font-family: Agency FB, Segoe UI, sans-serif; font-size: 18pt; vertical-align: top; text-shadow: 0 0 10px #E351FF; background: transparent; width: 20px; border: none; z-index: 2;}
 
 #rel-decoracao {display: block; position: fixed; bottom: 20px; right: 32px; width: 150px; height: 150px; margin: -75px 0 0 -75px; border-radius: 50%; border: 3px solid transparent; z-index: 1;}
-#rel-decoracao:before {content: "";
-padding: 20px;
-position: absolute;
-top: -13px; left: -13px; right: -13px; bottom: -13px;
-border-radius: 50%;
-border: 3px solid transparent; border-top-color: #E351FF; border-right-color: #E351FF; border-bottom-color: #E351FF;
--webkit-animation: spin 60s linear infinite;
--moz-animation: spin 60s linear infinite;
--ms-animation: spin 60s linear infinite;
-z-index: 1;
-}
-#rel-decoracao:after {content: "";
-position: absolute; top: 12px; left: 12px; right: 12px; bottom: 12px;
-border-radius: 50%; border: 3px solid transparent; border-top-color: #E351FF;
--webkit-animation: spin 1s linear infinite;
--moz-animation: spin 1s linear infinite;
--ms-animation: spin 1s linear infinite;
-z-index: 1;}
-
-@keyframes spin {
-0% {transform: rotate(0deg);}
-100% {transform: rotate(360deg);}
-}
-@-webkit-keyframes spin {
-0% {-webkit-transform: rotate(0deg);}
-100% {-webkit-transform: rotate(360deg);}
-}
-@-moz-keyframes spin {
-0% {-moz-transform: rotate(0deg);}
-100% {-moz-transform: rotate(360deg);}
-}
-@-ms-keyframes spin {
-0% {-ms-transform: rotate(0deg);}
-100% {-ms-transform: rotate(360deg);}
-}
 
 /* * Tooltip * */
 .tooltip { display:inline;position:relative;}
@@ -836,15 +807,33 @@ font-size: 11px;}
 
 /* * Serviços * */
 #services {
+height: 130px;
 position: absolute;
-bottom: 100px;
-right: 200px;
+bottom: 50px;
+left: 20px;
 border: 1px solid #ee56fc;
 padding: 10px;
 }
 .voicerss {
+display: inline-block;
 width: 80px;
 height: 55px;
 background-image: url('../img/voicerss.png');
 background-size: 100% 100%;
+transition: .2s ease-in-out;
+}
+.voicerss:hover {
+transform: translatey(-5px);
+}
+
+.annyang {
+display: inline-block;
+width: 80px;
+height: 70px;
+background-image: url('../img/annyang.png');
+background-size: 100% 100%;
+transition: .2s ease-in-out;
+}
+.annyang:hover {
+transform: translatey(-5px);
 }
