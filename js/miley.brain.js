@@ -195,7 +195,7 @@ this.value = split.join(' ');
 return this;
 };
 
-$('#userName').on('keyup', function () {
+$('#userName').on('keyup, ready', function () {
     $(this).capitalize();
 }).capitalize();
 //
