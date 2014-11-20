@@ -196,7 +196,7 @@ return this;
 };
 
 
-$('#userName').on('change', function () {
+$('#userName').on('keyup', function () {
     $(this).capitalize();
 }).capitalize();
 
