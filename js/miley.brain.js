@@ -195,9 +195,11 @@ this.value = split.join(' ');
 return this;
 };
 
-$('#userName').on('load', function () {
+
+$('#userName').on('change', function () {
     $(this).capitalize();
 }).capitalize();
+
 //
 
 // * Função de abrir ajuda
