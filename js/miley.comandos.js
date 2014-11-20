@@ -246,9 +246,8 @@ var e = document.createElement("div"); e.innerHTML = input; return e.childNodes.
 	var ajuda = function abrirA() {abrirWindowA = w.open('ajuda.html', 'ajuda', 'width=500, height=700, top=25, left=0'); abrirAjuda(); voz();};
 
 	var lembrarNome = function(nome) {
-	d.getElementById("userName").value = nome;
 	var uNa = d.getElementById("userName");
-	uNa = capitalizar(uNa);
+	uNa.value = nome;
 	salvarDados();
 	};
 

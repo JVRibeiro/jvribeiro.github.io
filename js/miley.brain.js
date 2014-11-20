@@ -157,6 +157,7 @@ index = Math.ceil(tamanho * Math.random());
 reply = brain[i][index];
 sistema = usuario.replace(exReg, reply);
 sistema = capitalizar(sistema);
+userName = capitalizar(userName);
 historico = historico + "Eu ("+AIname+") disse: \n" +sistema+  "\r" + "\n\n--------------------------------------------\n";
 break;
   }
@@ -167,6 +168,7 @@ function mileyIni() {atualizarTela()}
 
 function atualizarTela() {
 d.miley.dialogo.value = historico;
+d.conf.uNa.value = userName;
 d.miley.Resposta.value = sistema;
 d.miley.Pergunta.value = usuario;
 d.miley.Texto.value = "";
