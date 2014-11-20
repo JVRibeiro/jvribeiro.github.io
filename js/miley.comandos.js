@@ -247,8 +247,8 @@ var e = document.createElement("div"); e.innerHTML = input; return e.childNodes.
 
 	var lembrarNome = function(nome) {
 	d.getElementById("userName").value = nome;
-	d.getElementById("userName") = userName;
-	userName = capitalizar(userName);
+	var uNa = d.getElementById("userName");
+	uNa = capitalizar(uNa);
 	salvarDados();
 	};
 
