@@ -55,7 +55,10 @@ if (annyang) {
 	var fbnotificacoes = function(facebook) {abrirFb = w.open('http://www.facebook.com/notifications.php', 'facebook', 'width=1400, height=740, top=25, left=0'); d.getElementById("resposta").value = "Certo. Estou abrindo suas notificações."; voz();};
 
 
-var site = function(algo) {abrirSite = w.open('http://'+algo, 'site', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Okey. Vou abrir o "+algo+"."; voz();};
+var siteCom = function(algo) {abrirSite = w.open('http://'+algo+'.com', 'site', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Okey, "+gen+". Vou abrir o "+algo+".com."; voz();};
+var siteComBr = function(algo) {abrirSite = w.open('http://'+algo+'.com.br', 'site', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Okey, "+gen+". Vou abrir o "+algo+".com.br."; voz();};
+var siteOrg = function(algo) {abrirSite = w.open('http://'+algo+'.org', 'site', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Okey, "+gen+". Vou abrir o "+algo+".org."; voz();};
+var siteOrgBr = function(algo) {abrirSite = w.open('http://'+algo+'.org.br', 'site', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Okey, "+gen+". Vou abrir o "+algo+".org.br."; voz();};
 
 // Pesquisa global nos navegadores mais conhecidos - Google, Bing, Yahoo
 	var p_global = function(algo) {
@@ -428,10 +431,14 @@ var commands = {
   'miley *repeat': falar_mileyAlgo,
 
 	'miley':		alfa,
-	'ei':			alfa,
+	'ei (miley)':			alfa,
 
 // * Sites pela URL
-  'abr(e)(a)(ir) o *algo': site,
+  'abr(e)(a)(ir) o site *algo.com': siteCom,
+	'abr(e)(a)(ir) o site *algo.com.br': siteComBr,
+	'abr(e)(a)(ir) o site *algo.org': siteOrg,
+	'abr(e)(a)(ir) o site *algo.org.br': siteOrgBr,
+
 // * Facebook
   'abr(e)(a)(ir) o g1':						g1,
 	'me mostr(e)(a) as notícias (de hoje)':						g1,

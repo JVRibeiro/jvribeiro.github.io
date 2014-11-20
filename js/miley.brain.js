@@ -173,11 +173,31 @@ d.miley.Texto.value = "";
 }
 //
 
-// * Função que capitaliza (deixa maiúscula) a primeira letra do campo #resposta
-function capitalizar(mileyField) {mileyField = mileyField.substr(0, 1).toUpperCase() + mileyField.substr(1);
+// * Função que capitaliza (deixa maiúscula)
+function capitalizar(mileyField) {
+mileyField = mileyField.substr(0, 1).toUpperCase() + mileyField.substr(1);
 return mileyField
 loop;
 }
+
+
+// * Capitalizar campo #userName
+// * Créditos a: Jasper (Stack Overflow)
+// * http://stackoverflow.com/a/9576575
+$.fn.capitalize = function() {
+$.each(this, function() {
+var split = this.value.split(' ');
+for (var i = 0, len = split.length; i < len; i++) {
+split[i] = split[i].charAt(0).toUpperCase() + split[i].slice(1).toLowerCase();
+}
+this.value = split.join(' ');
+});
+return this;
+};
+
+$('#userName').on('keyup', function () {
+    $(this).capitalize();
+}).capitalize();
 //
 
 // * Função de abrir ajuda
