@@ -20,6 +20,17 @@ var w = window;
 var d = document;
 var nome = w.localStorage.getItem('nome');
 var gen = w.localStorage.getItem('genero');
+
+// * Algoritmo de renomeação caso estejam vazio os campos de informação do usuário
+if (gen == null || gen == undefined) {gen = "usuário";};
+if (nome == null || nome == undefined) {nome = "anônimo";};
+if (dialog == null) {dialog = "";};
+if (nome == "" && gen == "senhor") {nome = "anônimo";};
+if (nome == "" && gen == "senhorita") {nome = "anônima";};
+if (nome == "" && gen == "você") {gen = "pessoa";};
+if (nome.length > 0 && gen == "você") {gen = "";};
+//
+
 var permissaoNegada = "000111011010101011111000010101000110011000111111001010101010101101001100101001010010010110100";
 
 function _EaDsVr() {
@@ -29,14 +40,68 @@ espera(); rotina(); voz(); saveHist();
 
 if (annyang) {
 	var calcularSoma = function(val1, val2) {
+
 		var valor1 = val1;
 		var valor2 = val2;
+
+if(val1 == "dois") {val1 = 2};
+if(val2 == "dois") {val2 = 2};
 
 		var n1 = Number(valor1);
 		var n2 = Number(valor2);
 
-		var result = console.log(n1 + n2);
+		var result = console.log("Resultado: " + n1 + n2);
 		d.getElementById('resposta').value = n1 + n2;
+		d.getElementById('pergunta').value = "Soma > "+n1+" mais "+n2+".";
+		voz();
+		}
+
+	var calcularSubtrai = function(val1, val2) {
+		var valor1 = val1;
+		var valor2 = val2;
+
+if(val1 == "dois") {val1 = 2};
+if(val2 == "dois") {val2 = 2};
+
+		var n1 = Number(valor1);
+		var n2 = Number(valor2);
+
+		var result = console.log("Resultado: " + n1 - n2);
+		d.getElementById('resposta').value = n1 - n2;
+		d.getElementById('pergunta').value = "Subtração > "+n1+" menos "+n2+".";
+		voz();
+		}
+
+	var calcularMultiplica = function(val1, val2) {
+		var valor1 = val1;
+		var valor2 = val2;
+
+if(val1 == "dois") {val1 = 2};
+if(val2 == "dois") {val2 = 2};
+
+		var n1 = Number(valor1);
+		var n2 = Number(valor2);
+
+		var result = console.log("Resultado: " + n1 * n2);
+		d.getElementById('resposta').value = n1 * n2;
+		d.getElementById('pergunta').value = "Multiplicação > "+n1+" vezes "+n2+".";
+		voz();
+		}
+
+	var calcularDivide = function(val1, val2) {
+		var valor1 = val1;
+		var valor2 = val2;
+
+if(val1 == "dois") {val1 = 2};
+if(val2 == "dois") {val2 = 2};
+
+		var n1 = Number(valor1);
+		var n2 = Number(valor2);
+
+		var result = console.log("Resultado: " + n1 / n2);
+		d.getElementById('resposta').value = n1 / n2;
+		d.getElementById('pergunta').value = "Divisão > "+n1+" dividido por "+n2+".";
+		voz();
 		}
 
 	var fecharMiley = function() {d.getElementById("resposta").value = "Tchau tchau!"; voz(); setTimeout(w.location.href = "about:blank", 5000);};
@@ -62,23 +127,23 @@ var siteOrgBr = function(algo) {abrirSite = w.open('http://'+algo+'.org.br', 'si
 
 // Pesquisa global nos navegadores mais conhecidos - Google, Bing, Yahoo
 	var p_global = function(algo) {
-		abrirWindowG = w.open('http://google.com/#q='+algo, 'google', 'width=700, height=700, top=25, left=0');
+		abrirWindowG = w.open('http://google.com/search?q='+algo, 'google', 'width=700, height=700, top=25, left=0');
 		abrirWindowB = w.open('http://bing.com/search?q='+algo, 'bing', 'width=700, height=700, top=25, left=500');
 		abrirWindowY = w.open('http://br.search.yahoo.com/search;_ylt=Anmgv8ykk.JD03hZwN3Ah2eU7q5_?p='+algo+'&toggle=1&cop=mss&ei=UTF-8&fr=yfp-t-403&fp=1', 'yahoo', 'width=800, height=700, top=25, left=800');
 	d.getElementById("resposta").value = "Tá bom. Vou procurar nos melhores mecanismos de buscas por "+algo+"."; voz();};
 
-var g1 = function(algo) {abrirWindowG1 = w.open('http://g1.globo.com/', 'g1', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Okey. Vou abrir o G1."; voz();};
+var g1 = function(algo) {abrirWindowG1 = w.open('http://g1.globo.com/', 'g1', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Vou abrir o G1."; voz();};
 // * Pesquisa individual - Google, Bing, Yahoo
 
 // * Google
-	var google = function(algo) {abrirWindowG = w.open('http://google.com/', 'google', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Okey. Vou abrir o Google."; voz();};
-	var pgoogle = function(algo) {abrirWindowG = w.open('http://google.com/#q='+algo, 'google', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Okey. Vou procurar por "+algo+" no Google."; voz();};
+	var google = function(algo) {abrirWindowG = w.open('http://google.com/', 'google', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Vou abrir o Google."; voz();};
+	var pgoogle = function(algo) {abrirWindowG = w.open('http://google.com/search?q='+algo, 'google', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Vou procurar por "+algo+" no Google, "+gen+"."; voz();};
 
 // * Wikipédia
   var pwiki = function(algo) {abrirWindowW = w.open('http://pt.wikipedia.org/wiki/'+algo, 'wiki', 'width=600, height=700, top=25, right=0')};
 
 // * Definições
-	var definir = function(algo) {startFetch(algo, 100, 500); d.getElementById("pergunta").value = "Definir > "+algo; d.getElementById('q').value = algo; search();};
+	var definir = function(algo) {startFetch(algo, 100, 500); d.getElementById("pergunta").value = "Definir > "+algo; d.getElementById('q').value = algo; search(); d.getElementById("resposta").value = "Só um momento..."; voz();};
 var textbox = document.getElementById("resposta"); var button = document.getElementById("botaoFalar"); var tempscript = null, minchars, maxchars, attempts;
 function startFetch(algo, minimumCharacters, maximumCharacters, isRetry) {
 if (tempscript) return; // a fetch is already in progress
@@ -251,6 +316,30 @@ var e = document.createElement("div"); e.innerHTML = input; return e.childNodes.
 	salvarDados();
 	};
 
+	var lembrarGeneroSenhor = function(genero) {
+	var uGeSo = d.getElementById("senhor");
+	uGeSo.selected = "true";
+	d.getElementById("resposta").value = "Chamarei você de senhor. \n\nSalvo ou Cancelo?";
+	d.getElementById("pergunta").value = "Mudando gênero para > Senhor";
+	};
+
+	var lembrarGeneroSenhorita = function(genero) {
+	var uGeSa = d.getElementById("senhorita");
+	uGeSa.selected = "true";
+	d.getElementById("resposta").value = "Chamarei você de senhorita. \n\nSalvo ou Cancelo?";
+	d.getElementById("pergunta").value = "Mudando gênero para > Senhorita";
+	};
+
+	var salvar = function() {
+	d.getElementById("resposta").value = "Informação salva. \n\nAtualizando..."; voz();
+	setTimeout(salvarDados(), 5000);
+	};
+
+	var cancelar = function() {
+	d.getElementById("resposta").value = "Cancelei, "+gen+"."; voz();
+	console.log('Operação cancelada');
+	};
+
 	var config = function() {config_voice(); autocom()};
 	var closeConfig = function() {closeConfig_voice()};
 
@@ -287,16 +376,39 @@ var e = document.createElement("div"); e.innerHTML = input; return e.childNodes.
 
 var commands = {
 	'soma :val1 mais :val2': calcularSoma,
-	'soma :val1 + :val2': calcularSoma,
+	'soma pra mim :val1 + :val2': calcularSoma,
 	'quanto é :val1 mais :val2': calcularSoma,
-	'quanto é :val1 + :val2': calcularSoma,
+	'calcula :val1 mais :val2': calcularSoma,
+
+	'subtrai :val1 por :val2': calcularSubtrai,
+	'subtração :val1 menos :val2': calcularSubtrai,
+	'quanto é :val1 menos :val2': calcularSubtrai,
+	'calcula :val1 menos :val2': calcularSubtrai,
+
+	'multiplica :val1 vezes :val2': calcularMultiplica,
+	'calcula :val1 vezes :val2': calcularMultiplica,
+	'quanto é :val1 vezes :val2': calcularMultiplica,
+	'multiplicação :val1 vezes :val2': calcularMultiplica,
+
+	'divisão :val1 dividido por :val2': calcularDivide,
+	'divide :val1 por :val2': calcularDivide,
+	'calcula :val1 dividido por :val2': calcularDivide,
+	'quanto é :val1 dividido por :val2': calcularDivide,
+	'quanto é :val1 sobre :val2': calcularDivide,
 
   'sim': sim,
   'não': nao,
 
-	'(você) (pode) me cham(e)(a)(r) de *nome (miley)':	lembrarNome,
+	'salva(r)': salvar,
+	'cancela(r)': cancelar,
+
   'sou eu o *nome (miley)':	lembrarNome,
-  '(você) (pode) me cham(e)(a)(r) de *nome (miley)':	lembrarNome,
+  'tu pode(s) me chamar de *nome (miley)':	lembrarNome,
+	'você pode me chamar de *nome (miley)':	lembrarNome,
+	'pode me cham(e)(a)(r) de *nome (miley)':	lembrarNome,
+
+	'me cham(a)(e) de senhor': lembrarGeneroSenhor,
+	'me cham(a)(e) de senhorita': lembrarGeneroSenhorita,
 
 	'(agora) (abrir)(abre as) configurações (por favor) (miley) (por favor)':	config,
 	'(agora) fecha(r) (as) configurações (por favor) (miley) (por favor)':		closeConfig,
@@ -470,34 +582,34 @@ var commands = {
 	'abrir álbuns':				fbalbum,
 	'quero ver as (minhas) fotos (do) (face)(book) (miley)':			fbalbum,
 	'fotos':									fbalbum,
-	'mostra as minhas fotos (do) (face)(book) (por favor) (miley) (por favor)':	fbalbum,
-	'abre as fotos (do) (face)(book) (por favor) (miley) (por favor)':		fbalbum,
+	'mostr(a)(e)(r) as minhas fotos (do) (face)(book) (por favor) (miley) (por favor)':	fbalbum,
+	'abr(a)(i)(r) as fotos (do) (face)(book) (por favor) (miley) (por favor)':		fbalbum,
 	'agora as (minhas) fotos (do) (face)(book) (por favor) (miley) (por favor)':	fbalbum,
-	'abre as minhas fotos do face(book) (por favor) (miley) (por favor)':		fbalbum,
+	'abr(a)(i)(r) as minhas fotos do face(book) (por favor) (miley) (por favor)':		fbalbum,
 	'facebook álbuns':								fbalbum,
 
-	'abrir mensagens':							fbmensagens,
+	'abr(a)(i)(r) (as) (minhas) mensagens':							fbmensagens,
 	'mensagens':								fbmensagens,
-	'abre as minhas mensagens (por favor) (miley) (por favor)':		fbmensagens,
+	'abr(a)(e) as minhas mensagens (por favor) (miley) (por favor)':		fbmensagens,
 	'(me) mostra as minhas mensagens (por favor) (miley) (por favor)':	fbmensagens,
 	'facebook mensagens':							fbmensagens,
 
 	'me (mostra) (as) notificações (do) (face)(book) (por favor) (miley) (por favor)':		fbnotificacoes,
 	'mostra as notificações (do) (face)(book) (por favor) (miley) (por favor)':			fbnotificacoes,
-	'abre (pra mim) as notificações (do) (face)(book) (pra mim) (por favor) (miley) (por favor)':	fbnotificacoes,
+	'abr(a)(i)(r) (pra mim) as notificações (do) (face)(book) (pra mim) (por favor) (miley) (por favor)':	fbnotificacoes,
 	'facebook notificações':									fbnotificacoes,
 
 	'(agora) fecha(r) (o) face(book) (aí) (pra mim) (por favor) (miley) (por favor)':		fb_close,
 
 // * Pesquisa global
-	'pesquis(a)(e)(r) (global)(mente) (sobre) *algo':		p_global, // * Faz uma pesquisa global em três mecanismos de busca diferentes ao mesmo tempo
+	'pesquis(a)(e)(r) global (sobre) *algo':		p_global, // * Faz uma pesquisa global em três mecanismos de busca diferentes ao mesmo tempo
+  'pesquis(a)(e)(r) avançada (sobre) *algo':		p_global,
 
 	// * Google
-	'(abre) (aí) (o) google (pra mim) (miley)':			google,
-	'pesquis(a)(e)(r) no google *algo':				pgoogle,
+	'(abr)(e)(ir) (aí) (o) google (pra mim) (miley)':			google,
+	'pesquis(a)(e)(r) *algo':				pgoogle,
 	'procur(a)(e)(r) p(or)(elo)(s)(ela)(s) *algo no google':		pgoogle,
 	'pesquisa(r) (por) *algo no google':				pgoogle,
-	'quanto é *algo':						pgoogle,
 	'google *algo':							pgoogle,
 	'(agora) fech(a)(o)(e)(r) (o) google (aí) (pra mim) (miley)':		pgoogle_close,
 
@@ -505,18 +617,23 @@ var commands = {
 	'(abre) (aí) (o) yahoo (pra mim) (miley)':			          yahoo,
 	'pesquis(a)(e)(r) no yahoo *algo':			                	pyahoo,
 	'procur(a)(e)(r) p(or)(elo)(s)(ela)(s) *algo no yahoo':		pyahoo,
-	'pesquisa(r) (por) *algo no yahoo':			                 	pyahoo,
+	'pesquisa(r) *algo no yahoo':			                 	pyahoo,
 	'yahoo *algo':					                              		pyahoo,
 	'(agora) fech(a)(o)(e)(r) (o) yahoo (aí) (pra mim) (miley)':		pyahoo_close,
 
 // * Definições (retorna a definição de uma palavra com recursos visuais)
+  '(miley) defin(e)(a) :algo': definir,
   '(miley) defin(e)(a) (a) *algo': definir,
   '(miley) defin(e)(a) o *algo': definir,
   '(miley) defin(e)(a) as *algo': definir,
   '(miley) defin(e)(a) os *algo': definir,
 
-  '(miley) quem (é)(foi)(era) *algo':			definir,
-  '(miley) o que (é)(foi)(era) *algo':			definir,
+  '(miley) quem é *algo':			definir,
+	'(miley) quem foi *algo':			definir,
+	'(miley) quem era *algo':			definir,
+  '(miley) o que é *algo':			definir,
+	'(miley) o que foi *algo':			definir,
+	'(miley) o que era *algo':			definir,
   '(miley) informação d(e)(o)(a)(os)(as) *algo':		definir,
 
   'procur(a)(o)(e)(r) (por) image(ns)(m) de *algo':		p_img,
@@ -534,6 +651,7 @@ var commands = {
   'não quero ver (as)(às) imagens': p_img_del,
   'não quero ver (as)(às) fotos': p_img_del,
   'mostra(r) mais (imagens)': p_img_mais,
+	'mais (imagens)': p_img_mais,
 
   // * Wikipédia
 	'(procura)(vê)(olha) na wikipédia quem (é)(foi)(era) *algo':			pwiki,
