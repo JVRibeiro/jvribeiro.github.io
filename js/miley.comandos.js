@@ -44,8 +44,8 @@ if (annyang) {
 		var valor1 = val1;
 		var valor2 = val2;
 
-if(val1 == "dois") {val1 = 2};
-if(val2 == "dois") {val2 = 2};
+if(val1 == "dois") {valor1 = 2};
+if(val2 == "dois") {valor2 = 2};
 
 		var n1 = Number(valor1);
 		var n2 = Number(valor2);
@@ -60,8 +60,8 @@ if(val2 == "dois") {val2 = 2};
 		var valor1 = val1;
 		var valor2 = val2;
 
-if(val1 == "dois") {val1 = 2};
-if(val2 == "dois") {val2 = 2};
+if(val1 == "dois") {valor1 = 2};
+if(val2 == "dois") {valor2 = 2};
 
 		var n1 = Number(valor1);
 		var n2 = Number(valor2);
@@ -76,8 +76,8 @@ if(val2 == "dois") {val2 = 2};
 		var valor1 = val1;
 		var valor2 = val2;
 
-if(val1 == "dois") {val1 = 2};
-if(val2 == "dois") {val2 = 2};
+if(val1 == "dois") {valor1 = 2};
+if(val2 == "dois") {valor2 = 2};
 
 		var n1 = Number(valor1);
 		var n2 = Number(valor2);
@@ -92,8 +92,8 @@ if(val2 == "dois") {val2 = 2};
 		var valor1 = val1;
 		var valor2 = val2;
 
-if(val1 == "dois") {val1 = 2};
-if(val2 == "dois") {val2 = 2};
+if(val1 == "dois") {valor1 = 2};
+if(val2 == "dois") {valor2 = 2};
 
 		var n1 = Number(valor1);
 		var n2 = Number(valor2);
@@ -321,6 +321,7 @@ var e = document.createElement("div"); e.innerHTML = input; return e.childNodes.
 	uGeSo.selected = "true";
 	d.getElementById("resposta").value = "Chamarei você de senhor. \n\nSalvo ou Cancelo?";
 	d.getElementById("pergunta").value = "Mudando gênero para > Senhor";
+	voz();
 	};
 
 	var lembrarGeneroSenhorita = function(genero) {
@@ -328,6 +329,7 @@ var e = document.createElement("div"); e.innerHTML = input; return e.childNodes.
 	uGeSa.selected = "true";
 	d.getElementById("resposta").value = "Chamarei você de senhorita. \n\nSalvo ou Cancelo?";
 	d.getElementById("pergunta").value = "Mudando gênero para > Senhorita";
+	voz();
 	};
 
 	var salvar = function() {
@@ -390,10 +392,10 @@ var commands = {
 	'quanto é :val1 vezes :val2': calcularMultiplica,
 	'multiplicação :val1 vezes :val2': calcularMultiplica,
 
-	'divisão :val1 dividido por :val2': calcularDivide,
-	'divide :val1 por :val2': calcularDivide,
-	'calcula :val1 dividido por :val2': calcularDivide,
-	'quanto é :val1 dividido por :val2': calcularDivide,
+	'divisão :val1 dividido p(or)(ra) :val2': calcularDivide,
+	'divide :val1 p(or)(ra) :val2': calcularDivide,
+	'calcula :val1 dividido p(or)(ra) :val2': calcularDivide,
+	'quanto é :val1 dividido p(or)(ra) :val2': calcularDivide,
 	'quanto é :val1 sobre :val2': calcularDivide,
 
   'sim': sim,
