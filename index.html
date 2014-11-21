@@ -17,7 +17,7 @@ Miley BETA
 
 <div id="reference"></div>
 <div id="canvas"></div>
-	<input id="q" name="q" value="" class="3d" placeholder="Pesquisar imagens" />
+	<input id="q" name="q" value="" class="3d" placeholder="Pesquisa de imagens e definição" />
 
 <div id="navbar">
 <div onclick="mileyOps()" class="options" title="Opções e configurações"></div>
@@ -47,7 +47,7 @@ Miley BETA
 
 		<div id="teclado">
 	<textarea id="texto" placeholder="Digite e aperte Enter" name="Texto" rows="2" cols="25" onkeypress="if(event.keyCode == 13) {textoFalar(); return false;}" autofocus></textarea>
-	<input id="botaoFalar" class="falar" type="button" value="&#8594;" name="falar" onClick="textoFalar()" title="Falar" />
+	<input id="botaoFalar" class="falar" type="button" value="&#8594;" name="falar" onClick="textoFalar();" title="Falar" />
 		</div><!-- #teclado -->
 <br><br>
   <input type="button" value="O que posso dizer?" id="ajuda" class="ajuda" onClick="mileyAbrirAjuda()" title="Clique para obter ajuda" />
@@ -207,10 +207,14 @@ Creative Commons Atribuição 2.0 Brasil
 <div id='services'>
 	Serviços orgulhosamente utilizados:
 	<br><br>
-	<a alt="VoiceRSS.org" title="Voice RSS - o melhor serviço de Text-to-Speech!" rel="nofollow" href="http://voicerss.org/" target="_blank">
+	<a alt="VoiceRSS.org" title="Voice RSS - o melhor serviço de Text-to-Speech!
+
+	(http://voicerss.org)" rel="nofollow" onclick="w.open('http://voicerss.org/','partners')" target="_blank">
 	<div class="voicerss"></div></a>
 
-<a alt="Annyang.js" title="Annyang! - Biblioteca JavaScript para Speech Recognition" rel="nofollow" href="https://talater.com/annyang/" target="_blank">
+  <a alt="Annyang.js" title="Annyang! - Incrível biblioteca JavaScript para Speech Recognition!
+
+  (https://talater.com/annyang)" rel="nofollow" onclick="w.open('https://talater.com/annyang/','partners')" target="_blank">
 	<div class="annyang"></div></a>
 </div>
 

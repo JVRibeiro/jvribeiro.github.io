@@ -107,6 +107,7 @@ strHor = new String (h); if (strHor.length == 1) {h = "0"+h};
 // * Script de Síntese de voz (TTS) - Uma cortesia da VoiceRSS.org
 // * *************************************************************
 function voz() {
+
   var gUsapikey = w.localStorage.getItem('sapikey');
   var gUsrate = w.localStorage.getItem('srate');
   var gUidioma = w.localStorage.getItem('idioma');
@@ -120,6 +121,10 @@ var idioma = gUidioma;
 var codec = gUcodec;
 var formato = gUformato;
 var texto = d.getElementById("resposta").value;
+
+if (texto.length > 1000) {
+texto = texto.substring(0, 999);
+};
 
 d.getElementById("voz").src = link
 + "?key=" + apikey

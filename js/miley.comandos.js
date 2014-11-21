@@ -50,7 +50,7 @@ if(val2 == "dois") {valor2 = 2};
 		var n1 = Number(valor1);
 		var n2 = Number(valor2);
 
-		var result = console.log("Resultado: " + n1 + n2);
+		var result = console.log(n1 + n2);
 		d.getElementById('resposta').value = n1 + n2;
 		d.getElementById('pergunta').value = "Soma > "+n1+" mais "+n2+".";
 		voz();
@@ -143,7 +143,8 @@ var g1 = function(algo) {abrirWindowG1 = w.open('http://g1.globo.com/', 'g1', 'w
   var pwiki = function(algo) {abrirWindowW = w.open('http://pt.wikipedia.org/wiki/'+algo, 'wiki', 'width=600, height=700, top=25, right=0')};
 
 // * Definições
-	var definir = function(algo) {startFetch(algo, 100, 500); d.getElementById("pergunta").value = "Definir > "+algo; d.getElementById('q').value = algo; search(); d.getElementById("resposta").value = "Só um momento..."; voz();};
+if(d.getElementById('q').value !== "") {algo = d.getElementById('q').value};
+	var definir = function(algo) {startFetch(algo, 1, 1000); d.getElementById("pergunta").value = "Definir > "+algo; d.getElementById('q').value = algo; search(); d.getElementById("resposta").value = "Só um momento..."; voz();};
 var textbox = document.getElementById("resposta"); var button = document.getElementById("botaoFalar"); var tempscript = null, minchars, maxchars, attempts;
 function startFetch(algo, minimumCharacters, maximumCharacters, isRetry) {
 if (tempscript) return; // a fetch is already in progress
@@ -159,7 +160,7 @@ tempscript = null
 var s = getFirstProp(data.query.pages).extract;
 s = htmlDecode(stripTags(s));
 if (s.length > minchars || attempts++ > 5) {
-document.getElementById("resposta").value = s; document.getElementById("pergunta").value = "Definindo..."; voz(); espera();
+document.getElementById("resposta").value = s; document.getElementById("pergunta").value = "Definindo..."; setTimeout(voz(), 2000); espera();
 } else {
 startFetch(0, 0, true); // retry
 }
