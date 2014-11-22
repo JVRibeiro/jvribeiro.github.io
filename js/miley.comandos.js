@@ -333,14 +333,19 @@ var e = document.createElement("div"); e.innerHTML = input; return e.childNodes.
 	voz();
 	};
 
-	var salvar = function() {
+	var salvar = function salvar() {
 	d.getElementById("resposta").value = "Informação salva. \n\nAtualizando..."; voz();
 	setTimeout(salvarDados(), 5000);
 	};
 
-	var cancelar = function() {
+	var cancelar = function cancelar() {
 	d.getElementById("resposta").value = "Cancelei, "+gen+"."; voz();
 	console.log('Operação cancelada');
+	};
+
+	var repetir = function repetir() {
+	d.getElementById("pergunta").value = "Repetindo...";
+	voz();
 	};
 
 	var config = function() {config_voice(); autocom()};
@@ -404,6 +409,7 @@ var commands = {
 
 	'salva(r)': salvar,
 	'cancela(r)': cancelar,
+	'repet(e)(i)(r) (por favor) (o que) (tu)(você) (falou)(disse)': repetir,
 
   'sou eu o *nome (miley)':	lembrarNome,
   'tu pode(s) me chamar de *nome (miley)':	lembrarNome,

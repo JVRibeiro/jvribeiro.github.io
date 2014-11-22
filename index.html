@@ -15,29 +15,41 @@ Miley BETA
 
 <body onLoad="mileyOnLoad()">
 
+<div style="position: absolute; top: 20%; left: 48%;">
+<div id="miley-avatar"></div><!-- Ciclo -->
+</div>
+
 <div id="reference"></div>
 <div id="canvas"></div>
-	<input id="q" name="q" value="" class="3d" placeholder="Pesquisa de imagens e definição" />
+	<input id="q" name="q" value="" class="3d" placeholder="Pesquisa de imagens e definição" autocomplete="off" />
 
 <div id="navbar">
 <div onclick="mileyOps()" class="options" title="Opções e configurações"></div>
 </div>
 
-<div id="rel-decoracao" style="">
 	<div id='rel'>
-<span id='hor'></span> <span id='min'></span> <sup><span id='seg'></span></sup>
+<span id='dia'></span> / <span id='mes'></span> / <span id='ano'></span><br>
+<span id='hor'></span> <span id='min'></span> <sup><span id='seg'></span></sup><br>
+<span id='semana'></span>
 	</div>
-</div>
 
 <br><br><br><br>
 
 <div class="miley">
+
+
+	<div id="right_btn"></div>
+	<div id="context_menu">
+	<ul>
+	<li onclick="w.location.reload();">Atualizar</li>
+	<li onclick="mileyAbrirAjuda()">Ajuda</li>
+	<li onclick="mileyHistorico()">Histórico</li>
+	<li onclick="d.location.href = 'https://jvribeiro.github.io/miley';">Versão anterior</li>
+	</ul>
+	</div><!-- #context_menu -->
+	
 	<center>
 	<form name="miley" class="miley">
-
-	<div id="Ex"></div><!-- Ciclo externo -->
-	<div id="In"></div><!-- Ciclo interno -->
-
 	<textarea id="dialogo" style="display: none;" name="dialogo" rows="30" cols="30" onBlur="mileyHistoricoClose()"></textarea><br />
 
 	<textarea id="resposta" class="resposta text_box" readonly name="Resposta" rows="6" cols="30"></textarea><br />
@@ -55,18 +67,6 @@ Miley BETA
 	</form>
 </center>
 </div>
-
-
-		<div id="right_btn"></div>
-		<div id="context_menu">
-	<ul>
-<li onclick="w.location.reload();">Atualizar</li>
-<li onclick="mileyAbrirAjuda()">Ajuda</li>
-<li onclick="mileyHistorico()">Histórico</li>
-<li onclick="d.location.href = 'https://jvribeiro.github.io/miley';">Versão anterior</li>
-	</ul>
-		</div><!-- #context_menu -->
-
 
 	<div id="m_rep"></div>
 <div id="m_voz" class="hidden">

@@ -93,13 +93,48 @@ if(hora < 5.59) {saud = "Boa madrugada";} else if(hora < 8) {saud = "Bom dia";} 
 
 // * Relógio digital
 function clock() {
-now = new Date(); h = now.getHours(); m = now.getMinutes(); s = now.getSeconds();
-strSeg = new String (s); if (strSeg.length == 1) {s = "0"+s};
-strMin = new String (m); if (strMin.length == 1) {m = "0"+m};
-strHor = new String (h); if (strHor.length == 1) {h = "0"+h};
-  d.getElementById('hor').innerHTML = h+":";
-  d.getElementById('min').innerHTML = m;
-  d.getElementById('seg').innerHTML = s;
+// * Identificadores de Data e Hora
+var agora = new Date();
+var hora = agora.getHours(), min = agora.getMinutes(), seg = agora.getSeconds(), ano = agora.getFullYear(), dia = agora.getDate();
+var mes = new Array();
+    mes[0] = "01";
+    mes[1] = "02";
+    mes[2] = "03";
+    mes[3] = "04";
+    mes[4] = "05";
+    mes[5] = "06";
+    mes[6] = "07";
+    mes[7] = "08";
+    mes[8] = "09";
+    mes[9] = "10";
+    mes[10] = "11";
+    mes[11] = "12";
+var sem = new Array();
+    sem[0] = "Domingo";
+    sem[1] = "Segunda";
+    sem[2] = "Terça";
+    sem[3] = "Quarta";
+    sem[4] = "Quinta";
+    sem[5] = "Sexta";
+    sem[6] = "Sábado";
+var omes = mes[agora.getMonth()];
+var osem = sem[agora.getDay()];
+
+strSeg = new String (seg); if (strSeg.length == 1) {seg = "0"+seg};
+strMin = new String (min); if (strMin.length == 1) {min = "0"+min};
+strHor = new String (hora); if (strHor.length == 1) {hora = "0"+hora};
+
+strDia = new String (dia); if (strDia.length == 1) {dia = "0"+dia};
+
+  d.getElementById('hor').innerHTML = hora+":";
+  d.getElementById('min').innerHTML = min;
+  d.getElementById('seg').innerHTML = seg;
+
+  d.getElementById('dia').innerHTML = dia;
+  d.getElementById('mes').innerHTML = omes;
+  d.getElementById('ano').innerHTML = ano;
+
+  d.getElementById('semana').innerHTML = osem;
      setTimeout("clock()",1000);
 };
 //
@@ -147,7 +182,7 @@ var nome = window.localStorage.getItem('nome');
 if (nome == null || nome == undefined){nome = "anônimo";};
 if (usuario == null || usuario == undefined || usuario == ""){usuario = "(Não houve fala alguma).";};
 usuario = d.miley.Texto.value;
-historico = historico + nome + " disse em "+dia+" de "+omes+" de "+ano+" às "+h+":"+m+": \n" + usuario +  '\r' + "\n\n";
+historico = historico + nome + " disse em "+dia+" de "+omes+" de "+ano+" às "+hora+":"+min+": \n" + usuario +  '\r' + "\n\n";
 padroesMiley()
 historico = historico  +  '\r' + "\n";
 atualizarTela();
@@ -155,14 +190,27 @@ atualizarTela();
 
 function padroesMiley() {
 for (i=0; i < brain.length; i++) { // Inicia um loop que executa apenas uma vez cada elemento da array brain.
+
 exReg = new RegExp (brain[i][0], "i"); // Usando o contador [i] do loop, coloca um padrão da array no mecanismo de expressão regular na variável "exReg".
+
 if (exReg.test(usuario)) { // testa a entrada do usuário contra o "exReg" e se ele corresponder executa o próximo bloco de instruções - se não houver correspondência o loop vai continuar a carregar o próximo valor.
+
 tamanho = brain[i].length - 1; // cria uma variável "tamanho" e a deixa igual ao número de respostas possíveis
+
 index = Math.ceil(tamanho * Math.random());
+
 reply = brain[i][index];
+
 sistema = usuario.replace(exReg, reply);
+
 sistema = capitalizar(sistema);
-historico = historico + "Eu ("+AIname+") disse: \n" +sistema+  "\r" + "\n\n--------------------------------------------\n";
+
+historico = historico
++ "Eu ("+AIname+") disse: \n"
++sistema
++ "\r"
++ "\n|_______________________________________________________|"
++ "\n--------------------------------------------------------------------";
 break;
   }
  }
@@ -171,8 +219,10 @@ break;
 function mileyIni() {atualizarTela()}
 
 function atualizarTela() {
+var userInputCheck = "";
+if(usuario == "") {userInputCheck = " Você não digitou nada."}
 d.miley.dialogo.value = historico;
-d.miley.Resposta.value = sistema;
+d.miley.Resposta.value = sistema + userInputCheck;
 d.miley.Pergunta.value = usuario;
 d.miley.Texto.value = "";
 }
