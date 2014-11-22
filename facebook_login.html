@@ -95,9 +95,9 @@
 <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
 </fb:login-button>
 
-<button onclick="FB.login(function(response) {
-   // handle the response
- }, {scope: 'public_profile,email'});">Dialogo</button>
+<button onclick="FB.logout(function(response) {
+        // Person is now logged out
+    });">Dialogo</button>
  
 <div id="status">
 </div>
