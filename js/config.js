@@ -92,15 +92,6 @@ function clearNome() {
 } else {return false;}
 };
 
-/*
-function corPadrao() {
-  confirmar = confirm("Você deseja mesmo voltar à cor Lilás?");
-    if (confirmar == true) {
-  w.localStorage.removeItem('corIA');
-  d.location.reload();
-} else {return false;}
-};
-*/
 
 function config() {d.getElementById('config').style.display = 'block';};
 function closeConfig() {d.getElementById('config').style.display = 'none';};
@@ -111,7 +102,26 @@ if (window.location.protocol == "http:") {
 window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
 }
 
+// * Calculadora manual
+// * ****************************************************************
+function expoente(n) {
+var valor = prompt("Elevado a quanto?", "2");
+result=Math.pow(n,valor);
+return result;
+}
+
+
 /* * Cores da Miley (função em teste)
+
+function corPadrao() {
+  confirmar = confirm("Você deseja mesmo voltar à cor Lilás?");
+    if (confirmar == true) {
+  w.localStorage.removeItem('corIA');
+  d.location.reload();
+} else {return false;}
+};
+
+
 function mileyCor() {
 var cor = d.getElementById('cor-hex');
 window.localStorage.setItem('corIA',cor.value);

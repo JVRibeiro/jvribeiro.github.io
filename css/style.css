@@ -1,0 +1,40 @@
+body {
+background: #000;
+color: #fff
+}
+.post {
+background: #ee56fc;
+height: 80px;
+width: 500px;
+float: none;
+padding: 5px;
+margin-top: 10px;
+}
+
+.titulo {
+margin-top: 0px;
+margin-left: 0px;
+font-weight: bold;
+font-size: 20px;
+text-align: left;
+height: 25px;
+width: auto;
+}
+
+.sinopse {
+margin-left: 10px;
+margin-top: 10px;
+width: 180px;
+}
+
+#dialog-form{display:none; width: 500px; height: 350px}
+
+.close {
+background-image: url('close.jpg');
+background-size: 100%;
+width:13px;
+height:13px;
+float: right;
+margin-right: 10px;
+margin-top: 10px;
+}

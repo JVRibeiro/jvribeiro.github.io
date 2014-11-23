@@ -854,7 +854,7 @@ new Array (
 "(.*)",
 "O que você disse?",
 "Desculpe, não entendi.",
-"Não entendi "+gen+".",
+"Não entendi, "+gen+".",
 "Desculpe. Não entendi.",
 "Eu não entendi.",
 "Não entendi.",

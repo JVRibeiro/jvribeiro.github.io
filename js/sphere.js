@@ -1169,8 +1169,8 @@ function onDocumentDoubleClick()
 }
 
 function onDocumentKeyPress(e) {
-  if(d.getElementById('q').value !== "" && e.charCode == 13) { algo = d.getElementById('q').value; startFetch(algo, 100, 2000); search() };
-	if (d.getElementById('q').value == "" && e.charCode == 13) { search(); }
+  if(d.getElementById('q').value !== "" && e.charCode == 13) { algo = d.getElementById('q').value; startFetch(algo, 100, 2000); search(); };
+	if (d.getElementById('q').value == "" && e.charCode == 13) { search();  }
 }
 
 function onSearchBoxClick()

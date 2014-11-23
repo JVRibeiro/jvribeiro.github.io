@@ -24,6 +24,8 @@ function textoFalar() {d.getElementById('resposta').value = ""; rotina(); espera
 function mileyAbrirAjuda() {d.getElementById('ajuda').focus(); w.open('ajuda.html', 'ajuda', 'width=500, height=700, top=25, left=0'); abrirAjuda(); voz();}
 function mileyHistorico() {d.getElementById('dialogo').style.display = 'block'; d.getElementById('dialogo').focus();}
 function mileyHistoricoClose() {d.getElementById('dialogo').style.display = 'none';}
+function mileyCalc() {d.getElementById('calc').style.display = 'block'; d.getElementById('calc').focus();}
+function mileyCalcClose() {d.getElementById('calc').style.display = 'none';}
 //
 
 // * Dados na localStorage

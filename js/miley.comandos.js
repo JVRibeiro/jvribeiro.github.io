@@ -53,7 +53,7 @@ if(val2 == "dois") {valor2 = 2};
 		var result = console.log(n1 + n2);
 		d.getElementById('resposta').value = n1 + n2;
 		d.getElementById('pergunta').value = "Soma > "+n1+" mais "+n2+".";
-		voz();
+		voz(); saveHist();
 		}
 
 	var calcularSubtrai = function(val1, val2) {
@@ -69,7 +69,7 @@ if(val2 == "dois") {valor2 = 2};
 		var result = console.log("Resultado: " + n1 - n2);
 		d.getElementById('resposta').value = n1 - n2;
 		d.getElementById('pergunta').value = "Subtração > "+n1+" menos "+n2+".";
-		voz();
+		voz(); saveHist();
 		}
 
 	var calcularMultiplica = function(val1, val2) {
@@ -85,7 +85,7 @@ if(val2 == "dois") {valor2 = 2};
 		var result = console.log("Resultado: " + n1 * n2);
 		d.getElementById('resposta').value = n1 * n2;
 		d.getElementById('pergunta').value = "Multiplicação > "+n1+" vezes "+n2+".";
-		voz();
+		voz(); saveHist();
 		}
 
 	var calcularDivide = function(val1, val2) {
@@ -101,43 +101,43 @@ if(val2 == "dois") {valor2 = 2};
 		var result = console.log("Resultado: " + n1 / n2);
 		d.getElementById('resposta').value = n1 / n2;
 		d.getElementById('pergunta').value = "Divisão > "+n1+" dividido por "+n2+".";
-		voz();
+		voz(); saveHist();
 		}
 
 	var fecharMiley = function() {d.getElementById("resposta").value = "Tchau tchau!"; voz(); setTimeout(w.location.href = "about:blank", 5000);};
 	var refresh = function() {w.location.reload();};
-	var dialog_true = function() {d.getElementById("dialogo").style.display = "block"; d.getElementById("dialogo").focus(); d.getElementById("resposta").value = "Certo. Aqui está nosso histórico de conversa."; voz();}; // Mostra o histórico de conversação da sessão
-	var dialog_false = function() {d.getElementById("dialogo").style.display = "none";  d.getElementById("resposta").value = "Entendido. Ocultei nosso histórico de conversa."; voz();}; // Esconde o histórico de conversação da sessão
-	var alfa = function() {d.getElementById('resposta').focus(); d.getElementById("texto").value = "Miley"; _EaDsVr();};
+	var dialog_true = function() {d.getElementById("dialogo").style.display = "block"; d.getElementById("dialogo").focus(); d.getElementById("resposta").value = "Certo, "+gen+". Aqui está o histórico de conversa."; voz();}; // Mostra o histórico de conversação da sessão
+	var dialog_false = function() {d.getElementById("dialogo").style.display = "none";  d.getElementById("resposta").value = "Entendido. Já ocultei."; voz();}; // Esconde o histórico de conversação da sessão
+	var alfa = function() {d.getElementById('resposta').focus(); d.getElementById("texto").value = "Miley"; _EaDsVr(); saveHist();};
 
 // Navegação nas páginas do Facebook
-	var fb = function(facebook) {abrirFb = w.open('http://www.facebook.com/', 'facebook', 'width=1400, height=740, top=25, left=0'); d.getElementById("resposta").value = "Tudo bem. Estou abrindo sua rede social, "+gen+" "+nome+"."; voz();};
-	var fbrec = function(facebook) {abrirFb = w.open('http://www.facebook.com/?sk=h_chr', 'facebook', 'width=1400, height=740, top=25, left=0'); d.getElementById("resposta").value = "Okey. Mostrando as publicações mais recentes do feicebook."; voz();};
-	var fbpop = function(facebook) {abrirFb = w.open('http://www.facebook.com/?sk=h_nor', 'facebook', 'width=1400, height=740, top=25, left=0'); d.getElementById("resposta").value = "Okey. Mostrando as publicações mais populares do feicebook."; voz();};
-	var fbperfil = function(facebook) {abrirFb = w.open('http://www.facebook.com/profile.php', 'facebook', 'width=1400, height=740, top=25, left=0'); d.getElementById("resposta").value = "Tudo bem. Estou abrindo seu perfil do feicebook, "+nome+"."; voz();};
-	var fbalbum = function(facebook) {abrirFb = w.open('http://www.facebook.com/photos.php', 'facebook', 'width=1400, height=740, top=25, left=0'); d.getElementById("resposta").value = "Aguarde. Vou abrir suas fotos do feicebook."; voz();};
-	var fbmensagens = function(facebook) {abrirFb = w.open('http://www.facebook.com/messages', 'facebook', 'width=1400, height=740, top=25, left=0'); d.getElementById("resposta").value = "Vou tentar abrir suas mensagens."; voz();};
-	var fbnotificacoes = function(facebook) {abrirFb = w.open('http://www.facebook.com/notifications.php', 'facebook', 'width=1400, height=740, top=25, left=0'); d.getElementById("resposta").value = "Certo. Estou abrindo suas notificações."; voz();};
+	var fb = function(facebook) {abrirFb = w.open('http://www.facebook.com/', 'facebook', 'width=1400, height=740, top=25, left=0'); d.getElementById("resposta").value = "Tudo bem. Estou abrindo sua rede social, "+gen+" "+nome+"."; voz(); saveHist();};
+	var fbrec = function(facebook) {abrirFb = w.open('http://www.facebook.com/?sk=h_chr', 'facebook', 'width=1400, height=740, top=25, left=0'); d.getElementById("resposta").value = "Okey. Mostrando as publicações mais recentes do feicebook."; voz(); saveHist();};
+	var fbpop = function(facebook) {abrirFb = w.open('http://www.facebook.com/?sk=h_nor', 'facebook', 'width=1400, height=740, top=25, left=0'); d.getElementById("resposta").value = "Okey. Mostrando as publicações mais populares do feicebook."; voz(); saveHist();};
+	var fbperfil = function(facebook) {abrirFb = w.open('http://www.facebook.com/profile.php', 'facebook', 'width=1400, height=740, top=25, left=0'); d.getElementById("resposta").value = "Tudo bem. Estou abrindo seu perfil do feicebook, "+nome+"."; voz(); saveHist();};
+	var fbalbum = function(facebook) {abrirFb = w.open('http://www.facebook.com/photos.php', 'facebook', 'width=1400, height=740, top=25, left=0'); d.getElementById("resposta").value = "Aguarde. Vou abrir suas fotos do feicebook."; voz(); saveHist();};
+	var fbmensagens = function(facebook) {abrirFb = w.open('http://www.facebook.com/messages', 'facebook', 'width=1400, height=740, top=25, left=0'); d.getElementById("resposta").value = "Vou tentar abrir suas mensagens."; voz(); saveHist();};
+	var fbnotificacoes = function(facebook) {abrirFb = w.open('http://www.facebook.com/notifications.php', 'facebook', 'width=1400, height=740, top=25, left=0'); d.getElementById("resposta").value = "Certo. Estou abrindo suas notificações."; voz(); saveHist();};
 
 
-var siteCom = function(algo) {abrirSite = w.open('http://'+algo+'.com', 'site', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Okey, "+gen+". Vou abrir o "+algo+".com."; voz();};
-var siteComBr = function(algo) {abrirSite = w.open('http://'+algo+'.com.br', 'site', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Okey, "+gen+". Vou abrir o "+algo+".com.br."; voz();};
-var siteOrg = function(algo) {abrirSite = w.open('http://'+algo+'.org', 'site', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Okey, "+gen+". Vou abrir o "+algo+".org."; voz();};
-var siteOrgBr = function(algo) {abrirSite = w.open('http://'+algo+'.org.br', 'site', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Okey, "+gen+". Vou abrir o "+algo+".org.br."; voz();};
+var siteCom = function(algo) {abrirSite = w.open('http://'+algo+'.com', 'site', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Okey, "+gen+". Vou abrir o "+algo+".com."; voz(); saveHist();};
+var siteComBr = function(algo) {abrirSite = w.open('http://'+algo+'.com.br', 'site', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Okey, "+gen+". Vou abrir o "+algo+".com.br."; voz(); saveHist();};
+var siteOrg = function(algo) {abrirSite = w.open('http://'+algo+'.org', 'site', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Okey, "+gen+". Vou abrir o "+algo+".org."; voz(); saveHist();};
+var siteOrgBr = function(algo) {abrirSite = w.open('http://'+algo+'.org.br', 'site', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Okey, "+gen+". Vou abrir o "+algo+".org.br."; voz(); saveHist();};
 
 // Pesquisa global nos navegadores mais conhecidos - Google, Bing, Yahoo
 	var p_global = function(algo) {
 		abrirWindowG = w.open('http://google.com/search?q='+algo, 'google', 'width=700, height=700, top=25, left=0');
 		abrirWindowB = w.open('http://bing.com/search?q='+algo, 'bing', 'width=700, height=700, top=25, left=500');
 		abrirWindowY = w.open('http://br.search.yahoo.com/search;_ylt=Anmgv8ykk.JD03hZwN3Ah2eU7q5_?p='+algo+'&toggle=1&cop=mss&ei=UTF-8&fr=yfp-t-403&fp=1', 'yahoo', 'width=800, height=700, top=25, left=800');
-	d.getElementById("resposta").value = "Tá bom. Vou procurar nos melhores mecanismos de buscas por "+algo+"."; voz();};
+	d.getElementById("resposta").value = "Tá bom. Vou procurar nos melhores mecanismos de buscas por "+algo+"."; voz(); saveHist();};
 
-var g1 = function(algo) {abrirWindowG1 = w.open('http://g1.globo.com/', 'g1', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Vou abrir o G1."; voz();};
+var g1 = function(algo) {abrirWindowG1 = w.open('http://g1.globo.com/', 'g1', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Vou abrir o G1."; voz(); saveHist();};
 // * Pesquisa individual - Google, Bing, Yahoo
 
 // * Google
-	var google = function(algo) {abrirWindowG = w.open('http://google.com/', 'google', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Vou abrir o Google."; voz();};
-	var pgoogle = function(algo) {abrirWindowG = w.open('http://google.com/search?q='+algo, 'google', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Vou procurar por "+algo+" no Google, "+gen+"."; voz();};
+	var google = function(algo) {abrirWindowG = w.open('http://google.com/', 'google', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Vou abrir o Google."; voz(); saveHist();};
+	var pgoogle = function(algo) {abrirWindowG = w.open('http://google.com/search?q='+algo, 'google', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Vou procurar por "+algo+" no Google, "+gen+"."; voz(); saveHist();};
 
 // * Wikipédia
   var pwiki = function(algo) {abrirWindowW = w.open('http://pt.wikipedia.org/wiki/'+algo, 'wiki', 'width=600, height=700, top=25, right=0')};
@@ -160,9 +160,10 @@ tempscript = null
 var s = getFirstProp(data.query.pages).extract;
 s = htmlDecode(stripTags(s));
 if (s.length > minchars || attempts++ > 5) {
-document.getElementById("resposta").value = s; document.getElementById("pergunta").value = "Definindo..."; setTimeout(voz(), 2000); espera();
+document.getElementById("resposta").value = s; document.getElementById("pergunta").value = "Definindo..."; voz(); espera(); document.getElementById("dialogo").value += s + "\n|_______________________________________________________|\n--------------------------------------------------------------------"; saveHist();
 } else {
-startFetch(0, 0, true); // retry
+d.getElementById('resposta').value = "Não encontrei nada, "+gen+". Tente a pesquisa do Google.";
+voz();
 }
 }
 function getFirstProp(obj) {
@@ -182,18 +183,18 @@ var e = document.createElement("div"); e.innerHTML = input; return e.childNodes.
 	// * *A I.A. usa o Google Imagens para obter as imagens e o Google Sphere (Mr. Doob) com algumas modificações.
 
 // * Bing
-	var bing = function(algo) {abrirWindowB = w.open('http://bing.com/', 'bing', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Certo. Vou abrir o Bing."; voz();};
-	var pbing = function(algo) {abrirWindowB = w.open('http://bing.com/search?q='+algo, 'bing', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Certo. Vou usar o Bing para fazer a busca."; voz();};
-	var pbing_img = function(algo) {abrirWindowB = w.open('http://bing.com/images/search?q='+algo, 'bing', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Okey. Vou procurar no Bing algumas imagens de "+algo+"."; voz();};
-	var pbing_vid = function(video) {abrirWindowB = w.open('http://bing.com/videos/search?q='+video, 'bing', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Reuni alguns resultados de vídeos sobre "+algo+"."; voz();};
+	var bing = function(algo) {abrirWindowB = w.open('http://bing.com/', 'bing', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Certo. Vou abrir o Bing."; voz(); saveHist();};
+	var pbing = function(algo) {abrirWindowB = w.open('http://bing.com/search?q='+algo, 'bing', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Certo. Vou usar o Bing para fazer a busca."; voz(); saveHist();};
+	var pbing_img = function(algo) {abrirWindowB = w.open('http://bing.com/images/search?q='+algo, 'bing', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Okey. Vou procurar no Bing algumas imagens de "+algo+"."; voz(); saveHist();};
+	var pbing_vid = function(video) {abrirWindowB = w.open('http://bing.com/videos/search?q='+video, 'bing', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Reuni alguns resultados de vídeos sobre "+algo+"."; voz(); saveHist();};
 
 // * Yahoo!
-	var yahoo = function(algo) {abrirWindowY = w.open('http://br.yahoo.com/', 'yahoo', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Okey. Vou abrir o Yahoo."; voz();};
-	var pyahoo = function(algo) {abrirWindowY = w.open('http://br.search.yahoo.com/search;_ylt=Anmgv8ykk.JD03hZwN3Ah2eU7q5_?p='+algo+'&toggle=1&cop=mss&ei=UTF-8&fr=yfp-t-403&fp=1', 'yahoo', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Okey. Vou procurar por "+algo+" no Yahoo."; voz();};
+	var yahoo = function(algo) {abrirWindowY = w.open('http://br.yahoo.com/', 'yahoo', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Okey. Vou abrir o Yahoo."; voz(); saveHist();};
+	var pyahoo = function(algo) {abrirWindowY = w.open('http://br.search.yahoo.com/search;_ylt=Anmgv8ykk.JD03hZwN3Ah2eU7q5_?p='+algo+'&toggle=1&cop=mss&ei=UTF-8&fr=yfp-t-403&fp=1', 'yahoo', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Okey. Vou procurar por "+algo+" no Yahoo."; voz(); saveHist();};
 
 // * YouTube
-	var pyoutube = function(video) {abrirWindowYt = w.open('http://youtube.com/results?search_query='+video, 'yt', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Consegui achar esses vídeos de "+video+" no YouTube."; voz();};
-	var pyoutube_t = function(video) {abrirWindowYt = w.open('http://youtube.com/results?search_query=allintitle:'+video, 'yt'); d.getElementById("resposta").value = "Estou procurando só pelo título dos vídeos."; voz();};
+	var pyoutube = function(video) {abrirWindowYt = w.open('http://youtube.com/results?search_query='+video, 'yt', 'width=1400, height=640, top=25, left=0'); d.getElementById("resposta").value = "Consegui achar esses vídeos de "+video+" no YouTube."; voz(); saveHist();};
+	var pyoutube_t = function(video) {abrirWindowYt = w.open('http://youtube.com/results?search_query=allintitle:'+video, 'yt'); d.getElementById("resposta").value = "Estou procurando só pelo título dos vídeos."; voz(); saveHist();};
 
 	var escrever = function(repeat) {d.getElementById("texto").value = repeat; _EaDsVr();};
   var sim = function(repeat) {d.getElementById("texto").value = "Sim"; _EaDsVr();};
@@ -322,7 +323,7 @@ var e = document.createElement("div"); e.innerHTML = input; return e.childNodes.
 	uGeSo.selected = "true";
 	d.getElementById("resposta").value = "Chamarei você de senhor. \n\nSalvo ou Cancelo?";
 	d.getElementById("pergunta").value = "Mudando gênero para > Senhor";
-	voz();
+	voz(); saveHist();
 	};
 
 	var lembrarGeneroSenhorita = function(genero) {
@@ -330,22 +331,22 @@ var e = document.createElement("div"); e.innerHTML = input; return e.childNodes.
 	uGeSa.selected = "true";
 	d.getElementById("resposta").value = "Chamarei você de senhorita. \n\nSalvo ou Cancelo?";
 	d.getElementById("pergunta").value = "Mudando gênero para > Senhorita";
-	voz();
+	voz(); saveHist();
 	};
 
 	var salvar = function salvar() {
-	d.getElementById("resposta").value = "Informação salva. \n\nAtualizando..."; voz();
+	d.getElementById("resposta").value = "Informação salva. \n\nAtualizando..."; voz(); saveHist();
 	setTimeout(salvarDados(), 5000);
 	};
 
 	var cancelar = function cancelar() {
-	d.getElementById("resposta").value = "Cancelei, "+gen+"."; voz();
+	d.getElementById("resposta").value = "Cancelei, "+gen+"."; voz(); saveHist();
 	console.log('Operação cancelada');
 	};
 
 	var repetir = function repetir() {
 	d.getElementById("pergunta").value = "Repetindo...";
-	voz();
+	voz(); saveHist();
 	};
 
 	var config = function() {config_voice(); autocom()};
@@ -444,6 +445,7 @@ var commands = {
 // * Fazer a Miley responder mesmo no modo de comando
 	'agora me diz *repeat':	escrever,
 	'pergunta *repeat':			                      perguntar,
+	'*repeat interrogação':			                  perguntar,
 	'tenho uma dúvida *repeat':	                 	perguntar,
 	'tenho uma pergunta *repeat':	               	perguntar,
 	'e se eu (te)(lhe) perguntar *repeat':	      perguntar,
@@ -617,6 +619,7 @@ var commands = {
 	// * Google
 	'(abr)(e)(ir) (aí) (o) google (pra mim) (miley)':			google,
 	'pesquis(a)(e)(r) *algo':				pgoogle,
+	'procur(a)(e)(r) *algo':				pgoogle,
 	'procur(a)(e)(r) p(or)(elo)(s)(ela)(s) *algo no google':		pgoogle,
 	'pesquisa(r) (por) *algo no google':				pgoogle,
 	'google *algo':							pgoogle,
@@ -645,20 +648,20 @@ var commands = {
 	'(miley) o que era *algo':			definir,
   '(miley) informação d(e)(o)(a)(os)(as) *algo':		definir,
 
-  'procur(a)(o)(e)(r) (por) image(ns)(m) de *algo':		p_img,
-  'pesquis(a)(o)(e)(r) (por) image(ns)(m) de *algo':	p_img,
-  'procur(a)(o)(e)(r) (por) foto(s) de *algo':				p_img,
-  'pesquis(a)(o)(e)(r) (por) foto(s) de *algo':				p_img,
-  'me mostr(a)(e) (foto)(image)(m)(n)(s) d(e)(o)(a)(os)(as) *algo':	p_img,
-  'mostr(a)(e) (foto)(image)(m)(n)(s) d(e)(o)(a)(os)(as) *algo':		p_img,
+  'procur(a)(o)(e)(r) (por)(uma)(s) image(ns)(m) de *algo':		p_img,
+  'pesquis(a)(o)(e)(r) (por)(uma)(s) image(ns)(m) de *algo':	p_img,
+  'procur(a)(o)(e)(r) (por)(uma)(s) foto(s) de *algo':				p_img,
+  'pesquis(a)(o)(e)(r) (por)(uma)(s) foto(s) de *algo':				p_img,
+  'me mostr(a)(e) (uma)(s) (foto)(image)(m)(n)(s) d(e)(o)(a)(os)(as) *algo':	p_img,
+  'mostr(a)(e) (uma)(s) (foto)(image)(m)(n)(s) d(e)(o)(a)(os)(as) *algo':		p_img,
   'image(ns)(m) d(e)(a)(os)(as) *algo':			       		p_img,
-  'fecha(r) (as)(às) imagens': p_img_del,
+  'fecha(r) (essas)(as)(às) imagens': p_img_del,
   'fecha(s) imagens': p_img_del,
   'ficha(s) imagens': p_img_del,
-  'tira(r) (as)(às) imagens': p_img_del,
-  'tira(s) imagens': p_img_del,
-  'não quero ver (as)(às) imagens': p_img_del,
-  'não quero ver (as)(às) fotos': p_img_del,
+  'tira(r) (essas)(as)(às) imagens': p_img_del,
+  'tira(s) (essas) imagens': p_img_del,
+  'não quero ver (essas)(as)(às) imagens': p_img_del,
+  'não quero ver (essas)(as)(às) fotos': p_img_del,
   'mostra(r) mais (imagens)': p_img_mais,
 	'mais (imagens)': p_img_mais,
 

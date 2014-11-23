@@ -171,7 +171,10 @@ border: 5px solid #420647; width: 170px; height: 170px; padding: 5px; z-index: 1
 
 #hor {cursor: default; -webkit-user-select: none; -moz-user-select: none; color: #fff; font-family: Agency FB, Segoe UI, sans-serif; font-size: 45pt; text-shadow: 0 0 20px #E351FF; background: transparent; width: 50px; z-index: 1;}
 #min {cursor: default; -webkit-user-select: none; -moz-user-select: none; color: #fff; font-family: Agency FB, Segoe UI, sans-serif; font-size: 45pt; text-shadow: 0 0 20px #E351FF; background: transparent; width: 50px; border: none; z-index: 1;}
-#seg, #dia, #mes, #ano, #semana {cursor: default; -webkit-user-select: none; -moz-user-select: none; color: #fff; font-family: Agency FB, Segoe UI, sans-serif; font-size: 18pt; vertical-align: top; text-shadow: 0 0 10px #E351FF; background: transparent; width: 20px; border: none; z-index: 2;}
+#semana {padding: 7px; border: 1px solid #00E2FF;
+cursor: default; -webkit-user-select: none; -moz-user-select: none; color: #fff; font-family: Agency FB, Segoe UI, sans-serif; font-size: 18pt; vertical-align: top; text-shadow: 0 0 10px #E351FF; background: transparent; width: 20px;
+z-index: 2;}
+#seg, #dia, #mes, #ano {cursor: default; -webkit-user-select: none; -moz-user-select: none; color: #fff; font-family: Agency FB, Segoe UI, sans-serif; font-size: 18pt; vertical-align: top; text-shadow: 0 0 10px #E351FF; background: transparent; width: 20px; border: none; z-index: 2;}
 /* ********** Fim do relógio ************** */
 }
 
@@ -628,6 +631,7 @@ padding-bottom: 300px;
 z-index: 20;
 cursor: default;
 border-right: 5px solid #ee56fc;
+-ms-border-radius: 0px 15px 15px 15px; -moz-border-radius: 0px 15px 15px 15px; -webkit-border-radius: 0px 15px 15px 15px; border-radius: 0px 15px 15px 15px;
 }
 
 /* * Botão de opções * */
@@ -699,7 +703,7 @@ position: absolute;
 top: 0;
 right: 0;
 outline: none;
-border-radius: 0 0 0 10px; -webkit-border-radius: 0 0 0 10px; -moz-border-radius: 0 0 0 10px; -ms-border-radius: 0 0 0 10px;
+-ms-border-radius: 0px 15px 15px 15px; -moz-border-radius: 0px 15px 15px 15px; -webkit-border-radius: 0px 15px 15px 15px; border-radius: 0px 15px 15px 15px;
 opacity: 1;
 }
 .close:hover {
@@ -1110,3 +1114,15 @@ transition: .2s ease-in-out;
 .annyang:hover {
 transform: translatey(-5px);
 }
+
+/* ***** Calculadora ************ */
+.calc {border: 1px solid #ee56fc; background: #000; opacity: .8; height: 300px; width: 300px; padding: 20px; -ms-border-radius: 0px 15px 15px 15px; -moz-border-radius: 0px 15px 15px 15px; -webkit-border-radius: 0px 15px 15px 15px; border-radius: 0px 15px 15px 15px;}
+.num {color: #fff; font-family: Agency FB, Arial, sans-serif; font-size: 16pt; background: #8E2498; width: 50px; height: 30px; border: none; transition: .2s ease-out; margin: 3px;}
+.num:hover {color: #fff; background: #ee56fc; border: 1px solid #fff; box-shadow: 0 0 20px #ee56fc;}
+.num2 {color: #fff; font-family: Agency FB, Arial, sans-serif; font-size: 16pt; background: #2895A3; width: 50px; height: 30px; border: none; transition: .2s ease-out; margin: 3px;}
+.num2:hover {color: #000; background: #00E2FF; border: 1px solid #fff; box-shadow: 0 0 20px #00E2FF;}
+.igual {color: #fff; font-family: Agency FB, Arial, sans-serif; font-size: 16pt; background: #2895A3; width: 95%; height: 30px; border: none; transition: .2s ease-out; margin: 3px;}
+.igual:hover {color: #000; background: #00E2FF; border: 1px solid #fff; box-shadow: 0 0 20px #00E2FF;}
+.calc-erase {color: #fff; font-family: Agency FB, Arial, sans-serif; font-size: 16pt; background: #f00; width: 50px; height: 30px; border: none; transition: .2s ease-out; margin: 3px;}
+.calc-erase:hover {color: #000; background: #00E2FF; border: 1px solid #fff; box-shadow: 0 0 20px #00E2FF;}
+#calc-result {color: #00E2FF; text-shadow: 0 0 5px #fff; font-family: Agency FB, Arial, sans-serif; font-size: 26pt; background: #000; border: none; width: 95%; text-align: right;}
