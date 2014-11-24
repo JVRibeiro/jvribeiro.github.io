@@ -1,7 +1,7 @@
 ﻿// **************************
 //  ** miley.brain.js
 // ***************************
-// ** Versão/Version: 1.2.0
+// ** Versão/Version: 1.3.4
 // ** Autor/Author: Victor Ribeiro (@JVRibeiiro)
 // ** Licença: MIT
 // ***************************
@@ -9,7 +9,7 @@
 // * Informações da I.A.
 var AIname = "Miley";   // * Nome da I.A.
 var AInick = "Mi";      // * Apelido da I.A.
-var version = "1.2.0";  // * Versão da I.A.
+var version = "1.3.4";  // * Versão da I.A.
 //
 
 // * Abreviação de window e document
