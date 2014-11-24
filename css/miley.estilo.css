@@ -164,7 +164,7 @@ border-radius: 50%;
 border: 1px solid #ee56fc; padding: 5px;
 }
 
-#rel:hover {
+#rel:active {
 border: 5px solid #420647; width: 170px; height: 170px; padding: 5px;
 }
 
@@ -361,6 +361,7 @@ display: none;
 
 body {
 padding-bottom: 150px;
+background-color: #000;
 }
 
 #config {
@@ -761,6 +762,7 @@ color: #000;
 
 body {
 background-image: url('../img/s.png');
+background-color: #000;
 background-attachment: fixed;
 font-family: Agency FB, Arial, sans-serif;
 color: #fff;
@@ -1163,7 +1165,7 @@ transform: translatey(-5px);
 .jqueryui {
 display: inline-block;
 width: 100px;
-height: 35px;
+height: 25px;
 background-image: url('../img/jquery-ui.png');
 background-size: 100% 100%;
 transition: .2s ease-in-out;
@@ -1181,7 +1183,7 @@ transform: translatey(-5px);
 #calcIcone:active {background: url('../img/appbar.calculator.png') #ee56fc; opacity: .8; background-position: center center; background-size: 70% 70%;
 }
 
-.calc {border: 1px solid #ee56fc; background: #000; opacity: .8; height: 300px; width: 300px; padding: 20px;
+.calc {border: 1px solid #ee56fc; background: #000; opacity: .8; height: 300px; width: 300px; padding: 20px; position: absolute; top: 80px; right: 300px;
 -ms-border-radius: 0px 15px 15px 15px; -moz-border-radius: 0px 15px 15px 15px; -webkit-border-radius: 0px 15px 15px 15px; border-radius: 0px 15px 15px 15px;
 }
 .num {color: #fff; font-family: Agency FB, Arial, sans-serif; font-size: 16pt; background: #8E2498; width: 50px; height: 30px; border: none; transition: .2s ease-out; margin: 3px;}

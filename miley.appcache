@@ -1,16 +1,20 @@
 ﻿CACHE MANIFEST
-# 03:55 24/11/2014
+# 19:31 24/11/2014
 # * Correção de bugs
+
+# Arquivos a serem "cacheados"
 
 CACHE:
 index.html
 js/jquery.min.js
 js/api.js
+
 # jscolor/arrow.gif
 # jscolor/cross.gif
 # jscolor/hs.png
 # jscolor/hv.png
 # jscolor/jscolor.js
+
 js/default+pt_BR.I.js
 js/miley.js
 js/miley.brain.js
@@ -18,7 +22,56 @@ js/miley.comandos.js
 js/miley.js
 js/sphere.js
 js/config.js
+
+# js/jquery.bgiframe-2.1.2.js
+# js/jquery.effects.blind.js
+# js/jquery.effects.bounce.js
+# js/jquery.effects.clip.js
+# js/jquery.effects.core.js
+# js/jquery.effects.drop.js
+# js/jquery.effects.explode.js
+# js/jquery.effects.fade.js
+# js/jquery.effects.fold.js
+# js/jquery.effects.highlight.js
+# js/jquery.effects.pulsate.js
+# js/jquery.effects.scale.js
+# js/jquery.effects.shake.js
+# js/jquery.effects.slide.js
+# js/jquery.effects.transfer.js
+# js/jquery.livequery.js
+# js/jquery.ui.accordion.js
+# js/jquery.ui.autocomplete.js
+# js/jquery.ui.button.js
+
+js/jquery.ui.core.js
+
+# js/jquery.ui.datepicker.js
+# js/jquery.ui.dialog.js
+
+js/jquery.ui.draggable.js
+
+# js/jquery.ui.droppable.js
+
+js/jquery.ui.mouse.js
+js/jquery.ui.position.js
+
+# js/jquery.ui.progressbar.js
+# js/jquery.ui.resizable.js
+# js/jquery.ui.selectable.js
+# js/jquery.ui.slider.js
+# js/jquery.ui.sortable.js
+# js/jquery.ui.tabs.js
+
+js/jquery.ui.widget.js
+
+# js/jquery-1.8.2.js
+
+js/jquery-latest.pack.js
+
+# js/jquery-ui-1.8.24.custom.js
+
 css/miley.estilo.css
+
 img/cc.png
 img/op.png
 img/s.png
@@ -26,6 +79,6 @@ img/voicerss.png
 img/annyang.png
 
 
-# Resources that require the user to be online.
+# Online
 NETWORK:
 *

@@ -292,13 +292,11 @@ $(function() {
   $(document).on("input", "#q", function () {
     $("#img-srch").fadeIn();
     $("#def-srch").fadeIn();
-    $("#enter-p-limpar").fadeOut();
     $("#enter-p-srch").fadeIn();
 
     if($('#q').val() == "") {
       $("#img-srch").fadeOut();
       $("#def-srch").fadeOut();
-      $("#enter-p-limpar").fadeIn();
       $("#enter-p-srch").fadeOut();
     }
 });
