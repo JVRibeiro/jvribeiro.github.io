@@ -24,7 +24,7 @@ function textoFalar() {d.getElementById('resposta').value = ""; rotina(); espera
 function mileyAbrirAjuda() {d.getElementById('ajuda').focus(); w.open('ajuda.html', 'ajuda', 'width=500, height=700, top=25, left=0'); abrirAjuda(); voz();}
 function mileyHistorico() {d.getElementById('dialogo').style.display = 'block'; d.getElementById('dialogo').focus();}
 function mileyHistoricoClose() {d.getElementById('dialogo').style.display = 'none';}
-function mileyCalc() {d.getElementById('calc').style.display = 'block'; d.getElementById('calc').focus();}
+function mileyCalc() {d.getElementById('calc').style.display = 'block';}
 function mileyCalcClose() {d.getElementById('calc').style.display = 'none';}
 //
 
@@ -74,9 +74,9 @@ var osem = sem[agora.getDay()];
 var idade = 2014 - ano + " anos";
 //
 
-// * Delay de 2s na resposta (sincroniza com a resposta falada)
+// * Delay de 2.5s na resposta (sincroniza com a resposta falada)
 function mostra() {d.getElementById('resposta').style.opacity = '1';};
-function espera() {d.getElementById('resposta').style.opacity = '0'; setTimeout("mostra()", 3000);};
+function espera() {d.getElementById('resposta').style.opacity = '0'; setTimeout("mostra()", 2500);};
 //
 
 // * Algoritmo de renomeação caso estejam vazio os campos de informação do usuário
@@ -272,3 +272,33 @@ function abrir(URL) {w.open(URL,'janela','width=550, height=640, top=25, left=40
 // * *****************************************
 function click(z){d.getElementById("right_btn").innerHTML="";var t=d.getElementById("context_menu");var n=z||event;if(n.button==2||n.button==3){mostrar(n);t.onmouseout=function(z){var t=z||event;var n=t.relatedTarget||t.toElement;if(n.nodeName!="LI"){}}}if(n.button==0||n.button==1){esconder()}}function mostrar(z){var t=d.getElementById("context_menu");t.style.display="block";t.style.top=z.clientY+0+"px";t.style.left=z.clientX+2+"px"}function esconder(){setTimeout(function(){var z=d.getElementById("context_menu");z.style.display="none"},300)}d.onmousedown=click;d.oncontextmenu=function(){return false};
 //
+
+$(function() {
+    $( ".ui-draggable" ).draggable();
+});
+
+$(function() {
+    $( "#miley-avatar" ).draggable({ cursor: "move", cursorAt: { top: 56, left: 56 } });
+    $( "#calcIcone" ).draggable({ cursor: "defalut", cursorAt: { top: -5, left: -5 } });
+    $( "#calc" ).draggable({ handle: "div" });
+
+    $( "#miley-avatar" ).draggable({ containment: "body", scroll: false });
+    $( "#calcIcone" ).draggable({ containment: "body", scroll: false });
+    $( "#calc" ).draggable({ containment: "body", scroll: false });
+  });
+
+
+
+  $(document).on("input", "#q", function () {
+    $("#img-srch").fadeIn();
+    $("#def-srch").fadeIn();
+    $("#enter-p-limpar").fadeOut();
+    $("#enter-p-srch").fadeIn();
+
+    if($('#q').val() == "") {
+      $("#img-srch").fadeOut();
+      $("#def-srch").fadeOut();
+      $("#enter-p-limpar").fadeIn();
+      $("#enter-p-srch").fadeOut();
+    }
+});

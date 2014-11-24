@@ -10,7 +10,11 @@ outline: none
 }
 
 input:focus {
-outline: none;
+outline: none
+}
+
+button:focus {
+outline-color: #fff;
 }
 
 textarea:focus {
@@ -129,11 +133,6 @@ outline: none;
 
 /* * Relogio digital * */
 #rel {
-transition: 0.2s ease-in-out;
--webkit-transition: 0.2s ease-in-out;
--moz-transition: 0.2s ease-in-out;
--ms-transition: 0.2s ease-in-out;
-
 cursor: default;
 display: block;
 position: fixed; bottom: 20px; right: 32px;
@@ -146,14 +145,14 @@ border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
 border: 1px solid #ee56fc; padding: 5px;
+
+-webkit-animation: Shine 10s infinite linear;
+-ms-animation: Shine 10s infinite linear;
+-o-animation: Shine 10s infinite linear;
+animation: Shine 10s infinite linear;
 }
 
 #rel:before {
-transition: 0.2s ease-in-out;
--webkit-transition: 0.2s ease-in-out;
--moz-transition: 0.2s ease-in-out;
--ms-transition: 0.2s ease-in-out;
-
 cursor: default;
 
 width: 150px; height: 150px;
@@ -166,7 +165,7 @@ border: 1px solid #ee56fc; padding: 5px;
 }
 
 #rel:hover {
-border: 5px solid #420647; width: 170px; height: 170px; padding: 5px; z-index: 10; margin-left: 20px; margin-top: 20px;
+border: 5px solid #420647; width: 170px; height: 170px; padding: 5px;
 }
 
 #hor {cursor: default; -webkit-user-select: none; -moz-user-select: none; color: #fff; font-family: Agency FB, Segoe UI, sans-serif; font-size: 45pt; text-shadow: 0 0 20px #E351FF; background: transparent; width: 50px; z-index: 1;}
@@ -174,8 +173,48 @@ border: 5px solid #420647; width: 170px; height: 170px; padding: 5px; z-index: 1
 #semana {padding: 7px; border: 1px solid #00E2FF;
 cursor: default; -webkit-user-select: none; -moz-user-select: none; color: #fff; font-family: Agency FB, Segoe UI, sans-serif; font-size: 18pt; vertical-align: top; text-shadow: 0 0 10px #E351FF; background: transparent; width: 20px;
 z-index: 2;}
-#seg, #dia, #mes, #ano {cursor: default; -webkit-user-select: none; -moz-user-select: none; color: #fff; font-family: Agency FB, Segoe UI, sans-serif; font-size: 18pt; vertical-align: top; text-shadow: 0 0 10px #E351FF; background: transparent; width: 20px; border: none; z-index: 2;}
+#seg, #dia, #mes, #ano {cursor: default; -webkit-user-select: none; -moz-user-select: none; color: #fff; font-family: Agency FB, Segoe UI, sans-serif; font-size: 18pt; vertical-align: top; text-shadow: 0 0 10px #E351FF; background: transparent; width: 20px; border: none; z-index: 2;
+-webkit-animation: ShineText 5s infinite linear;
+-ms-animation: ShineText 5s infinite linear;
+-o-animation: ShineText 5s infinite linear;
+animation: ShineText 5s infinite linear;
+}
 /* ********** Fim do relógio ************** */
+}
+
+@keyframes spinoffShine {
+0% {box-shadow: 0 0 75px #E351FF, inset 0 0 5px #E351FF;}
+20% {box-shadow: 0 0 20px #E351FF, inset 0 0 40px #E351FF;}
+80% {box-shadow: 0 0 50px #E351FF, inset 0 0 20px #E351FF;}
+100% {box-shadow: 0 0 75px #E351FF, inset 0 0 5px #E351FF;};
+}
+
+@-moz-keyframes spinoffShine {
+0% {-moz-box-shadow: 0 0 75px #E351FF, inset 0 0 5px #E351FF;}
+20% {-moz-box-shadow: 0 0 20px #E351FF, inset 0 0 40px #E351FF;}
+80% {-moz-box-shadow: 0 0 20px #E351FF, inset 0 0 20px #E351FF;}
+100% {-moz-box-shadow: 0 0 75px #E351FF, inset 0 0 5px #E351FF;};
+}
+
+@-webkit-keyframes Shine {
+0% {-webkit-box-shadow: 0 0 75px #E351FF, inset 0 0 5px #E351FF;}
+20% {-webkit-box-shadow: 0 0 20px #E351FF, inset 0 0 40px #E351FF;}
+80% {-webkit-box-shadow: 0 0 20px #E351FF, inset 0 0 20px #E351FF;}
+100% {-webkit-box-shadow: 0 0 75px #E351FF, inset 0 0 5px #E351FF;};
+}
+
+@-ms-keyframes spinoffShine {
+0% {-ms-box-shadow: 0 0 75px #E351FF, inset 0 0 5px #E351FF;}
+20% {-ms-box-shadow: 0 0 20px #E351FF, inset 0 0 40px #E351FF;}
+80% {-ms-box-shadow: 0 0 20px #E351FF, inset 0 0 20px #E351FF;}
+100% {-ms-box-shadow: 0 0 75px #E351FF, inset 0 0 5px #E351FF;};
+}
+
+@-webkit-keyframes ShineText {
+0% {text-shadow: 0 0 75px #E351FF, inset 0 0 5px #E351FF;}
+20% {text-shadow: 0 0 20px #E351FF, inset 0 0 40px #E351FF;}
+80% {text-shadow: 0 0 20px #E351FF, inset 0 0 20px #E351FF;}
+100% {text-shadow: 0 0 75px #E351FF, inset 0 0 5px #E351FF;};
 }
 
 @media screen and (max-width: 950px) {
@@ -576,6 +615,7 @@ max-width: 100%;
 #canvas img {
 border: none;
 opacity: .8;
+z-index: 2
 }
 #canvas img:hover {
 border: 3px solid #E351FF;
@@ -594,6 +634,9 @@ border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -ms-bor
 padding: 5px;
 border: 3px solid #E351FF;
 }
+
+#img-srch, #def-srch {z-index: 1; padding: 10px; position: relative; margin-top: 50px; color: #fff; font-family: Agency FB, Arial, sans-serif; font-size: 16pt; background: #8E2498; border: 1px solid #000; transition: .2s ease-out; margin: 3px;}
+#img-srch:hover, #def-srch:hover {color: #fff; background: #ee56fc; border: 1px solid #fff; box-shadow: 0 0 20px #ee56fc;}
 
 #navbar {
 z-index: 5;
@@ -630,6 +673,7 @@ padding-left: 30px;
 padding-bottom: 300px;
 z-index: 20;
 cursor: default;
+border-top: 5px solid #ee56fc;
 border-right: 5px solid #ee56fc;
 -ms-border-radius: 0px 15px 15px 15px; -moz-border-radius: 0px 15px 15px 15px; -webkit-border-radius: 0px 15px 15px 15px; border-radius: 0px 15px 15px 15px;
 }
@@ -657,7 +701,7 @@ border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -ms-bor
 color: #EDA3FF;
 }
 
-#gen, #miley_idioma, #miley_s_rate, #miley_s_codec, #miley_s_format, miley_s_key {
+#gen, #miley_idioma, #miley_s_rate, #miley_s_codec, #miley_s_format, #miley_s_key {
 font-size: 12pt;
 padding: 5px;
 padding-bottom: 0;
@@ -668,7 +712,8 @@ border-bottom: 3px solid #ee56fc;
 .save, .clear {
 color: #fff;
 font-weight: bold;
-font-family: Segoe UI;
+font-family: Agency FB, Segoe UI, sans-serif;
+font-size: 14pt;
 background: #000;
 border: 1px solid #fff;
 padding: 10px;
@@ -703,7 +748,7 @@ position: absolute;
 top: 0;
 right: 0;
 outline: none;
--ms-border-radius: 0px 15px 15px 15px; -moz-border-radius: 0px 15px 15px 15px; -webkit-border-radius: 0px 15px 15px 15px; border-radius: 0px 15px 15px 15px;
+-ms-border-radius: 0px 15px 0 15px; -moz-border-radius: 0px 15px 0 15px; -webkit-border-radius: 0px 15px 0 15px; border-radius: 0px 15px 0 15px;
 opacity: 1;
 }
 .close:hover {
@@ -825,7 +870,7 @@ height: 400px;
 max-width: 90%;
 max-height: 70%;
 
-position: fixed;
+position: relative;
 top: 55px;
 right: 10px;
 
@@ -1115,8 +1160,30 @@ transition: .2s ease-in-out;
 transform: translatey(-5px);
 }
 
+.jqueryui {
+display: inline-block;
+width: 100px;
+height: 35px;
+background-image: url('../img/jquery-ui.png');
+background-size: 100% 100%;
+transition: .2s ease-in-out;
+}
+.jqueryui:hover {
+transform: translatey(-5px);
+}
+
 /* ***** Calculadora ************ */
-.calc {border: 1px solid #ee56fc; background: #000; opacity: .8; height: 300px; width: 300px; padding: 20px; -ms-border-radius: 0px 15px 15px 15px; -moz-border-radius: 0px 15px 15px 15px; -webkit-border-radius: 0px 15px 15px 15px; border-radius: 0px 15px 15px 15px;}
+#calcIcone {position: absolute; right: 50px; top: 52px; background: url('../img/appbar.calculator.png') #000; background-position: center center; background-size: 80% 80%; width: 50px; height: 50px; border: 1px solid #ee56fc; opacity: .8; padding: 20px;
+-ms-border-radius: 0px 15px 15px 15px; -moz-border-radius: 0px 15px 15px 15px; -webkit-border-radius: 0px 15px 15px 15px; border-radius: 0px 15px 15px 15px;
+}
+#calcIcone:hover {transition: .2s ease-in-out; background: url('../img/appbar.calculator.png') #ee56fc; opacity: 1; background-position: center center; background-size: 90% 90%;
+}
+#calcIcone:active {background: url('../img/appbar.calculator.png') #ee56fc; opacity: .8; background-position: center center; background-size: 70% 70%;
+}
+
+.calc {border: 1px solid #ee56fc; background: #000; opacity: .8; height: 300px; width: 300px; padding: 20px;
+-ms-border-radius: 0px 15px 15px 15px; -moz-border-radius: 0px 15px 15px 15px; -webkit-border-radius: 0px 15px 15px 15px; border-radius: 0px 15px 15px 15px;
+}
 .num {color: #fff; font-family: Agency FB, Arial, sans-serif; font-size: 16pt; background: #8E2498; width: 50px; height: 30px; border: none; transition: .2s ease-out; margin: 3px;}
 .num:hover {color: #fff; background: #ee56fc; border: 1px solid #fff; box-shadow: 0 0 20px #ee56fc;}
 .num2 {color: #fff; font-family: Agency FB, Arial, sans-serif; font-size: 16pt; background: #2895A3; width: 50px; height: 30px; border: none; transition: .2s ease-out; margin: 3px;}

@@ -23,22 +23,21 @@ Miley BETA
 <div id="canvas"></div>
 
 <div style="position: absolute; top: 40%; left: 45%">
-	<input id="q" name="q" value="" class="3d" placeholder="Pesquisa de imagens e definição" autocomplete="off" /><br>
-</div>
+	<input type="text" id="q" name="q" value="" class="3d" placeholder="Pesquisa de imagens e definição" autocomplete="off" /><br>
 
-<div style="position: absolute; top: 60%; left: 47%">
-	<input type="button" value="Imagens" style="position: relative" onclick="search()"/>
-	<input type="button" value="Definição" style="position: relative" onclick="if(d.getElementById('q').value !== "") {algo = d.getElementById('q').value}; startFetch(algo, 1, 1000)" /><br>
-	<input type="button" value="Limpar resultados" style="position: relative" />
+	<input id="img-srch" type="button" value="Imagens" style="display: none" onclick="search()" />
+	<input id="def-srch" type="button" value="Definição" style="display: none" onclick="if(d.getElementById('q').value !== '') {d.getElementById('resposta').value = ''; var algo = d.getElementById('q').value}; startFetch(algo, 1, 1000)" /><br>
+
+	<div id="enter-p-srch" display="none">Enter mostra imagens e definição.</div>
 </div>
 <div id="navbar">
 <div onclick="mileyOps()" class="options" title="Opções e configurações"></div>
 </div>
 
-	<div id='rel'>
+	<div id='rel' class="ui-draggable">
 <span id='dia'></span> / <span id='mes'></span> / <span id='ano'></span><br>
 <span id='hor'></span> <span id='min'></span> <sup><span id='seg'></span></sup><br>
-<span id='semana'></span>
+<marquee><span id='semana'></span></marquee>
 	</div>
 
 <br><br><br><br>
@@ -58,7 +57,6 @@ Miley BETA
 
 	<center>
 	<form name="miley" class="miley">
-	<textarea id="dialogo" style="display: none;" name="dialogo" rows="30" cols="30" onBlur="mileyHistoricoClose()"></textarea><br />
 
 	<textarea id="resposta" class="resposta text_box" readonly name="Resposta" rows="6" cols="30"></textarea><br />
 	<textarea id="pergunta" class="pergunta" readonly name="Pergunta" rows="2" cols="30"></textarea><br />
@@ -71,6 +69,8 @@ Miley BETA
 		</div><!-- #teclado -->
 <br><br>
   <input type="button" value="O que posso dizer?" id="ajuda" class="ajuda" onClick="mileyAbrirAjuda()" title="Clique para obter ajuda" />
+
+<textarea id="dialogo" style="display: none;" name="dialogo" rows="30" cols="30" onBlur="mileyHistoricoClose()"></textarea><br />
 
 	</form>
 </center>
@@ -225,6 +225,9 @@ Creative Commons Atribuição 2.0 Brasil
 
   (https://talater.com/annyang)" rel="nofollow" onclick="w.open('https://talater.com/annyang/','partners')" target="_blank">
 	<div class="annyang"></div></a>
+
+	<a alt="jQuery UI" title="jQuery UI (http://jqueryui.com)" rel="nofollow" onclick="w.open('http://jqueryui.com/','partners')" target="_blank">
+	<div class="jqueryui"></div></a>
 </div>
 
 <div id='version'>
@@ -249,81 +252,63 @@ Creative Commons Atribuição 2.0 Brasil
 
 
         <script src="js/jquery-latest.pack.js"></script>
-        <script src="js/jquery-1.8.2.js"></script>
-        <script src="js/jquery.bgiframe-2.1.2.js"></script>
         <script src="js/jquery.ui.core.js"></script>
         <script src="js/jquery.ui.widget.js"></script>
         <script src="js/jquery.ui.mouse.js"></script>
-        <script src="js/jquery.ui.button.js"></script>
         <script src="js/jquery.ui.draggable.js"></script>
         <script src="js/jquery.ui.position.js"></script>
-        <script src="js/jquery.ui.resizable.js"></script>
-        <script src="js/jquery.ui.dialog.js"></script>
-        <script src="js/jquery.ui.datepicker.js"></script>
-        <script src="js/jquery.livequery.js"></script>
-				<link rel="stylesheet" href="css/demos.css">
-        <link rel="stylesheet" href="css/jquery.ui.all.css">
-
-<script>
-
-$(function() {
-		$( ".ui-draggable" ).draggable();
-});
-
-$(function() {
-		$( "#calc" ).draggable({ handle: "p" });
-		$( "#draggable2" ).draggable({ cancel: "p.ui-widget-header" });
-		$( "div, p" ).disableSelection();
-	});
-</script>
 
 <!-- Calculadora manual -->
-<div onclick="mileyCalc()" id="calcIcone" class="calc ui-draggable" style="background-image: url('img/appbar.calculator.png'); width: 50px; height: 50px"></div>
+
+<div id="calcIcone" class="ui-draggable" onclick="mileyCalc()">
+	<div style="margin-top: -15px; margin-left: -10px;">Calculadora</div>
+</div>
 
 <div id="calc" class="calc ui-draggable" style="display: none">
 	<button class="close" onClick="mileyCalcClose()" title="Fechar">x</button>
-<p class="ui-widget-header">Calculadora</p>
-<form name="calc">
+<div class="ui-widget-header" style="cursor: default; background: none; color: #ee56fc; margin-top: -20px; margin-left: -20px; padding: 10px; width: 100%">Calculadora</div>
+
 
 <input id="calc-result" type="text" name="m" placeholder="0" autocomplete="off" readonly />
 
+<script>var r = d.getElementById('calc-result');</script>
+
 <div style="display: inline; float: left">
-<input class="num" type="button" title="um" value=" 1 " onclick="calc.m.value +='1'" />
-<input class="num" type="button" title="dois" value=" 2 " onclick="calc.m.value +='2'" />
-<input class="num" type="button" title="três" value=" 3 " onclick="calc.m.value +='3'" />
+<button class="num" title="um" onclick="r.value +='1'">1</button>
+<button class="num" title="dois" onclick="r.value +='2'">2</button>
+<button class="num" title="três" onclick="r.value +='3'">3</button>
 <br>
-<input class="num" type="button" title="quatro" value=" 4 " onclick="calc.m.value +='4'" />
-<input class="num" type="button" title="cinco" value=" 5 " onclick="calc.m.value +='5'" />
-<input class="num" type="button" title="seis" value=" 6 " onclick="calc.m.value +='6'" />
+<button class="num" title="quatro" onclick="r.value +='4'">4</button>
+<button class="num" title="cinco" onclick="r.value +='5'">5</button>
+<button class="num" title="seis" onclick="r.value +='6'">6</button>
 <br>
-<input class="num" type="button" title="sete" value=" 7 " onclick="calc.m.value +='7'" />
-<input class="num" type="button" title="oito" value=" 8 " onclick="calc.m.value +='8'" />
-<input class="num" type="button" title="nove" value=" 9 " onclick="calc.m.value +='9'" />
+<button class="num" title="sete" onclick="r.value +='7'">7</button>
+<button class="num" title="oito" onclick="r.value +='8'">8</button>
+<button class="num" title="nove" onclick="r.value +='9'">9</button>
 <br>
-<input class="calc-erase" type="button" title="apagar" value="C " onclick="calc.m.value=''" />
-<input class="num" type="button" title="zero" value=" 0 " onclick="calc.m.value +='0'" />
-<input class="num" type="button" title="ponto" value=" . " onclick="calc.m.value +='.'" />
+<button class="calc-erase" title="apagar" onclick="r.value=''">C</button>
+<button class="num" title="zero" onclick="r.value +='0'">0</button>
+<button class="num" title="ponto" onclick="r.value +='.'">.</button>
 <br>
-<input class="igual" type="button" title="igual" value=" = " onclick="calc.m.value=eval(calc.m.value)" />
+<button class="igual" title="igual" onclick="r.value=eval(r.value)">=</button>
 </div>
 
 <div style="display: inline; float: left">
-<input class="num2" type="button" title="subtrair" value=" - " onclick="calc.m.value +=' - '" /><br>
-<input class="num2" type="button" title="somar" value=" + " onclick="calc.m.value +=' + '" /><br>
-<input class="num2" type="button" title="dividir" value=" / " onclick="calc.m.value +=' / '" /><br>
-<input class="num2" type="button" title="multiplicar" value=" x " onclick="calc.m.value +=' * '" /><br>
-<input class="num2" type="button" title="raíz quadrada" value=" ²√ " onclick="calc.m.value=Math.sqrt(calc.m.value)" /><br>
+<button class="num2" title="subtrair" onclick="r.value +=' - '">-</button><br>
+<button class="num2" title="somar" onclick="r.value +=' + '">+</button><br>
+<button class="num2" title="dividir" onclick="r.value +=' / '">/</button><br>
+<button class="num2" title="multiplicar" onclick="r.value +=' * '">x</button><br>
+<button class="num2" title="raíz quadrada" onclick="r.value=Math.sqrt(r.value)">²√</button><br>
 </div>
 
 <div style="display: inline; float: left">
-<input class="num" type="button" title="valor de Pi" value=" π " onclick="calc.m.value +='3.1415926';" /><br>
-<input class="num" type="button" title="seno" value=" sen " onclick="calc.m.value=Math.sin(calc.m.value)" /><br>
-<input class="num" type="button" title="coseno" value=" cos " onclick="calc.m.value=Math.cos(calc.m.value)" /><br>
-<input class="num" type="button" title="logaritmo" value=" log " onclick="calc.m.value=Math.log(calc.m.value)" /><br>
-<input class="num2" type="button" title="elevado a..." value=" ^ " onclick="calc.m.value=expoente(calc.m.value)" />
+<button class="num" title="valor de Pi" onclick="r.value +='3.1415926';">π</button><br>
+<button class="num" title="seno" onclick="r.value=Math.sin(r.value)">sen</button><br>
+<button class="num" title="coseno" onclick="r.value=Math.cos(r.value)">cos</button><br>
+<button class="num" title="logaritmo" onclick="r.value=Math.log(r.value)">log</button><br>
+<button class="num2" title="elevado a..." onclick="r.value=expoente(r.value)">^</button>
 </div>
 
-</form>
 </div>
 <!-- Fim da calculadora -->
 
