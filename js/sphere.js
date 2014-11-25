@@ -1176,7 +1176,7 @@ function onDocumentKeyPress(e) {
 function onSearchBoxClick()
 {
 	if (camera2.z > 400)
-		JSTweener.addTween(camera2, {time: 1.5, z: 400, transition: JSTweener.easingFunctions.easeOutExpo});
+		JSTweener.addTween(camera2, {time: 1.5, z: 300, transition: JSTweener.easingFunctions.easeOutExpo});
 }
 
 // API
@@ -1221,7 +1221,7 @@ function onImageSearchResults()
 		addResult(gImageSearch.results[i]);
 
 	max = elements[elements.length - 1].length;
-	radius = 400;
+	radius = 300;
 
 	for (var i = 0; i < elements[elements.length - 1].length; i++)
 	{

@@ -238,26 +238,6 @@ loop;
 }
 
 
-// * Capitalizar campo #userName
-// * Créditos a: Jasper (Stack Overflow)
-// * http://stackoverflow.com/a/9576575
-$.fn.capitalize = function() {
-$.each(this, function() {
-var split = this.value.split(' ');
-for (var i = 0, len = split.length; i < len; i++) {
-split[i] = split[i].charAt(0).toUpperCase() + split[i].slice(1).toLowerCase();
-}
-this.value = split.join(' ');
-});
-return this;
-};
-
-
-$('#userName').on('keyup', function () {
-    $(this).capitalize();
-}).capitalize();
-
-//
 
 // * Função de abrir ajuda
 // * ****************************************************************
@@ -278,13 +258,14 @@ $(function() {
 });
 
 $(function() {
-    $( "#miley-avatar" ).draggable({ cursor: "move", cursorAt: { top: 56, left: 56 } });
     $( "#calcIcone" ).draggable({ cursor: "defalut", cursorAt: { top: -5, left: -5 } });
     $( "#calc" ).draggable({ handle: "div" });
+    $( ".miley" ).draggable({ handle: "div" });
 
     $( "#miley-avatar" ).draggable({ containment: "body", scroll: false });
     $( "#calcIcone" ).draggable({ containment: "body", scroll: false });
     $( "#calc" ).draggable({ containment: "body", scroll: false });
+    $( ".miley" ).draggable({ containment: "body", scroll: false });
   });
 
 
@@ -293,10 +274,12 @@ $(function() {
     $("#img-srch").fadeIn();
     $("#def-srch").fadeIn();
     $("#enter-p-srch").fadeIn();
+    $("#def-img-srch-x").fadeIn();
 
     if($('#q').val() == "") {
       $("#img-srch").fadeOut();
       $("#def-srch").fadeOut();
       $("#enter-p-srch").fadeOut();
+      $("#def-img-srch-x").fadeOut();
     }
 });

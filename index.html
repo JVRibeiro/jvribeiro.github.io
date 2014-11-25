@@ -15,23 +15,31 @@ Miley BETA
 
 <body onLoad="mileyOnLoad()">
 
-<div style="position: absolute; top: 20%; left: 48%;">
-<div id="miley-avatar" class="ui-draggable ui-widget ui-widget-content"></div><!-- Ciclo -->
+<div id="reference"></div>
+<div id="canvas" class="ui-draggable"></div>
+
 </div>
 
-<div id="reference"></div>
-<div id="canvas"></div>
 
-<div style="position: absolute; top: 40%; left: 45%">
-	<input type="text" id="q" name="q" value="" class="3d" placeholder="Pesquisa de imagens e definição" autocomplete="off" /><br>
+<div style="position: absolute; top: 50px; right: 50px;">
+<div id="miley-avatar" class="ui-draggable"></div><!-- Ciclo -->
+</div>
+
+<div id="def-img-srch" class="ui-draggable" style="background: #000; opacity: .7; padding: 20px; border: 1px solid #ee56fc; text-align: center; position: absolute; top: 30px; left: 43%;">
+	<input type="text" id="q" name="q" value="" placeholder="Pesquisa de imagens e definição" autocomplete="off" />
 
 	<input id="img-srch" type="button" value="Imagens" style="display: none" onclick="search()" />
-	<input id="def-srch" type="button" value="Definição" style="display: none" onclick="if(d.getElementById('q').value !== '') {d.getElementById('resposta').value = ''; var algo = d.getElementById('q').value}; startFetch(algo, 1, 1000)" /><br>
+	<input id="def-srch" type="button" value="Definição" style="display: none" onclick="if(d.getElementById('q').value !== '') {d.getElementById('resposta').value = ''; var algo = d.getElementById('q').value}; startFetch(algo, 1, 1000)" />
+	<input title="Remover resultados de imagens" id="def-img-srch-x" type="button" value="x" style="display: none" onclick="d.getElementById('q').value = ''; search();" /><br>
 
-	<div id="enter-p-srch" style="display: none">Enter mostra imagens e definição.</div>
+	<div id="enter-p-srch" style="display: none">Enter mostra imagens e definição</div>
 </div>
+
+
 <div id="navbar">
 <div onclick="mileyOps()" class="options" title="Opções e configurações"></div>
+
+<input type="button" value="O que posso dizer?" id="ajuda" class="ajuda" onClick="mileyAbrirAjuda()" title="Clique para obter ajuda" />
 </div>
 
 	<div id='rel' class="ui-draggable">
@@ -43,20 +51,10 @@ Miley BETA
 <br><br><br><br>
 
 <div class="miley">
-
-
-	<div id="right_btn"></div>
-	<div id="context_menu">
-	<ul>
-	<li onclick="w.location.reload();">Atualizar</li>
-	<li onclick="mileyAbrirAjuda()">Ajuda</li>
-	<li onclick="mileyHistorico()">Histórico</li>
-	<li onclick="d.location.href = 'https://jvribeiro.github.io/miley';">Versão anterior</li>
-	</ul>
-	</div><!-- #context_menu -->
+<div class="ui-widget-header" style="font-size: 16pt; cursor: default; background: none; color: #ee56fc; margin-top: -20px; padding: 10px; width: 95%; text-align: left; background: #000; opacity: .7; border: 1px solid #ee56fc">✥</div>
 
 	<center>
-	<form name="miley" class="miley">
+	<form name="miley">
 
 	<textarea id="resposta" class="resposta text_box" readonly name="Resposta" rows="6" cols="30"></textarea><br />
 	<textarea id="pergunta" class="pergunta" readonly name="Pergunta" rows="2" cols="30"></textarea><br />
@@ -68,8 +66,6 @@ Miley BETA
 	<input id="botaoFalar" class="falar" type="button" value="&#8594;" name="falar" onClick="textoFalar();" title="Falar" />
 		</div><!-- #teclado -->
 <br><br>
-  <input type="button" value="O que posso dizer?" id="ajuda" class="ajuda" onClick="mileyAbrirAjuda()" title="Clique para obter ajuda" />
-
 <textarea id="dialogo" style="display: none;" name="dialogo" rows="30" cols="30" onBlur="mileyHistoricoClose()"></textarea><br />
 
 	</form>
@@ -82,6 +78,15 @@ Miley BETA
 <audio id="voz" src="" autoplay="autoplay"></audio>
 </div><!-- .hidden -->
 
+<div id="right_btn"></div>
+<div id="context_menu">
+<ul>
+<li onclick="w.location.reload();">Atualizar</li>
+<li onclick="mileyAbrirAjuda()">Ajuda</li>
+<li onclick="mileyHistorico()">Histórico</li>
+<li onclick="d.location.href = 'https://jvribeiro.github.io/miley';">Versão anterior</li>
+</ul>
+</div><!-- #context_menu -->
 
 		<div id="config">
 <h2>Configurações e opções</h2>
