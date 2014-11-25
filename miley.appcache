@@ -1,5 +1,5 @@
 ﻿CACHE MANIFEST
-# 03:47 25/11/2014
+# 12:51 25/11/2014
 # * Correção de bugs
 
 # Arquivos a serem "cacheados"
@@ -77,6 +77,8 @@ img/op.png
 img/s.png
 img/voicerss.png
 img/annyang.png
+img/jquery-ui.png
+img/appbar.calculator.png
 
 
 # Online
