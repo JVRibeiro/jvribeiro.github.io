@@ -26,6 +26,8 @@ function mileyHistorico() {d.getElementById('dialogo').style.display = 'block'; 
 function mileyHistoricoClose() {d.getElementById('dialogo').style.display = 'none';}
 function mileyCalc() {d.getElementById('calc').style.display = 'block';}
 function mileyCalcClose() {d.getElementById('calc').style.display = 'none';}
+function mileyChromeBrowser() {d.getElementById('mini-browser').style.display = 'block';}
+function mileyChromeBrowserClose() {d.getElementById('mini-browser').style.display = 'none';}
 //
 
 // * Dados na localStorage
@@ -258,12 +260,17 @@ $(function() {
 });
 
 $(function() {
+$( ".set div" ).draggable({ stack: ".set div" });
+});
+
+$(function() {
     $( "#calcIcone" ).draggable({ cursor: "defalut", cursorAt: { top: -5, left: -5 } });
-    $( "#calc" ).draggable({ handle: "div" });
+    $( "#mini-browserIcone" ).draggable({ cursor: "defalut", cursorAt: { top: -5, left: -5 } });
     $( ".miley" ).draggable({ handle: "div" });
 
     $( "#miley-avatar" ).draggable({ containment: "body", scroll: false });
     $( "#calcIcone" ).draggable({ containment: "body", scroll: false });
+    $( "#mini-browserIcone" ).draggable({ containment: "body", scroll: false });
     $( "#calc" ).draggable({ containment: "body", scroll: false });
     $( ".miley" ).draggable({ containment: "body", scroll: false });
   });
@@ -283,3 +290,316 @@ $(function() {
       $("#def-img-srch-x").fadeOut();
     }
 });
+
+
+function defImgSrchX() {
+  if($('#q').val() == "") {
+    $("#img-srch").fadeOut();
+    $("#def-srch").fadeOut();
+    $("#enter-p-srch").fadeOut();
+    $("#def-img-srch-x").fadeOut();
+  }
+}
+
+
+
+
+/**
+ * HTML5 offline manifest preloader.
+ *
+ * Load all manifest cached entries, so that they are immediately available during the web app execution.
+ * Display some nice JQuery progress while loading.
+ *
+ * @copyright 2010 mFabrik Research Oy
+ *
+ * @author Mikko Ohtamaa, http://opensourcehacker.com
+ */
+
+/**
+ * Preloader class constructor.
+ *
+ * Manifest is retrieved via HTTP GET and parsed.
+ * All cache entries are loaded using HTTP GET.
+ *
+ * Local storage attribute "preloaded" is used to check whether loading needs to be performed,
+ * as it is quite taxing operation.
+ *
+ * To debug this code and force retrieving of all manifest URLs, add reloaded=true HTTP GET query parameter:
+ *
+ *
+ *
+ * @param {Function} endCallback will be called when all offline entries are loaded
+ *
+ * @param {Object} progressMonitor ProgressMonitor object for which the status of the loading is reported.
+ */
+function Preloader(endCallback, progressMonitor, debug) {
+
+    if(!progressMonitor) {
+        throw "progressMonitor must be defined";
+    }
+
+    this.endCallback = endCallback;
+    this.progressMonitor = progressMonitor;
+    this.logging = debug; // Flag to control console.log() output
+}
+
+Preloader.prototype = {
+    /**
+     * Load HTML5 manifest and parse its data
+     *
+     * @param data: String, manifest file data
+     * @return Array of cache entries
+     *
+     * @throw: Exception if parsing fails
+     */
+    parseManifest : function(data) {
+
+        /* Declare some helper string functions
+         *
+         * http://rickyrosario.com/blog/javascript-startswith-and-endswith-implementation-for-strings/
+         *
+         */
+        function startswith(str, prefix) {
+            return str.indexOf(prefix) === 0;
+        }
+
+        var entries = [];
+
+        var sections = ["NETWORK", "CACHE", "FALLBACK"];
+        var currentSection = "CACHE";
+
+        var lines = data.split(/\r\n|\r|\n/);
+        var i;
+
+        if(lines.length <= 1) {
+            throw "Manifest does not contain text lines";
+        }
+
+        var firstLine = lines[0];
+        if(!(startswith(firstLine, "CACHE MANIFEST"))) {
+            throw "Invalid cache manifest header:" + firstLine;
+        }
+
+        for(i=1; i<lines.length; i++) {
+
+            var line = lines[i];
+            this.debug("Parsing line:" + line);
+
+            // If whitespace trimmed line is empty, skip it
+            line = jQuery.trim(line);
+            if(line == "") {
+                continue;
+            }
+
+            if(line[0] == "#") {
+                // skip comment;
+                continue;
+            }
+
+            // Test for a new section
+            var s = 0;
+            var sectionDetected = false;
+            for(s=0; s<sections.length; s++) {
+                var section = sections[s];
+                if(startswith(line, section + ":")) {
+                    currentSection = section;
+                    sectionDetected = true;
+                }
+            }
+
+            if(sectionDetected) {
+                continue;
+            }
+
+            // Otherwise assume we can check for cached url
+            if(currentSection == "CACHE") {
+                entries.push(line);
+            }
+
+        }
+
+        return entries;
+    },
+
+    /**
+     * Manifest is given as an <html> attribute.
+     */
+    extractManifestURL : function() {
+        var url = $("html").attr("manifest");
+        if(url === null) {
+            alert("Preloader cannot find manifest URL from <html> tag");
+            return null;
+        }
+        return url;
+    },
+
+    isPreloaded : function() {
+        // May be null or false
+        return localStorage.getItem("preloaded") == true;
+    },
+
+    setPreloaded : function(status) {
+        localStorage.setItem("preloaded", status);
+    },
+
+    /**
+     * Check whether we need to purge offline cache.
+     *
+     */
+    isForcedReload : function() {
+
+        // http://www.netlobo.com/url_query_string_javascript.html
+        function getQueryParam(name) {
+          name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+          var regexS = "[\\?&]"+name+"=([^&#]*)";
+          var regex = new RegExp( regexS );
+          var results = regex.exec( window.location.href );
+          if (results == null) {
+            return "";
+          } else {
+            return results[1];
+          }
+        }
+
+        if(getQueryParam("reload") == "true") {
+            return true;
+        }
+
+        return false;
+    },
+
+    /**
+     * Do everything necessary to set-up offline application
+     */
+    load : function() {
+
+        this.debug("Entering preloader");
+
+        if (window.applicationCache) {
+            this.debug("ApplicationCache status " + window.applicationCache.status);
+            this.debug("Please see http://www.w3.org/TR/html5/offline.html#applicationcache");
+        } else {
+            this.silentError("The browser does not support HTML5 applicationCache object");
+            return;
+        }
+
+        var cold;
+
+        if(this.isPreloaded()) {
+            // We have succesfully completed preloading before
+            // ...move forward
+
+            forceReload = this.isForcedReload();
+            if (forceReload == true) {
+                applicationCache.update();
+            } else {
+                this.endCallback();
+                return;
+            }
+
+            cold = false;
+        } else {
+            cold = true;
+        }
+
+        var url = this.extractManifestURL();
+        if(url === null) {
+            return;
+        }
+
+        this.progressMonitor.startProgress(cold);
+
+        $.get(url, {}, jQuery.proxy(manifestLoadedCallback, this));
+
+        function manifestLoadedCallback(data, textStatus, xhr) {
+            this.debug("Manifest retrieved");
+            var text = data;
+            manifestEntries = this.parseManifest(text);
+            this.debug("Parsed manifest entries:" + manifestEntries.length);
+            this.populateCache(manifestEntries);
+        }
+    },
+
+
+    /**
+     * Bootstrap async loading of cache entries.
+     *
+     * @param {Object} entrires
+     */
+    populateCache : function(entries) {
+        this.manifestEntries = entries;
+        this.currentEntry = 0;
+        this.maxEntry = entries.length;
+        this.loadNextEntry();
+    },
+
+    /**
+     * Make AJAX request to next entry and update progress bar.
+     *
+     */
+    loadNextEntry : function() {
+
+        if(this.currentEntry >= this.maxEntry) {
+            this.setPreloaded(true);
+            this.progressMonitor.endProgress();
+            this.endCallback();
+        }
+
+        var entryURL = this.manifestEntries[this.currentEntry];
+        this.debug("Loading entry: " + entryURL);
+
+        function done() {
+            this.currentEntry++;
+            this.progressMonitor.updateProgress(this.currentEntry, this.maxEntries);
+            this.loadNextEntry();
+        }
+
+        this.debug("Preloader fetching:" + entryURL + " (" + this.currentEntry + " / " + this.maxEntry + ")");
+
+        $.get(entryURL, {}, jQuery.proxy(done, this));
+    },
+
+    /**
+     * Write to debug console
+     *
+     * @param {String} msg
+     */
+    debug : function(msg) {
+        if(this.logging) {
+            console.log(msg);
+        }
+    },
+
+    /**
+     * Non-end user visible error message
+     *
+     * @param {Object} msg
+     */
+    silentError : function(msg) {
+        console.log(msg);
+    }
+};
+
+function ProgressMonitor() {
+
+}
+
+ProgressMonitor.prototype = {
+
+    /**
+     * Start progress bar... initialize as 0 / 0
+     */
+    startProgress : function(coldVirgin) {
+        $("#web-app-loading-progress-monitor").show();
+        if(coldVirgin) {
+            $("#web-app-loading-progress-monitor .first-time").show();
+        }
+    },
+
+    endProgress : function() {
+    },
+
+    updateProgress : function(currentEntry, maxEntries) {
+
+    }
+};

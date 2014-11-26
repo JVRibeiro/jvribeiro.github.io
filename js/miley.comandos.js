@@ -143,26 +143,63 @@ var g1 = function(algo) {abrirWindowG1 = w.open('http://g1.globo.com/', 'g1', 'w
   var pwiki = function(algo) {abrirWindowW = w.open('http://pt.wikipedia.org/wiki/'+algo, 'wiki', 'width=600, height=700, top=25, right=0')};
 
 // * Definições
-if(d.getElementById('q').value !== "") {algo = d.getElementById('q').value};
-	var definir = function(algo) {startFetch(algo, 1, 1000); d.getElementById("pergunta").value = "Definir > "+algo; d.getElementById('q').value = algo; search(); d.getElementById("resposta").value = "Só um momento..."; voz();};
-var textbox = document.getElementById("resposta"); var button = document.getElementById("botaoFalar"); var tempscript = null, minchars, maxchars, attempts;
+if(d.getElementById('q').value !== "") {
+algo = d.getElementById('q').value
+}
+
+var definir = function(algo) {
+startFetch(algo, 1, 1000);
+d.getElementById("pergunta").value = "Definir > "
++ algo;
+d.getElementById('q').value = algo;
+search();
+d.getElementById("resposta").value = "Só um momento...";
+voz()
+}
+
+var textbox = d.getElementById("resposta");
+var button = d.getElementById("botaoFalar");
+var tempscript = null, minchars, maxchars, attempts;
+
 function startFetch(algo, minimumCharacters, maximumCharacters, isRetry) {
-if (tempscript) return; // a fetch is already in progress
-if (!isRetry) {attempts = 0; minchars = minimumCharacters; maxchars = maximumCharacters;
+if (tempscript) return;
+if (!isRetry) {attempts = 0;
+minchars = minimumCharacters;
+maxchars = maximumCharacters;
 }
-tempscript = document.createElement("script"); tempscript.type = "text/javascript"; tempscript.id = "tempscript";
-tempscript.src = "https://pt.wikipedia.org/w/api.php?action=query&titles="+algo+"&redirects=&prop=extracts&exchars="+maxchars+"&exintro&format=json&callback=onFetchComplete&requestid="
-+ Math.floor(Math.random()*999999).toString(); document.body.appendChild(tempscript); // onFetchComplete invoked when finished
+
+tempscript = d.createElement("script");
+tempscript.type = "text/javascript";
+tempscript.id = "tempscript";
+tempscript.src = "https://pt.wikipedia.org/w/api.php?action=query&titles="
++ algo
++ "&redirects=&prop=extracts&exchars="
++ maxchars
++ "&exintro&format=json&callback=onFetchComplete&requestid="
++ Math.floor(Math.random()*999999).toString();
+d.body.appendChild(tempscript);
 }
+
 function onFetchComplete(data) {
-document.body.removeChild(tempscript);
+d.body.removeChild(tempscript);
 tempscript = null
 var s = getFirstProp(data.query.pages).extract;
 s = htmlDecode(stripTags(s));
 if (s.length > minchars || attempts++ > 5) {
-document.getElementById("resposta").value = s; document.getElementById("pergunta").value = "Definindo..."; voz(); espera(); document.getElementById("dialogo").value += s + "\n|_______________________________________________________|\n--------------------------------------------------------------------"; saveHist();
-} else {
-d.getElementById('resposta').value = "Não encontrei nada, "+gen+". Tente a pesquisa do Google.";
+d.getElementById("resposta").value = s;
+d.getElementById("pergunta").value = "Definindo...";
+voz();
+espera();
+d.getElementById("dialogo").value += "Definir > "
++ algo
++ "\n"
++ s
++ "\n|_______________________________________________________|\n--------------------------------------------------------------------";
+saveHist();
+}
+
+else {
+d.getElementById('resposta').value = "Não encontrei a definição, "+gen+". Tente a pesquisa do Google.";
 voz();
 }
 }

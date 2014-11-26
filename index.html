@@ -30,7 +30,7 @@ Miley BETA
 
 	<input id="img-srch" type="button" value="Imagens" style="display: none" onclick="search()" />
 	<input id="def-srch" type="button" value="Definição" style="display: none" onclick="if(d.getElementById('q').value !== '') {d.getElementById('resposta').value = ''; var algo = d.getElementById('q').value}; startFetch(algo, 1, 1000)" />
-	<input title="Remover resultados de imagens" id="def-img-srch-x" type="button" value="x" style="display: none" onclick="d.getElementById('q').value = ''; search();" /><br>
+	<input title="Remover resultados de imagens" id="def-img-srch-x" type="button" value="x" style="display: none" onclick="d.getElementById('q').value = ''; search(); defImgSrchX()" /><br>
 
 	<div id="enter-p-srch" style="display: none">Enter mostra imagens e definição</div>
 </div>
@@ -261,44 +261,60 @@ Creative Commons Atribuição 2.0 Brasil
         <script src="js/jquery.ui.widget.js"></script>
         <script src="js/jquery.ui.mouse.js"></script>
         <script src="js/jquery.ui.draggable.js"></script>
-        <script src="js/jquery.ui.position.js"></script>
 
-<!-- Calculadora manual -->
+				<link rel="stylesheet" href="css/demos.css">
 
-<div id="calcIcone" class="ui-draggable" onclick="mileyCalc()">
-	<div style="margin-top: -15px; margin-left: -10px;">Calculadora</div>
+
+
+<div class="set">
+<div id="mini-browserIcone" class="ui-draggable" onclick="mileyChromeBrowser()"></div>
+<div id="calcIcone" class="ui-draggable" onclick="mileyCalc()"></div>
+</div> <!-- .set -->
+
+
+<div class="set">
+
+<!-- Mini Chrome-->
+<div id="mini-browser" class="mini-browser tit-app-chrome ui-draggable" style="display: none; overflow: hidden">
+	<button class="close" onClick="mileyChromeBrowserClose()" title="Fechar">x</button>
+<br><br>
+<div style="border: none; width: 100%; height: 100%">
+	<iframe style="border: none; width: 100%; height: 100%" name="" src="http://google.com"></iframe>
 </div>
 
-<div id="calc" class="calc ui-draggable" style="display: none">
-	<button class="close" onClick="mileyCalcClose()" title="Fechar">x</button>
-<div class="ui-widget-header" style="cursor: default; background: none; color: #ee56fc; margin-top: -20px; margin-left: -20px; padding: 10px; width: 100%">Calculadora</div>
+</div>
+<!-- Fim do mini chrome-->
 
+<!-- Calculadora manual -->
+<div id="calc" class="calc tit-app-calc ui-draggable" style="display: none">
+	<button class="close" onClick="mileyCalcClose()" title="Fechar">x</button>
 
 <input id="calc-result" type="text" name="m" placeholder="0" autocomplete="off" readonly />
 
 <script>var r = d.getElementById('calc-result');</script>
 
-<div style="display: inline; float: left">
-<button class="num" title="um" onclick="r.value +='1'">1</button>
-<button class="num" title="dois" onclick="r.value +='2'">2</button>
-<button class="num" title="três" onclick="r.value +='3'">3</button>
-<br>
-<button class="num" title="quatro" onclick="r.value +='4'">4</button>
-<button class="num" title="cinco" onclick="r.value +='5'">5</button>
-<button class="num" title="seis" onclick="r.value +='6'">6</button>
-<br>
-<button class="num" title="sete" onclick="r.value +='7'">7</button>
-<button class="num" title="oito" onclick="r.value +='8'">8</button>
-<button class="num" title="nove" onclick="r.value +='9'">9</button>
-<br>
+<div class="num-align">
+<button class="num" title="um" onclick="r.value +='1'">1</button><br>
+<button class="num" title="quatro" onclick="r.value +='4'">4</button><br>
+<button class="num" title="sete" onclick="r.value +='7'">7</button><br>
 <button class="calc-erase" title="apagar" onclick="r.value=''">C</button>
-<button class="num" title="zero" onclick="r.value +='0'">0</button>
-<button class="num" title="ponto" onclick="r.value +='.'">.</button>
-<br>
-<button class="igual" title="igual" onclick="r.value=eval(r.value)">=</button>
 </div>
 
-<div style="display: inline; float: left">
+<div class="num-align">
+<button class="num" title="dois" onclick="r.value +='2'">2</button><br>
+<button class="num" title="cinco" onclick="r.value +='5'">5</button><br>
+<button class="num" title="oito" onclick="r.value +='8'">8</button><br>
+<button class="num" title="zero" onclick="r.value +='0'">0</button>
+</div>
+
+<div class="num-align">
+<button class="num" title="três" onclick="r.value +='3'">3</button><br>
+<button class="num" title="seis" onclick="r.value +='6'">6</button><br>
+<button class="num" title="nove" onclick="r.value +='9'">9</button><br>
+<button class="num" title="ponto" onclick="r.value +='.'">.</button><br>
+</div>
+
+<div class="num-align">
 <button class="num2" title="subtrair" onclick="r.value +=' - '">-</button><br>
 <button class="num2" title="somar" onclick="r.value +=' + '">+</button><br>
 <button class="num2" title="dividir" onclick="r.value +=' / '">/</button><br>
@@ -306,7 +322,7 @@ Creative Commons Atribuição 2.0 Brasil
 <button class="num2" title="raíz quadrada" onclick="r.value=Math.sqrt(r.value)">²√</button><br>
 </div>
 
-<div style="display: inline; float: left">
+<div class="num-align">
 <button class="num" title="valor de Pi" onclick="r.value +='3.1415926';">π</button><br>
 <button class="num" title="seno" onclick="r.value=Math.sin(r.value)">sen</button><br>
 <button class="num" title="coseno" onclick="r.value=Math.cos(r.value)">cos</button><br>
@@ -314,9 +330,13 @@ Creative Commons Atribuição 2.0 Brasil
 <button class="num2" title="elevado a..." onclick="r.value=expoente(r.value)">^</button>
 </div>
 
+<div class="num-align">
+<button class="igual" title="igual" onclick="r.value=eval(r.value)">=</button>
+</div>
+
 </div>
 <!-- Fim da calculadora -->
-
+</div> <!-- .set -->
 
 </body>
 </html>

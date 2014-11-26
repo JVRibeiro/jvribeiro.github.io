@@ -631,6 +631,7 @@ border-right: 1px solid #ee56fc;
 }
 
 #canvas {
+background: url('../img/39.gif') transparent no-repeat; background-position: center center;
 cursor: default;
 width: 100%;
 height: 100%;
@@ -1004,6 +1005,31 @@ color: #000;
 width: 80%;
 }
 
+/* ***** Titulo das janelas de APPs*********** */
+.tit-app-chrome {}
+.tit-app-chrome:before {
+content: "Chrome mini";
+cursor: default;
+background: none;
+color: #ee56fc;
+margin-top: -20px;
+margin-left: -20px;
+padding: 10px;
+width: 100%
+}
+
+.tit-app-calc {}
+.tit-app-calc:before {
+content: "Calculadora";
+cursor: default;
+background: none;
+color: #ee56fc;
+margin-top: -20px;
+margin-left: -20px;
+padding: 10px;
+width: 100%
+}
+
 * {
 margin: 0;
 padding: 0;
@@ -1209,23 +1235,50 @@ transform: translatey(-5px);
 }
 
 /* ***** Calculadora ************ */
-#calcIcone {cursor: default; position: absolute; right: 50px; top: 200px; background: url('../img/appbar.calculator.png') #000; background-position: center center; background-size: 80% 80%; width: 50px; height: 50px; border: 1px solid #ee56fc; opacity: .8; padding: 20px;
+#calcIcone {cursor: default; position: absolute; right: 50px; top: 200px; background: url('../img/appbar.calculator.png') #000 no-repeat !important; background-position: center center; background-size: 80% 80%; width: 50px; height: 50px; border: 1px solid #ee56fc; opacity: .8; padding: 20px;
 -ms-border-radius: 0px 15px 15px 15px; -moz-border-radius: 0px 15px 15px 15px; -webkit-border-radius: 0px 15px 15px 15px; border-radius: 0px 15px 15px 15px;
 }
-#calcIcone:hover {transition: .2s ease-in-out; background: url('../img/appbar.calculator.png') #ee56fc; opacity: 1; background-position: center center; background-size: 90% 90%;
+#calcIcone:before {
+content: "Calculadora";
+position: absolute;
+bottom: 5px;
+left: 7px
 }
-#calcIcone:active {background: url('../img/appbar.calculator.png') #ee56fc; opacity: .8; background-position: center center; background-size: 70% 70%;
+#calcIcone:hover {transition: .2s ease-in-out; background: url('../img/appbar.calculator.png') #ee56fc no-repeat !important; opacity: 1; background-position: center center;
+}
+#calcIcone:active {background: url('../img/appbar.calculator.png') #ee56fc no-repeat !important; opacity: .8; background-position: center center; background-size: 70% 70%;
 }
 
 .calc {border: 1px solid #ee56fc; background: #000; opacity: .8; height: 300px; width: 300px; padding: 20px; position: absolute; top: 80px; right: 300px;
 -ms-border-radius: 0px 15px 15px 15px; -moz-border-radius: 0px 15px 15px 15px; -webkit-border-radius: 0px 15px 15px 15px; border-radius: 0px 15px 15px 15px;
 }
-.num {color: #fff; font-family: Agency FB, Arial, sans-serif; font-size: 16pt; background: #8E2498; width: 50px; height: 30px; border: none; transition: .2s ease-out; margin: 3px;}
+.num-align {display: inline; float: left}
+.num {color: #fff; font-family: Agency FB, Arial, sans-serif; font-size: 16pt; background: #8E2498; width: 50px; height: 30px; border: none; transition: .2s ease-out; margin: 0;}
 .num:hover {color: #fff; background: #ee56fc; border: 1px solid #fff; box-shadow: 0 0 20px #ee56fc;}
-.num2 {color: #fff; font-family: Agency FB, Arial, sans-serif; font-size: 16pt; background: #2895A3; width: 50px; height: 30px; border: none; transition: .2s ease-out; margin: 3px;}
+.num2 {color: #fff; font-family: Agency FB, Arial, sans-serif; font-size: 16pt; background: #2895A3; width: 50px; height: 30px; border: none; transition: .2s ease-out; margin: 0;}
 .num2:hover {color: #000; background: #00E2FF; border: 1px solid #fff; box-shadow: 0 0 20px #00E2FF;}
-.igual {color: #fff; font-family: Agency FB, Arial, sans-serif; font-size: 16pt; background: #2895A3; width: 95%; height: 30px; border: none; transition: .2s ease-out; margin: 3px;}
+.igual {color: #fff; font-family: Agency FB, Arial, sans-serif; font-size: 16pt; background: #2895A3; width: 150px; height: 30px; margin-bottom: 30px; border: none; transition: .2s ease-out; margin: 0;}
 .igual:hover {color: #000; background: #00E2FF; border: 1px solid #fff; box-shadow: 0 0 20px #00E2FF;}
-.calc-erase {color: #fff; font-family: Agency FB, Arial, sans-serif; font-size: 16pt; background: #f00; width: 50px; height: 30px; border: none; transition: .2s ease-out; margin: 3px;}
+.calc-erase {color: #fff; font-family: Agency FB, Arial, sans-serif; font-size: 16pt; background: #f00; width: 50px; height: 30px; border: none; transition: .2s ease-out; margin: 0;}
 .calc-erase:hover {color: #000; background: #00E2FF; border: 1px solid #fff; box-shadow: 0 0 20px #00E2FF;}
 #calc-result {color: #00E2FF; text-shadow: 0 0 5px #fff; font-family: Agency FB, Arial, sans-serif; font-size: 26pt; background: #000; border: none; width: 95%; text-align: right;}
+
+
+/* ***** Navegador ************ */
+#mini-browserIcone {cursor: default; position: absolute; right: 150px; top: 200px; background: url('../img/appbar.browser.chrome.png') #000 no-repeat !important; background-position: center center; background-size: 80% 80%; width: 50px; height: 50px; border: 1px solid #ee56fc; opacity: .8; padding: 20px;
+-ms-border-radius: 0px 15px 15px 15px; -moz-border-radius: 0px 15px 15px 15px; -webkit-border-radius: 0px 15px 15px 15px; border-radius: 0px 15px 15px 15px;
+}
+#mini-browserIcone:before {
+content: "Chrome mini";
+position: absolute;
+bottom: 5px;
+left: 7px
+}
+#mini-browserIcone:hover {transition: .2s ease-in-out; background: url('../img/appbar.browser.chrome.png') #ee56fc no-repeat !important; opacity: 1; background-position: center center;
+}
+#mini-browserIcone:active {background: url('../img/appbar.browser.chrome.png') #ee56fc no-repeat !important; opacity: .8; background-position: center center; background-size: 70% 70%;
+}
+
+.mini-browser {border: 1px solid #ee56fc; background: #000; opacity: 1; height: 85%; width: 95%; padding: 10px; position: absolute; top: 50px; left: 0;
+-ms-border-radius: 0px 15px 15px 15px; -moz-border-radius: 0px 15px 15px 15px; -webkit-border-radius: 0px 15px 15px 15px; border-radius: 0px 15px 15px 15px;
+}
