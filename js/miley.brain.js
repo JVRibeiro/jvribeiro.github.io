@@ -581,7 +581,7 @@ Preloader.prototype = {
 };
 
 function ProgressMonitor() {
-
+$("#web-app-loading-progress-monitor").text = "Atualizando...";
 }
 
 ProgressMonitor.prototype = {
