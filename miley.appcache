@@ -2,26 +2,51 @@
 # 14:21 26/11/2014
 # * Correção de bugs
 
-# Arquivos a serem "cacheados"
+# * **** Arquivos a serem armazenados em cache **** * #
 
 CACHE:
-index.html
-js/jquery.min.js
-js/api.js
 
+# #### HTML #### #
+index.html
+
+# #### JavaScript #### #
+js/miley.brain.js
+js/miley.comandos.js
+js/miley.config.js
+js/miley.js
+
+js/api.js
+js/default+pt_BR.I.js
+js/sphere.js
+
+js/jquery.min.js
+js/jquery.ui.core.js
+js/jquery.ui.draggable.js
+js/jquery.ui.mouse.js
+js/jquery.ui.position.js
+js/jquery.ui.widget.js
+js/jquery-latest.pack.js
+
+# #### CSS #### #
+css/miley.estilo.css
+
+# #### Arquivos de imagem #### #
+img/miley/miley.img-srch-spin.gif
+img/miley/miley.background-1.png
+img/miley/miley.op-1.png
+img/logos/logo_voicerss.png
+img/logos/logo_annyang.png
+img/logos/logo_jquery-ui.png
+img/logos/logo_cc.png
+img/metro/appbar.calculator.png
+img/metro/appbar.browser.chrome.png
+
+# * **** Arquivos a serem ignorados provisóriamente **** * #
 # jscolor/arrow.gif
 # jscolor/cross.gif
 # jscolor/hs.png
 # jscolor/hv.png
 # jscolor/jscolor.js
-
-js/default+pt_BR.I.js
-js/miley.js
-js/miley.brain.js
-js/miley.comandos.js
-js/miley.js
-js/sphere.js
-js/config.js
 
 # js/jquery.bgiframe-2.1.2.js
 # js/jquery.effects.blind.js
@@ -42,45 +67,17 @@ js/config.js
 # js/jquery.ui.accordion.js
 # js/jquery.ui.autocomplete.js
 # js/jquery.ui.button.js
-
-js/jquery.ui.core.js
-
 # js/jquery.ui.datepicker.js
 # js/jquery.ui.dialog.js
-
-js/jquery.ui.draggable.js
-
 # js/jquery.ui.droppable.js
-
-js/jquery.ui.mouse.js
-js/jquery.ui.position.js
-
 # js/jquery.ui.progressbar.js
 # js/jquery.ui.resizable.js
 # js/jquery.ui.selectable.js
 # js/jquery.ui.slider.js
 # js/jquery.ui.sortable.js
 # js/jquery.ui.tabs.js
-
-js/jquery.ui.widget.js
-
 # js/jquery-1.8.2.js
-
-js/jquery-latest.pack.js
-
 # js/jquery-ui-1.8.24.custom.js
-
-css/miley.estilo.css
-
-img/cc.png
-img/op.png
-img/s.png
-img/voicerss.png
-img/annyang.png
-img/jquery-ui.png
-img/appbar.calculator.png
-img/39.GIF
-
 
 # Online
 NETWORK:

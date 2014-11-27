@@ -66,7 +66,7 @@ if(val2 == "dois") {valor2 = 2};
 		var n1 = Number(valor1);
 		var n2 = Number(valor2);
 
-		var result = console.log("Resultado: " + n1 - n2);
+		var result = console.log(n1 - n2);
 		d.getElementById('resposta').value = n1 - n2;
 		d.getElementById('pergunta').value = "Subtração > "+n1+" menos "+n2+".";
 		voz(); saveHist();
@@ -82,7 +82,7 @@ if(val2 == "dois") {valor2 = 2};
 		var n1 = Number(valor1);
 		var n2 = Number(valor2);
 
-		var result = console.log("Resultado: " + n1 * n2);
+		var result = console.log(n1 * n2);
 		d.getElementById('resposta').value = n1 * n2;
 		d.getElementById('pergunta').value = "Multiplicação > "+n1+" vezes "+n2+".";
 		voz(); saveHist();
@@ -98,7 +98,7 @@ if(val2 == "dois") {valor2 = 2};
 		var n1 = Number(valor1);
 		var n2 = Number(valor2);
 
-		var result = console.log("Resultado: " + n1 / n2);
+		var result = console.log(n1 / n2);
 		d.getElementById('resposta').value = n1 / n2;
 		d.getElementById('pergunta').value = "Divisão > "+n1+" dividido por "+n2+".";
 		voz(); saveHist();
@@ -150,11 +150,11 @@ algo = d.getElementById('q').value
 var definir = function(algo) {
 startFetch(algo, 1, 1000);
 d.getElementById("pergunta").value = "Definir > "
-+ algo;
++ algo; // Palavra ou sentença a ser definida
 d.getElementById('q').value = algo;
 search();
 d.getElementById("resposta").value = "Só um momento...";
-voz()
+voz();
 }
 
 var textbox = d.getElementById("resposta");
@@ -172,10 +172,15 @@ tempscript = d.createElement("script");
 tempscript.type = "text/javascript";
 tempscript.id = "tempscript";
 tempscript.src = "https://pt.wikipedia.org/w/api.php?action=query&titles="
-+ algo
-+ "&redirects=&prop=extracts&exchars="
-+ maxchars
-+ "&exintro&format=json&callback=onFetchComplete&requestid="
++ algo // Palavra ou sentença a ser definida
++ "&redirects="
++ "&prop=extracts"
++ "&exchars="
++ maxchars // Máximo de caracteres a ser "puxado"
++ "&exintro"
++ "&format=json"
++ "&callback=onFetchComplete"
++ "&requestid="
 + Math.floor(Math.random()*999999).toString();
 d.body.appendChild(tempscript);
 }
@@ -188,14 +193,15 @@ s = htmlDecode(stripTags(s));
 if (s.length > minchars || attempts++ > 5) {
 d.getElementById("resposta").value = s;
 d.getElementById("pergunta").value = "Definindo...";
-voz();
-espera();
+voz(); // Lê em voz alta a definição da palavra ou sentença
+espera(); // Delay para se aproximar do carregamento do áudio
 d.getElementById("dialogo").value += "Definir > "
-+ algo
++ algo // Palavra ou sentença a ser definida
 + "\n"
-+ s
-+ "\n|_______________________________________________________|\n--------------------------------------------------------------------";
-saveHist();
++ s // Definição carregada
++ "\n|_______________________________________________________|"
++ "\n--------------------------------------------------------------------";
+saveHist(); // Salva a definição no log de conversa
 }
 
 else {

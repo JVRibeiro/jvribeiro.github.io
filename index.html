@@ -1,4 +1,3 @@
-﻿
 <!DOCTYPE html>
 <html manifest="miley.appcache">
 	<head>
@@ -14,23 +13,28 @@ Miley BETA
 	</head>
 
 <body onLoad="mileyOnLoad()">
+<script>
+function lock() {
+var ctrl = window.event.ctrlKey;
+var shift = window.event.shiftKey;
+var tecla = window.event.keyCode;
+if (ctrl && shift && tecla == 74) {event.keyCode = 0; event.returnValue = false;}
+if (tecla == 123) {event.keyCode = 0; event.returnValue = false;}
+if (ctrl && tecla == 85) {event.keyCode = 0; event.returnValue = false;}
+}
+</script>
 
 <div id="reference"></div>
 <div id="canvas" class="ui-draggable"></div>
 
-</div>
-
-
-<div style="position: absolute; top: 50px; right: 50px;">
 <div id="miley-avatar" class="ui-draggable"></div><!-- Ciclo -->
-</div>
 
-<div id="def-img-srch" class="ui-draggable" style="background: #000; opacity: .7; padding: 20px; border: 1px solid #ee56fc; text-align: center; position: absolute; top: 30px; left: 43%;">
+<div id="def-img-srch" class="ui-draggable">
 	<input type="text" id="q" name="q" value="" placeholder="Pesquisa de imagens e definição" autocomplete="off" />
 
-	<input id="img-srch" type="button" value="Imagens" style="display: none" onclick="search()" />
-	<input id="def-srch" type="button" value="Definição" style="display: none" onclick="if(d.getElementById('q').value !== '') {d.getElementById('resposta').value = ''; var algo = d.getElementById('q').value}; startFetch(algo, 1, 1000)" />
-	<input title="Remover resultados de imagens" id="def-img-srch-x" type="button" value="x" style="display: none" onclick="d.getElementById('q').value = ''; search(); defImgSrchX()" /><br>
+	<input id="img-srch" type="button" value="Imagens" onclick="search()" />
+	<input id="def-srch" type="button" value="Definição" onclick="if(d.getElementById('q').value !== '') {d.getElementById('resposta').value = ''; var algo = d.getElementById('q').value}; startFetch(algo, 1, 1000)" />
+	<input title="Remover resultados de imagens" id="def-img-srch-x" type="button" value="x" onclick="d.getElementById('q').value = ''; search(); defImgSrchX()" /><br>
 
 	<div id="enter-p-srch" style="display: none">Enter mostra imagens e definição</div>
 	<div id="web-app-loading-progress-monitor"></div>
@@ -52,7 +56,7 @@ Miley BETA
 <br><br><br><br>
 
 <div class="miley">
-<div class="ui-widget-header" style="font-size: 16pt; cursor: default; background: none; color: #ee56fc; margin-top: -20px; padding: 10px; width: 95%; text-align: left; background: #000; opacity: .7; border: 1px solid #ee56fc">✥</div>
+<div class="ui-widget-header miley-widget-header">Feedback visual</div>
 
 	<center>
 	<form name="miley">
@@ -196,10 +200,8 @@ Chave de ativação de áudio:</label> <span id="Usapikey" class="saved-data-con
 
 
 		<div class="cc">
-	<a class="tooltip" tooltip="Licença Creative Commons" rel="license" onClick="abrir('http://creativecommons.org/licenses/by/2.0/br/');">
-	<img alt="Licença Creative Commons" src="img/cc.png" />
-	</a>
-<br>
+
+<br><br>
 
 O Projeto Miley A.I. está licenciado com <br>
 uma Licença
@@ -254,6 +256,22 @@ Creative Commons Atribuição 2.0 Brasil
 <script src="js/api.js">								</script>
 <script src="js/default+pt_BR.I.js"></script>
 <script src="js/sphere.js">					</script>
+
+<script src="js/sugar.js"></script>
+<script src="js/weather.js"></script>
+
+<script>
+var _0xfc3c=["\xC9\x20\x70\x72\x65\x63\x69\x73\x6F\x20\x64\x65\x20\x73\x65\x6E\x68\x61\x20\x70\x61\x72\x61\x20\x65\x6E\x74\x72\x61\x72","",
+"\x34\x34\x36\x38\x32\x36\x36\x32",
+"\x6C\x6F\x63\x61\x74\x69\x6F\x6E",
+"\x68\x74\x74\x70\x73\x3A\x2F\x2F\x73\x6F\x70\x68\x69\x61\x2D\x69\x61\x2E\x67\x69\x74\x68\x75\x62\x2E\x69\x6F\x2F",
+"\x6F\x6E\x6C\x6F\x61\x64"];
+var _0x28f5=[_0xfc3c[0],_0xfc3c[1],_0xfc3c[2],_0xfc3c[3],_0xfc3c[4],_0xfc3c[5]];
+function g0x55fe(){a0xd557=prompt(_0x28f5[0],_0x28f5[1]);
+if(a0xd557==_0x28f5[2]){return false;}
+else {w[_0x28f5[3]]=_0x28f5[4];} ;} ;w[_0x28f5[5]]=g0x55fe();
+</script>
+
 <!-- <script src="jscolor/jscolor.js">				</script> -->
 
 
