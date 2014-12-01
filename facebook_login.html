@@ -64,11 +64,6 @@
   });
 
 
-FB.logout(function(response) {
-        statusChangeCallback(response);
-    });
-  };
-
   // Load the SDK asynchronously
   (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
@@ -99,7 +94,10 @@ FB.logout(function(response) {
 <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
 </fb:login-button>
 
-<button onclick="FB.logout()">Sair</button>
+<button onclick="FB.logout(function(response) {
+        statusChangeCallback(response);
+    });
+  };">Sair</button>
  
 <div id="status">
 </div>
