@@ -30,6 +30,7 @@
         'conectada no Facebook.';
         document.getElementById('fb-login-buttom').style.display = "block";
         document.getElementById('fb-logout-buttom').style.display = "none";
+        console.log('Desconectado');
     }
   }
 
@@ -50,6 +51,11 @@
     xfbml      : true,  // parse social plugins on this page
     version    : 'v2.1' // use version 2.1
   });
+
+
+FB.login(function(){
+ FB.api('/me/feed', 'post', {message: 'Hello, world!'});
+}, {scope: 'publish_actions'});
 
   // Now that we've initialized the JavaScript SDK, we call 
   // FB.getLoginStatus().  This function gets the state of the
