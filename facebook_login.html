@@ -63,8 +63,27 @@
     version    : 'v2.1', // use version 2.1
     oauth : true // Enable oauth authentication
   });
-}
-///////////////////////////////////
+
+
+  // Now that we've initialized the JavaScript SDK, we call 
+  // FB.getLoginStatus().  This function gets the state of the
+  // person visiting this page and can return one of three states to
+  // the callback you provide.  They can be:
+  //
+  // 1. Logged into your app ('connected')
+  // 2. Logged into Facebook, but not your app ('not_authorized')
+  // 3. Not logged into Facebook and can't tell if they are logged into
+  //    your app or not.
+  //
+  // These three cases are handled in the callback function.
+
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+
+  };
+  
+  ///////////////////////////////////
 function post_on_wall()
 {
     FB.login(function(response)
@@ -102,25 +121,6 @@ function post_on_wall()
     }, { scope : 'publish_stream' });
 }
 ////////////////////////////////////////////
-
-  // Now that we've initialized the JavaScript SDK, we call 
-  // FB.getLoginStatus().  This function gets the state of the
-  // person visiting this page and can return one of three states to
-  // the callback you provide.  They can be:
-  //
-  // 1. Logged into your app ('connected')
-  // 2. Logged into Facebook, but not your app ('not_authorized')
-  // 3. Not logged into Facebook and can't tell if they are logged into
-  //    your app or not.
-  //
-  // These three cases are handled in the callback function.
-
-  FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-  });
-
- 
-  // --------------------- tava aqui
 
   // Load the SDK asynchronously
   (function(d, s, id) {
