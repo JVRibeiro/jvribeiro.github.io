@@ -18,6 +18,7 @@
       // Logged into your app and Facebook.
       testAPI();
       document.getElementById('fb-login-buttom').style.display = "none";
+      document.getElementById('fb-logout-buttom').style.display = "block";
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       document.getElementById('status').innerHTML = 'Logue na ' +
@@ -28,6 +29,7 @@
       document.getElementById('status').innerHTML = 'Nenhuma conta ' +
         'conectada no Facebook.';
         document.getElementById('fb-login-buttom').style.display = "block";
+        document.getElementById('fb-logout-buttom').style.display = "none";
     }
   }
 
