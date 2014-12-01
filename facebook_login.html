@@ -19,13 +19,13 @@
       testAPI();
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
-      document.getElementById('status').innerHTML = 'Please log ' +
-        'into this app.';
+      document.getElementById('status').innerHTML = 'Logue na ' +
+        'S.O.P.H.I.A.';
     } else {
       // The person is not logged into Facebook, so we're not sure if
       // they are logged into this app or not.
-      document.getElementById('status').innerHTML = 'Please log ' +
-        'into Facebook.';
+      document.getElementById('status').innerHTML = 'Nenhuma conta ' +
+        'conectada no Facebook.';
     }
   }
 
@@ -63,6 +63,10 @@
     statusChangeCallback(response);
   });
 
+
+FB.logout(function(response) {
+        statusChangeCallback(response);
+    });
   };
 
   // Load the SDK asynchronously
@@ -95,9 +99,7 @@
 <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
 </fb:login-button>
 
-<button onclick="FB.logout(function(response) {
-        // Person is now logged out
-    });">Sair</button>
+<button onclick="FB.logout()">Sair</button>
  
 <div id="status">
 </div>
