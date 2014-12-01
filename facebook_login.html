@@ -103,7 +103,9 @@
 </div>
 
 <div id="fb-logout-buttom">
-<button onclick="FB.logout();">Sair</button>
+<button onclick="FB.logout(function(response) {
+    statusChangeCallback(response);
+  });">Sair</button>
  </div>
 <div id="status">
 </div>
