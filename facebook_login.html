@@ -6,7 +6,7 @@
 </head>
 <body>
 <script>
-  // This is called with the results from from FB.getLoginStatus().
+// This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
     console.log('statusChangeCallback');
     console.log(response);
@@ -63,6 +63,7 @@
     statusChangeCallback(response);
   });
 
+  };
 
   // Load the SDK asynchronously
   (function(d, s, id) {
@@ -83,6 +84,7 @@
         'Olá, ' + response.name + '!';
     });
   }
+  
 </script>
 
 <!--
