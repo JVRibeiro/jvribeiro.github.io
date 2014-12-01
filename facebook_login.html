@@ -5,6 +5,19 @@
 <meta charset="UTF-8">
 </head>
 <body>
+
+<div id="fb_div">
+    <h3>Postar no Facebook:</h3> <br />
+    <textarea id="fb_message" name="fb_message" cols="70" rows="7"></textarea> <br />
+    <input type="button" value="Postar" onClick="post_on_wall();" />
+</div>
+
+<div id="fb-root"></div>
+
+
+
+
+
 <script>
 // This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
@@ -150,14 +163,6 @@ function post_on_wall()
  </div>
 <div id="status">
 </div>
-
-<div id="fb_div">
-    <h3>Postar no Facebook:</h3> <br />
-    <textarea id="fb_message" name="fb_message" cols="70" rows="7"></textarea> <br />
-    <input type="button" value="Postar" onClick="post_on_wall();" />
-</div>
-
-<div id="fb-root"></div>
 
 <script>
   (function() {
