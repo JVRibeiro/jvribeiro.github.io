@@ -24,9 +24,7 @@ function statusChangeCallback(response) {
     }
   }
   
-  FB.api('/me', function(response) {
-    console.log(JSON.stringify(response));
-});
+ 
 
   // This function is called when someone finishes with the Login
   // Button.  See the onlogin handler attached to it in the sample
@@ -45,6 +43,12 @@ window.fbAsyncInit = function() {
           version    : 'v2.1'
         });
         
+        
+        FB.api('/me', function(response) {
+    console.log(JSON.stringify(response));
+});
+
+
         FB.getLoginStatus(function(response) {
   if (response.status === 'connected') {
     console.log('Logado.');
