@@ -17,6 +17,7 @@
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
       testAPI();
+      document.getElementById('fb-login-buttom').style.display = "none";
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       document.getElementById('status').innerHTML = 'Logue na ' +
@@ -26,6 +27,7 @@
       // they are logged into this app or not.
       document.getElementById('status').innerHTML = 'Nenhuma conta ' +
         'conectada no Facebook.';
+        document.getElementById('fb-login-buttom').style.display = "block";
     }
   }
 
@@ -93,8 +95,10 @@
   the FB.login() function when clicked.
 -->
 
+<div id="fb-login-buttom">
 <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
 </fb:login-button>
+</div>
 
 <button onclick="FB.logout();">Sair</button>
  
