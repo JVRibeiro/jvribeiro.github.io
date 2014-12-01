@@ -50,12 +50,47 @@
                         // the session
     xfbml      : true,  // parse social plugins on this page
     version    : 'v2.1' // use version 2.1
+    oauth : true // Enable oauth authentication
   });
 
-
-FB.login(function(){
- FB.api('/me/feed', 'post', {message: 'Hello, world!'});
-}, {scope: 'publish_actions'});
+///////////////////////////////////
+function post_on_wall()
+{
+    FB.login(function(response)
+    {
+        if (response.authResponse)
+        {
+            console.log('Logged in!');
+ 
+            // Post message to your wall
+ 
+            var opts = {
+                message : document.getElementById('fb_message').value,
+                name : 'Post Title',
+                link : 'www.postlink.com',
+                description : 'post description',
+                picture : 'http://2.gravatar.com/avatar/8a13ef9d2ad87de23c6962b216f8e9f4?s=128&amp;d=mm&amp;r=G'
+            };
+ 
+            FB.api('/me/feed', 'post', opts, function(response)
+            {
+                if (!response || response.error)
+                {
+                    console.log('Posting error occured');
+                }
+                else
+                {
+                    console.log('Success - Post ID: ' + response.id);
+                }
+            });
+        }
+        else
+        {
+            console.log('Not logged in');
+        }
+    }, { scope : 'publish_stream' });
+}
+////////////////////////////////////////////
 
   // Now that we've initialized the JavaScript SDK, we call 
   // FB.getLoginStatus().  This function gets the state of the
@@ -115,6 +150,25 @@ FB.login(function(){
  </div>
 <div id="status">
 </div>
+
+<div id="fb_div">
+    <h3>Postar no Facebook:</h3> <br />
+    <textarea id="fb_message" name="fb_message" cols="70" rows="7"></textarea> <br />
+    <input type="button" value="Postar" onClick="post_on_wall();" />
+</div>
+
+<div id="fb-root"></div>
+
+<script>
+  (function() {
+    var e = document.createElement('script');
+    // replacing with an older version until FB fixes the cancel-login bug
+    e.src = document.location.protocol + '//connect.facebook.net/pt_BR/all.js';
+    //e.src = 'scripts/all.js';
+    e.async = true;
+    document.getElementById('fb-root').appendChild(e);
+}());
+</script>
 
 </body>
 </html>
