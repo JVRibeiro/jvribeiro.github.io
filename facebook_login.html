@@ -12,8 +12,6 @@
     <input type="button" value="Postar" onClick="post_on_wall();" />
 </div>
 
-<div id="fb-root"></div>
-
 
 
 
@@ -59,8 +57,8 @@
   window.fbAsyncInit = function() {
   FB.init({
     appId      : '384788514997845',
-    cookie     : true,  // enable cookies to allow the server to access 
-                        // the session
+    status : true, // check login status
+    cookie     : true,  // enable cookies to allow the server to access the session
     xfbml      : true,  // parse social plugins on this page
     version    : 'v2.1', // use version 2.1
     oauth : true // Enable oauth authentication
@@ -164,11 +162,13 @@ function post_on_wall()
 <div id="status">
 </div>
 
+
+<div id="fb-root"></div>
 <script>
   (function() {
     var e = document.createElement('script');
     // replacing with an older version until FB fixes the cancel-login bug
-    e.src = document.location.protocol + '//connect.facebook.net/pt_BR/all.js';
+    e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
     //e.src = 'scripts/all.js';
     e.async = true;
     document.getElementById('fb-root').appendChild(e);
