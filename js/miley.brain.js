@@ -18,12 +18,16 @@ var d = document;
 //
 
 // * Simplificação das chamadas de funções
-function mileyOnLoad() {/*mileyCorGet();*/ mileyIni(); getHist(); clock(); onLoad(); lock(); d.getElementById("v").innerHTML = "v"+version;}
+function mileyOnLoad() {/*mileyCorGet();*/ mileyIni(); getHist(); clock(); onLoad(); d.getElementById("v").innerHTML = "v"+version; if (window.location.protocol !== "http:" || window.location.protocol !== "https:") {window.stop();}}
 function mileyOps() {config(); autocom();}
+function mileyApps() {d.getElementById('lado2').style.display = 'block'; d.getElementById('lado2').focus()}
+function mileyAppsClose() {d.getElementById('lado2').style.display = "none"}
 function textoFalar() {d.getElementById('resposta').value = ""; rotina(); espera(); saveHist(); d.getElementById('texto').focus(); voz();}
 function mileyAbrirAjuda() {d.getElementById('ajuda').focus(); w.open('ajuda.html', 'ajuda', 'width=500, height=700, top=25, left=0'); abrirAjuda(); voz();}
 function mileyHistorico() {d.getElementById('dialogo').style.display = 'block'; d.getElementById('dialogo').focus();}
 function mileyHistoricoClose() {d.getElementById('dialogo').style.display = 'none';}
+function mileyFbPost() {d.getElementById('fb_div').style.display = 'block'; d.getElementById('fb_message').focus();}
+function mileyFbPostClose() {d.getElementById('fb_div').style.display = 'none';}
 function mileyCalc() {d.getElementById('calc').style.display = 'block';}
 function mileyCalcClose() {d.getElementById('calc').style.display = 'none';}
 function mileyChromeBrowser() {d.getElementById('mini-browser').style.display = 'block';}
@@ -184,8 +188,8 @@ historico = dialog;
 function rotina(nome) {
 var nome = window.localStorage.getItem('nome');
 if (nome == null || nome == undefined){nome = "anônimo";};
-if (usuario == null || usuario == undefined || usuario == ""){usuario = "(Não houve fala alguma).";};
 usuario = d.miley.Texto.value;
+if (usuario == null || usuario == undefined || usuario == ""){usuario = "(Não houve fala alguma).";};
 historico = historico + nome + " disse em "+dia+" de "+omes+" de "+ano+" às "+hora+":"+min+": \n" + usuario +  '\r' + "\n\n";
 padroesMiley()
 historico = historico  +  '\r' + "\n";
@@ -213,8 +217,8 @@ historico = historico
 + "Eu ("+AIname+") disse: \n"
 +sistema
 + "\r"
-+ "\n|_______________________________________________________|"
-+ "\n--------------------------------------------------------------------";
++ "\n_______________________________________________"
++ "\n|---------------------------------------------------------|\n";
 break;
   }
  }
@@ -224,7 +228,7 @@ function mileyIni() {atualizarTela()}
 
 function atualizarTela() {
 var userInputCheck = "";
-if(usuario == "") {userInputCheck = " Você não digitou nada."}
+if(usuario == "") {userInputCheck = " Me parece que você não digitou nada."}
 d.miley.dialogo.value = historico;
 d.miley.Resposta.value = sistema + userInputCheck;
 d.miley.Pergunta.value = usuario;
@@ -255,6 +259,20 @@ function abrir(URL) {w.open(URL,'janela','width=550, height=640, top=25, left=40
 function click(z){d.getElementById("right_btn").innerHTML="";var t=d.getElementById("context_menu");var n=z||event;if(n.button==2||n.button==3){mostrar(n);t.onmouseout=function(z){var t=z||event;var n=t.relatedTarget||t.toElement;if(n.nodeName!="LI"){}}}if(n.button==0||n.button==1){esconder()}}function mostrar(z){var t=d.getElementById("context_menu");t.style.display="block";t.style.top=z.clientY+0+"px";t.style.left=z.clientX+2+"px"}function esconder(){setTimeout(function(){var z=d.getElementById("context_menu");z.style.display="none"},300)}d.onmousedown=click;d.oncontextmenu=function(){return false};
 //
 
+
+// * Zoom usando o scroll do mouse
+$(window).bind('mousewheel', function(e){
+if(e.originalEvent.wheelDelta > 0) {
+if (camera2.z > 400)
+JSTweener.addTween(camera2, {time: 1.5, z: 300, transition: JSTweener.easingFunctions.easeOutExpo});
+}
+else {
+if (camera2.z < 800)
+JSTweener.addTween(camera2, {time: 1.5, z: 1000, transition: JSTweener.easingFunctions.easeOutExpo});
+}
+});
+
+
 $(function() {
     $( ".ui-draggable" ).draggable();
 });
@@ -273,6 +291,8 @@ $(function() {
     $( "#mini-browserIcone" ).draggable({ containment: "body", scroll: false });
     $( "#calc" ).draggable({ containment: "body", scroll: false });
     $( ".miley" ).draggable({ containment: "body", scroll: false });
+    $( "#def-img-srch" ).draggable({ containment: "body", scroll: false });
+    $( "#rel" ).draggable({ containment: "body", scroll: false });
   });
 
 
@@ -300,3 +320,110 @@ function defImgSrchX() {
     $("#def-img-srch-x").fadeOut();
   }
 }
+
+
+
+// ! * Esse script foi compartilhado por: Tahir Yasin
+// ! * http://tahiryasin.wordpress.com/2012/12/06/post-to-your-facebook-wall-using-javascript-sdk
+// ! * Meus sinceros agradecimentos ao autor. Indiretamente você colaborou com o Projeto S.O.P.H.I.A.
+// ! * Muito Obrigado! (Thank you very much!)
+
+  function statusChangeCallback(response) {
+    console.log('statusChangeCallback');
+    console.log(response);
+    if (response.status === 'connected') {
+      // Logged into your app and Facebook.
+      sophiaFbApi();
+      document.getElementById('fb-login-buttom').style.display = "none";
+      document.getElementById('fb-logout-buttom').style.display = "block";
+    } else if (response.status === 'not_authorized') {
+      // The person is logged into Facebook, but not your app.
+      document.getElementById('status').innerHTML = 'Logue na ' +
+        'S.O.P.H.I.A.';
+    } else {
+      document.getElementById('status').innerHTML = 'Nenhuma conta ' +
+        'conectada no Facebook.';
+        document.getElementById('fb-login-buttom').style.display = "block";
+        document.getElementById('fb-logout-buttom').style.display = "none";
+        console.log('Desconectado');
+    }
+  }
+
+  function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  }
+
+  window.fbAsyncInit = function() {
+  FB.init({
+    appId      : '410082289142337',
+    status : true, // check login status
+    cookie     : true,  // enable cookies to allow the server to access the session
+    xfbml      : true,  // parse social plugins on this page
+    version    : 'v2.1', // use version 2.1
+    oauth : true // Enable oauth authentication
+  });
+
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+
+  };
+
+  ///////////////////////////////////
+function post_on_wall() {
+    FB.login(function(response) {
+        if (response.authResponse) {
+            console.log('Usuário conectado...');
+
+            // Post message to your wall
+            var fbmsg = document.getElementById('fb_message').value;
+
+            var opts = {
+                message : fbmsg
+            };
+
+            FB.api('/me/feed', 'post', opts, function(response) {
+                if (!response || response.error) {
+                    console.log('Ocorreu um erro ao postar');
+                    document.getElementById('resposta').value = "Não consegui postar, "+gen+".";
+                    voz();
+                }
+                else {
+                    console.log('Postado com sucesso! - Post ID: ' + response.id);
+                    document.getElementById('fb_message').value = "";
+                    window.open('https://www.facebook.com/me','facebook','width=1400, height=740, top=25, left=0');
+                    document.getElementById('resposta').value = "Pronto, "+gen+". Postei a frase: \'"+fbmsg+"\'. Deseja algo mais?";
+                    voz();
+                }
+            });
+        }
+        else {
+            console.log('Não conectado!');
+        }
+    }, { scope : 'publish_stream' });
+}
+////////////////////////////////////////////
+
+  // Load the SDK asynchronously
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "js/fbapi-sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+  // Here we run a very simple test of the Graph API after login is
+  // successful.  See statusChangeCallback() for when this call is made.
+  function sophiaFbApi() {
+    console.log('Bem-vindo! Recebendo informações... ');
+    FB.api('/me', function(response) {
+      console.log('Logado como: ' + response.name);
+      document.getElementById('status').innerHTML =
+        'Olá, ' + response.name + '!';
+        document.getElementById('resposta').value = "Seu FB está agora logado como "+response.name+", "+gen+".";
+        voz();
+    });
+  }

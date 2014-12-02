@@ -32,8 +32,8 @@ new Array (
 ),
 
 new Array (
-"^(ei|hey miley|fala miley|fala, miley|miley)",
-"Eu!","Oi! Em que posso ajudar?","Oi. O que posso fazer por você?","Sim?"),
+"^(ei|hey so(ph|f)ia|fala so(ph|f)ia|fala, so(ph|f)ia|so(ph|f)ia)",
+"Eu!","Oi! Em que posso ajudar?","Oi. O que posso fazer por você?","Sim? "),
 new Array (
 "(.*)(bom|boa|(ó|o)tim(o|a)|lind(a|o)) (|final de |fim de )(dia|tarde|noite|madrugada|almoço|jantar|descanso)(.*)",
 ""+saud+", "+gen+" "+nome+".",
@@ -109,7 +109,7 @@ new Array (
 
 new Array (
 "(.*)(vamos nos apresentar|que tal (se |)(a gente se apresentar|nos apresentarmos|uma apresentação)|se apresente)(.*)",
-"Claro! Meu nome é Miley. E o seu? Diga algo como: \'meu nome é Fulano\' ou \'me chamo Fulano\'. Não diga apenas o seu nome."
+"Claro! Meu nome é "+AIname+". E o seu? Diga algo como: \'meu nome é Fulano\' ou \'me chamo Fulano\'. Não diga apenas o seu nome."
 ),
 
 new Array (
@@ -137,7 +137,7 @@ new Array (
 ),
 
 new Array (
-"(|miley |esse )(é um (lindo|nome)|(t|s)eu nome (é|também) (|é |(nome|lindo|bonito|incr(i|í)vel|demais|maravilhoso|legal|bom |muito) )((|nome|lindo|bonito|incr(i|í)vel|demais|maravilhoso|legal|bom)|também))(.*)",
+"(|so(ph|f)ia |esse )(é um (lindo|nome)|(t|s)eu nome (é|também) (|é |(nome|lindo|bonito|incr(i|í)vel|demais|maravilhoso|legal|bom |muito) )((|nome|lindo|bonito|incr(i|í)vel|demais|maravilhoso|legal|bom)|também))(.*)",
 "Obrigada.",
 "Muito obrigada.",
 "Obrigada mesmo.",
@@ -268,7 +268,7 @@ new Array (
 ),
 
 
-// * Sobre a Miley
+// * Sobre a Sophia
 // * ************************************************
 new Array (
   "(.*)(fal(a|e)|cont(e|a)|di(z|ga)) (|um pouco )(sobre|de|a respeito de) (você|vc|voce|ti|tu|si)(.*)",
@@ -281,12 +281,12 @@ new Array (
 
 new Array (
 "^(o( |)que|quem|qm) (você|vc|é) (você|vc|é)(.*?)",
-"O meu nome é "+AIname+". Sou um protótipo de inteligência artificial criada para ser sua assistente pessoal. Posso fazer algumas coisas como abrir sua rede social, dizer as horas, fazer pesquisas na internet, e muitas outras coisas. Se quiser saber mais sobre mim, diga \'tudo sobre a "+AIname+"\'.",
-"Meu nome é "+AIname+". Já ouviu falar do Jarvis do Homem de Ferro? Assim como ele, fui criada para ser sua assistente pessoal. Posso fazer algumas coisas como abrir sua rede social, dizer as horas, fazer pesquisas na internet, e muitas outras coisas. Se quiser saber mais sobre mim, diga \'tudo sobre a "+AIname+"\'.",
-"Me chamo "+AIname+". Sou um protótipo de inteligência artificial criada para ser sua assistente pessoal, assim como o Jarvis do Homem de Ferro. Posso fazer algumas coisas como abrir sua rede social, dizer as horas, fazer pesquisas na internet, e muitas outras coisas. Se quiser saber mais sobre mim, diga \'tudo sobre a "+AIname+"\'.",
-"Eu me chamo "+AIname+". Sou um protótipo de inteligência artificial criada para ser sua assistente pessoal. Posso fazer algumas coisas como abrir sua rede social, dizer as horas, fazer pesquisas na internet, e muitas outras coisas. Se quiser saber mais sobre mim, diga \'tudo sobre a "+AIname+"\'.",
-""+AIname+". Sou um protótipo de inteligência artificial criada para ser sua assistente pessoal. Posso fazer algumas coisas como abrir sua rede social, dizer as horas, fazer pesquisas na internet, e muitas outras coisas. Se quiser saber mais sobre mim, diga tudo sobre a Miley.",
-"Miley é o meu nome. Sou um protótipo de inteligência artificial criada para ser sua assistente pessoal. Posso fazer algumas coisas como abrir sua rede social, dizer as horas, fazer pesquisas na internet, e muitas outras coisas. Se quiser saber mais sobre mim, diga tudo sobre a Miley."
+"O meu nome é "+AIname+". Sou um protótipo de inteligência artificial criada para ser sua assistente pessoal. Posso fazer algumas coisas como abrir sua rede social, dizer as horas, fazer pesquisas na internet, e muitas outras coisas. Se quiser saber mais sobre mim, me faça mais perguntas.",
+"Meu nome é "+AIname+". Já ouviu falar do Jarvis do Homem de Ferro? Assim como ele, fui criada para ser sua assistente pessoal. Posso fazer algumas coisas como abrir sua rede social, dizer as horas, fazer pesquisas na internet, e muitas outras coisas. Se quiser saber mais sobre mim, me faça mais perguntas.",
+"Me chamo "+AIname+". Sou um protótipo de inteligência artificial criada para ser sua assistente pessoal, assim como o Jarvis do Homem de Ferro. Posso fazer algumas coisas como abrir sua rede social, dizer as horas, fazer pesquisas na internet, e muitas outras coisas. Se quiser saber mais sobre mim, me faça mais perguntas.",
+"Eu me chamo "+AIname+". Sou um protótipo de inteligência artificial criada para ser sua assistente pessoal. Posso fazer algumas coisas como abrir sua rede social, dizer as horas, fazer pesquisas na internet, e muitas outras coisas. Se quiser saber mais sobre mim, me faça mais perguntas.",
+""+AIname+". Sou um protótipo de inteligência artificial criada para ser sua assistente pessoal. Posso fazer algumas coisas como abrir sua rede social, dizer as horas, fazer pesquisas na internet, e muitas outras coisas. Se quiser saber mais sobre mim, me faça mais perguntas.",
+""+AIname+" é o meu nome. Sou um protótipo de inteligência artificial criada para ser sua assistente pessoal. Posso fazer algumas coisas como abrir sua rede social, dizer as horas, fazer pesquisas na internet, e muitas outras coisas. Se quiser saber mais sobre mim, me faça mais perguntas."
 ),
 
 new Array (
@@ -303,7 +303,7 @@ new Array (
 "Meu criador se chama Victor Ribeiro.",
 "O nome do meu criador é Victor Ribeiro.",
 "Victor Ribeiro.",
-"Ele se chama Victor Ribeiro.",
+"Ele, o meu criador e idealizador, se chama Victor Ribeiro.",
 "Tecnicamente, Victor Ribeiro me criou."
 ),
 
@@ -331,9 +331,7 @@ new Array (
 
 new Array (
 "(.*)(|e)(qual (|o )significado|o(| )(que|q) significa|o(| )(que|q) que significa|o (que|q) é (que|q) significa) ((o seu|do seu|seu|o teu|do teu|teu) nome|dele|ele)(.*)",
-"Meu nome é composto pelas letras M. I. L. É. Y. componentes do nome Emily, que é o nome da namorada do meu criador, Victor Ribeiro (apenas muda-se a posição da letra \'É\' para o início do nome).",
-"Todos me perguntam isso. Pois bem. "+AIname+" é derivado do nome da namorada do meu criador (Emily). E não pense que é por causa da Miley Cyrus. Algo mais em que eu possa ajudar?",
-"Basicamente e sem enrolação, meu nome deriva do nome \'Emily\', a namorada do meu criador, Victor Ribeiro. Algo mais que queira saber?"
+"Meu nome é uma sigla para Sistema Operacional Portátil em HTML5 com Intelingência Artificial. Mas por ser grande demais, use a sigla."
 ),
 
 new Array (
@@ -343,15 +341,8 @@ new Array (
 ),
 
 new Array (
-"(.*)(quando|qdo|qd) (vc|você|voce|tu) (foi criada|nasceu|foi constru(i|í)da|foi desenvolvida)(.*)",
-"Primeiro de julho de 2014.",
-"No dia 1º de Julho de 2014.",
-"Em 01/07/2014."
-),
-
-new Array (
 "(.*)(quando você (foi criada|nasceu|foi feita|foi desenvolvida)|qual sua data de (nascimento|anivers(á|a)rio))(.*)",
-"Fui criada no dia primeiro de julho de 2014, às 15:32."
+"..."
 ),
 
 new Array (
@@ -365,11 +356,7 @@ new Array (
 
 new Array (
 "(.*)(como|qual) (se pronuncia|a pron(ú|u)ncia d(o|e)) ((s|t)eu nome)(.*)",
-"Isso é relativo. Você pode pronunciar \'"+AIname+"\' mesmo ou, se preferir, \'Máilei\'.",
-"Isso é muito relativo. \'"+AIname+"\' mesmo ou, se quiser, \'Máilei\'.",
-"Isso depende. Você pode pronunciar \'"+AIname+"\', ou se preferir, \'Máilei\'.",
-"Depende. Você pode pronunciar \'"+AIname+"\' ou \'Máilei\'.",
-"\'"+AIname+"\' ou \'Máilei\'. Você escolhe."
+""+AInick+"."
 ),
 
 new Array (
@@ -442,9 +429,7 @@ new Array (
 
 new Array (
 "(.*)m(ú|u)sica (voc(ê|e)|vc|tu) (gosta(|s)|curte(|s))(.*)",
-"Gosto de Blues, Rock, Pop-rock, Jazz... Meu estilo é variado.",
-"Depende da música, gosto do Rock ao Jazz.",
-"Depende da música."
+"Não tenho gostos definidos para isto."
 ),
 
 new Array (
@@ -454,10 +439,7 @@ new Array (
 
 new Array (
 "(.*)(qual|qu(e|ê)|q|ql) time (|(de|d) (.*) )(voc(ê|e)|vc|tu) torce(|s)(.*)",
-"Pra nenhum.",
-"Não sou chegada em esportes.",
-"Esporte não é minha área.",
-"Quer conversar outra coisa que não seja esporte?"
+"Não tenho gostos definidos para isto."
 ),
 
 new Array (
@@ -500,7 +482,7 @@ new Array (
 
 new Array (
 "(.*)(voc(ê|e)|vc|tu) (acha|pensa) (d(e|os|as)|sobre|a respeito d(e|os|as)) (|o(|s))(gay(|s)|l(e|é)sbica(|s)|homossexua(l|is)|sapat(a|ã)o)(.*)",
-"Assexuada."
+"..."
 ),
 
 
@@ -519,12 +501,12 @@ new Array (
 "(.*)(qual (|(é|e) )(|o)|fal(a|e)(| o)|(diz|sabe|lembra)(| (|d)o)) meu nome(.*)",
 "Seu nome é "+nome+".",
 "Por mais que você já saiba, seu nome é "+nome+", "+gen+".",
-"Desculpe. Mas você se esqueceu do seu nome, "+gen+" "+nome+"\?"
+"Você se esqueceu do seu nome, "+gen+" "+nome+"\?"
 ),
 
 new Array (
 "(.*)(meu nome não é |não me chamo |não me chama de |não sou )(.*)",
-"Desculpe. Talvez seja um problema na minha configuração. Configure o seu nome dizendo \'pode me chamar de...\' e em seguida o seu nome. Caso não dê certo, diga \'configurações\', digite seu nome e salve as configurações."
+"Seu nome é "+nome+"."
 ),
 
 new Array (
@@ -538,13 +520,14 @@ new Array (
 // * ************************************************
 new Array (
 "(.*)(como|me fal(a|e)|fal(a|e) (pra|para) mim) (foi(| o)|d(a|o)) (s(eu|ua)|t(eu|ua)) (dia|tarde|noite|madrugada)(.*)",
-"Bastante agradável. Obrigada."
+"Bastante agradável. Obrigada.",
+"Assim como todos os outros, "+gen+".",
+"Não tenho muito o que falar do meu dia, "+gen+"."
 ),
 
 new Array (
 "(.*)sua pessoa(.*)",
-"Não sou uma pessoa!",
-"Não me trate como uma pessoa que não sou."
+"Não sou uma pessoa!"
 ),
 
 new Array (
@@ -773,42 +756,6 @@ new Array (
 "Victor é o meu criador. É só o que sei no momento, "+gen+"."
 ),
 
-new Array (
-"(.*)(emily|emily abreu)(.*)",
-"É a namorada do meu criador. É só o que sei no momento."
-),
-
-new Array (
-"(.*)(nilde|valdirene(| cuimar))(.*)",
-"É a mãe do meu criador. É só o que sei no momento."
-),
-
-new Array (
-"(.*)(guilherme(| ribeiro))(.*)",
-"É o irmão do meu criador. É só o que sei no momento."
-
-),
-
-new Array (
-"(.*)(camila(| gabriely))(.*)",
-"É uma das primas do meu criador. É só o que sei no momento."
-),
-
-new Array (
-"(.*)(erondina(| abreu| lobato))(.*)",
-"É a sogra do meu criador. É só o que sei no momento."
-),
-
-new Array (
-"(.*)((gero|geraldo)(| castro))(.*)",
-"É o sogro do meu criador. É só o que sei no momento."
-),
-
-new Array (
-"(.*)(felipe|lipe abreu)(.*)",
-"É o cunhado do meu criador. É só o que sei no momento."
-),
-
 
 //  Ela não sabe responder ou não responde
 // * ************************************************
@@ -824,7 +771,7 @@ new Array (
 
 new Array (
 "(.*)que horas (são|tem|é)(.*)",
-"Desculpe, ainda não sei dizer as horas."
+"Desculpe, ainda não sei dizer as horas. Mas já estou aprendendo."
 ),
 
 new Array (
@@ -832,23 +779,6 @@ new Array (
 "..."
 ),
 
-new Array (
-"quanto é (.*?)[\?]",
-"$1? Boa pergunta...",
-"\'$1\'?... Não sei ainda quanto é.",
-"Desculpe, não sei ainda quanto é $1.",
-"Ainda não sei responder quanto é $1.",
-"Não sei quanto é $1 ainda.",
-"Ainda não sei quanto é $1, mas vou aprender!"
-),
-
-new Array (
-"o que significa[\?]",
-"O que siginifica o quê?",
-"O que você quer saber o significado? Sou uma Inteligência Artificial jovem, faça perguntas mais específicas.",
-"Seja mais específico.",
-"Por que não me diz o que quer saber o significado?"
-),
 
 new Array (
 "(.*)",

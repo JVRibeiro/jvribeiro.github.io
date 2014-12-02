@@ -1239,12 +1239,12 @@ function onImageSearchResults()
 	}
 }
 
-function addResult(data)
-{
-	var element = elements[elements.length-1][elements[elements.length-1].length] = new Div3D( 0, 0, 0 );
-	element.content.style['visibility'] = 'hidden';
-	element.content.innerHTML = '<a onclick=\"window.open(\''+data.unescapedUrl+'\',\'si\',\'width=1300, height=900, top=25, left=0, scrollbars=yes, status=no, toolbar=no, location=no, directories=no, menubar=no, resizable=no, fullscreen=no\').focus()\"><img src=\"' + data.tbUrl + '\" title=\"Ver em tamanho maior\" alt=\"Imagem não carregada\"></a>';
-	canvas.appendChild(element.content);
+function addResult(data) {
+
+  var element = elements[elements.length-1][elements[elements.length-1].length] = new Div3D( 0, 0, 0 );
+  element.content.style['visibility'] = 'hidden';
+  element.content.innerHTML = '<a onclick=\"w.open(\'' +data.unescapedUrl+ '\',\'imgs\',\'width=1400, height=740, top=0, left=0\').focus();\"><img id=\'imglink\' src=\'' +data.tbUrl+ '\' title=\'Ver em tamanho maior\' alt=\'Imagem não carregada\'></a>';
+  canvas.appendChild(element.content);
 }
 
 function removeResults()

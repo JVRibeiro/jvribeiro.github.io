@@ -39,16 +39,24 @@ espera(); rotina(); voz(); saveHist();
 
 
 if (annyang) {
-	var calcularSoma = function(val1, val2) {
 
-		var valor1 = val1;
-		var valor2 = val2;
+// * Funções de cálculo nas 4 operações (em breve mais operações)
+
+	var calc = function() {
+	mileyCalc()
+	}
+
+	var calClose = function() {
+	mileyCalcClose()
+	}
+
+	var calcularSoma = function(val1, val2) {
+	var valor1 = val1, valor2 = val2;
 
 if(val1 == "dois") {valor1 = 2};
 if(val2 == "dois") {valor2 = 2};
 
-		var n1 = Number(valor1);
-		var n2 = Number(valor2);
+		var n1 = Number(valor1), n2 = Number(valor2);
 
 		var result = console.log(n1 + n2);
 		d.getElementById('resposta').value = n1 + n2;
@@ -57,14 +65,12 @@ if(val2 == "dois") {valor2 = 2};
 		}
 
 	var calcularSubtrai = function(val1, val2) {
-		var valor1 = val1;
-		var valor2 = val2;
+		var valor1 = val1, valor2 = val2;
 
 if(val1 == "dois") {valor1 = 2};
 if(val2 == "dois") {valor2 = 2};
 
-		var n1 = Number(valor1);
-		var n2 = Number(valor2);
+		var n1 = Number(valor1), n2 = Number(valor2);
 
 		var result = console.log(n1 - n2);
 		d.getElementById('resposta').value = n1 - n2;
@@ -73,14 +79,12 @@ if(val2 == "dois") {valor2 = 2};
 		}
 
 	var calcularMultiplica = function(val1, val2) {
-		var valor1 = val1;
-		var valor2 = val2;
+		var valor1 = val1, valor2 = val2;
 
 if(val1 == "dois") {valor1 = 2};
 if(val2 == "dois") {valor2 = 2};
 
-		var n1 = Number(valor1);
-		var n2 = Number(valor2);
+		var n1 = Number(valor1), n2 = Number(valor2);
 
 		var result = console.log(n1 * n2);
 		d.getElementById('resposta').value = n1 * n2;
@@ -89,20 +93,18 @@ if(val2 == "dois") {valor2 = 2};
 		}
 
 	var calcularDivide = function(val1, val2) {
-		var valor1 = val1;
-		var valor2 = val2;
+		var valor1 = val1, valor2 = val2;
 
 if(val1 == "dois") {valor1 = 2};
 if(val2 == "dois") {valor2 = 2};
 
-		var n1 = Number(valor1);
-		var n2 = Number(valor2);
+		var n1 = Number(valor1), n2 = Number(valor2);
 
 		var result = console.log(n1 / n2);
 		d.getElementById('resposta').value = n1 / n2;
 		d.getElementById('pergunta').value = "Divisão > "+n1+" dividido por "+n2+".";
 		voz(); saveHist();
-		}
+	};
 
 	var fecharMiley = function() {d.getElementById("resposta").value = "Tchau tchau!"; voz(); setTimeout(w.location.href = "about:blank", 5000);};
 	var refresh = function() {w.location.reload();};
@@ -111,11 +113,17 @@ if(val2 == "dois") {valor2 = 2};
 	var alfa = function() {d.getElementById('resposta').focus(); d.getElementById("texto").value = "Miley"; _EaDsVr(); saveHist();};
 
 // Navegação nas páginas do Facebook
-	var fb = function(facebook) {abrirFb = w.open('http://www.facebook.com/', 'facebook', 'width=1400, height=740, top=25, left=0'); d.getElementById("resposta").value = "Tudo bem. Estou abrindo sua rede social, "+gen+" "+nome+"."; voz(); saveHist();};
+
+	var fbpost = function(postagem) {
+	document.getElementById('fb_message').value = postagem;
+	post_on_wall();
+	};
+
+	var fb = function(facebook) {abrirFb = w.open('http://www.facebook.com/', 'facebook', 'width=1400, height=740, top=25, left=0'); d.getElementById("resposta").value = "Tudo bem, "+gen+" "+nome+"."; voz(); saveHist();};
 	var fbrec = function(facebook) {abrirFb = w.open('http://www.facebook.com/?sk=h_chr', 'facebook', 'width=1400, height=740, top=25, left=0'); d.getElementById("resposta").value = "Okey. Mostrando as publicações mais recentes do feicebook."; voz(); saveHist();};
 	var fbpop = function(facebook) {abrirFb = w.open('http://www.facebook.com/?sk=h_nor', 'facebook', 'width=1400, height=740, top=25, left=0'); d.getElementById("resposta").value = "Okey. Mostrando as publicações mais populares do feicebook."; voz(); saveHist();};
-	var fbperfil = function(facebook) {abrirFb = w.open('http://www.facebook.com/profile.php', 'facebook', 'width=1400, height=740, top=25, left=0'); d.getElementById("resposta").value = "Tudo bem. Estou abrindo seu perfil do feicebook, "+nome+"."; voz(); saveHist();};
-	var fbalbum = function(facebook) {abrirFb = w.open('http://www.facebook.com/photos.php', 'facebook', 'width=1400, height=740, top=25, left=0'); d.getElementById("resposta").value = "Aguarde. Vou abrir suas fotos do feicebook."; voz(); saveHist();};
+	var fbperfil = function(facebook) {abrirFb = w.open('http://www.facebook.com/profile.php', 'facebook', 'width=1400, height=740, top=25, left=0'); d.getElementById("resposta").value = "Abrindo seu perfil, "+nome+"."; voz(); saveHist();};
+	var fbalbum = function(facebook) {abrirFb = w.open('http://www.facebook.com/photos.php', 'facebook', 'width=1400, height=740, top=25, left=0'); d.getElementById("resposta").value = "Aguarde. Vou abrir suas fotos."; voz(); saveHist();};
 	var fbmensagens = function(facebook) {abrirFb = w.open('http://www.facebook.com/messages', 'facebook', 'width=1400, height=740, top=25, left=0'); d.getElementById("resposta").value = "Vou tentar abrir suas mensagens."; voz(); saveHist();};
 	var fbnotificacoes = function(facebook) {abrirFb = w.open('http://www.facebook.com/notifications.php', 'facebook', 'width=1400, height=740, top=25, left=0'); d.getElementById("resposta").value = "Certo. Estou abrindo suas notificações."; voz(); saveHist();};
 
@@ -144,7 +152,7 @@ var g1 = function(algo) {abrirWindowG1 = w.open('http://g1.globo.com/', 'g1', 'w
 
 // * Definições
 if(d.getElementById('q').value !== "") {
-algo = d.getElementById('q').value
+var algo = d.getElementById('q').value
 }
 
 var definir = function(algo) {
@@ -186,6 +194,7 @@ d.body.appendChild(tempscript);
 }
 
 function onFetchComplete(data) {
+	var algo = d.getElementById('q').value;
 d.body.removeChild(tempscript);
 tempscript = null
 var s = getFirstProp(data.query.pages).extract;
@@ -199,8 +208,8 @@ d.getElementById("dialogo").value += "Definir > "
 + algo // Palavra ou sentença a ser definida
 + "\n"
 + s // Definição carregada
-+ "\n|_______________________________________________________|"
-+ "\n--------------------------------------------------------------------";
++ "\n_____________________________________________"
++ "\n|------------------------------------------------------|\n";
 saveHist(); // Salva a definição no log de conversa
 }
 
@@ -213,7 +222,7 @@ function getFirstProp(obj) {
 for (var i in obj) return obj[i];
 }
 function stripTags(s) {
-return s.replace(/<\w+(\s+("[^"]*"|'[^']*'|[^>])+)?>|<\/\w+>/gi, "");
+return s.replace(/(\s\(.*?\))|<\w+(\s+("[^"]*"|'[^']*'|[^>])+)?>|<\/\w+>/gi, '');
 }
 function htmlDecode(input){
 var e = document.createElement("div"); e.innerHTML = input; return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
@@ -606,12 +615,14 @@ var commands = {
 	'abr(e)(a)(ir) o site *algo.org': siteOrg,
 	'abr(e)(a)(ir) o site *algo.org.br': siteOrgBr,
 
-// * Facebook
+// * G1
   'abr(e)(a)(ir) o g1':						g1,
 	'me mostr(e)(a) as notícias (de hoje)':						g1,
   'mostr(e)(a) as notícias (de hoje)':						g1,
 	'(agora) fecha(r) (o) g1 (aí) (pra mim) (por favor) (miley) (por favor)':	g1_close,
 
+// * Facebook
+	'posta no face(book) (que) *postagem': fbpost,
 	'(abre)(abrir) (aí) (o) face(book) (aí) (por favor) (miley) (por favor)':	fb,
 	'início (do) (face)(book)':							fb,
 	'feed de notícias (do) (face)(book)':						fb,

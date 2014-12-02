@@ -42,27 +42,25 @@ outline: none;
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
-    width: 70px;
-    height: 70px;
-    float: center;
+    width: 50px;
+    height: 50px;
     -webkit-animation: spinoffShine 4s infinite linear;
     -ms-animation: spinoffShine 4s infinite linear;
     -o-animation: spinoffShine 4s infinite linear;
     animation: spinoffShine 4s infinite linear;
 }
 
-#miley-avatar:active {
-    width: 80px;
-    height: 80px;
+#miley-avatar:hover {
+-webkit-transform: scale(2);
 }
 
 #miley-avatar:before {
   content: "";
   position: absolute;
-    top: -25px;
-    left: -25px;
-    right: -25px;
-    bottom: -25px;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
     background: transparent;
     opacity: .9;
   border-top: 5px solid #E351FF;
@@ -121,8 +119,8 @@ outline: none;
 
 @-webkit-keyframes spinoffShine {
 0% {-webkit-box-shadow: 0 0 75px #E351FF, inset 0 0 5px #E351FF; -webkit-transform: rotate(0deg);}
-20% {-webkit-box-shadow: 0 0 20px #E351FF, inset 0 0 40px #E351FF; -webkit-transform: rotate(45deg);}
-80% {-webkit-box-shadow: 0 0 20px #E351FF, inset 0 0 20px #E351FF; -webkit-transform: rotate(90deg);}
+20% {-webkit-box-shadow: 0 0 50px #E351FF, inset 0 0 40px #E351FF; -webkit-transform: rotate(45deg);}
+80% {-webkit-box-shadow: 0 0 50px #E351FF, inset 0 0 20px #E351FF; -webkit-transform: rotate(90deg);}
 100% {-webkit-box-shadow: 0 0 75px #E351FF, inset 0 0 5px #E351FF; -webkit-transform: rotate(180deg);};
 }
 
@@ -658,7 +656,7 @@ cursor: default;
 width: 100%;
 height: 100%;
 border: none;
-position: absolute;
+position: fixed;
 top: 0%;
 left: 0%;
 z-index: -10;
@@ -690,7 +688,7 @@ border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -ms-bor
 padding: 5px;
 border: 3px solid #E351FF;
 }
-#def-img-srch {background: #000; opacity: .7; padding: 20px; border: 1px solid #ee56fc; text-align: center; position: fixed; top: 50px; left: 43%;}
+#def-img-srch {cursor: default; background: #000; opacity: .7; padding: 20px; border: 1px solid #ee56fc; text-align: center; position: fixed; top: 50px; left: 43%;}
 #def-img-srch:active {cursor: move; background: #310D38; opacity: .7; padding: 20px; border: 1px solid #ee56fc; text-align: center; position: absolute; top: 50px; left: 43%;}
 #img-srch, #def-srch, #def-img-srch-x {display: none; z-index: 1; padding: 10px; position: relative; margin-top: 50px; color: #fff; font-family: Agency FB, Arial, sans-serif; font-size: 16pt; background: #8E2498; border: 1px solid #000; transition: .2s ease-out; margin: 3px;}
 #img-srch:hover, #def-srch:hover, #def-img-srch-x:hover {color: #fff; background: #ee56fc; border: 1px solid #fff; box-shadow: 0 0 20px #ee56fc;}
@@ -999,6 +997,25 @@ margin-left: 10px;
 opacity: 1;
 }
 
+#fb_message {
+font-family: "Segoe UI Light", Segoe UI, sans-serif;
+font-weight: lighter;
+resize: none;
+background: #fff;
+border: 1px solid #ee56fc;
+border-radius: 7px 0 0 7px; -webkit-border-radius: 0 0 7px 7px; -moz-border-radius: 0 0 7px 7px; -ms-border-radius: 0 0 7px 7px;
+width: 100%;
+max-width: 80%;
+min-width: 50%;
+height: 70px;
+width: 75%;
+padding: 5px;
+float: left;
+font-size: 12pt;
+opacity: 1;
+}
+
+
 .falar, #botaoFalar {
 float: none;
 font-family: Calibri;
@@ -1267,9 +1284,9 @@ position: absolute;
 bottom: 5px;
 left: 7px
 }
-#calcIcone:hover {transition: .2s ease-in-out; background: url('../img/metro/appbar.calculator.png') #ee56fc no-repeat !important; opacity: 1; background-position: center center;
+#calcIcone:hover {transition: .2s ease-in-out; background: url('../img/metro/appbar.calculator.png') #000 no-repeat !important; opacity: 1; background-position: center center;
 }
-#calcIcone:active {background: url('../img/metro/appbar.calculator.png') #ee56fc no-repeat !important; opacity: .8; background-position: center center; background-size: 70% 70%;
+#calcIcone:active {background: url('../img/metro/appbar.calculator.png') #310D38 no-repeat !important; opacity: .8; background-position: center center; background-size: 70% 70%;
 }
 
 .calc {border: 1px solid #ee56fc; background: #000; opacity: .8; height: 300px; width: 300px; padding: 20px; position: fixed; top: 80px; right: 300px;
@@ -1297,9 +1314,9 @@ position: absolute;
 bottom: 5px;
 left: 7px
 }
-#mini-browserIcone:hover {transition: .2s ease-in-out; background: url('../img/metro/appbar.browser.chrome.png') #ee56fc no-repeat !important; opacity: 1; background-position: center center;
+#mini-browserIcone:hover {transition: .2s ease-in-out; background: url('../img/metro/appbar.browser.chrome.png') #000 no-repeat !important; opacity: 1; background-position: center center;
 }
-#mini-browserIcone:active {background: url('../img/metro/appbar.browser.chrome.png') #ee56fc no-repeat !important; opacity: .8; background-position: center center; background-size: 70% 70%;
+#mini-browserIcone:active {background: url('../img/metro/appbar.browser.chrome.png') #310D38 no-repeat !important; opacity: .8; background-position: center center; background-size: 70% 70%;
 }
 
 .mini-browser {border: 1px solid #ee56fc; background: #000; opacity: 1; height: 85%; width: 95%; padding: 10px; position: fixed; top: 50px; left: 0;

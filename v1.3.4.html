@@ -13,23 +13,6 @@ Miley BETA
 	</head>
 
 <body onLoad="mileyOnLoad()">
-<script>
-function lock() {
-var ctrl = window.event.ctrlKey;
-var shift = window.event.shiftKey;
-var tecla = window.event.keyCode;
-if (ctrl && shift && tecla == 74) {event.keyCode = 0; event.returnValue = false;}
-if (tecla == 123) {event.keyCode = 0; event.returnValue = false;}
-if (ctrl && tecla == 85) {event.keyCode = 0; event.returnValue = false;}
-}
-
-function PhiThetaOmicrom(){
-var password=prompt('Senha','');
-if (password=="44682662giovanna") { document.location.href="v1.3.4.html";}
-else { alert('Não autorizado. Tente novamente.'); PhiThetaOmicrom() }
-}
-window.onload = PhiThetaOmicrom();
-</script>
 
 <div id="reference"></div>
 <div id="canvas" class="ui-draggable"></div>
@@ -44,7 +27,6 @@ window.onload = PhiThetaOmicrom();
 	<input title="Remover resultados de imagens" id="def-img-srch-x" type="button" value="x" onclick="d.getElementById('q').value = ''; search(); defImgSrchX()" /><br>
 
 	<div id="enter-p-srch" style="display: none">Enter mostra imagens e definição</div>
-	<div id="web-app-loading-progress-monitor"></div>
 </div>
 
 
@@ -206,6 +188,9 @@ Chave de ativação de áudio:</label> <span id="Usapikey" class="saved-data-con
 		</div><!-- .config -->
 
 
+
+
+
 		<div class="cc">
 
 <br><br>
@@ -225,6 +210,45 @@ Creative Commons Atribuição 2.0 Brasil
 
     <div id='lado2' class='lado2'>
   <center>
+<div class="miley-fb">
+<div class="miley-widget-header" onClick="mileyFbPost()">
+	Postar no Facebook
+	<div id="status"></div>
+
+	<div id="fb-logout-buttom">
+	<button onclick="FB.logout(function(response) {statusChangeCallback(response);});">Sair</button>
+	</div>
+	</div>
+<div id="fb_div" style="display: none">
+		<textarea id="fb_message" class="" name="fb_message" style="width: 80%; padding: 5px" rows="7"></textarea> <br />
+		<input class="falar" type="button" value=">" onClick="post_on_wall();" />
+
+		<div id="fb-login-buttom">
+		<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+		</fb:login-button>
+		</div>
+
+<br>
+		<button style="color: #fff; width: 70px;height: 25px; font-size: 12pt; background: #000; border: 1px solid #fff" onclick="mileyFbPostClose()">Cancelar</button>
+
+</div>
+</div> <!-- .miley-fb -->
+
+<div id="fb-root"></div>
+<script>
+  (function() {
+    var e = document.createElement('script');
+    // replacing with an older version until FB fixes the cancel-login bug
+    e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
+    //e.src = 'scripts/all.js';
+    e.async = true;
+    document.getElementById('fb-root').appendChild(e);
+}());
+</script>
+
+
+
+
 <br><br>
 <br><br>
 
@@ -287,10 +311,21 @@ Creative Commons Atribuição 2.0 Brasil
 
 <!-- Mini Chrome-->
 <div id="mini-browser" class="mini-browser tit-app-chrome ui-draggable" style="display: none; overflow: hidden">
+
+<input id="q" type="url" placeholder="http://example.com/" /><button id="urlclick">Go</button>
+
+<script>
+  document.getElementById('urlclick').onclick = function() {
+    document.getElementById('frm').src = this.previousSibling.value;
+    return false;
+  }
+</script>
+
 	<button class="close" onClick="mileyChromeBrowserClose()" title="Fechar">x</button>
 <br><br>
 <div style="border: none; width: 100%; height: 100%">
-	<iframe style="border: none; width: 100%; height: 100%" name="" src=""></iframe>
+
+	<iframe id="frm" style="border: none; width: 100%; height: 100%" name="" src=""></iframe>
 </div>
 
 </div>
@@ -298,17 +333,17 @@ Creative Commons Atribuição 2.0 Brasil
 
 <!-- Calculadora manual -->
 <div id="calc" class="calc tit-app-calc ui-draggable" style="display: none">
-	<button class="close" onClick="mileyCalcClose()" title="Fechar">x</button>
+	<button class="close" onClick="clearcalc(); mileyCalcClose()" title="Fechar">x</button>
 
 <input id="calc-result" type="text" name="m" placeholder="0" autocomplete="off" readonly />
 
-<script>var r = d.getElementById('calc-result');</script>
+<script>var r = d.getElementById('calc-result'); function clearcalc() {r.value=''}</script>
 
 <div class="num-align">
 <button class="num" title="um" onclick="r.value +='1'">1</button><br>
 <button class="num" title="quatro" onclick="r.value +='4'">4</button><br>
 <button class="num" title="sete" onclick="r.value +='7'">7</button><br>
-<button class="calc-erase" title="apagar" onclick="r.value=''">C</button>
+<button class="calc-erase" title="apagar" onclick="clearcalc()">C</button>
 </div>
 
 <div class="num-align">
