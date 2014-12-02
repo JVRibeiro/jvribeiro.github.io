@@ -192,7 +192,7 @@ tempscript.src = "https://pt.wikipedia.org/w/api.php?action=query&titles="
 + Math.floor(Math.random()*999999).toString();
 d.body.appendChild(tempscript);
 }
-
+ 
 function onFetchComplete(data) {
 	var algo = d.getElementById('q').value;
 d.body.removeChild(tempscript);

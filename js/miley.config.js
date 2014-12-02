@@ -5,7 +5,7 @@ var Ugenero = d.getElementById('gen');
 ﻿var Ucodec = d.getElementById('miley_s_codec');
 ﻿var Uformato = d.getElementById('miley_s_format');
 ﻿var Usapikey = d.getElementById('miley_s_key');
-
+ 
 var gUnome = w.localStorage.getItem('nome');
 var gUgenero = w.localStorage.getItem('genero');
 var gUidioma = w.localStorage.getItem('idioma');

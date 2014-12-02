@@ -1163,7 +1163,7 @@ function onDocumentMouseMove(e)
 function onDocumentDoubleClick()
 {
 	removeResults();
-
+ 
 	page = 1;
 	window.getSelection().collapse();
 }
