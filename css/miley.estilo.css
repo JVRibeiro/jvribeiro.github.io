@@ -665,7 +665,7 @@ z-index: -10;
 #canvas:active {
 cursor: move;
 }
- 
+
 #canvas img {
 border: none;
 opacity: .8;

@@ -194,7 +194,7 @@ Chave de ativação de áudio:</label> <span id="Usapikey" class="saved-data-con
 		<div class="cc">
 
 <br><br>
- 
+
 O Projeto Miley A.I. está licenciado com <br>
 uma Licença
 <a id="cc-link" rel="license" onClick="d.location.href = 'http://creativecommons.org/licenses/by/2.0/br/';">
@@ -213,9 +213,14 @@ Creative Commons Atribuição 2.0 Brasil
 <div class="miley-fb">
 <div class="miley-widget-header" onClick="mileyFbPost()">
 	Postar no Facebook
-	<div id="status"></div>
+	<div id="status" style="display: inline"></div>
 
-	<div id="fb-logout-buttom">
+<div id="fb-login-buttom" style="display: inline">
+<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+</fb:login-button>
+</div>
+
+	<div id="fb-logout-buttom" style="display: inline">
 	<button onclick="FB.logout(function(response) {statusChangeCallback(response);});">Sair</button>
 	</div>
 	</div>
@@ -223,13 +228,8 @@ Creative Commons Atribuição 2.0 Brasil
 		<textarea id="fb_message" class="" name="fb_message" style="width: 80%; padding: 5px" rows="7"></textarea> <br />
 		<input class="falar" type="button" value=">" onClick="post_on_wall();" />
 
-		<div id="fb-login-buttom">
-		<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-		</fb:login-button>
-		</div>
-
 <br>
-		<button style="color: #fff; width: 70px;height: 25px; font-size: 12pt; background: #000; border: 1px solid #fff" onclick="mileyFbPostClose()">Cancelar</button>
+		<button style="color: #fff; width: 70px; height: 25px; font-size: 12pt; background: #000; border: 1px solid #fff" onclick="mileyFbPostClose()">Cancelar</button>
 
 </div>
 </div> <!-- .miley-fb -->
