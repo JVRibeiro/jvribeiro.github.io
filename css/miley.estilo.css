@@ -928,7 +928,7 @@ height: 400px;
 max-width: 90%;
 max-height: 70%;
 
-position: relative;
+position: fixed;
 top: 55px;
 right: 10px;
 
