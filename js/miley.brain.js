@@ -339,7 +339,7 @@ function defImgSrchX() {
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       document.getElementById('status').innerHTML = 'Logue na ' +
-        'S.O.P.H.I.A.';
+        'Miley. ';
     } else {
       document.getElementById('status').innerHTML = 'Nenhuma conta ' +
         'conectada no Facebook.';
@@ -423,7 +423,7 @@ function post_on_wall() {
       console.log('Logado como: ' + response.name);
       document.getElementById('status').innerHTML =
         'Olá, ' + response.name + '!';
-        document.getElementById('resposta').value = "Seu FB está agora logado como "+response.name+", "+gen+".";
+        document.getElementById('resposta').value = "Você está agora logado como "+response.name+", "+gen+".";
         voz();
     });
   }
