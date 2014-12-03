@@ -1,6 +1,6 @@
 ﻿CACHE MANIFEST
-# 20:14 03/12/2014
-# * Criação da página de Privacidade
+# 21:59 03/12/2014
+# * Correções de bug
 
 # * **** Arquivos a serem armazenados em cache **** * #
 
@@ -8,6 +8,7 @@ CACHE:
 
 # #### HTML #### #
 index.html
+privacy.htm
 
 # #### JavaScript #### #
 js/miley.brain.js
@@ -18,7 +19,6 @@ js/miley.js
 js/api.js
 js/default+pt_BR.I.js
 js/sphere.js
-js/fbapi-sdk.js
 
 js/jquery.min.js
 js/jquery.ui.core.js
@@ -35,13 +35,12 @@ css/miley.estilo.css
 img/miley/miley.img-srch-spin.gif
 img/miley/miley.background-1.png
 img/miley/miley.op-1.png
-img/logos/logo_voicerss.png
 img/logos/logo_annyang.png
-img/logos/logo_jquery-ui.png
 img/logos/logo_cc.png
-img/metro/appbar.calculator.png
-img/metro/appbar.browser.chrome.png
 img/logos/logo_fb.jpg
+img/logos/logo_jquery-ui.png
+img/logos/logo_voicerss.png
+img/metro/appbar.calculator.png
 
 # * **** Arquivos a serem ignorados provisóriamente **** * #
 # jscolor/arrow.gif

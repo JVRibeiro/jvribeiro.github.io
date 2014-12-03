@@ -387,7 +387,7 @@ function post_on_wall() {
             FB.api('/me/feed', 'post', opts, function(response) {
                 if (!response || response.error) {
                     console.log('Ocorreu um erro ao postar');
-                    document.getElementById('resposta').value = "Não consegui postar, "+gen+".";
+                    document.getElementById('resposta').value = "Não consegui postar, "+gen+". Desculpe. Algo está impedindo meus comandos.";
                     voz();
                 }
                 else {

@@ -215,7 +215,7 @@ Creative Commons Atribuição 2.0 Brasil
   <center>
 <div class="miley-fb">
 <div class="miley-widget-header" onClick="mileyFbPost()">
-	Postar no Facebook
+	Postar no Facebook -
 	<div id="status" style="display: inline"></div>
 
 <div id="fb-login-buttom" style="display: inline">
@@ -224,20 +224,19 @@ Creative Commons Atribuição 2.0 Brasil
 </div>
 
 	<div id="fb-logout-buttom" style="display: inline">
-	<button onclick="FB.logout(function(response) {statusChangeCallback(response);});">Sair</button>
+	<button class="ajuda" onclick="FB.logout(function(response) {statusChangeCallback(response);});">Sair do Facebook</button>
 	</div>
 	</div>
 <div id="fb_div" style="display: none">
-		<textarea id="fb_message" class="" name="fb_message" style="width: 80%; padding: 5px" rows="7"></textarea> <br />
-		<input class="falar" type="button" value=">" onClick="post_on_wall();" />
-
-<br>
-		<button style="color: #fff; width: 70px; height: 25px; font-size: 12pt; background: #000; border: 1px solid #fff" onclick="mileyFbPostClose()">Cancelar</button>
+		<textarea id="fb_message" name="fb_message" style="float: left; width: 100%; padding: 5px; display: inline" rows="7"></textarea>
+		<input style="margin-left: -80px; float: right; border: 1px solid #fff; font-size: 12pt; width: 80px; height: 35px; display: inline" class="ajuda" type="button" value=">" onClick="post_on_wall();" />
+		<button style="margin-left: -50px; margin-top: 50px; float: right; border: 1px solid #fff; font-size: 12pt; width: 80px; height: 35px; display: inline" class="ajuda" onclick="mileyFbPostClose()">Cancelar</button>
 
 </div>
 </div> <!-- .miley-fb -->
 
 <div id="fb-root"></div>
+<!--
 <script>
   (function() {
     var e = document.createElement('script');
@@ -248,7 +247,7 @@ Creative Commons Atribuição 2.0 Brasil
     document.getElementById('fb-root').appendChild(e);
 }());
 </script>
-
+-->
 
 
 
@@ -258,9 +257,7 @@ Creative Commons Atribuição 2.0 Brasil
 <div id='services'>
 	Serviços orgulhosamente utilizados:
 	<br><br>
-	<a alt="VoiceRSS.org" title="Voice RSS - o melhor serviço de Text-to-Speech!
-
-	(http://voicerss.org)" rel="nofollow" onclick="w.open('http://voicerss.org/','partners')" target="_blank">
+	<a alt="VoiceRSS.org" title="Voice RSS - o melhor serviço de Text-to-Speech! (http://voicerss.org)" rel="nofollow" onclick="w.open('http://voicerss.org/','partners')" target="_blank">
 	<div class="voicerss"></div></a>
 
   <a alt="Annyang.js" title="Annyang! - Incrível biblioteca JavaScript para Speech Recognition!
