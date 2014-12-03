@@ -1188,7 +1188,7 @@ color: #000;
 #version {
 position: absolute;
 bottom: 30px;
-right: 20px;
+right: 30px;
 color: #E351FF;
 font-size: 11pt;
 font-family: Segoe UI Light, Segoe UI;
@@ -1235,7 +1235,6 @@ height: 130px;
 position: absolute;
 bottom: 50px;
 left: 20px;
-border: 1px solid #ee56fc;
 padding: 10px;
 }
 .voicerss {
@@ -1271,6 +1270,18 @@ background-size: 100% 100%;
 transition: .2s ease-in-out;
 }
 .jqueryui:hover {
+transform: translatey(-5px);
+}
+
+.facebook {
+display: inline-block;
+width: 100px;
+height: 40px;
+background-image: url('../img/logos/logo_fb.jpg');
+background-size: 100% 100%;
+transition: .2s ease-in-out;
+}
+.facebook:hover {
 transform: translatey(-5px);
 }
 
