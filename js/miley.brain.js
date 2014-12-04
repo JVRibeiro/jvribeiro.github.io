@@ -333,13 +333,13 @@ function defImgSrchX() {
     console.log(response);
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
-      sophiaFbApi();
+      mileyFbApi();
       document.getElementById('fb-login-buttom').style.display = "none";
       document.getElementById('fb-logout-buttom').style.display = "block";
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
-      document.getElementById('status').innerHTML = 'Logue na ' +
-        'Miley. ';
+      document.getElementById('status').innerHTML = 'Permita meu acesso ' +
+        ', '+gen+'.';
     } else {
       document.getElementById('status').innerHTML = 'Nenhuma conta ' +
         'conectada no Facebook.';
@@ -360,9 +360,9 @@ function defImgSrchX() {
     appId      : '410082289142337',
     status : true, // check login status
     cookie     : true,  // enable cookies to allow the server to access the session
-    xfbml      : true,  // parse social plugins on this page
-    version    : 'v2.1', // use version 2.1
-    oauth : true // Enable oauth authentication
+    xfbml      : false,  // parse social plugins on this page
+    version    : 'v2.2', // use version 2.2
+    oauth      : true
   });
 
   FB.getLoginStatus(function(response) {
@@ -417,7 +417,7 @@ function post_on_wall() {
 
   // Here we run a very simple test of the Graph API after login is
   // successful.  See statusChangeCallback() for when this call is made.
-  function sophiaFbApi() {
+  function mileyFbApi() {
     console.log('Bem-vindo! Recebendo informações... ');
     FB.api('/me', function(response) {
       console.log('Logado como: ' + response.name);
