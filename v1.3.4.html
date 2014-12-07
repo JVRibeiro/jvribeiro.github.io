@@ -219,7 +219,7 @@ Creative Commons Atribuição 2.0 Brasil
 	<div id="status" style="display: inline"></div>
 
 <div id="fb-login-buttom" style="display: inline">
-<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+<fb:login-button scope="public_profile,email,publish_stream" onlogin="checkLoginState();">
 </fb:login-button>
 </div>
 
@@ -314,27 +314,6 @@ Creative Commons Atribuição 2.0 Brasil
 
 <div class="set">
 
-<!-- Mini Chrome-->
-<div id="mini-browser" class="mini-browser tit-app-chrome ui-draggable" style="display: none; overflow: hidden">
-
-<input id="q" type="url" placeholder="http://example.com/" /><button id="urlclick">Go</button>
-
-<script>
-  document.getElementById('urlclick').onclick = function() {
-    document.getElementById('frm').src = this.previousSibling.value;
-    return false;
-  }
-</script>
-
-	<button class="close" onClick="mileyChromeBrowserClose()" title="Fechar">x</button>
-<br><br>
-<div style="border: none; width: 100%; height: 100%">
-
-	<iframe id="frm" style="border: none; width: 100%; height: 100%" name="" src=""></iframe>
-</div>
-
-</div>
-<!-- Fim do mini chrome-->
 
 <!-- Calculadora manual -->
 <div id="calc" class="calc tit-app-calc ui-draggable" style="display: none">

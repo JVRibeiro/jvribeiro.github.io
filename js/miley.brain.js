@@ -360,7 +360,7 @@ function defImgSrchX() {
     appId      : '410082289142337',
     status : true, // check login status
     cookie     : true,  // enable cookies to allow the server to access the session
-    xfbml      : false,  // parse social plugins on this page
+    xfbml      : true,  // parse social plugins on this page
     version    : 'v2.2', // use version 2.2
     oauth      : true
   });
@@ -384,7 +384,7 @@ function post_on_wall() {
             var opts = {
                 message : fbmsg
             };
-/*
+
             FB.api('/me/feed', 'post', opts, function(response) {
                 if (!response || response.error) {
                     console.log('Ocorreu um erro ao postar');
@@ -405,41 +405,9 @@ function post_on_wall() {
         }
     }, { scope : 'publish_stream' });
 }
-*/
 
-FB.api({ method: 'fql.query', query: 'SELECT publish_stream FROM permissions WHERE uid=me()' }, function(resp) {
-    for(var key in resp[0]) {
 
-        if(resp[0][key] == 1) {
-            console.log('Postado com sucesso! - Post ID: ' + response.id);
-            document.getElementById('fb_message').value = "";
-            window.open('https://www.facebook.com/me','facebook','width=1400, height=740, top=25, left=0');
-            document.getElementById('resposta').value = "Pronto, "+gen+". Postei a frase: \'"+fbmsg+"\'. Deseja algo mais?";
-            voz();
-        }
 
-        else if (!response || response.error) {
-            console.log('Ocorreu um erro ao postar');
-            document.getElementById('resposta').value = "Não consegui postar, "+gen+". Desculpe. Algo está impedindo meus comandos.";
-            voz();
-        }
-
-        else {
-            console.log('Não conectado!'); // usuario nao possui a permissao, solicitar:
-            FB.login(function(response) {
-                if (response.authResponse) {
-                console.log('Usuário conectado...');
-
-                // Post message to your wall
-                var fbmsg = document.getElementById('fb_message').value;
-                var opts = {
-                message : fbmsg
-                }
-
-            }, {scope: 'publish_stream' });
-        }
-    }
-});
 ////////////////////////////////////////////
 
   // Load the SDK asynchronously
@@ -447,7 +415,7 @@ FB.api({ method: 'fql.query', query: 'SELECT publish_stream FROM permissions WHE
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) return;
     js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/pt_BR/sdk.js";
+    js.src = "//connect.facebook.net/pt_BR/all.js";
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
 
