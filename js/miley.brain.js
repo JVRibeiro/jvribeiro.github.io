@@ -373,6 +373,7 @@ function defImgSrchX() {
 
   ///////////////////////////////////
 function post_on_wall() {
+
     FB.login(function(response) {
         if (response.authResponse) {
             console.log('Usuário conectado...');
@@ -383,7 +384,7 @@ function post_on_wall() {
             var opts = {
                 message : fbmsg
             };
-
+/*
             FB.api('/me/feed', 'post', opts, function(response) {
                 if (!response || response.error) {
                     console.log('Ocorreu um erro ao postar');
@@ -404,6 +405,41 @@ function post_on_wall() {
         }
     }, { scope : 'publish_stream' });
 }
+*/
+
+FB.api({ method: 'fql.query', query: 'SELECT publish_stream FROM permissions WHERE uid=me()' }, function(resp) {
+    for(var key in resp[0]) {
+
+        if(resp[0][key] == 1) {
+            console.log('Postado com sucesso! - Post ID: ' + response.id);
+            document.getElementById('fb_message').value = "";
+            window.open('https://www.facebook.com/me','facebook','width=1400, height=740, top=25, left=0');
+            document.getElementById('resposta').value = "Pronto, "+gen+". Postei a frase: \'"+fbmsg+"\'. Deseja algo mais?";
+            voz();
+        }
+
+        else if (!response || response.error) {
+            console.log('Ocorreu um erro ao postar');
+            document.getElementById('resposta').value = "Não consegui postar, "+gen+". Desculpe. Algo está impedindo meus comandos.";
+            voz();
+        }
+
+        else {
+            console.log('Não conectado!'); // usuario nao possui a permissao, solicitar:
+            FB.login(function(response) {
+                if (response.authResponse) {
+                console.log('Usuário conectado...');
+
+                // Post message to your wall
+                var fbmsg = document.getElementById('fb_message').value;
+                var opts = {
+                message : fbmsg
+                }
+
+            }, {scope: 'publish_stream' });
+        }
+    }
+});
 ////////////////////////////////////////////
 
   // Load the SDK asynchronously
