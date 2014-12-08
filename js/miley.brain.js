@@ -18,7 +18,7 @@ var d = document;
 //
 
 // * Simplificação das chamadas de funções
-function mileyOnLoad() {/*mileyCorGet();*/ mileyIni(); getHist(); clock(); onLoad(); d.getElementById("v").innerHTML = "v"+version; if (window.location.protocol !== "http:" || window.location.protocol !== "https:") {window.stop();}}
+function mileyOnLoad() {/*mileyCorGet();*/ mileyIni(); getHist(); clock(); onLoad(); d.getElementById("v").innerHTML = "v"+version; mileyFbApi();}
 function mileyOps() {config(); autocom();}
 function mileyApps() {d.getElementById('lado2').style.display = 'block'; d.getElementById('lado2').focus()}
 function mileyAppsClose() {d.getElementById('lado2').style.display = "none"}
@@ -365,6 +365,12 @@ function defImgSrchX() {
 
 
 function post_on_wall() {
+
+FB.login(function(){
+ FB.api('/me/feed', 'post', {message: opts});
+}, {scope: 'publish_actions'});
+
+
 
     FB.login(function(response) {
         if (response.authResponse) {
