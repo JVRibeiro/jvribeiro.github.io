@@ -25,7 +25,7 @@ window.addEventListener('load', function(e) {
       // Browser downloaded a new app cache.
       // Swap it in and reload the page to get the new hotness.
       window.applicationCache.swapCache();
-      if (confirm('A new version of this site is available. Load it?')) {
+      if (confirm('A Miley recebeu melhorias. \nElas serão carregadas na próxima atualização. \nDeseja carregá-las agora?')) {
         window.location.reload();
       }
     } else {
@@ -39,7 +39,7 @@ window.addEventListener('load', function(e) {
 	</head>
 
 <body onLoad="mileyOnLoad()">
- 
+
 <div id="reference"></div>
 <div id="canvas" class="ui-draggable"></div>
 
@@ -239,6 +239,11 @@ Creative Commons Atribuição 2.0 Brasil
     <div id='lado2' class='lado2'>
 	<br>
   <center>
+
+
+
+
+	<!-- Facebook API -->
 <div class="miley-fb">
 <div class="miley-widget-header" onClick="mileyFbPost()">
 	Postar no Facebook -
@@ -261,19 +266,8 @@ Creative Commons Atribuição 2.0 Brasil
 </div>
 </div> <!-- .miley-fb -->
 
+
 <div id="fb-root"></div>
-<!--
-<script>
-  (function() {
-    var e = document.createElement('script');
-    // replacing with an older version until FB fixes the cancel-login bug
-    e.src = document.location.protocol + '//connect.facebook.net/pt_BR/all.js';
-    //e.src = 'scripts/all.js';
-    e.async = true;
-    document.getElementById('fb-root').appendChild(e);
-}());
-</script>
--->
 
 
 

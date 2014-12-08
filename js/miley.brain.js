@@ -323,112 +323,58 @@ function defImgSrchX() {
 
 
 
-// ! * Esse script foi compartilhado por: Tahir Yasin
-// ! * http://tahiryasin.wordpress.com/2012/12/06/post-to-your-facebook-wall-using-javascript-sdk
-// ! * Meus sinceros agradecimentos ao autor. Indiretamente você colaborou com o Projeto S.O.P.H.I.A.
-// ! * Muito Obrigado! (Thank you very much!)
-
-
-  window.fbAsyncInit = function() {
-  FB.init({
-    appId      : '410082289142337',
-    status : true, // check login status
-    cookie     : true,  // enable cookies to allow the server to access the session
-    xfbml      : true,  // parse social plugins on this page
-    version    : 'v2.2', // use version 2.2
-    oauth      : true
-  });
-
-
-  };
 
 
 
-// Here we run a very simple test of the Graph API after login is
-// successful.  See statusChangeCallback() for when this call is made.
-function mileyFbApi() {
-  console.log('Bem-vindo! Recebendo informações... ');
-  FB.api('/me', function(response) {
-    console.log('Logado como: ' + response.name);
-    document.getElementById('status').innerHTML =
-      'Olá, ' + response.name + '!';
-      document.getElementById('resposta').value = "Você está agora logado como "+response.name+", "+gen+".";
-      voz();
-  });
-}
+window.fbAsyncInit = function() {
+				// init the FB JS SDK
+				FB.init({
+					appId      : '410082289142337',                    // App ID from the app dashboard
+          status     : true,                                 // Check Facebook Login status
+					xfbml      : true,                                  // Look for social plugins on the page
+					oauth      : true                                  // Enable oauth authentication
+				});
 
-  function statusChangeCallback(response) {
-    console.log('statusChangeCallback');
-    console.log(response);
-    if (response.status === 'connected') {
-      // Logged into your app and Facebook.
-      mileyFbApi();
-      document.getElementById('fb-login-buttom').style.display = "none";
-      document.getElementById('fb-logout-buttom').style.display = "block";
-    } else if (response.status === 'not_authorized') {
-      // The person is logged into Facebook, but not your app.
-      document.getElementById('status').innerHTML = 'Permita meu acesso ' +
-        ', '+gen+'.';
-    } else {
-      document.getElementById('status').innerHTML = 'Nenhuma conta ' +
-        'conectada no Facebook.';
-        document.getElementById('fb-login-buttom').style.display = "block";
-        document.getElementById('fb-logout-buttom').style.display = "none";
-        console.log('Desconectado');
-    }
-  }
+				// Additional initialization code such as adding Event Listeners goes here
 
-  
-
-function post_on_wall() {
-
-FB.login(function(){
- FB.api('/me/feed', 'post', {message: opts});
-}, {scope: 'publish_actions'});
+				FB.login(function(response)
+				{
+					if (response.authResponse)
+					{
+						console.log(response.authResponse.accessToken);
 
 
-
-    FB.login(function(response) {
-        if (response.authResponse) {
-            console.log('Usuário conectado...');
-
-            // Post message to your wall
-            var fbmsg = document.getElementById('fb_message').value;
-
-            var opts = {
-                message : fbmsg
-            };
-
-            FB.api('/me/feed', 'post', opts, function(response) {
-                if (!response || response.error) {
-                    console.log('Ocorreu um erro ao postar');
-                    document.getElementById('resposta').value = "Não consegui postar, "+gen+". Desculpe. Algo está impedindo meus comandos.";
-                    voz();
-                }
-                else {
-                    console.log('Postado com sucesso! - Post ID: ' + response.id);
-                    document.getElementById('fb_message').value = "";
-                    window.open('https://www.facebook.com/me','facebook','width=1400, height=740, top=25, left=0');
-                    document.getElementById('resposta').value = "Pronto, "+gen+". Postei a frase: \'"+fbmsg+"\'. Deseja algo mais?";
-                    voz();
-                }
-            });
-        }
-        else {
-            console.log('Não conectado!');
-        }
-    }, { scope : 'publish_stream' });
-}
+						/* SHARE STYLE POST TO WALL - START */
+            var fbmsg = d.getElementById('fb_message').value;
+						var opts = {
+						message : fbmsg,
+						picture : 'https://fbcdn-photos-g-a.akamaihd.net/hphotos-ak-xfa1/t39.2081-0/p128x128/10734310_410274512456448_2103690616_n.png'
+						};
+						FB.api('/me/feed', 'post', opts, function(response)
+						{
+							if (!response || response.error)
+							{
+								console.log(response.error);
+								alert('Posting error occured');
+							}else{
+								alert('Success - Post ID: ' + response.id);
+							}
+						});
+						/* SHARE STYLE POST TO WALL - END */
 
 
+					}else{
+						alert('Not logged in');
+					}
+				}, { scope : 'publish_stream, user_photos, photo_upload' });
 
-////////////////////////////////////////////
+			};
 
-  // Load the SDK asynchronously
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/pt_BR/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
+			// Load the SDK asynchronously
+			(function(d, s, id){
+				var js, fjs = d.getElementsByTagName(s)[0];
+				if (d.getElementById(id)) {return;}
+				js = d.createElement(s); js.id = id;
+				js.src = "//connect.facebook.net/pt_BR/all.js";
+				fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
