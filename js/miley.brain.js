@@ -328,6 +328,35 @@ function defImgSrchX() {
 // ! * Meus sinceros agradecimentos ao autor. Indiretamente você colaborou com o Projeto S.O.P.H.I.A.
 // ! * Muito Obrigado! (Thank you very much!)
 
+
+  window.fbAsyncInit = function() {
+  FB.init({
+    appId      : '410082289142337',
+    status : true, // check login status
+    cookie     : true,  // enable cookies to allow the server to access the session
+    xfbml      : true,  // parse social plugins on this page
+    version    : 'v2.2', // use version 2.2
+    oauth      : true
+  });
+
+
+  };
+
+
+
+// Here we run a very simple test of the Graph API after login is
+// successful.  See statusChangeCallback() for when this call is made.
+function mileyFbApi() {
+  console.log('Bem-vindo! Recebendo informações... ');
+  FB.api('/me', function(response) {
+    console.log('Logado como: ' + response.name);
+    document.getElementById('status').innerHTML =
+      'Olá, ' + response.name + '!';
+      document.getElementById('resposta').value = "Você está agora logado como "+response.name+", "+gen+".";
+      voz();
+  });
+}
+
   function statusChangeCallback(response) {
     console.log('statusChangeCallback');
     console.log(response);
@@ -349,20 +378,7 @@ function defImgSrchX() {
     }
   }
 
-
-  window.fbAsyncInit = function() {
-  FB.init({
-    appId      : '410082289142337',
-    status : true, // check login status
-    cookie     : true,  // enable cookies to allow the server to access the session
-    xfbml      : true,  // parse social plugins on this page
-    version    : 'v2.2', // use version 2.2
-    oauth      : true
-  });
-
-
-  };
-
+  
 
 function post_on_wall() {
 
@@ -416,16 +432,3 @@ FB.login(function(){
     js.src = "//connect.facebook.net/pt_BR/sdk.js";
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
-
-  // Here we run a very simple test of the Graph API after login is
-  // successful.  See statusChangeCallback() for when this call is made.
-  function mileyFbApi() {
-    console.log('Bem-vindo! Recebendo informações... ');
-    FB.api('/me', function(response) {
-      console.log('Logado como: ' + response.name);
-      document.getElementById('status').innerHTML =
-        'Olá, ' + response.name + '!';
-        document.getElementById('resposta').value = "Você está agora logado como "+response.name+", "+gen+".";
-        voz();
-    });
-  }
