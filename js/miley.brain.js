@@ -323,107 +323,108 @@ function defImgSrchX() {
 
 
 
-// This is called with the results from from FB.getLoginStatus().
+// ! * Esse script foi compartilhado por: Tahir Yasin
+// ! * http://tahiryasin.wordpress.com/2012/12/06/post-to-your-facebook-wall-using-javascript-sdk
+// ! * Meus sinceros agradecimentos ao autor. Indiretamente você colaborou com o Projeto S.O.P.H.I.A.
+// ! * Muito Obrigado! (Thank you very much!)
+
   function statusChangeCallback(response) {
     console.log('statusChangeCallback');
     console.log(response);
-    // The response object is returned with a status field that lets the
-    // app know the current login status of the person.
-    // Full docs on the response object can be found in the documentation
-    // for FB.getLoginStatus().
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
-      testAPI();
+      sophiaFbApi();
+      document.getElementById('fb-login-buttom').style.display = "none";
+      document.getElementById('fb-logout-buttom').style.display = "block";
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
-      document.getElementById('status').innerHTML = 'Please log ' +
-        'into this app.';
+      document.getElementById('status').innerHTML = 'Logue na ' +
+        'Miley.';
     } else {
-      // The person is not logged into Facebook, so we're not sure if
-      // they are logged into this app or not.
-      document.getElementById('status').innerHTML = 'Please log ' +
-        'into Facebook.';
+      document.getElementById('status').innerHTML = 'Nenhuma conta ' +
+        'conectada no Facebook.';
+        document.getElementById('fb-login-buttom').style.display = "block";
+        document.getElementById('fb-logout-buttom').style.display = "none";
+        console.log('Desconectado');
     }
   }
 
-  // This function is called when someone finishes with the Login
-  // Button.  See the onlogin handler attached to it in the sample
-  // code below.
   function checkLoginState() {
     FB.getLoginStatus(function(response) {
       statusChangeCallback(response);
     });
   }
 
+  window.fbAsyncInit = function() {
+  FB.init({
+    appId      : '410082289142337',
+    status : true, // check login status
+    cookie     : true,  // enable cookies to allow the server to access the session
+    xfbml      : true,  // parse social plugins on this page
+    version    : 'v2.1', // use version 2.1
+    oauth : true // Enable oauth authentication
+  });
 
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
 
-window.fbAsyncInit = function()
-{
-    FB.init({
-        appId  : '410082289142337',
-        status : true, // check login status
-        cookie : true, // enable cookies to allow the server to access the session
-        xfbml  : true , // parse XFBML
-        oauth : true // Enable oauth authentication
-    });
+  };
 
-
-};
-
-function post_on_wall()
-{
-    FB.login(function(response)
-    {
-        if (response.authResponse)
-        {
-            alert('Logged in!');
+  ///////////////////////////////////
+function post_on_wall() {
+    FB.login(function(response) {
+        if (response.authResponse) {
+            console.log('Usuário conectado...');
 
             // Post message to your wall
+            var fbmsg = document.getElementById('fb_message').value;
 
             var opts = {
-                message : document.getElementById('fb_message').value,
-                name : 'Postado por Miley',
-                picture : 'https://fbcdn-photos-g-a.akamaihd.net/hphotos-ak-xfa1/t39.2081-0/p128x128/10734310_410274512456448_2103690616_n.png'
+                message : fbmsg,
+                picture: 'https://fbcdn-photos-g-a.akamaihd.net/hphotos-ak-xfa1/t39.2081-0/p128x128/10734310_410274512456448_2103690616_n.png'
             };
 
-            FB.api('/me/feed', 'post', opts, function(response)
-            {
-                if (!response || response.error)
-                {
-                    alert('Posting error occured');
+            FB.api('/me/feed', 'post', opts, function(response) {
+                if (!response || response.error) {
+                    console.log('Ocorreu um erro ao postar');
+                    document.getElementById('resposta').value = "Não consegui postar, "+gen+".";
+                    voz();
                 }
-                else
-                {
-                    alert('Success - Post ID: ' + response.id);
+                else {
+                    console.log('Postado com sucesso! - Post ID: ' + response.id);
+                    document.getElementById('fb_message').value = "";
+                    window.open('https://www.facebook.com/me','facebook','width=1400, height=740, top=25, left=0');
+                    document.getElementById('resposta').value = "Pronto, "+gen+". Postei a frase: \'"+fbmsg+"\'. Deseja algo mais?";
+                    voz();
                 }
             });
         }
-        else
-        {
-            alert('Not logged in');
+        else {
+            console.log('Não conectado!');
         }
     }, { scope : 'publish_stream' });
 }
+////////////////////////////////////////////
 
+  // Load the SDK asynchronously
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "fbapi-sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
 
-			// Load the SDK asynchronously
-			(function(d, s, id){
-				var js, fjs = d.getElementsByTagName(s)[0];
-				if (d.getElementById(id)) {return;}
-				js = d.createElement(s); js.id = id;
-				js.src = "//connect.facebook.net/pt_BR/all.js";
-				fjs.parentNode.insertBefore(js, fjs);
-			}(document, 'script', 'facebook-jssdk'));
-
-
-
-// Here we run a very simple test of the Graph API after login is
+  // Here we run a very simple test of the Graph API after login is
   // successful.  See statusChangeCallback() for when this call is made.
-  function testAPI() {
-    console.log('Welcome!  Fetching your information.... ');
+  function sophiaFbApi() {
+    console.log('Bem-vindo! Recebendo informações... ');
     FB.api('/me', function(response) {
-      console.log('Successful login for: ' + response.name);
+      console.log('Logado como: ' + response.name);
       document.getElementById('status').innerHTML =
-        'Thanks for logging in, ' + response.name + '!';
+        'Olá, ' + response.name + '!';
+        document.getElementById('resposta').value = "Seu FB está agora logado como "+response.name+", "+gen+".";
+        voz();
     });
   }

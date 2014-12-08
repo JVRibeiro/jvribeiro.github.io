@@ -237,34 +237,46 @@ Creative Commons Atribuição 2.0 Brasil
 		</div><!-- .cc (Creative Commons) -->
 
     <div id='lado2' class='lado2'>
-	<br>
-  <center>
+			<a onclick="mileyAppsClose()">Fechar Apps ></a>
+
+<div class="miley-dialog">
+<form name="mileyDialog">
+	<div class="miley-widget-header" onClick="mileyHistorico()">Log de conversação</div>
+<textarea id="dialogo" style="" name="dialogo" rows="30" cols="30" onBlur="mileyHistoricoClose()"></textarea><br />
+</form>
+</div> <!-- .miley-dialog -->
 
 
 
-
-	<!-- Facebook API -->
 <div class="miley-fb">
-<div class="miley-widget-header" onClick="mileyFbPost()">
-	Postar no Facebook -
-	<div id="status" style="display: inline"></div>
-
-<div id="fb-login-buttom" style="display: inline">
-<fb:login-button scope="public_profile,email,publish_stream" onlogin="checkLoginState();">
-</fb:login-button>
-</div>
-
-	<div id="fb-logout-buttom" style="display: inline">
-	<button class="ajuda" onclick="FB.logout(function(response) {statusChangeCallback(response);});">Sair do Facebook</button>
-	</div>
-	</div>
+<div class="miley-widget-header" onClick="mileyFbPost()">Postar no Facebook</div>
 <div id="fb_div" style="display: none">
-		<textarea id="fb_message" name="fb_message" style="float: left; width: 100%; padding: 5px; display: inline" rows="7"></textarea>
-		<input style="margin-left: -80px; float: right; border: 1px solid #fff; font-size: 12pt; width: 80px; height: 35px; display: inline" class="ajuda" type="button" value=">" onClick="post_on_wall();" />
-		<button style="margin-left: -50px; margin-top: 50px; float: right; border: 1px solid #fff; font-size: 12pt; width: 80px; height: 35px; display: inline" class="ajuda" onclick="mileyFbPostClose()">Cancelar</button>
+    <textarea id="fb_message" name="fb_message" style="width: 100%; padding: 5px" rows="7"></textarea> <br />
+    <input type="button" value="Postar" onClick="post_on_wall();" />
 
+		<div id="fb-login-buttom">
+		<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+		</fb:login-button>
+		</div>
+
+		<div id="fb-logout-buttom">
+		<button onclick="FB.logout(function(response) {
+				statusChangeCallback(response);
+			});">Sair</button>
+		</div>
+
+		<button onclick="mileyFbPostClose()">Cancelar</button>
+
+		<div id="status">
+		</div>
 </div>
 </div> <!-- .miley-fb -->
+
+
+<div class="set">
+<!-- <div id="mini-browserIcone" class="ui-draggable" onclick="mileyChromeBrowser()"></div> -->
+<div id="calcIcone" class="ui-draggable" onclick="mileyCalc()"></div>
+</div> <!-- .set -->
 
 
 <div id="fb-root"></div>
