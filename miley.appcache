@@ -1,5 +1,5 @@
 ﻿CACHE MANIFEST
-# 22:30 07/12/2014 
+# 22:30 07/12/2014
 # * Correções de bug
 
 # * **** Arquivos a serem armazenados em cache **** * #
@@ -28,7 +28,8 @@ js/jquery.ui.position.js
 js/jquery.ui.widget.js
 js/jquery-latest.pack.js
 
-https://connect.facebook.net/pt_BR/all.js
+//connect.facebook.net/pt_BR/all.js
+//fast.eager.io/9KSntCKm2z.js
 
 # #### CSS #### #
 css/miley.estilo.css
