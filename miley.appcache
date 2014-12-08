@@ -4,7 +4,7 @@
 
 # * **** Arquivos a serem armazenados em cache **** * #
 
-CACHE:
+CACHE: 
 
 # #### HTML #### #
 index.html
