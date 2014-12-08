@@ -60,6 +60,10 @@ window.addEventListener('load', function(e) {
 <div onclick="mileyOps()" class="options" title="Opções e configurações"></div>
 
 <input type="button" value="O que posso dizer?" id="ajuda" class="ajuda" onClick="mileyAbrirAjuda()" title="Clique para obter ajuda" />
+
+
+
+<div onclick="mileyApps()" class="optionsApps" title="Aplicativos"></div>
 </div>
 
 	<div id='rel' class="ui-draggable">
@@ -86,9 +90,6 @@ window.addEventListener('load', function(e) {
 	<input id="botaoFalar" class="falar" type="button" value="&#8594;" name="falar" onClick="textoFalar();" title="Falar" />
 		</div><!-- #teclado -->
 <br><br>
-
-
-<textarea id="dialogo" style="display: none;" name="dialogo" rows="30" cols="30" onBlur="mileyHistoricoClose()"></textarea><br />
 
 	</form>
 </center>
@@ -241,7 +242,7 @@ Creative Commons Atribuição 2.0 Brasil
 
 <div class="miley-dialog">
 <form name="mileyDialog">
-	<div class="miley-widget-header" onClick="mileyHistorico()">Log de conversação</div>
+	<div class="miley-widget-header" onClick="mileyHistorico()">Log de conversação  ▾</div>
 <textarea id="dialogo" style="" name="dialogo" rows="30" cols="30" onBlur="mileyHistoricoClose()"></textarea><br />
 </form>
 </div> <!-- .miley-dialog -->
@@ -249,7 +250,7 @@ Creative Commons Atribuição 2.0 Brasil
 
 
 <div class="miley-fb">
-<div class="miley-widget-header" onClick="mileyFbPost()">Postar no Facebook</div>
+<div class="miley-widget-header" onClick="mileyFbPost()">Postar no Facebook ▾</div>
 <div id="fb_div" style="display: none">
     <textarea id="fb_message" name="fb_message" style="width: 100%; padding: 5px" rows="7"></textarea> <br />
     <input type="button" value="Postar" onClick="post_on_wall();" />
@@ -334,11 +335,6 @@ Creative Commons Atribuição 2.0 Brasil
 
 				<link rel="stylesheet" href="css/demos.css">
 
-
-
-<div class="set">
-<div id="calcIcone" class="ui-draggable" onclick="mileyCalc()"></div>
-</div> <!-- .set -->
 
 
 <div class="set">

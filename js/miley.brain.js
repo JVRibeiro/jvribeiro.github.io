@@ -217,8 +217,8 @@ historico = historico
 + "Eu ("+AIname+") disse: \n"
 +sistema
 + "\r"
-+ "\n_______________________________________________"
-+ "\n|---------------------------------------------------------|\n";
++ "\n_____________________________________________"
++ "\n|------------------------------------------------------|\n";
 break;
   }
  }
@@ -229,7 +229,7 @@ function mileyIni() {atualizarTela()}
 function atualizarTela() {
 var userInputCheck = "";
 if(usuario == "") {userInputCheck = " Me parece que você não digitou nada."}
-d.miley.dialogo.value = historico;
+d.getElementById('dialogo').value = historico;
 d.miley.Resposta.value = sistema + userInputCheck;
 d.miley.Pergunta.value = usuario;
 d.miley.Texto.value = "";
