@@ -349,11 +349,6 @@ function defImgSrchX() {
     }
   }
 
-  function checkLoginState() {
-    FB.getLoginStatus(function(response) {
-      statusChangeCallback(response);
-    });
-  }
 
   window.fbAsyncInit = function() {
   FB.init({
@@ -365,13 +360,10 @@ function defImgSrchX() {
     oauth      : true
   });
 
-  FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-  });
 
   };
 
-  ///////////////////////////////////
+
 function post_on_wall() {
 
     FB.login(function(response) {
