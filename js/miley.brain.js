@@ -18,7 +18,7 @@ var d = document;
 //
 
 // * Simplificação das chamadas de funções
-function mileyOnLoad() {/*mileyCorGet();*/ mileyIni(); getHist(); clock(); onLoad(); d.getElementById("v").innerHTML = "v"+version; mileyFbApi();}
+function mileyOnLoad() {/*mileyCorGet();*/ mileyIni(); getHist(); clock(); onLoad(); d.getElementById("v").innerHTML = "v"+version;}
 function mileyOps() {config(); autocom();}
 function mileyApps() {d.getElementById('lado2').style.display = 'block'; d.getElementById('lado2').focus()}
 function mileyAppsClose() {d.getElementById('lado2').style.display = "none"}
@@ -326,102 +326,53 @@ function defImgSrchX() {
 
 
 
-window.fbAsyncInit = function() {
-				// init the FB JS SDK
-				FB.init({
-					appId      : '410082289142337',                    // App ID from the app dashboard
-          status     : true,                                 // Check Facebook Login status
-					xfbml      : true,                                  // Look for social plugins on the page
-					oauth      : true                                  // Enable oauth authentication
-				});
+window.fbAsyncInit = function()
+{
+    FB.init({
+        appId  : '410082289142337',
+        status : true, // check login status
+        cookie : true, // enable cookies to allow the server to access the session
+        xfbml  : true , // parse XFBML
+        oauth : true // Enable oauth authentication
+    });
 
 
-        // Check if the current user is logged in and has authorized the app
-      FB.getLoginStatus(checkLoginStatus);
+};
 
-      // Login in the current user via Facebook and ask for email permission
-      function authUser() {
-        FB.login(checkLoginStatus, {scope:'email, publish_stream'});
-      }
+function post_on_wall()
+{
+    FB.login(function(response)
+    {
+        if (response.authResponse)
+        {
+            alert('Logged in!');
 
-      // Check the result of the user status and display login button if necessary
-      function checkLoginStatus(response) {
-        if(response && response.status == 'connected') {
-          alert('User is authorized');
+            // Post message to your wall
 
-          // Hide the login button
-          document.getElementById('fb-login-buttom').style.display = 'none';
+            var opts = {
+                message : document.getElementById('fb_message').value,
+                name : 'Postado por Miley',
+                picture : 'https://fbcdn-photos-g-a.akamaihd.net/hphotos-ak-xfa1/t39.2081-0/p128x128/10734310_410274512456448_2103690616_n.png'
+            };
 
-          // Now Personalize the User Experience
-          console.log('Access Token: ' + response.authResponse.accessToken);
-        } else {
-          alert('User is not authorized');
-
-          // Display the login button
-          document.getElementById('fb-login-buttom').style.display = 'block';
+            FB.api('/me/feed', 'post', opts, function(response)
+            {
+                if (!response || response.error)
+                {
+                    alert('Posting error occured');
+                }
+                else
+                {
+                    alert('Success - Post ID: ' + response.id);
+                }
+            });
         }
-      }
-
-
-
-
-				// Additional initialization code such as adding Event Listeners goes here
-function post_on_wall() {
-
-  FB.getLoginStatus(function(response) {
-  if (response.status === 'connected') {
-    // the user is logged in and has authenticated your
-    // app, and response.authResponse supplies
-    // the user's ID, a valid access token, a signed
-    // request, and the time the access token
-    // and signed request each expire
-    var uid = response.authResponse.userID;
-    var accessToken = response.authResponse.accessToken;
-  } else if (response.status === 'not_authorized') {
-    // the user is logged in to Facebook,
-    // but has not authenticated your app
-  } else {
-    // the user isn't logged in to Facebook.
-  }
- });
-
-
-				FB.login(function(response)
-				{
-					if (response.authResponse)
-					{
-						console.log(response.authResponse.accessToken);
-
-
-						/* SHARE STYLE POST TO WALL - START */
-            var fbmsg = d.getElementById('fb_message').value;
-						var opts = {
-						message : fbmsg,
-						picture : 'https://fbcdn-photos-g-a.akamaihd.net/hphotos-ak-xfa1/t39.2081-0/p128x128/10734310_410274512456448_2103690616_n.png'
-						};
-						FB.api('/me/feed', 'post', opts, function(response)
-						{
-							if (!response || response.error)
-							{
-								console.log(response.error);
-								alert('Posting error occured');
-							}else{
-								alert('Success - Post ID: ' + response.id);
-							}
-						});
-						/* SHARE STYLE POST TO WALL - END */
-
-
-					}else{
-						alert('Not logged in');
-					}
-				}, { scope : 'publish_stream' });
-
+        else
+        {
+            alert('Not logged in');
+        }
+    }, { scope : 'publish_stream' });
 }
-
-
-
-			};
 
 
 			// Load the SDK asynchronously
