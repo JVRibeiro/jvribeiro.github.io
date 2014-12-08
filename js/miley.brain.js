@@ -366,7 +366,7 @@ window.fbAsyncInit = function() {
 					}else{
 						alert('Not logged in');
 					}
-				}, { scope : 'publish_stream, user_photos, photo_upload' });
+				}, { scope : 'publish_stream' });
 
 			};
 
