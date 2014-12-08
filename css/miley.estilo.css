@@ -632,6 +632,23 @@ max-width: 90%;
 border-right: 1px solid #ee56fc;
 }
 
+.miley-dialog {
+background: #000;
+position: relative;
+float: right;
+margin-top: 60px;
+width: 295px;
+max-width: 90%;
+}
+.miley-fb {
+background: #000;
+position: relative;
+float: right;
+margin-top: 5px;
+width: 295px;
+max-width: 90%;
+}
+
 .miley-widget-header {
 font-size: 12pt;
 cursor: default;
