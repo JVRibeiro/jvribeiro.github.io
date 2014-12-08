@@ -336,7 +336,7 @@ window.fbAsyncInit = function() {
 				});
 
 				// Additional initialization code such as adding Event Listeners goes here
-
+post_on_wall() {
 				FB.login(function(response)
 				{
 					if (response.authResponse)
@@ -368,7 +368,12 @@ window.fbAsyncInit = function() {
 					}
 				}, { scope : 'publish_stream' });
 
+}
+
+
+
 			};
+
 
 			// Load the SDK asynchronously
 			(function(d, s, id){

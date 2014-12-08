@@ -32,7 +32,7 @@ new Array (
 ),
 
 new Array (
-"^(ei|hey so(ph|f)ia|fala so(ph|f)ia|fala, so(ph|f)ia|so(ph|f)ia)",
+"^(ei|hey miley|fala miley|fala, miley|miley)",
 "Eu!","Oi! Em que posso ajudar?","Oi. O que posso fazer por você?","Sim? "),
 new Array (
 "(.*)(bom|boa|(ó|o)tim(o|a)|lind(a|o)) (|final de |fim de )(dia|tarde|noite|madrugada|almoço|jantar|descanso)(.*)",
