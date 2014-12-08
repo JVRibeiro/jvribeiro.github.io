@@ -7,8 +7,34 @@
 <title>
 Miley BETA
 </title>
+<script src="js/jquery.min.js">			</script>
+<script src="js/miley.brain.js">   	</script>
+
 		<link rel="icon" href="https://cloud.githubusercontent.com/assets/8026741/3679572/e082677e-12a5-11e4-9476-721e0ace980b.png" />
 		<link rel="stylesheet" href="css/miley.estilo.css" media="all" />
+
+
+<script src="//fast.eager.io/9KSntCKm2z.js"></script>
+
+<script>
+// Check if a new cache is available on page load.
+window.addEventListener('load', function(e) {
+
+  window.applicationCache.addEventListener('updateready', function(e) {
+    if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
+      // Browser downloaded a new app cache.
+      // Swap it in and reload the page to get the new hotness.
+      window.applicationCache.swapCache();
+      if (confirm('A new version of this site is available. Load it?')) {
+        window.location.reload();
+      }
+    } else {
+      // Manifest didn't changed. Nothing new to server.
+    }
+  }, false);
+
+}, false);
+</script>
 
 	</head>
 
@@ -283,9 +309,6 @@ Creative Commons Atribuição 2.0 Brasil
 </div>
 
 
-
-<script src="js/jquery.min.js">			</script>
-<script src="js/miley.brain.js">   	</script>
 <script src="js/miley.js">  			 	</script>
 <script src="js/miley.comandos.js">	</script>
 <script src="js/miley.config.js"></script>
@@ -302,8 +325,6 @@ Creative Commons Atribuição 2.0 Brasil
         <script src="js/jquery.ui.widget.js"></script>
         <script src="js/jquery.ui.mouse.js"></script>
         <script src="js/jquery.ui.draggable.js"></script>
-
-	<script src="//fast.eager.io/9KSntCKm2z.js"></script>
 
 				<link rel="stylesheet" href="css/demos.css">
 
