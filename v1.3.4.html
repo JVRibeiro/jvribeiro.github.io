@@ -253,23 +253,23 @@ Creative Commons Atribuição 2.0 Brasil
 <div class="miley-widget-header" onClick="mileyFbPost()">Postar no Facebook ▾</div>
 <div id="fb_div" style="display: none">
     <textarea id="fb_message" name="fb_message" style="width: 100%; padding: 5px" rows="7"></textarea> <br />
-    <input type="button" value="Postar" onClick="post_on_wall();" />
-
-		<div id="fb-login-buttom">
-		<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-		</fb:login-button>
-		</div>
-
-		<div id="fb-logout-buttom">
-		<button onclick="FB.logout(function(response) {
-				statusChangeCallback(response);
-			});">Sair</button>
-		</div>
+    <input type="button" value="Postar" onClick="post_on_wall();" title="Postar essa publicação no seu perfil" />
 
 		<button onclick="mileyFbPostClose()">Cancelar</button>
 
 		<div id="status"></div>
-		
+
+<div title="Fazer login no Facebook" id="fb-login-buttom" class="fb-login-button" data-show-faces="true" data-width="200" data-max-rows="1" data-scope="publish_actions">
+<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+</fb:login-button>
+</div>
+
+
+<div title="Fazer logout no Facebook" id="fb-logout-buttom">
+<button onclick="FB.logout(function(response) {
+		statusChangeCallback(response);
+	});">Sair</button>
+</div>
 </div>
 </div> <!-- .miley-fb -->
 

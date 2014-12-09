@@ -356,11 +356,11 @@ function defImgSrchX() {
   window.fbAsyncInit = function() {
   FB.init({
     appId      : '410082289142337',
-    status : true, // check login status
-    cookie     : true,  // enable cookies to allow the server to access the session
-    xfbml      : true,  // parse social plugins on this page
-    version    : 'v2.1', // use version 2.1
-    oauth : true // Enable oauth authentication
+    status     : true,
+    cookie     : true,
+    xfbml      : true,
+    version    : 'v2.2',
+    oauth : true
   });
 
   FB.getLoginStatus(function(response) {
@@ -375,17 +375,16 @@ function post_on_wall() {
         if (response.authResponse) {
             console.log('Usuário conectado...');
 
-            // Post message to your wall
             var fbmsg = document.getElementById('fb_message').value;
-
             var opts = {
-                message : fbmsg
-            };
+                        message : fbmsg
+                        };
 
             FB.api('/me/feed', 'post', opts, function(response) {
                 if (!response || response.error) {
                     console.log('Ocorreu um erro ao postar');
-                    document.getElementById('resposta').value = "Não consegui postar, "+gen+".";
+                    document.getElementById('resposta').value = "Não consegui postar, "+gen+". Vou tentar dar uma solução. Permita meu acesso ao seu perfil novamente.";
+                    window.open('https://www.facebook.com/v2.2/dialog/oauth?response_type=token&display=popup&client_id=410082289142337&redirect_uri=https%3A%2F%2Fjvribeiro.github.io%2Fv1.3.4.html&scope=publish_actions','facebook','width=400, height=400, top=25, left=0');
                     voz();
                 }
                 else {
