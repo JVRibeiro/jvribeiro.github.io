@@ -30,8 +30,6 @@ function mileyFbPost() {d.getElementById('fb_div').style.display = 'block'; d.ge
 function mileyFbPostClose() {d.getElementById('fb_div').style.display = 'none';}
 function mileyCalc() {d.getElementById('calc').style.display = 'block';}
 function mileyCalcClose() {d.getElementById('calc').style.display = 'none';}
-function mileyChromeBrowser() {d.getElementById('mini-browser').style.display = 'block';}
-function mileyChromeBrowserClose() {d.getElementById('mini-browser').style.display = 'none';}
 //
 
 // * Dados na localStorage
@@ -339,7 +337,7 @@ function defImgSrchX() {
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       document.getElementById('status').innerHTML = 'Logue na ' +
-        'Miley.';
+        'S.O.P.H.I.A.';
     } else {
       document.getElementById('status').innerHTML = 'Nenhuma conta ' +
         'conectada no Facebook.';
@@ -357,7 +355,7 @@ function defImgSrchX() {
 
   window.fbAsyncInit = function() {
   FB.init({
-    appId      : '410082289142337',
+    appId      : '384788514997845',
     status : true, // check login status
     cookie     : true,  // enable cookies to allow the server to access the session
     xfbml      : true,  // parse social plugins on this page
@@ -381,8 +379,7 @@ function post_on_wall() {
             var fbmsg = document.getElementById('fb_message').value;
 
             var opts = {
-                message : fbmsg,
-                picture: 'https://fbcdn-photos-g-a.akamaihd.net/hphotos-ak-xfa1/t39.2081-0/p128x128/10734310_410274512456448_2103690616_n.png'
+                message : fbmsg
             };
 
             FB.api('/me/feed', 'post', opts, function(response) {
