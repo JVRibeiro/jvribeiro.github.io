@@ -8,14 +8,36 @@ Miley é um trabalho em andamento de <b>Victor Ribeiro</b> e <b>Ramon Santos</b>
 
 Diferente das assistentes virtuais e das casas inteligentes de hoje em dia, queremos trazer a você uma forma de tornar seu lar não só inteligente, mas pessoal. Você não precisará pegar seu smartphone e tocar em um botão ou usar comandos fechados como “ligar luzes” para que a Miley entenda seu pedido. Nesse caso, no exemplo das luzes, você poderá simplesmente a mandar ligar as luzes da forma que você quiser e ela entenderá e executará.
 
-Miley possui códigos próprios e de terceiros. Os créditos dos autores dos códigos serão devidamente e merecidamente dados.
+Miley possui códigos próprios e de terceiros (necessários para seu funcionamento). Os créditos dos autores dos códigos serão devidamente e merecidamente dados.
 
-> Código próprio:
-* <b>miley.min.js</b> (Esse é o código global da Miley que engloba os outros códigos próprios (HTML, CSS e JavaScripts). Por motivos de segurança, provisoriamente este é um código encriptado para evitar roubo de propriedade intelectual).
+> Propriedade de Victor Ribeiro:
+* miley.img-srch-spin.gif
+* miley.background-1.png
+* miley.op-1.png
 
-> Códigos de terceiros:
-* <b>annyang.js</b> (<a href="https://talater.com/annyang">talater.com/annyang</a>);
-* <b>right_btn.js</b> (nome alternativo do arquivo externo - <a href="http://forum.imasters.com.br/topic/374916-menu-de-contexto-personalizado-boto-direito-do-mouse/">Menu de contexto personalizado</a>);
+> Propriedade de terceiros (referências abaixo):
+
+* //fast.eager.io/9KSntCKm2z.js
+
+Propriedade de <a href="https://talater.com/">Tal Ater</a>
+* logo_annyang.png
+
+Propriedade de Facebook, Ink.
+* logo_fb.jpg
+
+Propriedade de <a href="https://jquery.org/team/">The jQuery Foundation</a>.
+* logo_jquery-ui.png
+* jquery.min.js
+* jquery-latest.pack.js
+* jquery.ui.core.js
+* jquery.ui.widget.js
+* jquery.ui.mouse.js
+* jquery.ui.draggable.js
+* demos.css
+
+* logo_cc.png
+* logo_voicerss.png
+* appbar.calculator.png
 
 Recursos
 =====
