@@ -13,8 +13,9 @@ Miley BETA
 		<link rel="icon" href="https://cloud.githubusercontent.com/assets/8026741/3679572/e082677e-12a5-11e4-9476-721e0ace980b.png" />
 		<link rel="stylesheet" href="css/miley.estilo.css" media="all" />
 
-
+<!--
 <script src="//fast.eager.io/9KSntCKm2z.js"></script>
+-->
 
 <script>
 // Check if a new cache is available on page load.
@@ -75,7 +76,7 @@ window.addEventListener('load', function(e) {
 <br><br><br><br>
 
 <div class="miley">
-<div class="ui-widget-header miley-widget-header">Feedback visual</div>
+<div class="ui-widget-header miley-widget-header">Miley <span class="v"></span></div>
 
 	<center>
 	<form name="miley">
@@ -235,6 +236,27 @@ Creative Commons Atribuição 2.0 Brasil
 	<a id="twt-link" class="tooltip" tooltip="Twitter (@JVRibeiiro)" rel="nofollow" onClick="abrir('http://twitter.com/JVRibeiiro')">
 	Victor Ribeiro
 	</a>.
+
+
+
+
+	<div id='services'>
+		<br>
+		<a alt="VoiceRSS.org" title="Voice RSS - o melhor serviço de Text-to-Speech! (http://voicerss.org)" rel="nofollow" onclick="w.open('http://voicerss.org/','partners')" target="_blank">
+		<div class="voicerss"></div></a>
+
+		<a alt="Annyang.js" title="Annyang! - Incrível biblioteca JavaScript para Speech Recognition!
+
+		(https://talater.com/annyang)" rel="nofollow" onclick="w.open('https://talater.com/annyang/','partners')" target="_blank">
+		<div class="annyang"></div></a>
+
+		<a alt="jQuery UI" title="jQuery UI (http://jqueryui.com)" rel="nofollow" onclick="w.open('http://jqueryui.com/','partners')" target="_blank">
+		<div class="jqueryui"></div></a>
+
+	<a alt="Facebook" title="Facebook API (https://developers.facebook.com/docs/reference/javascript/)" rel="nofollow" onclick="w.open('https://developers.facebook.com/docs/reference/javascript/','partners')" target="_blank">
+	<div class="facebook"></div></a>
+
+	</div>
 		</div><!-- .cc (Creative Commons) -->
 
     <div id='lado2' class='lado2'>
@@ -252,10 +274,10 @@ Creative Commons Atribuição 2.0 Brasil
 <div class="miley-fb">
 <div class="miley-widget-header" onClick="mileyFbPost()">Postar no Facebook ▾</div>
 <div id="fb_div" style="display: none">
-    <textarea id="fb_message" name="fb_message" style="width: 100%; padding: 5px" rows="7"></textarea> <br />
-    <input type="button" value="Postar" onClick="post_on_wall();" title="Postar essa publicação no seu perfil" />
+    <textarea placeholder="No que você está pensando?" id="fb_message" name="fb_message"></textarea> <br />
+    <input class="fb-postar" id="fb-postar" type="button" value="Postar" onClick="post_on_wall();" title="Postar essa publicação no seu perfil" />
 
-		<button onclick="mileyFbPostClose()">Cancelar</button>
+		<input class="fb-cancelar-post" type="button" value="Cancelar" onclick="mileyFbPostClose()" title="Cancelar postagem" />
 
 		<div id="status"></div>
 
@@ -266,9 +288,9 @@ Creative Commons Atribuição 2.0 Brasil
 
 
 <div title="Fazer logout no Facebook" id="fb-logout-buttom">
-<button onclick="FB.logout(function(response) {
-		statusChangeCallback(response);
-	});">Sair</button>
+<button onclick="FB.logout(function(response) {statusChangeCallback(response);});">
+	Sair
+</button>
 </div>
 </div>
 </div> <!-- .miley-fb -->
@@ -287,28 +309,9 @@ Creative Commons Atribuição 2.0 Brasil
 <br><br>
 <br><br>
 
-<div id='services'>
-	Serviços orgulhosamente utilizados:
-	<br><br>
-	<a alt="VoiceRSS.org" title="Voice RSS - o melhor serviço de Text-to-Speech! (http://voicerss.org)" rel="nofollow" onclick="w.open('http://voicerss.org/','partners')" target="_blank">
-	<div class="voicerss"></div></a>
-
-  <a alt="Annyang.js" title="Annyang! - Incrível biblioteca JavaScript para Speech Recognition!
-
-  (https://talater.com/annyang)" rel="nofollow" onclick="w.open('https://talater.com/annyang/','partners')" target="_blank">
-	<div class="annyang"></div></a>
-
-	<a alt="jQuery UI" title="jQuery UI (http://jqueryui.com)" rel="nofollow" onclick="w.open('http://jqueryui.com/','partners')" target="_blank">
-	<div class="jqueryui"></div></a>
-
-<a alt="Facebook" title="Facebook API (https://developers.facebook.com/docs/reference/javascript/)" rel="nofollow" onclick="w.open('https://developers.facebook.com/docs/reference/javascript/','partners')" target="_blank">
-<div class="facebook"></div></a>
-
-</div>
-
 <div id='version'>
 	Versão BETA
-	<div id="v"></div>
+	<div class="v"></div>
 	<a onclick="document.location.href='privacy.htm'";>Privacidade</a>
 </div>
 

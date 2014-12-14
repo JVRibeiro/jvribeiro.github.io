@@ -18,7 +18,7 @@ var d = document;
 //
 
 // * Simplificação das chamadas de funções
-function mileyOnLoad() {/*mileyCorGet();*/ mileyIni(); getHist(); clock(); onLoad(); d.getElementById("v").innerHTML = "v"+version;}
+function mileyOnLoad() {/*mileyCorGet();*/ fbCaps(); mileyIni(); getHist(); clock(); onLoad(); $(".v").html("v"+version);}
 function mileyOps() {config(); autocom();}
 function mileyApps() {d.getElementById('lado2').style.display = 'block'; d.getElementById('lado2').focus()}
 function mileyAppsClose() {d.getElementById('lado2').style.display = "none"}
@@ -423,4 +423,15 @@ function post_on_wall() {
         document.getElementById('resposta').value = "Seu FB está agora logado como "+response.name+", "+gen+".";
         voz();
     });
+  }
+
+
+  function fbCaps() {
+$(document).on("input", "#fb_message", function () {
+    $("#fb-postar").fadeIn();
+
+    if($('#fb_message').val() == "") {
+      $("#fb-postar").fadeOut();
+    }
+});
   }

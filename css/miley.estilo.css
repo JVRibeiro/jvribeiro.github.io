@@ -30,7 +30,7 @@ outline: none;
 /* ********* Avatar *************** */
 
 #miley-avatar {
-  position: fixed; top: 50px; right: 50px;
+  position: fixed; top: 80px; left: 150px;
   background: transparent;
     border-left: 2px solid #FBCEFF;
     border-right: 2px solid #FBCEFF;
@@ -48,10 +48,6 @@ outline: none;
     -ms-animation: spinoffShine 4s infinite linear;
     -o-animation: spinoffShine 4s infinite linear;
     animation: spinoffShine 4s infinite linear;
-}
-
-#miley-avatar:hover {
--webkit-transform: scale(2);
 }
 
 #miley-avatar:before {
@@ -624,10 +620,10 @@ background: transparent;
 /*//////////////////////////////////////////////////////////////*/
 .miley {
 position: fixed;
-top: 100px;
-left: 0%;
+top: 150px;
+left: 15px;
 margin-top: 60px;
-width: 400px;
+width: 350px;
 max-width: 90%;
 border-right: 1px solid #ee56fc;
 }
@@ -651,16 +647,20 @@ max-width: 90%;
 
 .miley-widget-header {
 font-size: 12pt;
+text-align: center;
 cursor: default;
 background: none;
 color: #ee56fc;
 margin-top: -20px;
 padding: 10px;
 width: 95%;
-text-align: left;
 background: #000;
 opacity: .7;
 border: 1px solid #ee56fc
+}
+.miley-widget-header:hover {
+cursor: hand;
+background: #49164D;
 }
 .miley-widget-header:active {
 cursor: move;
@@ -1032,24 +1032,6 @@ margin-left: 10px;
 opacity: 1;
 }
 
-#fb_message {
-font-family: "Segoe UI Light", Segoe UI, sans-serif;
-font-weight: lighter;
-resize: none;
-background: #fff;
-border: 1px solid #ee56fc;
-border-radius: 7px 0 0 7px; -webkit-border-radius: 0 0 7px 7px; -moz-border-radius: 0 0 7px 7px; -ms-border-radius: 0 0 7px 7px;
-width: 100%;
-max-width: 80%;
-min-width: 50%;
-height: 70px;
-width: 75%;
-padding: 5px;
-float: left;
-font-size: 12pt;
-opacity: 1;
-}
-
 
 .falar, #botaoFalar {
 float: none;
@@ -1216,10 +1198,10 @@ color: #000;
 
 /* * Versão da I.A. * */
 #version {
-position: absolute;
+position: fixed;
 bottom: 30px;
 right: 30px;
-color: #E351FF;
+color: #fff;
 font-size: 11pt;
 font-family: Segoe UI Light, Segoe UI;
 padding: 15px;
@@ -1263,8 +1245,8 @@ font-size: 11px;}
 #services {
 height: 130px;
 position: absolute;
-bottom: 50px;
-left: 20px;
+bottom: -50px;
+left: 450px;
 padding: 10px;
 }
 .voicerss {
@@ -1315,8 +1297,55 @@ transition: .2s ease-in-out;
 transform: translatey(-5px);
 }
 
+.fb-postar{
+background: #405D95;
+color: #fff;
+border: none;
+padding: 7px;
+display: none;
+}
+.fb-postar:hover{
+background: #384F7C;
+color: #fff;
+}
+.fb-postar:active{
+background: #26385C;
+color: #fff;
+}
+
+.fb-cancelar-post {
+background: #000;
+color: #fff;
+border: none;
+padding: 7px;
+}
+.fb-cancelar-post:hover {
+background: #767676;
+color: #fff;
+}
+.fb-cancelar-post:active {
+background: #575757;
+color: #fff;
+}
+
+
+#fb_message {
+font-family: "Segoe UI Light", Segoe UI, sans-serif;
+font-weight: lighter;
+resize: none;
+background: #fff;
+border-radius: 0 7px 7px 0;
+width: 100%;
+min-width: 50%;
+height: 70px;
+padding: 5px;
+float: left;
+font-size: 12pt;
+opacity: 1;
+}
+
 /* ***** Calculadora ************ */
-#calcIcone {cursor: default; position: fixed; right: 400px; top: 60px; background: url('../img/metro/appbar.calculator.png') #000 no-repeat !important; background-position: center center; background-size: 80% 80%; width: 50px; height: 50px; border: 1px solid #ee56fc; opacity: .8; padding: 20px;
+#calcIcone {cursor: default; position: absolute; right: 400px; top: 60px; background: url('../img/metro/appbar.calculator.png') #000 no-repeat !important; background-position: center center; background-size: 80% 80%; width: 50px; height: 50px; border: 1px solid #ee56fc; opacity: .8; padding: 20px;
 -ms-border-radius: 0px 15px 15px 15px; -moz-border-radius: 0px 15px 15px 15px; -webkit-border-radius: 0px 15px 15px 15px; border-radius: 0px 15px 15px 15px;
 }
 #calcIcone:before {
@@ -1330,7 +1359,7 @@ left: 7px
 #calcIcone:active {background: url('../img/metro/appbar.calculator.png') #310D38 no-repeat !important; opacity: .8; background-position: center center; background-size: 70% 70%;
 }
 
-.calc {border: 1px solid #ee56fc; background: #000; opacity: .8; height: 300px; width: 300px; padding: 20px; position: fixed; top: 80px; right: 300px;
+.calc {border: 1px solid #ee56fc; background: #000; opacity: .8; height: 300px; width: 300px; padding: 20px; position: fixed; top: 80px; right: 50%;
 -ms-border-radius: 0px 15px 15px 15px; -moz-border-radius: 0px 15px 15px 15px; -webkit-border-radius: 0px 15px 15px 15px; border-radius: 0px 15px 15px 15px;
 }
 .num-align {display: inline; float: left}
