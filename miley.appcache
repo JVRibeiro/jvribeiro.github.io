@@ -10,22 +10,20 @@ index.html
 privacy.htm
 
 # #### JavaScript #### #
-js/miley.brain.js
-js/miley.comandos.js
-js/miley.config.js
-js/miley.js
+js/miley/miley.brain.js
+js/miley/miley.comandos.js
+js/miley/miley.config.js
+js/miley/miley.js
 
-js/api.js
-js/default+pt_BR.I.js
-js/sphere.js
+js/mrdoob/sphere.js
 
-js/jquery.min.js
-js/jquery.ui.core.js
-js/jquery.ui.draggable.js
-js/jquery.ui.mouse.js
-js/jquery.ui.position.js
-js/jquery.ui.widget.js
-js/jquery-latest.pack.js
+js/jquery/jquery.min.js
+js/jquery/jquery.ui.core.js
+js/jquery/jquery.ui.draggable.js
+js/jquery/jquery.ui.mouse.js
+js/jquery/jquery.ui.position.js
+js/jquery/jquery.ui.widget.js
+js/jquery/jquery-latest.pack.js
 
 # #### CSS #### #
 css/miley.estilo.css
