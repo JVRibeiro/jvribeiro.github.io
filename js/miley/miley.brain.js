@@ -1,7 +1,7 @@
 ﻿// **************************
 //  ** miley.brain.js
 // ***************************
-// ** Versão/Version: 1.3.4
+// ** Versão/Version: 1.5
 // ** Autor/Author: Victor Ribeiro (@JVRibeiiro)
 // ** Licença: MIT
 // ***************************
@@ -9,7 +9,7 @@
 // * Informações da I.A.
 var AIname = "Miley";   // * Nome da I.A.
 var AInick = "Mi";      // * Apelido da I.A.
-var version = "1.3.4";  // * Versão da I.A.
+var version = "1.5.79";  // * Versão da I.A.
 //
 
 // * Abreviação de window e document
@@ -24,12 +24,12 @@ function mileyApps() {d.getElementById('lado2').style.display = 'block'; d.getEl
 function mileyAppsClose() {d.getElementById('lado2').style.display = "none"}
 function textoFalar() {d.getElementById('resposta').value = ""; rotina(); espera(); saveHist(); d.getElementById('texto').focus(); voz();}
 function mileyAbrirAjuda() {d.getElementById('ajuda').focus(); w.open('ajuda.html', 'ajuda', 'width=500, height=700, top=25, left=0'); abrirAjuda(); voz();}
-function mileyHistorico() {d.getElementById('dialogo').style.display = 'block'; d.getElementById('dialogo').focus();}
-function mileyHistoricoClose() {d.getElementById('dialogo').style.display = 'none';}
-function mileyFbPost() {d.getElementById('fb_div').style.display = 'block'; d.getElementById('fb_message').focus();}
-function mileyFbPostClose() {d.getElementById('fb_div').style.display = 'none';}
+function mileyFb() {d.getElementById('miley-fb').style.display = 'block'; d.getElementById('fb_message').focus();}
+function mileyFbClose() {d.getElementById('miley-fb').style.display = 'none';}
 function mileyCalc() {d.getElementById('calc').style.display = 'block';}
 function mileyCalcClose() {d.getElementById('calc').style.display = 'none';}
+function mileyConvLog() {d.getElementById('miley-dialog').style.display = 'block'; d.getElementById('dialogo').focus()}
+function mileyConvLogClose() {d.getElementById('miley-dialog').style.display = 'none';}
 //
 
 // * Dados na localStorage
@@ -136,8 +136,8 @@ strDia = new String (dia); if (strDia.length == 1) {dia = "0"+dia};
   d.getElementById('min').innerHTML = min;
   d.getElementById('seg').innerHTML = seg;
 
-  d.getElementById('dia').innerHTML = dia;
-  d.getElementById('mes').innerHTML = omes;
+  d.getElementById('dia').innerHTML = dia+" / ";
+  d.getElementById('mes').innerHTML = omes+" / ";
   d.getElementById('ano').innerHTML = ano;
 
   d.getElementById('semana').innerHTML = osem;
@@ -145,37 +145,6 @@ strDia = new String (dia); if (strDia.length == 1) {dia = "0"+dia};
 };
 //
 
-// * Script de Síntese de voz (TTS) - Uma cortesia da VoiceRSS.org
-// * *************************************************************
-function voz() {
-
-  var gUsapikey = w.localStorage.getItem('sapikey');
-  var gUsrate = w.localStorage.getItem('srate');
-  var gUidioma = w.localStorage.getItem('idioma');
-  var gUcodec = w.localStorage.getItem('codec');
-  var gUformato = w.localStorage.getItem('formato');
-
-var link = "https://api.voicerss.org/";
-var apikey = gUsapikey;
-var rate = gUsrate;
-var idioma = gUidioma;
-var codec = gUcodec;
-var formato = gUformato;
-var texto = d.getElementById("resposta").value;
-
-if (texto.length > 1000) {
-texto = texto.substring(0, 999);
-};
-
-d.getElementById("voz").src = link
-+ "?key=" + apikey
-+ "&r=" + rate
-+ "&hl=" + idioma
-+ "&c=" + codec
-+ "&f=" + formato
-+ "&src=" + texto
-};
-//
 
 // * Algoritmo de conversação
 // * ***************************************
@@ -192,6 +161,7 @@ historico = historico + nome + " disse em "+dia+" de "+omes+" de "+ano+" às "+h
 padroesMiley()
 historico = historico  +  '\r' + "\n";
 atualizarTela();
+
 }
 
 function padroesMiley() {
@@ -271,36 +241,45 @@ JSTweener.addTween(camera2, {time: 1.5, z: 1000, transition: JSTweener.easingFun
 });
 
 
+
+// * Aqui são usadas as funções da biblioteca "jQuery UI"
+// * Proprietário/Owner :       jQuery Foundation
+// * Link               :       http://jqueryui.com
+
+// Chama a função para todos os elementos arrastáveis da interface
 $(function() {
     $( ".ui-draggable" ).draggable();
 });
 
+// Muda o "z-index" dos elementos arrastáveis para que eles fiquem por cima dos não utilizados no arraste
 $(function() {
 $( ".set div" ).draggable({ stack: ".set div" });
 });
 
-$(function() {
-    $( "#calcIcone" ).draggable({ cursor: "defalut", cursorAt: { top: -5, left: -5 } });
-    $( "#mini-browserIcone" ).draggable({ cursor: "defalut", cursorAt: { top: -5, left: -5 } });
-    $( ".miley" ).draggable({ handle: "div" });
 
+$(function() {
+  // Muda a posição do cursor do mouse ao arrastar os ícones para que, ao soltá-los não haja a função "click".
+    $( "#calcIcone" ).draggable({ cursor: "defalut", cursorAt: { top: -5, left: -5 } });
+    $( "#fbIcone" ).draggable({ cursor: "defalut", cursorAt: { top: -5, left: -5 } });
+  // Permite que os elementos sejam arrastados apenas por um manipulador
+    $( ".miley" ).draggable({ handle: "div" });
+  // Define em qual conteiner o elemento estará contido
     $( "#miley-avatar" ).draggable({ containment: "body", scroll: false });
-    $( "#calcIcone" ).draggable({ containment: "body", scroll: false });
-    $( "#mini-browserIcone" ).draggable({ containment: "body", scroll: false });
+    $( "#calcIcone" ).draggable({ containment: "#lado2", scroll: false });
+    $( "#fbIcone" ).draggable({ containment: "#lado2", scroll: false });
     $( "#calc" ).draggable({ containment: "body", scroll: false });
     $( ".miley" ).draggable({ containment: "body", scroll: false });
     $( "#def-img-srch" ).draggable({ containment: "body", scroll: false });
     $( "#rel" ).draggable({ containment: "body", scroll: false });
   });
 
-
-
   $(document).on("input", "#q", function () {
+// Mostra opções ao começar a digitar na Pesquisa de Imagens
     $("#img-srch").fadeIn();
     $("#def-srch").fadeIn();
     $("#enter-p-srch").fadeIn();
     $("#def-img-srch-x").fadeIn();
-
+// Oculta as opções caso o campo esteja vazio
     if($('#q').val() == "") {
       $("#img-srch").fadeOut();
       $("#def-srch").fadeOut();
@@ -309,7 +288,7 @@ $(function() {
     }
 });
 
-
+// Oculta as opções ao clicar no botão X
 function defImgSrchX() {
   if($('#q').val() == "") {
     $("#img-srch").fadeOut();
@@ -319,8 +298,16 @@ function defImgSrchX() {
   }
 }
 
+// Seleciona as abas do menu de configurações com um clique.
+$(function() {
+  $( "#tabs" ).tabs({
+    event: "click"
+  });
+});
 
 
+
+// ! * API DO FACEBOOK
 // ! * Esse script foi compartilhado por: Tahir Yasin
 // ! * http://tahiryasin.wordpress.com/2012/12/06/post-to-your-facebook-wall-using-javascript-sdk
 // ! * Meus sinceros agradecimentos ao autor. Indiretamente você colaborou com o Projeto S.O.P.H.I.A.
@@ -331,18 +318,16 @@ function defImgSrchX() {
     console.log(response);
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
-      sophiaFbApi();
-      document.getElementById('fb-login-buttom').style.display = "none";
-      document.getElementById('fb-logout-buttom').style.display = "block";
+      mileyFbApi();
+      d.getElementById('fb-login-buttom').style.display = "none";
+      d.getElementById('fb-logout-buttom').style.display = "block";
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
-      document.getElementById('status').innerHTML = 'Logue na ' +
-        'S.O.P.H.I.A.';
+      d.getElementById('status').innerHTML = 'Existe uma conta logada. Permita meu acesso ao seu Facebook, por favor.';
     } else {
-      document.getElementById('status').innerHTML = 'Nenhuma conta ' +
-        'conectada no Facebook.';
-        document.getElementById('fb-login-buttom').style.display = "block";
-        document.getElementById('fb-logout-buttom').style.display = "none";
+      d.getElementById('status').innerHTML = 'Nenhuma conta logada no Facebook.';
+        d.getElementById('fb-login-buttom').style.display = "block";
+        d.getElementById('fb-logout-buttom').style.display = "none";
         console.log('Desconectado');
     }
   }
@@ -369,13 +354,13 @@ function defImgSrchX() {
 
   };
 
-  ///////////////////////////////////
+
 function post_on_wall() {
     FB.login(function(response) {
         if (response.authResponse) {
             console.log('Usuário conectado...');
 
-            var fbmsg = document.getElementById('fb_message').value;
+            var fbmsg = d.getElementById('fb_message').value;
             var opts = {
                         message : fbmsg
                         };
@@ -383,15 +368,14 @@ function post_on_wall() {
             FB.api('/me/feed', 'post', opts, function(response) {
                 if (!response || response.error) {
                     console.log('Ocorreu um erro ao postar');
-                    document.getElementById('resposta').value = "Não consegui postar, "+gen+". Vou tentar dar uma solução. Permita meu acesso ao seu perfil novamente.";
-                    window.open('https://www.facebook.com/v2.2/dialog/oauth?response_type=token&display=popup&client_id=410082289142337&redirect_uri=https%3A%2F%2Fjvribeiro.github.io%2Fv1.3.4.html&scope=publish_actions','facebook','width=400, height=400, top=25, left=0');
+                    d.getElementById('resposta').value = "Não consegui postar, "+gen+".";
                     voz();
                 }
                 else {
                     console.log('Postado com sucesso! - Post ID: ' + response.id);
-                    document.getElementById('fb_message').value = "";
+                    d.getElementById('fb_message').value = "";
                     window.open('https://www.facebook.com/me','facebook','width=1400, height=740, top=25, left=0');
-                    document.getElementById('resposta').value = "Pronto, "+gen+". Postei a frase: \'"+fbmsg+"\'. Deseja algo mais?";
+                    d.getElementById('resposta').value = "Pronto, "+gen+". Postei a frase: \'"+fbmsg+"\'. Deseja algo mais?";
                     voz();
                 }
             });
@@ -401,26 +385,26 @@ function post_on_wall() {
         }
     }, { scope : 'publish_stream' });
 }
-////////////////////////////////////////////
+
 
   // Load the SDK asynchronously
   (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) return;
     js = d.createElement(s); js.id = id;
-    js.src = "fbapi-sdk.js";
+    js.src = "js/facebook/fbapi-sdk.js";
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
 
   // Here we run a very simple test of the Graph API after login is
   // successful.  See statusChangeCallback() for when this call is made.
-  function sophiaFbApi() {
+  function mileyFbApi() {
     console.log('Bem-vindo! Recebendo informações... ');
     FB.api('/me', function(response) {
       console.log('Logado como: ' + response.name);
-      document.getElementById('status').innerHTML =
+      d.getElementById('status').innerHTML =
         'Olá, ' + response.name + '!';
-        document.getElementById('resposta').value = "Seu FB está agora logado como "+response.name+", "+gen+".";
+        d.getElementById('resposta').value = "Seu FB está agora logado como "+response.name+", "+gen+".";
         voz();
     });
   }
@@ -435,3 +419,120 @@ $(document).on("input", "#fb_message", function () {
     }
 });
   }
+ /* ************************************************************** */
+
+
+
+ // * Recurso de Síntese de voz (TTS) - Uma cortesia da VoiceRSS.org
+ // *
+ // * As barras de feedback visual de audio foram adquiridas
+ // * http://www.developphp.com/view.php?tid=1348
+ // * no artigo: "Analyser Bars Animation HTML5 Audio API JavaScript Tutorial"
+ // * *************************************************************
+
+function voz() {
+
+  var gUsapikey = w.localStorage.getItem('sapikey');
+  var gUsrate = w.localStorage.getItem('srate');
+  var gUidioma = w.localStorage.getItem('idioma');
+  var gUcodec = w.localStorage.getItem('codec');
+  var gUformato = w.localStorage.getItem('formato');
+
+var link = "https://api.voicerss.org/";
+var apikey = gUsapikey;
+var rate = gUsrate;
+var idioma = gUidioma;
+var codec = gUcodec;
+var formato = gUformato;
+var texto = d.getElementById("resposta").value;
+
+if (texto.length > 1000) {
+texto = texto.substring(0, 999);
+}
+ // Create a new instance of an audio object and adjust some of its properties
+var audio = new Audio();
+audio.src = link
++ "?key=" + apikey
++ "&r=" + rate
++ "&hl=" + idioma
++ "&c=" + codec
++ "&f=" + formato
++ "&src=" + texto;
+audio.controls = false;
+audio.loop = false;
+audio.autoplay = true;
+// Establish all variables that your Analyser will use
+var canvas, ctx, source, context, analyser, fbc_array, bars, bar_x, bar_width, bar_height;
+// Initialize the MP3 player after the page loads all of its HTML into the window
+window.addEventListener("load", initMp3Player, false);
+function initMp3Player(){
+	d.getElementById('voz').appendChild(audio);
+	context = new webkitAudioContext(); // AudioContext object instance
+	analyser = context.createAnalyser(); // AnalyserNode method
+	canvas = d.getElementById('analyser_render');
+	ctx = canvas.getContext('2d');
+	// Re-route audio playback into the processing graph of the AudioContext
+	source = context.createMediaElementSource(audio);
+	source.connect(analyser);
+	analyser.connect(context.destination);
+	frameLooper();
+}
+// frameLooper() animates any style of graphics you wish to the audio frequency
+// Looping at the default frame rate that the browser provides(approx. 60 FPS)
+function frameLooper(){
+	window.requestAnimationFrame(frameLooper);
+	fbc_array = new Uint8Array(analyser.frequencyBinCount);
+	analyser.getByteFrequencyData(fbc_array);
+	ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
+	ctx.fillStyle = '#00ffff'; // Color of the bars
+	bars = 100;
+	for (var i = 0; i < bars; i++) {
+		bar_x = i * 3;
+		bar_width = 2;
+		bar_height = -(fbc_array[i] / 2);
+		//fillRect( x, y, width, height ) // Explanation of the parameters below
+		ctx.fillRect(bar_x, canvas.height, bar_width, bar_height);
+	}
+}
+
+initMp3Player()
+};
+
+
+
+
+
+
+
+// Créditos a: http://simpleweatherjs.com
+function loadlink(){
+
+$(document).ready(function () {
+  $.simpleWeather({
+    location: 'moju',
+    woeid: '',
+    unit: 'c',
+    success: function(weather) {
+      html = '<i class="icon-'+weather.code+'"></i> '+weather.temp+'°'+weather.units.temp;
+      html += '<div class="w-location">'+weather.city+', '+weather.region+'</div>';
+
+      val = weather.temp+'°'+weather.units.temp+' em ';
+      val += weather.city;
+
+
+      $("#weather").html(html);
+    },
+    error: function(error) {
+      $("#weather").html('<p>'+error+'</p>');
+    }
+  });
+});
+
+
+
+}
+
+loadlink(); // This will run on page load
+setInterval(function(){
+    loadlink() // this will run after every 5 seconds
+}, 5000);

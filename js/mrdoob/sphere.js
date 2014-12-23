@@ -1,3 +1,1501 @@
+﻿// Script por (by) Mr. Doob
+// http://mrdoob.com/
+
+/* Based on Alex Arnell's inheritance implementation. */
+var Class = {
+  create: function() {
+    var parent = null, properties = $A(arguments);
+    if (Object.isFunction(properties[0]))
+      parent = properties.shift();
+
+    function klass() {
+      this.initialize.apply(this, arguments);
+    }
+
+    Object.extend(klass, Class.Methods);
+    klass.superclass = parent;
+    klass.subclasses = [];
+
+    if (parent) {
+      var subclass = function() { };
+      subclass.prototype = parent.prototype;
+      klass.prototype = new subclass;
+      parent.subclasses.push(klass);
+    }
+
+    for (var i = 0; i < properties.length; i++)
+      klass.addMethods(properties[i]);
+
+    if (!klass.prototype.initialize)
+      klass.prototype.initialize = this.emptyFunction;
+
+    klass.prototype.constructor = klass;
+
+    return klass;
+  },
+  emptyFunction:function () {},
+
+};
+
+Class.Methods = {
+  addMethods: function(source) {
+    var ancestor   = this.superclass && this.superclass.prototype;
+    var properties = Object.keys(source);
+
+    if (!Object.keys({ toString: true }).length)
+      properties.push("toString", "valueOf");
+
+    for (var i = 0, length = properties.length; i < length; i++) {
+      var property = properties[i], value = source[property];
+      if (ancestor && Object.isFunction(value) &&
+          value.argumentNames().first() == "$super") {
+        var method = value, value = Object.extend((function(m) {
+          return function() { return ancestor[m].apply(this, arguments) };
+        })(property).wrap(method), {
+          valueOf:  function() { return method },
+          toString: function() { return method.toString() }
+        });
+      }
+      this.prototype[property] = value;
+    }
+
+    return this;
+  }
+};
+
+Object.extend = function(destination, source) {
+  for (var property in source)
+    destination[property] = source[property];
+  return destination;
+};
+
+Object.extend(Object, {
+  inspect: function(object) {
+    try {
+      if (Object.isUndefined(object)) return 'undefined';
+      if (object === null) return 'null';
+      return object.inspect ? object.inspect() : String(object);
+    } catch (e) {
+      if (e instanceof RangeError) return '...';
+      throw e;
+    }
+  },
+
+  toJSON: function(object) {
+    var type = typeof object;
+    switch (type) {
+      case 'undefined':
+      case 'function':
+      case 'unknown': return;
+      case 'boolean': return object.toString();
+    }
+
+    if (object === null) return 'null';
+    if (object.toJSON) return object.toJSON();
+    if (Object.isElement(object)) return;
+
+    var results = [];
+    for (var property in object) {
+      var value = Object.toJSON(object[property]);
+      if (!Object.isUndefined(value))
+        results.push(property.toJSON() + ': ' + value);
+    }
+
+    return '{' + results.join(', ') + '}';
+  },
+
+  toQueryString: function(object) {
+    return $H(object).toQueryString();
+  },
+
+  toHTML: function(object) {
+    return object && object.toHTML ? object.toHTML() : String.interpret(object);
+  },
+
+  keys: function(object) {
+    var keys = [];
+    for (var property in object)
+      keys.push(property);
+    return keys;
+  },
+
+  values: function(object) {
+    var values = [];
+    for (var property in object)
+      values.push(object[property]);
+    return values;
+  },
+
+  clone: function(object) {
+    return Object.extend({ }, object);
+  },
+
+  isElement: function(object) {
+    return object && object.nodeType == 1;
+  },
+
+  isArray: function(object) {
+    return object != null && typeof object == "object" &&
+      'splice' in object && 'join' in object;
+  },
+
+  isHash: function(object) {
+    return object instanceof Hash;
+  },
+
+  isFunction: function(object) {
+    return typeof object == "function";
+  },
+
+  isString: function(object) {
+    return typeof object == "string";
+  },
+
+  isNumber: function(object) {
+    return typeof object == "number";
+  },
+
+  isUndefined: function(object) {
+    return typeof object == "undefined";
+  }
+});
+
+function $A(iterable) {
+  if (!iterable) return [];
+  if (iterable.toArray) return iterable.toArray();
+  var length = iterable.length || 0, results = new Array(length);
+  while (length--) results[length] = iterable[length];
+  return results;
+}
+
+if (WebKit = navigator.userAgent.indexOf('AppleWebKit/') > -1) {
+  $A = function(iterable) {
+    if (!iterable) return [];
+    if (!(Object.isFunction(iterable) && iterable == '[object NodeList]') &&
+        iterable.toArray) return iterable.toArray();
+    var length = iterable.length || 0, results = new Array(length);
+    while (length--) results[length] = iterable[length];
+    return results;
+  };
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var Vector3D = Class.create();
+
+Vector3D.prototype = {
+	x: null, y: null, z: null,
+	sx: null, sy: null, sz: null,
+	userData: null,
+
+	dx: null, dy: null, dz: null,
+	tx: null, ty: null, tz: null,
+	oll: null,
+
+	initialize: function(a, b, c){
+		this.x = a;
+		this.y = b;
+		this.z = c;
+	},
+
+	copy: function(v){
+		this.x = v.x;
+		this.y = v.y;
+		this.z = v.z;
+	},
+
+	add: function(v){
+		this.x += v.x;
+		this.y += v.y;
+		this.z += v.z;
+	},
+
+	sub: function(v){
+		this.x -= v.x;
+		this.y -= v.y;
+		this.z -= v.z;
+	},
+
+	cross: function(v){
+		this.tx = this.x;
+		this.ty = this.y;
+		this.tz = this.z;
+
+		this.x = this.ty * v.z - this.tz * v.y;
+		this.y = this.tz * v.x - this.tx * v.z;
+		this.z = this.tx * v.y - this.ty * v.x;
+	},
+
+	multiply: function(s){
+		this.x *= s;
+		this.y *= s;
+		this.z *= s;
+	},
+
+	distanceTo: function(v){
+		this.dx = this.x - v.x;
+		this.dy = this.y - v.y;
+		this.dz = this.z - v.z;
+
+		return Math.sqrt(this.dx * this.dx + this.dy * this.dy + this.dz * this.dz);
+	},
+
+	distanceToSquared: function(v){
+		this.dx = this.x - v.x;
+		this.dy = this.y - v.y;
+		this.dz = this.z - v.z;
+
+		return this.dx * this.dx + this.dy * this.dy + this.dz * this.dz;
+	},
+
+	length: function(){
+		return Math.sqrt(this.x * this.x + this.y * this.y + this.z * this.z);
+	},
+
+	lengthSq: function(){
+		return this.x * this.x + this.y * this.y + this.z * this.z;
+	},
+
+	negate: function(){
+		this.x = -this.x;
+		this.y = -this.y;
+		this.z = -this.z;
+	},
+
+	normalize: function(){
+		if (this.length() > 0)
+			this.ool = 1.0 / this.length();
+		else
+			this.ool = 0;
+
+		this.x *= this.ool;
+		this.y *= this.ool;
+		this.z *= this.ool;
+		return this;
+	},
+
+	dot: function(v){
+		return this.x * v.x + this.y * v.y + this.z * v.z;
+	},
+
+	clone: function(){
+		return new Vector3D(this.x, this.y, this.z);
+	},
+
+	toString: function(){
+		return '(' + this.x + ', ' + this.y + ', ' + this.z + ')';
+	}
+
+}
+
+Vector3D.add = function(a, b)
+{
+	return new Vector3D( a.x + b.x, a.y + b.y, a.z + b.z );
+}
+
+Vector3D.sub = function(a, b)
+{
+	return new Vector3D( a.x - b.x, a.y - b.y, a.z - b.z );
+}
+
+Vector3D.multiply = function(a, s)
+{
+	return new Vector3D( a.x * s, a.y * s, a.z * s );
+}
+
+Vector3D.cross = function(a, b)
+{
+	return new Vector3D( a.y * b.z - a.z * b.y, a.z * b.x - a.x * b.z, a.x * b.y - a.y * b.x );
+}
+
+Vector3D.dot = function(a, b)
+{
+	return a.x * b.x + a.y * b.y + a.z * b.z;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var Matrix3D = Class.create();
+
+Matrix3D.prototype = {
+    n11: null,
+    n12: null,
+    n13: null,
+    n14: null,
+    n21: null,
+    n22: null,
+    n23: null,
+    n24: null,
+    n31: null,
+    n32: null,
+    n33: null,
+    n34: null,
+
+    x: new Vector3D(0,0,0),
+    y: new Vector3D(0,0,0),
+    z: new Vector3D(0,0,0),
+
+    initialize: function(){
+		this.identity();
+    },
+
+    identity: function(){
+        this.n11 = 1;
+        this.n12 = 0;
+        this.n13 = 0;
+        this.n14 = 0;
+        this.n21 = 0;
+        this.n22 = 1;
+        this.n23 = 0;
+        this.n24 = 0;
+        this.n31 = 0;
+        this.n32 = 0;
+        this.n33 = 1;
+        this.n34 = 0;
+
+        this.x = new Vector3D(0,0,0);
+        this.y = new Vector3D(0,0,0);
+        this.z = new Vector3D(0,0,0);
+    },
+
+    lookAt: function(eye, center, up){
+
+        this.z.copy(center);
+        this.z.sub(eye);
+        this.z.normalize();
+
+        this.x.copy(this.z);
+        this.x.cross(up);
+        this.x.normalize();
+
+        this.y.copy(this.x);
+        this.y.cross(this.z);
+        this.y.normalize();
+
+        this.n11 = this.x.x;
+        this.n12 = this.x.y;
+        this.n13 = this.x.z;
+        this.n14 = -this.x.dot(eye);
+        this.n21 = this.y.x;
+        this.n22 = this.y.y;
+        this.n23 = this.y.z;
+        this.n24 = -this.y.dot(eye);
+        this.n31 = this.z.x;
+        this.n32 = this.z.y;
+        this.n33 = this.z.z;
+        this.n34 = -this.z.dot(eye);
+    },
+
+    transform: function(v){
+        var vx = v.x, vy = v.y, vz = v.z;
+
+        v.x = this.n11 * vx + this.n12 * vy + this.n13 * vz + this.n14;
+        v.y = this.n21 * vx + this.n22 * vy + this.n23 * vz + this.n24;
+        v.z = this.n31 * vx + this.n32 * vy + this.n33 * vz + this.n34;
+    },
+
+    transformVector: function(v){
+        var vx = v.x, vy = v.y, vz = v.z;
+
+        v.x = this.n11 * vx + this.n12 * vy + this.n13 * vz;
+        v.y = this.n21 * vx + this.n22 * vy + this.n23 * vz;
+        v.z = this.n31 * vx + this.n32 * vy + this.n33 * vz;
+    },
+
+    multiply: function(a, b){
+        var a11 = a.n11;
+        var b11 = b.n11;
+        var a21 = a.n21;
+        var b21 = b.n21;
+        var a31 = a.n31;
+        var b31 = b.n31;
+        var a12 = a.n12;
+        var b12 = b.n12;
+        var a22 = a.n22;
+        var b22 = b.n22;
+        var a32 = a.n32;
+        var b32 = b.n32;
+        var a13 = a.n13;
+        var b13 = b.n13;
+        var a23 = a.n23;
+        var b23 = b.n23;
+        var a33 = a.n33;
+        var b33 = b.n33;
+        var a14 = a.n14;
+        var b14 = b.n14;
+        var a24 = a.n24;
+        var b24 = b.n24;
+        var a34 = a.n34;
+        var b34 = b.n34;
+
+        this.n11 = a11 * b11 + a12 * b21 + a13 * b31;
+        this.n12 = a11 * b12 + a12 * b22 + a13 * b32;
+        this.n13 = a11 * b13 + a12 * b23 + a13 * b33;
+        this.n14 = a11 * b14 + a12 * b24 + a13 * b34 + a14;
+
+        this.n21 = a21 * b11 + a22 * b21 + a23 * b31;
+        this.n22 = a21 * b12 + a22 * b22 + a23 * b32;
+        this.n23 = a21 * b13 + a22 * b23 + a23 * b33;
+        this.n24 = a21 * b14 + a22 * b24 + a23 * b34 + a24;
+
+        this.n31 = a31 * b11 + a32 * b21 + a33 * b31;
+        this.n32 = a31 * b12 + a32 * b22 + a33 * b32;
+        this.n33 = a31 * b13 + a32 * b23 + a33 * b33;
+        this.n34 = a31 * b14 + a32 * b24 + a33 * b34 + a34;
+    },
+
+    toString: function() {
+        return "11: " + this.n11 + ", 12: " + this.n12 + ", 13: " + this.n13 + ", 14: " + this.n14 + "\n" + "21: " + this.n21 + ", 22: " + this.n22 + ", 23: " + this.n23 + ", 24: " + this.n24 + "\n"
+        + "31: " + this.n31 + ", 32: " + this.n32 + ", 33: " + this.n33 + ", 34: " + this.n34;
+    }
+  }
+
+Matrix3D.translationMatrix = function(x, y, z) {
+    var m = new Matrix3D();
+
+    m.n14 = x;
+    m.n24 = y;
+    m.n34 = z;
+
+    return m;
+}
+
+Matrix3D.scaleMatrix = function(x, y, z){
+    var m = new Matrix3D();
+
+    m.n11 = x;
+    m.n22 = y;
+    m.n33 = z;
+
+    return m;
+}
+
+// Apply Rotation about X to Matrix
+Matrix3D.rotationXMatrix = function(theta){
+    var rot = new Matrix3D();
+
+    rot.n22 = rot.n33 = Math.cos(theta);
+    rot.n32 = Math.sin(theta);
+    rot.n23 = -rot.n32;
+
+    return rot;
+}
+
+// Apply Rotation about Y to Matrix
+Matrix3D.rotationYMatrix = function(theta){
+    var rot = new Matrix3D();
+
+    rot.n11 = rot.n33 = Math.cos(theta);
+    rot.n13 = Math.sin(theta);
+    rot.n31 = -rot.n13;
+
+    return rot;
+}
+
+// Apply Rotation about Z to Matrix
+Matrix3D.rotationZMatrix = function(theta){
+    var rot = new Matrix3D();
+
+    rot.n11 = rot.n22 = Math.cos(theta);
+    rot.n21 = Math.sin(theta);
+    rot.n12 = -rot.n21;
+
+    return rot;
+}
+
+Matrix3D.rotationMatrix = function(ry, rx, rz){
+    var sx, sy, sz;
+    var cx, cy, cz;
+
+    sx = Math.sin(rx);
+    sy = Math.sin(ry);
+    sz = Math.sin(rz);
+    cx = Math.cos(rx);
+    cy = Math.cos(ry);
+    cz = Math.cos(rz);
+
+    var rot = new Matrix3D();
+
+    rot.n11 = cx * cz - sx * sy * sz;
+    rot.n12 = -cy * sz;
+    rot.n13 = sx * cz + cx * sy * sz;
+    rot.n21 = cx * sz + sx * sy * cz;
+    rot.n22 = cy * cz;
+    rot.n23 = sx * sz - cx * sy * cz;
+    rot.n31 = -sx * cy;
+    rot.n32 = sy;
+    rot.n33 = cx * cy;
+
+    return rot;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var Camera3D = Class.create();
+
+Object.extend(Camera3D.prototype, Vector3D.prototype);
+Object.extend(Camera3D.prototype,
+{
+	up: null, target: null, zoom: null, focus: null, roll: null,
+	initialize: function()
+	{
+		this.up = new Vector3D(0,1,0);
+		this.target = new Vector3D(0,0,0);
+		this.zoom = 3;
+		this.focus = 500;
+		this.roll = 0;
+	}
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var Div3D = Class.create();
+
+Object.extend(Div3D.prototype, Vector3D.prototype);
+Object.extend(Div3D.prototype,
+{
+	content: null, scale: null,
+
+	initialize: function(a, b, c){
+		this.x = a;
+		this.y = b;
+		this.z = c;
+		this.content = document.createElement("div");
+		this.content.style['position'] = 'absolute';
+	},
+	setVisible: function()
+	{
+		content.style['visibility'] = 'visible';
+	},
+	setHidden: function()
+	{
+		content.style['visibility'] = 'hidden';
+	}
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+ * READ THIS!
+ * This is NOT the official version of JSTweener, it has been modified
+ * to gain some performance stripping unneeded features. The use of
+ * this version of the class is NOT recommended. -- Mr.doob
+ *
+ * http://coderepos.org/share/wiki/JSTweener
+ *
+ * Yuichi Tateno. <hotchpotch@N0!spam@gmail.com>
+ * http://rails2u.com/
+ *
+ * The MIT License
+ * --------
+ * Copyright (c) 2007 Yuichi Tateno.
+ *
+ * http://www.opensource.org/licenses/mit-license.php
+ */
+
+var JSTweener = {
+    objects: [],
+    defaultOptions: {
+        time: 1,
+        transition: 'easeoutexpo',
+        delay: 0,
+        prefix: {},
+        suffix: {},
+        onStart: undefined,
+        onStartParams: undefined,
+        onUpdate: undefined,
+        onUpdateParams: undefined,
+        onComplete: undefined,
+        onCompleteParams: undefined
+    },
+    easingFunctionsLowerCase: {},
+    init: function()
+	{
+        for (var key in JSTweener.easingFunctions) {
+            this.easingFunctionsLowerCase[key.toLowerCase()] = JSTweener.easingFunctions[key];
+        }
+    },
+    toNumber: function(value, prefix, suffix) {
+        if (!suffix) suffix = 'px';
+        return value.toString().match(/[0-9]/) ? Number(value.toString().replace(
+                                                        new RegExp(suffix + '$'), ''
+                                                       ).replace(
+                                                        new RegExp('^' + (prefix ? prefix : '')), ''
+                                                       ))
+                                               : 0;
+    },
+    addTween: function(obj, options) {
+        var self = this;
+
+		for (var i = 0; i < self.objects.length; i++)
+		{
+			if (self.objects[i].target == obj)
+				 self.objects.splice(i, 1);
+		}
+
+        var o = {};
+        o.target = obj;
+        o.targetProperties = {};
+
+        for (var key in this.defaultOptions) {
+            if (typeof options[key] != 'undefined') {
+                o[key] = options[key];
+                delete options[key];
+            } else {
+                o[key] = this.defaultOptions[key];
+            }
+        }
+
+        if (typeof o.transition == 'function') {
+            o.easing = o.transition;
+        } else {
+            o.easing = this.easingFunctionsLowerCase[o.transition.toLowerCase()];
+        }
+
+        for (var key in options) {
+            if (!o.prefix[key]) o.prefix[key] = '';
+            if (!o.suffix[key]) o.suffix[key] = '';
+            var sB = this.toNumber(obj[key], o.prefix[key],  o.suffix[key]);
+            o.targetProperties[key] = {
+                b: sB,
+                c: options[key] - sB
+            };
+        }
+
+        setTimeout(function()
+		{
+            o.startTime = (new Date() - 0);
+            o.endTime = o.time * 1000 + o.startTime;
+            self.objects.push(o);
+
+        }, o.delay * 1000);
+    },
+    update: function() {
+        var now = (new Date() - 0);
+        for (var i = 0; i < this.objects.length; i++) {
+            var o = this.objects[i];
+            var t = now - o.startTime;
+            var d = o.endTime - o.startTime;
+
+            if (t >= d) {
+                for (var property in o.targetProperties) {
+                    var tP = o.targetProperties[property];
+                    try {
+                        o.target[property] = o.prefix[property] + (tP.b + tP.c) + o.suffix[property];
+                    } catch(e) {}
+                }
+                this.objects.splice(i, 1);
+
+                if (typeof o.onComplete == 'function') {
+                    if (o.onCompleteParams) {
+                        o.onComplete.apply(o, o.onCompleteParams);
+                    } else {
+                        o.onComplete();
+                    }
+                }
+            } else {
+                for (var property in o.targetProperties) {
+                    var tP = o.targetProperties[property];
+                    var val = o.easing(t, tP.b, tP.c, d);
+                    try {
+                        // FIXME:For IE. A Few times IE (style.width||style.height) = value is throw error...
+					o.target[property] = o.prefix[property] + val + o.suffix[property];
+                    } catch(e) {}
+                }
+            }
+        }
+    }
+};
+
+/*
+ * JSTweener.easingFunctions is
+ * Tweener's easing functions (Penner's Easing Equations) porting to JavaScript.
+ * http://code.google.com/p/tweener/
+ */
+
+JSTweener.easingFunctions = {
+    easeNone: function(t, b, c, d) {
+        return c*t/d + b;
+    },
+    easeInQuad: function(t, b, c, d) {
+        return c*(t/=d)*t + b;
+    },
+    easeOutQuad: function(t, b, c, d) {
+        return -c *(t/=d)*(t-2) + b;
+    },
+    easeInOutQuad: function(t, b, c, d) {
+        if((t/=d/2) < 1) return c/2*t*t + b;
+        return -c/2 *((--t)*(t-2) - 1) + b;
+    },
+    easeInCubic: function(t, b, c, d) {
+        return c*(t/=d)*t*t + b;
+    },
+    easeOutCubic: function(t, b, c, d) {
+        return c*((t=t/d-1)*t*t + 1) + b;
+    },
+    easeInOutCubic: function(t, b, c, d) {
+        if((t/=d/2) < 1) return c/2*t*t*t + b;
+        return c/2*((t-=2)*t*t + 2) + b;
+    },
+    easeOutInCubic: function(t, b, c, d) {
+        if(t < d/2) return JSTweener.easingFunctions.easeOutCubic(t*2, b, c/2, d);
+        return JSTweener.easingFunctions.easeInCubic((t*2)-d, b+c/2, c/2, d);
+    },
+    easeInQuart: function(t, b, c, d) {
+        return c*(t/=d)*t*t*t + b;
+    },
+    easeOutQuart: function(t, b, c, d) {
+        return -c *((t=t/d-1)*t*t*t - 1) + b;
+    },
+    easeInOutQuart: function(t, b, c, d) {
+        if((t/=d/2) < 1) return c/2*t*t*t*t + b;
+        return -c/2 *((t-=2)*t*t*t - 2) + b;
+    },
+    easeOutInQuart: function(t, b, c, d) {
+        if(t < d/2) return JSTweener.easingFunctions.easeOutQuart(t*2, b, c/2, d);
+        return JSTweener.easingFunctions.easeInQuart((t*2)-d, b+c/2, c/2, d);
+    },
+    easeInQuint: function(t, b, c, d) {
+        return c*(t/=d)*t*t*t*t + b;
+    },
+    easeOutQuint: function(t, b, c, d) {
+        return c*((t=t/d-1)*t*t*t*t + 1) + b;
+    },
+    easeInOutQuint: function(t, b, c, d) {
+        if((t/=d/2) < 1) return c/2*t*t*t*t*t + b;
+        return c/2*((t-=2)*t*t*t*t + 2) + b;
+    },
+    easeOutInQuint: function(t, b, c, d) {
+        if(t < d/2) return JSTweener.easingFunctions.easeOutQuint(t*2, b, c/2, d);
+        return JSTweener.easingFunctions.easeInQuint((t*2)-d, b+c/2, c/2, d);
+    },
+    easeInSine: function(t, b, c, d) {
+        return -c * Math.cos(t/d *(Math.PI/2)) + c + b;
+    },
+    easeOutSine: function(t, b, c, d) {
+        return c * Math.sin(t/d *(Math.PI/2)) + b;
+    },
+    easeInOutSine: function(t, b, c, d) {
+        return -c/2 *(Math.cos(Math.PI*t/d) - 1) + b;
+    },
+    easeOutInSine: function(t, b, c, d) {
+        if(t < d/2) return JSTweener.easingFunctions.easeOutSine(t*2, b, c/2, d);
+        return JSTweener.easingFunctions.easeInSine((t*2)-d, b+c/2, c/2, d);
+    },
+    easeInExpo: function(t, b, c, d) {
+        return(t==0) ? b : c * Math.pow(2, 10 *(t/d - 1)) + b - c * 0.001;
+    },
+    easeOutExpo: function(t, b, c, d) {
+        return(t==d) ? b+c : c * 1.001 *(-Math.pow(2, -10 * t/d) + 1) + b;
+    },
+    easeInOutExpo: function(t, b, c, d) {
+        if(t==0) return b;
+        if(t==d) return b+c;
+        if((t/=d/2) < 1) return c/2 * Math.pow(2, 10 *(t - 1)) + b - c * 0.0005;
+        return c/2 * 1.0005 *(-Math.pow(2, -10 * --t) + 2) + b;
+    },
+    easeOutInExpo: function(t, b, c, d) {
+        if(t < d/2) return JSTweener.easingFunctions.easeOutExpo(t*2, b, c/2, d);
+        return JSTweener.easingFunctions.easeInExpo((t*2)-d, b+c/2, c/2, d);
+    },
+    easeInCirc: function(t, b, c, d) {
+        return -c *(Math.sqrt(1 -(t/=d)*t) - 1) + b;
+    },
+    easeOutCirc: function(t, b, c, d) {
+        return c * Math.sqrt(1 -(t=t/d-1)*t) + b;
+    },
+    easeInOutCirc: function(t, b, c, d) {
+        if((t/=d/2) < 1) return -c/2 *(Math.sqrt(1 - t*t) - 1) + b;
+        return c/2 *(Math.sqrt(1 -(t-=2)*t) + 1) + b;
+    },
+    easeOutInCirc: function(t, b, c, d) {
+        if(t < d/2) return JSTweener.easingFunctions.easeOutCirc(t*2, b, c/2, d);
+        return JSTweener.easingFunctions.easeInCirc((t*2)-d, b+c/2, c/2, d);
+    },
+    easeInElastic: function(t, b, c, d, a, p) {
+        var s;
+        if(t==0) return b;  if((t/=d)==1) return b+c;  if(!p) p=d*.3;
+        if(!a || a < Math.abs(c)) { a=c; s=p/4; } else s = p/(2*Math.PI) * Math.asin(c/a);
+        return -(a*Math.pow(2,10*(t-=1)) * Math.sin((t*d-s)*(2*Math.PI)/p )) + b;
+    },
+    easeOutElastic: function(t, b, c, d, a, p) {
+        var s;
+        if(t==0) return b;  if((t/=d)==1) return b+c;  if(!p) p=d*.3;
+        if(!a || a < Math.abs(c)) { a=c; s=p/4; } else s = p/(2*Math.PI) * Math.asin(c/a);
+        return(a*Math.pow(2,-10*t) * Math.sin((t*d-s)*(2*Math.PI)/p ) + c + b);
+    },
+    easeInOutElastic: function(t, b, c, d, a, p) {
+        var s;
+        if(t==0) return b;  if((t/=d/2)==2) return b+c;  if(!p) p=d*(.3*1.5);
+        if(!a || a < Math.abs(c)) { a=c; s=p/4; }       else s = p/(2*Math.PI) * Math.asin(c/a);
+        if(t < 1) return -.5*(a*Math.pow(2,10*(t-=1)) * Math.sin((t*d-s)*(2*Math.PI)/p )) + b;
+        return a*Math.pow(2,-10*(t-=1)) * Math.sin((t*d-s)*(2*Math.PI)/p )*.5 + c + b;
+    },
+    easeOutInElastic: function(t, b, c, d, a, p) {
+        if(t < d/2) return JSTweener.easingFunctions.easeOutElastic(t*2, b, c/2, d, a, p);
+        return JSTweener.easingFunctions.easeInElastic((t*2)-d, b+c/2, c/2, d, a, p);
+    },
+    easeInBack: function(t, b, c, d, s) {
+        if(s == undefined) s = 1.70158;
+        return c*(t/=d)*t*((s+1)*t - s) + b;
+    },
+    easeOutBack: function(t, b, c, d, s) {
+        if(s == undefined) s = 1.70158;
+        return c*((t=t/d-1)*t*((s+1)*t + s) + 1) + b;
+    },
+    easeInOutBack: function(t, b, c, d, s) {
+        if(s == undefined) s = 1.70158;
+        if((t/=d/2) < 1) return c/2*(t*t*(((s*=(1.525))+1)*t - s)) + b;
+        return c/2*((t-=2)*t*(((s*=(1.525))+1)*t + s) + 2) + b;
+    },
+    easeOutInBack: function(t, b, c, d, s) {
+        if(t < d/2) return JSTweener.easingFunctions.easeOutBack(t*2, b, c/2, d, s);
+        return JSTweener.easingFunctions.easeInBack((t*2)-d, b+c/2, c/2, d, s);
+    },
+    easeInBounce: function(t, b, c, d) {
+        return c - JSTweener.easingFunctions.easeOutBounce(d-t, 0, c, d) + b;
+    },
+    easeOutBounce: function(t, b, c, d) {
+        if((t/=d) <(1/2.75)) {
+            return c*(7.5625*t*t) + b;
+        } else if(t <(2/2.75)) {
+            return c*(7.5625*(t-=(1.5/2.75))*t + .75) + b;
+        } else if(t <(2.5/2.75)) {
+            return c*(7.5625*(t-=(2.25/2.75))*t + .9375) + b;
+        } else {
+            return c*(7.5625*(t-=(2.625/2.75))*t + .984375) + b;
+        }
+    },
+    easeInOutBounce: function(t, b, c, d) {
+        if(t < d/2) return JSTweener.easingFunctions.easeInBounce(t*2, 0, c, d) * .5 + b;
+        else return JSTweener.easingFunctions.easeOutBounce(t*2-d, 0, c, d) * .5 + c*.5 + b;
+    },
+    easeOutInBounce: function(t, b, c, d) {
+        if(t < d/2) return JSTweener.easingFunctions.easeOutBounce(t*2, b, c/2, d);
+        return JSTweener.easingFunctions.easeInBounce((t*2)-d, b+c/2, c/2, d);
+    }
+};
+JSTweener.easingFunctions.linear = JSTweener.easingFunctions.easeNone;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var reference;
+var canvas;
+
+var theta;
+var phi;
+var radius;
+var max;
+
+var isRunning;
+
+var dom_elements = new Array();
+var properties = new Array();
+
+var elements = new Array();
+var results = new Array();
+
+var mouseX = 0;
+var mouseY = 0;
+
+var mouseX_dest = 0;
+var mouseY_dest = 0;
+
+var view = new Matrix3D();
+
+var camera = new Camera3D();
+camera.focus = 400;
+
+var camera2 = new Camera3D();
+camera2.z = 800;
+
+var focus = camera.focus;
+var focuszoom = camera.focus * camera.zoom;
+
+var windowHalfX = window.innerWidth >> 1;
+var windowHalfY = window.innerHeight >> 1;
+
+var gImageSearch;
+var query;
+var page = 1;
+
+if (location.search != "")
+{
+	var params = location.search.substr(1).split("&")
+
+	for (var i = 0; i < params.length; i++)
+	{
+		var param = params[i].split("=");
+
+		if (param[0] == "q") {
+      document.getElementById('q').value = param[1];
+      run();
+      break;
+    }
+
+	}
+}
+
+document.addEventListener('mousemove', onDocumentMouseMove, false);
+
+function init()
+{
+	JSTweener.init();
+
+	reference = document.getElementById('reference');
+	canvas = document.getElementById('canvas');
+
+	document.addEventListener('keypress', onDocumentKeyPress, false);
+
+	// Get elements
+
+	dom_elements = getElementsByClass("3d");
+
+	// This needs to be done in a special loop
+	// otherwise we'll break the layout
+
+	for (i = 0; i < dom_elements.length; i++)
+	{
+		var element = dom_elements[i];
+		properties[i] = findPos(element);
+		properties[i][2] = element.offsetWidth;
+		properties[i][3] = element.offsetHeight;
+	}
+
+	elements[0] = new Array();
+
+	max = dom_elements.length;
+	radius = 250;
+
+	for (i = 0; i < dom_elements.length; i++)
+	{
+		var element = elements[0][i] = new Div3D( properties[i][0] - windowHalfX + (properties[i][2] * .5), - properties[i][1] + windowHalfY - (properties[i][3] * .5), 0 );
+
+		// Ok, if you wonder why this doesn't work on firefox3, here it's why...
+		// Appending a child that it's already on the dom. Weird, but works :P
+
+		element.content.appendChild( dom_elements[i] );
+		element.content.style['position'] = 'absolute';
+		element.content.style['left'] = properties[i][0] + 'px';
+		element.content.style['top'] = properties[i][1] + 'px';
+		element.content.style['width'] = properties[i][2] + 'px';
+		//element.content.style['backgroundColor'] = ('#0' +  Math.round(0xffffff * Math.random()).toString(16)).replace(/^#0([0-9a-f]{6})$/i, '#$1');
+
+		canvas.appendChild( element.content );
+
+		if(element.content.children[0].name == "l")
+		{
+			JSTweener.addTween(element,{time: 2 + Math.random(), x: 0, y: 40, transition: JSTweener.easingFunctions.easeInOutBack});
+			continue;
+		}
+
+		if(element.content.children[0].name == "q")
+		{
+			JSTweener.addTween(element,{time: 2 + Math.random(), x: 0, y: -40, transition: JSTweener.easingFunctions.easeInOutBack});
+			element.content.onclick = onSearchBoxClick;
+			continue;
+		}
+
+		phi = Math.acos( -1 + ( 2 * i ) / max );
+		theta = Math.sqrt( max * Math.PI ) * phi;
+
+		var dest = new Vector3D( 0, 0, 0 );
+		dest.x = radius * Math.cos(theta) * Math.sin(phi);
+		dest.y = radius * Math.sin(theta) * Math.sin(phi);
+		dest.z = radius * Math.cos(phi);
+
+		JSTweener.addTween(element,{time: 2 + Math.random() * 2, x: dest.x, y: dest.y, z: dest.z, transition: JSTweener.easingFunctions.easeInOutBack});
+	}
+
+	reference.style['display'] = 'none';
+}
+
+function run()
+{
+	isRunning = true;
+
+	init();
+	setInterval(loop, 20);
+}
+
+// .. ACTIONS
+
+function onDocumentMouseMove(e)
+{
+	if (!isRunning)
+		run();
+
+	if (!e) var e = window.event;
+
+	mouseX = (e.clientX - windowHalfX) * .1;
+	mouseY = (e.clientY - windowHalfY) * .1;
+}
+
+function onDocumentDoubleClick()
+{
+	removeResults();
+
+	page = 1;
+	window.getSelection().collapse();
+}
+
+function onDocumentKeyPress(e) {
+  if(d.getElementById('q').value !== "" && e.charCode == 13) { algo = d.getElementById('q').value; startFetch(algo, 100, 2000); search(); };
+	if (d.getElementById('q').value == "" && e.charCode == 13) { search();  }
+}
+
+function onSearchBoxClick()
+{
+	if (camera2.z > 400)
+		JSTweener.addTween(camera2, {time: 1.5, z: 300, transition: JSTweener.easingFunctions.easeOutExpo});
+}
+
+// API
+
+function onLoad()
+{
+  	gImageSearch = new google.search.ImageSearch();
+	gImageSearch.setResultSetSize(google.search.Search.LARGE_RESULTSET);
+	gImageSearch.setSearchCompleteCallback(null, onImageSearchResults);
+
+	if (document.getElementById('q').value != '')
+		search();
+}
+
+function search()
+{
+	if (camera2.z < 800)
+		JSTweener.addTween(camera2, {time: 1.5, z: 800, transition: JSTweener.easingFunctions.easeOutExpo});
+
+	if (query == document.getElementById('q').value)
+	{
+		gImageSearch.gotoPage(page++);
+	}
+	else
+	{
+		query = document.getElementById('q').value;
+
+		gImageSearch.execute(query);
+
+		if (elements.length > 1) removeResults();
+
+		elements[elements.length] = new Array();
+		page = 1;
+	}
+
+	return false;
+}
+
+function onImageSearchResults()
+{
+	for (var i = 0; i < gImageSearch.results.length; i++)
+		addResult(gImageSearch.results[i]);
+
+	max = elements[elements.length - 1].length;
+	radius = 300;
+
+	for (var i = 0; i < elements[elements.length - 1].length; i++)
+	{
+		var element = elements[elements.length - 1][i];
+
+		phi = Math.acos(-1 + (2 * i) / max);
+		theta = Math.sqrt(max * Math.PI) * phi;
+
+		var dest = new Vector3D(0, 0, 0);
+		dest.x = radius * Math.cos(theta) * Math.sin(phi);
+		dest.y = radius * Math.sin(theta) * Math.sin(phi);
+		dest.z = radius * Math.cos(phi);
+
+		JSTweener.addTween(element,{time: 4 + Math.random() * 4, x: dest.x, y: dest.y, z: dest.z, transition: JSTweener.easingFunctions.easeOutElastic});
+	}
+}
+
+function addResult(data) {
+
+  var element = elements[elements.length-1][elements[elements.length-1].length] = new Div3D( 0, 0, 0 );
+  element.content.style['visibility'] = 'hidden';
+  element.content.innerHTML = '<a onclick=\"w.open(\'' +data.unescapedUrl+ '\',\'imgs\',\'width=1400, height=740, top=0, left=0\').focus();\"><img id=\'imglink\' src=\'' +data.tbUrl+ '\' title=\'Ver em tamanho maior\' alt=\'Imagem não carregada\'></a>';
+  canvas.appendChild(element.content);
+}
+
+function removeResults()
+{
+	var j = elements[elements.length-1].length;
+
+	while(--j >= 0)
+		JSTweener.addTween(elements[elements.length-1][j],{time: 2 + Math.random() * 2, y: -1000 - 500, transition: JSTweener.easingFunctions.easeInOutBack, onComplete: function() { canvas.removeChild(this.target.content); } });
+
+	JSTweener.addTween({},{time: 4, onComplete: cleanUp});
+
+}
+
+function cleanUp()
+{
+	elements.splice(1,1);
+}
+
+//
+
+function loop()
+{
+	JSTweener.update();
+
+	windowHalfX = window.innerWidth >> 1;
+	windowHalfY = window.innerHeight >> 1;
+
+	mouseX_dest += mouseX * .0015;
+	mouseY_dest += (mouseY - mouseY_dest) * .1;
+
+	camera.x = Math.sin(mouseX_dest) * camera2.z;
+	camera.y = -mouseY_dest * 10;
+	camera.z = Math.cos(mouseX_dest) * camera2.z;
+
+	view.lookAt(camera, camera.target, camera.up);
+
+	var i = elements.length;
+
+	while(--i >= 0)
+	{
+		var j = elements[i].length;
+
+		while (--j >= 0)
+		{
+			var element = elements[i][j];
+
+			element.sz = element.x * view.n31 + element.y * view.n32 + element.z * view.n33 + view.n34;
+
+			if (focus + element.sz < 0) {
+				element.content.style['visibility'] = 'hidden';
+				continue;
+			}
+			else {
+				element.content.style['visibility'] = 'visible';
+			}
+
+			var ow = focuszoom / (focus + element.sz);
+
+			element.sx = (element.x * view.n11 + element.y * view.n12 + element.z * view.n13 + view.n14) * ow;
+			element.sy = (element.x * view.n21 + element.y * view.n22 + element.z * view.n23 + view.n24) * -ow;
+
+			element.content.style['left'] = (element.sx + windowHalfX - (element.content.offsetWidth >> 1)) + 'px';
+			element.content.style['top'] = (element.sy + windowHalfY - (element.content.offsetHeight >> 1)) + 'px';
+
+			// webkit
+			element.content.style['-webkit-transform'] = 'scale( ' + ow + ' )';
+
+			// gecko
+			element.content.style['MozTransform'] = 'scale( ' + ow + ' )';
+
+			element.content.style.zIndex = 1000 + (-element.sz * 100) >> 0;
+		}
+	}
+}
+
+// .. UTILS
+
+function getElementsByClass( searchClass )
+{
+	var classElements = new Array();
+	var els = document.getElementsByTagName('*');
+	var elsLen = els.length
+	for (i = 0, j = 0; i < elsLen; i++)
+	{
+		var classes = els[i].className.split(' ');
+		for (k = 0; k < classes.length; k++)
+			if ( classes[k] == searchClass )
+				classElements[j++] = els[i];
+	}
+	return classElements;
+}
+
+function findPos(obj)
+{
+	var curleft = curtop = 0;
+	if (obj.offsetParent)
+	{
+		do
+		{
+			curleft += obj.offsetLeft;
+			curtop += obj.offsetTop;
+		}
+		while (obj = obj.offsetParent);
+	}
+	return [curleft,curtop];
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// API.JS
+
+if(!window['googleLT_']){window['googleLT_']=(new Date()).getTime();}if (!window['google']) {
+window['google'] = {};
+}
+if (!window['google']['loader']) {
+window['google']['loader'] = {};
+google.loader.ServiceBase = 'https://www.google.com/uds';
+google.loader.GoogleApisBase = 'https://ajax.googleapis.com/ajax';
+google.loader.ApiKey = 'notsupplied';
+google.loader.KeyVerified = true;
+google.loader.LoadFailure = false;
+google.loader.Secure = false;
+google.loader.GoogleLocale = 'www.google.com';
+google.loader.ClientLocation = null;
+google.loader.AdditionalParams = '';
+(function() {var d=encodeURIComponent,g=window,h=document;function l(a,b){return a.load=b}var m="replace",n="charAt",q="getTime",r="setTimeout",t="push",u="indexOf",v="ServiceBase",w="name",x="length",y="prototype",z="loader",A="substring",B="join",C="toLowerCase";function D(a){return a in E?E[a]:E[a]=-1!=navigator.userAgent[C]()[u](a)}var E={};function F(a,b){var c=function(){};c.prototype=b[y];a.U=b[y];a.prototype=new c}
+function G(a,b,c){var e=Array[y].slice.call(arguments,2)||[];return function(){return a.apply(b,e.concat(Array[y].slice.call(arguments)))}}function H(a){a=Error(a);a.toString=function(){return this.message};return a}function I(a,b){for(var c=a.split(/\./),e=g,f=0;f<c[x]-1;f++)e[c[f]]||(e[c[f]]={}),e=e[c[f]];e[c[c[x]-1]]=b}function J(a,b,c){a[b]=c}if(!K)var K=I;if(!L)var L=J;google[z].v={};K("google.loader.callbacks",google[z].v);var M={},N={};google[z].eval={};K("google.loader.eval",google[z].eval);
+l(google,function(a,b,c){function e(a){var b=a.split(".");if(2<b[x])throw H("Module: '"+a+"' not found!");"undefined"!=typeof b[1]&&(f=b[0],c.packages=c.packages||[],c.packages[t](b[1]))}var f=a;c=c||{};if(a instanceof Array||a&&"object"==typeof a&&"function"==typeof a[B]&&"function"==typeof a.reverse)for(var k=0;k<a[x];k++)e(a[k]);else e(a);if(a=M[":"+f]){c&&!c.language&&c.locale&&(c.language=c.locale);c&&"string"==typeof c.callback&&(k=c.callback,k.match(/^[[\]A-Za-z0-9._]+$/)&&(k=g.eval(k),c.callback=
+k));if((k=c&&null!=c.callback)&&!a.s(b))throw H("Module: '"+f+"' must be loaded before DOM onLoad!");k?a.m(b,c)?g[r](c.callback,0):a.load(b,c):a.m(b,c)||a.load(b,c)}else throw H("Module: '"+f+"' not found!");});K("google.load",google.load);
+google.T=function(a,b){b?(0==O[x]&&(P(g,"load",Q),!D("msie")&&!D("safari")&&!D("konqueror")&&D("mozilla")||g.opera?g.addEventListener("DOMContentLoaded",Q,!1):D("msie")?h.write("<script defer onreadystatechange='google.loader.domReady()' src=//:>\x3c/script>"):(D("safari")||D("konqueror"))&&g[r](S,10)),O[t](a)):P(g,"load",a)};K("google.setOnLoadCallback",google.T);
+function P(a,b,c){if(a.addEventListener)a.addEventListener(b,c,!1);else if(a.attachEvent)a.attachEvent("on"+b,c);else{var e=a["on"+b];a["on"+b]=null!=e?aa([c,e]):c}}function aa(a){return function(){for(var b=0;b<a[x];b++)a[b]()}}var O=[];google[z].P=function(){var a=g.event.srcElement;"complete"==a.readyState&&(a.onreadystatechange=null,a.parentNode.removeChild(a),Q())};K("google.loader.domReady",google[z].P);var ba={loaded:!0,complete:!0};function S(){ba[h.readyState]?Q():0<O[x]&&g[r](S,10)}
+function Q(){for(var a=0;a<O[x];a++)O[a]();O.length=0}google[z].d=function(a,b,c){if(c){var e;"script"==a?(e=h.createElement("script"),e.type="text/javascript",e.src=b):"css"==a&&(e=h.createElement("link"),e.type="text/css",e.href=b,e.rel="stylesheet");(a=h.getElementsByTagName("head")[0])||(a=h.body.parentNode.appendChild(h.createElement("head")));a.appendChild(e)}else"script"==a?h.write('<script src="'+b+'" type="text/javascript">\x3c/script>'):"css"==a&&h.write('<link href="'+b+'" type="text/css" rel="stylesheet"></link>')};
+K("google.loader.writeLoadTag",google[z].d);google[z].Q=function(a){N=a};K("google.loader.rfm",google[z].Q);google[z].S=function(a){for(var b in a)"string"==typeof b&&b&&":"==b[n](0)&&!M[b]&&(M[b]=new T(b[A](1),a[b]))};K("google.loader.rpl",google[z].S);google[z].R=function(a){if((a=a.specs)&&a[x])for(var b=0;b<a[x];++b){var c=a[b];"string"==typeof c?M[":"+c]=new U(c):(c=new V(c[w],c.baseSpec,c.customSpecs),M[":"+c[w]]=c)}};K("google.loader.rm",google[z].R);google[z].loaded=function(a){M[":"+a.module].l(a)};
+K("google.loader.loaded",google[z].loaded);google[z].O=function(){return"qid="+((new Date)[q]().toString(16)+Math.floor(1E7*Math.random()).toString(16))};K("google.loader.createGuidArg_",google[z].O);I("google_exportSymbol",I);I("google_exportProperty",J);google[z].a={};K("google.loader.themes",google[z].a);google[z].a.I="//www.google.com/cse/style/look/bubblegum.css";L(google[z].a,"BUBBLEGUM",google[z].a.I);google[z].a.K="//www.google.com/cse/style/look/greensky.css";L(google[z].a,"GREENSKY",google[z].a.K);
+google[z].a.J="//www.google.com/cse/style/look/espresso.css";L(google[z].a,"ESPRESSO",google[z].a.J);google[z].a.M="//www.google.com/cse/style/look/shiny.css";L(google[z].a,"SHINY",google[z].a.M);google[z].a.L="//www.google.com/cse/style/look/minimalist.css";L(google[z].a,"MINIMALIST",google[z].a.L);google[z].a.N="//www.google.com/cse/style/look/v2/default.css";L(google[z].a,"V2_DEFAULT",google[z].a.N);function U(a){this.b=a;this.o=[];this.n={};this.e={};this.f={};this.j=!0;this.c=-1}
+U[y].g=function(a,b){var c="";void 0!=b&&(void 0!=b.language&&(c+="&hl="+d(b.language)),void 0!=b.nocss&&(c+="&output="+d("nocss="+b.nocss)),void 0!=b.nooldnames&&(c+="&nooldnames="+d(b.nooldnames)),void 0!=b.packages&&(c+="&packages="+d(b.packages)),null!=b.callback&&(c+="&async=2"),void 0!=b.style&&(c+="&style="+d(b.style)),void 0!=b.noexp&&(c+="&noexp=true"),void 0!=b.other_params&&(c+="&"+b.other_params));if(!this.j){google[this.b]&&google[this.b].JSHash&&(c+="&sig="+d(google[this.b].JSHash));
+var e=[],f;for(f in this.n)":"==f[n](0)&&e[t](f[A](1));for(f in this.e)":"==f[n](0)&&this.e[f]&&e[t](f[A](1));c+="&have="+d(e[B](","))}return google[z][v]+"/?file="+this.b+"&v="+a+google[z].AdditionalParams+c};U[y].t=function(a){var b=null;a&&(b=a.packages);var c=null;if(b)if("string"==typeof b)c=[a.packages];else if(b[x])for(c=[],a=0;a<b[x];a++)"string"==typeof b[a]&&c[t](b[a][m](/^\s*|\s*$/,"")[C]());c||(c=["default"]);b=[];for(a=0;a<c[x];a++)this.n[":"+c[a]]||b[t](c[a]);return b};
+l(U[y],function(a,b){var c=this.t(b),e=b&&null!=b.callback;if(e)var f=new W(b.callback);for(var k=[],p=c[x]-1;0<=p;p--){var s=c[p];e&&f.B(s);if(this.e[":"+s])c.splice(p,1),e&&this.f[":"+s][t](f);else k[t](s)}if(c[x]){b&&b.packages&&(b.packages=c.sort()[B](","));for(p=0;p<k[x];p++)s=k[p],this.f[":"+s]=[],e&&this.f[":"+s][t](f);if(b||null==N[":"+this.b]||null==N[":"+this.b].versions[":"+a]||google[z].AdditionalParams||!this.j)b&&b.autoloaded||google[z].d("script",this.g(a,b),e);else{c=N[":"+this.b];
+google[this.b]=google[this.b]||{};for(var R in c.properties)R&&":"==R[n](0)&&(google[this.b][R[A](1)]=c.properties[R]);google[z].d("script",google[z][v]+c.path+c.js,e);c.css&&google[z].d("css",google[z][v]+c.path+c.css,e)}this.j&&(this.j=!1,this.c=(new Date)[q](),1!=this.c%100&&(this.c=-1));for(p=0;p<k[x];p++)s=k[p],this.e[":"+s]=!0}});
+U[y].l=function(a){-1!=this.c&&(X("al_"+this.b,"jl."+((new Date)[q]()-this.c),!0),this.c=-1);this.o=this.o.concat(a.components);google[z][this.b]||(google[z][this.b]={});google[z][this.b].packages=this.o.slice(0);for(var b=0;b<a.components[x];b++){this.n[":"+a.components[b]]=!0;this.e[":"+a.components[b]]=!1;var c=this.f[":"+a.components[b]];if(c){for(var e=0;e<c[x];e++)c[e].C(a.components[b]);delete this.f[":"+a.components[b]]}}};U[y].m=function(a,b){return 0==this.t(b)[x]};U[y].s=function(){return!0};
+function W(a){this.F=a;this.q={};this.r=0}W[y].B=function(a){this.r++;this.q[":"+a]=!0};W[y].C=function(a){this.q[":"+a]&&(this.q[":"+a]=!1,this.r--,0==this.r&&g[r](this.F,0))};function V(a,b,c){this.name=a;this.D=b;this.p=c;this.u=this.h=!1;this.k=[];google[z].v[this[w]]=G(this.l,this)}F(V,U);l(V[y],function(a,b){var c=b&&null!=b.callback;c?(this.k[t](b.callback),b.callback="google.loader.callbacks."+this[w]):this.h=!0;b&&b.autoloaded||google[z].d("script",this.g(a,b),c)});V[y].m=function(a,b){return b&&null!=b.callback?this.u:this.h};V[y].l=function(){this.u=!0;for(var a=0;a<this.k[x];a++)g[r](this.k[a],0);this.k=[]};
+var Y=function(a,b){return a.string?d(a.string)+"="+d(b):a.regex?b[m](/(^.*$)/,a.regex):""};V[y].g=function(a,b){return this.G(this.w(a),a,b)};
+V[y].G=function(a,b,c){var e="";a.key&&(e+="&"+Y(a.key,google[z].ApiKey));a.version&&(e+="&"+Y(a.version,b));b=google[z].Secure&&a.ssl?a.ssl:a.uri;if(null!=c)for(var f in c)a.params[f]?e+="&"+Y(a.params[f],c[f]):"other_params"==f?e+="&"+c[f]:"base_domain"==f&&(b="https://"+c[f]+a.uri[A](a.uri[u]("/",7)));google[this[w]]={};-1==b[u]("?")&&e&&(e="?"+e[A](1));return b+e};V[y].s=function(a){return this.w(a).deferred};V[y].w=function(a){if(this.p)for(var b=0;b<this.p[x];++b){var c=this.p[b];if((new RegExp(c.pattern)).test(a))return c}return this.D};function T(a,b){this.b=a;this.i=b;this.h=!1}F(T,U);l(T[y],function(a,b){this.h=!0;google[z].d("script",this.g(a,b),!1)});T[y].m=function(){return this.h};T[y].l=function(){};T[y].g=function(a,b){if(!this.i.versions[":"+a]){if(this.i.aliases){var c=this.i.aliases[":"+a];c&&(a=c)}if(!this.i.versions[":"+a])throw H("Module: '"+this.b+"' with version '"+a+"' not found!");}return google[z].GoogleApisBase+"/libs/"+this.b+"/"+a+"/"+this.i.versions[":"+a][b&&b.uncompressed?"uncompressed":"compressed"]};
+T[y].s=function(){return!1};var ca=!1,Z=[],da=(new Date)[q](),fa=function(){ca||(P(g,"unload",ea),ca=!0)},ga=function(a,b){fa();if(!(google[z].Secure||google[z].Options&&!1!==google[z].Options.csi)){for(var c=0;c<a[x];c++)a[c]=d(a[c][C]()[m](/[^a-z0-9_.]+/g,"_"));for(c=0;c<b[x];c++)b[c]=d(b[c][C]()[m](/[^a-z0-9_.]+/g,"_"));g[r](G($,null,"//gg.google.com/csi?s=uds&v=2&action="+a[B](",")+"&it="+b[B](",")),1E4)}},X=function(a,b,c){c?ga([a],[b]):(fa(),Z[t]("r"+Z[x]+"="+d(a+(b?"|"+b:""))),g[r](ea,5<Z[x]?0:15E3))},ea=function(){if(Z[x]){var a=
+google[z][v];0==a[u]("http:")&&(a=a[m](/^http:/,"https:"));$(a+"/stats?"+Z[B]("&")+"&nc="+(new Date)[q]()+"_"+((new Date)[q]()-da));Z.length=0}},$=function(a){var b=new Image,c=$.H++;$.A[c]=b;b.onload=b.onerror=function(){delete $.A[c]};b.src=a;b=null};$.A={};$.H=0;I("google.loader.recordCsiStat",ga);I("google.loader.recordStat",X);I("google.loader.createImageForLogging",$);
+
+}) ();google.loader.rm({"specs":[{"name":"books","baseSpec":{"uri":"http://books.google.com/books/api.js","ssl":"https://encrypted.google.com/books/api.js","key":{"string":"key"},"version":{"string":"v"},"deferred":true,"params":{"callback":{"string":"callback"},"language":{"string":"hl"}}}},"feeds",{"name":"friendconnect","baseSpec":{"uri":"http://www.google.com/friendconnect/script/friendconnect.js","ssl":"https://www.google.com/friendconnect/script/friendconnect.js","key":{"string":"key"},"version":{"string":"v"},"deferred":false,"params":{}}},"spreadsheets","identitytoolkit","gdata","ima","visualization",{"name":"sharing","baseSpec":{"uri":"http://www.google.com/s2/sharing/js","ssl":null,"key":{"string":"key"},"version":{"string":"v"},"deferred":false,"params":{"language":{"string":"hl"}}}},{"name":"maps","baseSpec":{"uri":"http://maps.google.com/maps?file\u003dgoogleapi","ssl":"https://maps-api-ssl.google.com/maps?file\u003dgoogleapi","key":{"string":"key"},"version":{"string":"v"},"deferred":true,"params":{"callback":{"regex":"callback\u003d$1\u0026async\u003d2"},"language":{"string":"hl"}}},"customSpecs":[{"uri":"http://maps.googleapis.com/maps/api/js","ssl":"https://maps.googleapis.com/maps/api/js","version":{"string":"v"},"deferred":true,"params":{"callback":{"string":"callback"},"language":{"string":"hl"}},"pattern":"^(3|3..*)$"}]},"search","annotations_v2","payments","wave","orkut",{"name":"annotations","baseSpec":{"uri":"http://www.google.com/reviews/scripts/annotations_bootstrap.js","ssl":null,"key":{"string":"key"},"version":{"string":"v"},"deferred":true,"params":{"callback":{"string":"callback"},"language":{"string":"hl"},"country":{"string":"gl"}}}},"language","earth","picker","ads","elements"]});
+google.loader.rfm({":search":{"versions":{":1":"1",":1.0":"1"},"path":"/","js":"default+pt_BR.I.js","css":"default+pt_BR.css","properties":{":JSHash":"28ae2b20598e87432c64a154583c2fc6",":NoOldNames":false,":Version":"1.0"}},":language":{"versions":{":1":"1",":1.0":"1"},"path":"/","js":"default+pt_BR.I.js","properties":{":JSHash":"7b15944f20c0d2d7b2d2d87406a8916b",":Version":"1.0"}},":feeds":{"versions":{":1":"1",":1.0":"1"},"path":"/","js":"default+pt_BR.I.js","css":"default+pt_BR.css","properties":{":JSHash":"482f2817cdf8982edf2e5669f9e3a627",":Version":"1.0"}},":spreadsheets":{"versions":{":0":"1",":0.4":"1"},"path":"/api/spreadsheets/0.4/87ff7219e9f8a8164006cbf28d5e911a/","js":"default.I.js","properties":{":JSHash":"87ff7219e9f8a8164006cbf28d5e911a",":Version":"0.4"}},":ima":{"versions":{":3":"1",":3.0":"1"},"path":"/api/ima/3.0/28a914332232c9a8ac0ae8da68b1006e/","js":"default.I.js","properties":{":JSHash":"28a914332232c9a8ac0ae8da68b1006e",":Version":"3.0"}},":wave":{"versions":{":1":"1",":1.0":"1"},"path":"/api/wave/1.0/3b6f7573ff78da6602dda5e09c9025bf/","js":"default.I.js","properties":{":JSHash":"3b6f7573ff78da6602dda5e09c9025bf",":Version":"1.0"}},":earth":{"versions":{":1":"1",":1.0":"1"},"path":"/api/earth/1.0/db22e5693e0a8de1f62f3536f5a8d7d3/","js":"default.I.js","properties":{":JSHash":"db22e5693e0a8de1f62f3536f5a8d7d3",":Version":"1.0"}},":annotations":{"versions":{":1":"1",":1.0":"1"},"path":"/","js":"default+pt_BR.I.js","properties":{":JSHash":"ee29f1a32c343fea662c6e1b58ec6d0d",":Version":"1.0"}},":picker":{"versions":{":1":"1",":1.0":"1"},"path":"/api/picker/1.0/1c635e91b9d0c082c660a42091913907/","js":"default.I.js","css":"default.css","properties":{":JSHash":"1c635e91b9d0c082c660a42091913907",":Version":"1.0"}}});
+google.loader.rpl({":scriptaculous":{"versions":{":1.8.3":{"uncompressed":"scriptaculous.js","compressed":"scriptaculous.js"},":1.9.0":{"uncompressed":"scriptaculous.js","compressed":"scriptaculous.js"},":1.8.2":{"uncompressed":"scriptaculous.js","compressed":"scriptaculous.js"},":1.8.1":{"uncompressed":"scriptaculous.js","compressed":"scriptaculous.js"}},"aliases":{":1.8":"1.8.3",":1":"1.9.0",":1.9":"1.9.0"}},":yui":{"versions":{":2.6.0":{"uncompressed":"build/yuiloader/yuiloader.js","compressed":"build/yuiloader/yuiloader-min.js"},":2.9.0":{"uncompressed":"build/yuiloader/yuiloader.js","compressed":"build/yuiloader/yuiloader-min.js"},":2.7.0":{"uncompressed":"build/yuiloader/yuiloader.js","compressed":"build/yuiloader/yuiloader-min.js"},":2.8.0r4":{"uncompressed":"build/yuiloader/yuiloader.js","compressed":"build/yuiloader/yuiloader-min.js"},":2.8.2r1":{"uncompressed":"build/yuiloader/yuiloader.js","compressed":"build/yuiloader/yuiloader-min.js"},":2.8.1":{"uncompressed":"build/yuiloader/yuiloader.js","compressed":"build/yuiloader/yuiloader-min.js"},":3.3.0":{"uncompressed":"build/yui/yui.js","compressed":"build/yui/yui-min.js"}},"aliases":{":3":"3.3.0",":2":"2.9.0",":2.7":"2.7.0",":2.8.2":"2.8.2r1",":2.6":"2.6.0",":2.9":"2.9.0",":2.8":"2.8.2r1",":2.8.0":"2.8.0r4",":3.3":"3.3.0"}},":swfobject":{"versions":{":2.1":{"uncompressed":"swfobject_src.js","compressed":"swfobject.js"},":2.2":{"uncompressed":"swfobject_src.js","compressed":"swfobject.js"}},"aliases":{":2":"2.2"}},":ext-core":{"versions":{":3.1.0":{"uncompressed":"ext-core-debug.js","compressed":"ext-core.js"},":3.0.0":{"uncompressed":"ext-core-debug.js","compressed":"ext-core.js"}},"aliases":{":3":"3.1.0",":3.0":"3.0.0",":3.1":"3.1.0"}},":webfont":{"versions":{":1.0.28":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.27":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.29":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.12":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.13":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.14":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.15":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.10":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.11":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.2":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.1":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.0":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.6":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.19":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.5":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.18":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.4":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.17":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.16":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.3":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.9":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.21":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.22":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.25":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.26":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.23":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.24":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"}},"aliases":{":1":"1.0.29",":1.0":"1.0.29"}},":mootools":{"versions":{":1.3.1":{"uncompressed":"mootools.js","compressed":"mootools-yui-compressed.js"},":1.1.1":{"uncompressed":"mootools.js","compressed":"mootools-yui-compressed.js"},":1.3.0":{"uncompressed":"mootools.js","compressed":"mootools-yui-compressed.js"},":1.3.2":{"uncompressed":"mootools.js","compressed":"mootools-yui-compressed.js"},":1.1.2":{"uncompressed":"mootools.js","compressed":"mootools-yui-compressed.js"},":1.2.3":{"uncompressed":"mootools.js","compressed":"mootools-yui-compressed.js"},":1.2.4":{"uncompressed":"mootools.js","compressed":"mootools-yui-compressed.js"},":1.2.1":{"uncompressed":"mootools.js","compressed":"mootools-yui-compressed.js"},":1.2.2":{"uncompressed":"mootools.js","compressed":"mootools-yui-compressed.js"},":1.2.5":{"uncompressed":"mootools.js","compressed":"mootools-yui-compressed.js"},":1.4.0":{"uncompressed":"mootools.js","compressed":"mootools-yui-compressed.js"},":1.4.1":{"uncompressed":"mootools.js","compressed":"mootools-yui-compressed.js"},":1.4.2":{"uncompressed":"mootools.js","compressed":"mootools-yui-compressed.js"}},"aliases":{":1":"1.1.2",":1.11":"1.1.1",":1.4":"1.4.2",":1.3":"1.3.2",":1.2":"1.2.5",":1.1":"1.1.2"}},":jqueryui":{"versions":{":1.6.0":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.0":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.2":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.1":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.9":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.15":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.14":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.7":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.13":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.8":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.12":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.7.2":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.5":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.11":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.7.3":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.10":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.6":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.7.0":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.7.1":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.4":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.5.3":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.5.2":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.17":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.16":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"}},"aliases":{":1.8":"1.8.17",":1.7":"1.7.3",":1.6":"1.6.0",":1":"1.8.17",":1.5":"1.5.3",":1.8.3":"1.8.4"}},":chrome-frame":{"versions":{":1.0.2":{"uncompressed":"CFInstall.js","compressed":"CFInstall.min.js"},":1.0.1":{"uncompressed":"CFInstall.js","compressed":"CFInstall.min.js"},":1.0.0":{"uncompressed":"CFInstall.js","compressed":"CFInstall.min.js"}},"aliases":{":1":"1.0.2",":1.0":"1.0.2"}},":dojo":{"versions":{":1.3.1":{"uncompressed":"dojo/dojo.xd.js.uncompressed.js","compressed":"dojo/dojo.xd.js"},":1.6.1":{"uncompressed":"dojo/dojo.xd.js.uncompressed.js","compressed":"dojo/dojo.xd.js"},":1.3.0":{"uncompressed":"dojo/dojo.xd.js.uncompressed.js","compressed":"dojo/dojo.xd.js"},":1.1.1":{"uncompressed":"dojo/dojo.xd.js.uncompressed.js","compressed":"dojo/dojo.xd.js"},":1.3.2":{"uncompressed":"dojo/dojo.xd.js.uncompressed.js","compressed":"dojo/dojo.xd.js"},":1.6.0":{"uncompressed":"dojo/dojo.xd.js.uncompressed.js","compressed":"dojo/dojo.xd.js"},":1.2.3":{"uncompressed":"dojo/dojo.xd.js.uncompressed.js","compressed":"dojo/dojo.xd.js"},":1.7.2":{"uncompressed":"dojo/dojo.js.uncompressed.js","compressed":"dojo/dojo.js"},":1.7.0":{"uncompressed":"dojo/dojo.js.uncompressed.js","compressed":"dojo/dojo.js"},":1.7.1":{"uncompressed":"dojo/dojo.js.uncompressed.js","compressed":"dojo/dojo.js"},":1.4.3":{"uncompressed":"dojo/dojo.xd.js.uncompressed.js","compressed":"dojo/dojo.xd.js"},":1.5.1":{"uncompressed":"dojo/dojo.xd.js.uncompressed.js","compressed":"dojo/dojo.xd.js"},":1.5.0":{"uncompressed":"dojo/dojo.xd.js.uncompressed.js","compressed":"dojo/dojo.xd.js"},":1.2.0":{"uncompressed":"dojo/dojo.xd.js.uncompressed.js","compressed":"dojo/dojo.xd.js"},":1.4.0":{"uncompressed":"dojo/dojo.xd.js.uncompressed.js","compressed":"dojo/dojo.xd.js"},":1.4.1":{"uncompressed":"dojo/dojo.xd.js.uncompressed.js","compressed":"dojo/dojo.xd.js"}},"aliases":{":1.7":"1.7.2",":1":"1.6.1",":1.6":"1.6.1",":1.5":"1.5.1",":1.4":"1.4.3",":1.3":"1.3.2",":1.2":"1.2.3",":1.1":"1.1.1"}},":prototype":{"versions":{":1.7.0.0":{"uncompressed":"prototype.js","compressed":"prototype.js"},":1.6.0.2":{"uncompressed":"prototype.js","compressed":"prototype.js"},":1.6.1.0":{"uncompressed":"prototype.js","compressed":"prototype.js"},":1.6.0.3":{"uncompressed":"prototype.js","compressed":"prototype.js"}},"aliases":{":1.7":"1.7.0.0",":1.6.1":"1.6.1.0",":1":"1.7.0.0",":1.6":"1.6.1.0",":1.7.0":"1.7.0.0",":1.6.0":"1.6.0.3"}},":jquery":{"versions":{":1.6.2":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.3.1":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.6.1":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.3.0":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.6.4":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.6.3":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.3.2":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.6.0":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.2.3":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.7.0":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.7.1":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.2.6":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.4.3":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.4.4":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.5.1":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.5.0":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.4.0":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.5.2":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.4.1":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.4.2":{"uncompressed":"jquery.js","compressed":"jquery.min.js"}},"aliases":{":1.7":"1.7.1",":1.6":"1.6.4",":1":"1.7.1",":1.5":"1.5.2",":1.4":"1.4.4",":1.3":"1.3.2",":1.2":"1.2.6"}}});
+}
+if (window['google'] != undefined && window['google']['loader'] != undefined) {
+if (!window['google']['search']) {
+window['google']['search'] = {};
+google.search.Version = '1.0';
+google.search.NoOldNames = false;
+google.search.JSHash = '28ae2b20598e87432c64a154583c2fc6';
+google.search.LoadArgs = 'file\75uds.js\46v\0750.1';
+google.loader.ApiKey = 'notsupplied';
+google.loader.KeyVerified = true;
+google.loader.LoadFailure = false;
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// default+pt
+
+
 (function() {
 var _UDS_CONST_LOCALE = 'pt_BR';
 var _UDS_CONST_SHORT_DATE_PATTERN = 'DMY';

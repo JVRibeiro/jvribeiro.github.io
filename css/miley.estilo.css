@@ -27,10 +27,33 @@ outline: none;
 
 /* /////////////////////////////////////////////////////////// */
 @media screen and (min-width: 951px) {
+
+body {
+background-image: url('../img/miley/miley.background-1.png');
+background-color: #000;
+background-attachment: fixed;
+font-family: Agency FB, Arial, sans-serif;
+color: #fff;
+font-size: 10pt;
+}
+
+a, a:link, a:visited {
+color: #EDA3FF;
+font-size: 12pt;
+font-family: Segoe UI;
+cursor: pointer;
+transition: 0.2s ease-in-out;
+-webkit-transition: 0.2s ease-in-out;
+}
+
+a:hover {
+color: #E351FF;
+}
+
 /* ********* Avatar *************** */
 
 #miley-avatar {
-  position: fixed; top: 80px; left: 150px;
+  position: absolute; top: 80px; left: 150px;
   background: transparent;
     border-left: 2px solid #FBCEFF;
     border-right: 2px solid #FBCEFF;
@@ -39,14 +62,9 @@ outline: none;
     opacity: .9;
   border-radius: 50%;
     -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
     -webkit-animation: spinoffShine 4s infinite linear;
-    -ms-animation: spinoffShine 4s infinite linear;
-    -o-animation: spinoffShine 4s infinite linear;
     animation: spinoffShine 4s infinite linear;
 }
 
@@ -59,19 +77,13 @@ outline: none;
     bottom: -20px;
     background: transparent;
     opacity: .9;
-  border-top: 5px solid #E351FF;
-    border-bottom: 5px solid #E351FF;
-    border-right: 5px solid transparent;
-    border-left: 5px solid transparent;
+  border-top: 3px solid #E351FF;
+    border-bottom: 3px solid #E351FF;
+    border-right: 3px solid transparent;
+    border-left: 3px solid transparent;
   border-radius: 50%;
     -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
-  -moz-animation: spinPulse 6s infinite ease-in-out;
     -webkit-animation: spinPulse 6s infinite linear;
-    -ms-animation: spinPulse 6s infinite linear;
-    -o-animation: spinPulse 6s infinite linear;
     animation: spinPulse 6s infinite linear;
 }
 
@@ -81,22 +93,10 @@ outline: none;
 100% {transform: rotate(-90deg); opacity: 0;};
 }
 
-@-moz-keyframes spinPulse {
-0% {-moz-transform: rotate(90deg); opacity: 0;}
-50% {-moz-transform: rotate(-180deg); opacity: 1;}
-100% {-moz-transform: rotate(-90deg); opacity: 0;};
-}
-
 @-webkit-keyframes spinPulse {
 0% {-webkit-transform: rotate(90deg); opacity: 0;}
 50% {-webkit-transform: rotate(-180deg); opacity: 1;}
 100% {-webkit-transform: rotate(-90deg); opacity: 0;};
-}
-
-@-ms-keyframes spinPulse {
-0% {-ms-transform: rotate(90deg); opacity: 0;}
-50% {-ms-transform: rotate(-180deg); opacity: 1;}
-100% {-ms-transform: rotate(-90deg); opacity: 0;};
 }
 
 @keyframes spinoffShine {
@@ -106,25 +106,11 @@ outline: none;
 100% {box-shadow: 0 0 75px #E351FF, inset 0 0 5px #E351FF; transform: rotate(180deg);};
 }
 
-@-moz-keyframes spinoffShine {
-0% {-moz-box-shadow: 0 0 75px #E351FF, inset 0 0 5px #E351FF; -moz-transform: rotate(0deg);}
-20% {-moz-box-shadow: 0 0 20px #E351FF, inset 0 0 40px #E351FF; -moz-transform: rotate(45deg);}
-80% {-moz-box-shadow: 0 0 20px #E351FF, inset 0 0 20px #E351FF; -moz-transform: rotate(90deg);}
-100% {-moz-box-shadow: 0 0 75px #E351FF, inset 0 0 5px #E351FF; -moz-transform: rotate(180deg);};
-}
-
 @-webkit-keyframes spinoffShine {
 0% {-webkit-box-shadow: 0 0 75px #E351FF, inset 0 0 5px #E351FF; -webkit-transform: rotate(0deg);}
 20% {-webkit-box-shadow: 0 0 50px #E351FF, inset 0 0 40px #E351FF; -webkit-transform: rotate(45deg);}
 80% {-webkit-box-shadow: 0 0 50px #E351FF, inset 0 0 20px #E351FF; -webkit-transform: rotate(90deg);}
 100% {-webkit-box-shadow: 0 0 75px #E351FF, inset 0 0 5px #E351FF; -webkit-transform: rotate(180deg);};
-}
-
-@-ms-keyframes spinoffShine {
-0% {-ms-box-shadow: 0 0 75px #E351FF, inset 0 0 5px #E351FF; -ms-transform: rotate(0deg);}
-20% {-ms-box-shadow: 0 0 20px #E351FF, inset 0 0 40px #E351FF; -ms-transform: rotate(45deg);}
-80% {-ms-box-shadow: 0 0 20px #E351FF, inset 0 0 20px #E351FF; -ms-transform: rotate(90deg);}
-100% {-ms-box-shadow: 0 0 75px #E351FF, inset 0 0 5px #E351FF; -ms-transform: rotate(180deg);};
 }
 
 /* ************* Fim do avatar ********************* */
@@ -133,91 +119,48 @@ outline: none;
 
 /* * Relogio digital * */
 #rel {
+border: 5px solid #420647;
+border-radius: 50%;
+  -webkit-border-radius: 50%;
 cursor: default;
 display: block;
-position: fixed; bottom: 20px; right: 32px;
+position: fixed; bottom: 40px; right: 230px;
 width: 150px; height: 150px;
 margin: -75px 0 0 -75px;
 z-index: 1;
-border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-border: 1px solid #ee56fc; padding: 5px;
-
--webkit-animation: Shine 10s infinite linear;
--ms-animation: Shine 10s infinite linear;
--o-animation: Shine 10s infinite linear;
-animation: Shine 10s infinite linear;
 }
 
-#rel:before {
-cursor: default;
-
-width: 150px; height: 150px;
-border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-border: 1px solid #ee56fc; padding: 5px;
-}
 
 #rel:active {
-border: 5px solid #420647; width: 170px; height: 170px; padding: 5px;
+border: 5px solid #B93FC3;
+transform: scale(1.1);
+-webkit-transform: scale(1.1);
+border-radius: 50%;
+-webkit-border-radius: 50%;
 }
 
-#hor {cursor: default; -webkit-user-select: none; -moz-user-select: none; color: #fff; font-family: Agency FB, Segoe UI, sans-serif; font-size: 45pt; text-shadow: 0 0 20px #E351FF; background: transparent; width: 50px; z-index: 1;}
-#min {cursor: default; -webkit-user-select: none; -moz-user-select: none; color: #fff; font-family: Agency FB, Segoe UI, sans-serif; font-size: 45pt; text-shadow: 0 0 20px #E351FF; background: transparent; width: 50px; border: none; z-index: 1;}
+#hor {cursor: default; user-select: none; -webkit-user-select: none; font-family: Agency FB, Segoe UI, sans-serif; font-size: 45pt; text-shadow: 0 0 20px #E351FF; background: transparent; width: 50px; z-index: 1;}
+#min {cursor: default; user-select: none; -webkit-user-select: none; color: #fff; font-family: Agency FB, Segoe UI, sans-serif; font-size: 45pt; text-shadow: 0 0 20px #E351FF; background: transparent; width: 50px; border: none; z-index: 1;}
 #semana {padding: 7px; border: 1px solid #00E2FF;
-cursor: default; -webkit-user-select: none; -moz-user-select: none; color: #fff; font-family: Agency FB, Segoe UI, sans-serif; font-size: 18pt; vertical-align: top; text-shadow: 0 0 10px #E351FF; background: transparent; width: 20px;
+cursor: default; user-select: none; -webkit-user-select: none; color: #fff; font-family: Agency FB, Segoe UI, sans-serif; font-size: 18pt; vertical-align: top; text-shadow: 0 0 10px #E351FF; background: transparent; width: 20px;
 z-index: 2;}
-#seg, #dia, #mes, #ano {cursor: default; -webkit-user-select: none; -moz-user-select: none; color: #fff; font-family: Agency FB, Segoe UI, sans-serif; font-size: 18pt; vertical-align: top; text-shadow: 0 0 10px #E351FF; background: transparent; width: 20px; border: none; z-index: 2;
--webkit-animation: ShineText 5s infinite linear;
--ms-animation: ShineText 5s infinite linear;
--o-animation: ShineText 5s infinite linear;
-animation: ShineText 5s infinite linear;
+#seg, #dia, #mes, #ano {cursor: default; -webkit-user-select: none; color: #fff; font-family: Agency FB, Segoe UI, sans-serif; font-size: 18pt; vertical-align: top; text-shadow: 0 0 10px #E351FF; background: transparent; width: 20px; border: none; z-index: 2;
 }
 /* ********** Fim do relógio ************** */
 }
 
-@keyframes spinoffShine {
-0% {box-shadow: 0 0 75px #E351FF, inset 0 0 5px #E351FF;}
-20% {box-shadow: 0 0 20px #E351FF, inset 0 0 40px #E351FF;}
-80% {box-shadow: 0 0 50px #E351FF, inset 0 0 20px #E351FF;}
-100% {box-shadow: 0 0 75px #E351FF, inset 0 0 5px #E351FF;};
-}
-
-@-moz-keyframes spinoffShine {
-0% {-moz-box-shadow: 0 0 75px #E351FF, inset 0 0 5px #E351FF;}
-20% {-moz-box-shadow: 0 0 20px #E351FF, inset 0 0 40px #E351FF;}
-80% {-moz-box-shadow: 0 0 20px #E351FF, inset 0 0 20px #E351FF;}
-100% {-moz-box-shadow: 0 0 75px #E351FF, inset 0 0 5px #E351FF;};
-}
-
-@-webkit-keyframes Shine {
-0% {-webkit-box-shadow: 0 0 75px #E351FF, inset 0 0 5px #E351FF;}
-20% {-webkit-box-shadow: 0 0 20px #E351FF, inset 0 0 40px #E351FF;}
-80% {-webkit-box-shadow: 0 0 20px #E351FF, inset 0 0 20px #E351FF;}
-100% {-webkit-box-shadow: 0 0 75px #E351FF, inset 0 0 5px #E351FF;};
-}
-
-@-ms-keyframes spinoffShine {
-0% {-ms-box-shadow: 0 0 75px #E351FF, inset 0 0 5px #E351FF;}
-20% {-ms-box-shadow: 0 0 20px #E351FF, inset 0 0 40px #E351FF;}
-80% {-ms-box-shadow: 0 0 20px #E351FF, inset 0 0 20px #E351FF;}
-100% {-ms-box-shadow: 0 0 75px #E351FF, inset 0 0 5px #E351FF;};
-}
-
-@-webkit-keyframes ShineText {
-0% {text-shadow: 0 0 75px #E351FF, inset 0 0 5px #E351FF;}
-20% {text-shadow: 0 0 20px #E351FF, inset 0 0 40px #E351FF;}
-80% {text-shadow: 0 0 20px #E351FF, inset 0 0 20px #E351FF;}
-100% {text-shadow: 0 0 75px #E351FF, inset 0 0 5px #E351FF;};
-}
 
 @media screen and (max-width: 950px) {
+body {
+background-image: url('../img/miley/miley.background-1.png');
+background-color: #000;
+background-attachment: fixed;
+font-family: Agency FB, Arial, sans-serif;
+color: #fff;
+font-size: 10pt;
+max-width: 100%;
+}
+
 
 /* ********* Avatar *************** */
 #miley-avatar {
@@ -233,14 +176,9 @@ animation: ShineText 5s infinite linear;
     opacity: .9;
   border-radius: 50%;
     -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
     width: 40px;
     height: 40px;
-    -webkit-animation: spinoffShine 4s infinite linear;
-    -ms-animation: spinoffShine 4s infinite linear;
-    -o-animation: spinoffShine 4s infinite linear;
+  -webkit-animation: spinoffShine 4s infinite linear;
     animation: spinoffShine 4s infinite linear;
 }
 
@@ -264,13 +202,7 @@ animation: ShineText 5s infinite linear;
     border-left: 5px solid transparent;
   border-radius: 50%;
     -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
-  -moz-animation: spinPulse 2s infinite ease-in-out;
-    -webkit-animation: spinPulse 6s infinite linear;
-    -ms-animation: spinPulse 2s infinite linear;
-    -o-animation: spinPulse 2s infinite linear;
+  -webkit-animation: spinPulse 6s infinite linear;
     animation: spinPulse 2s infinite linear;
 }
 
@@ -280,22 +212,10 @@ animation: ShineText 5s infinite linear;
 100% {transform: rotate(-90deg); opacity: 0;};
 }
 
-@-moz-keyframes spinPulse {
-0% {-moz-transform: rotate(90deg); opacity: 0;}
-50% {-moz-transform: rotate(-180deg); opacity: 1;}
-100% {-moz-transform: rotate(-90deg); opacity: 0;};
-}
-
 @-webkit-keyframes spinPulse {
 0% {-webkit-transform: rotate(90deg); opacity: 0;}
 50% {-webkit-transform: rotate(-180deg); opacity: 1;}
 100% {-webkit-transform: rotate(-90deg); opacity: 0;};
-}
-
-@-ms-keyframes spinPulse {
-0% {-ms-transform: rotate(90deg); opacity: 0;}
-50% {-ms-transform: rotate(-180deg); opacity: 1;}
-100% {-ms-transform: rotate(-90deg); opacity: 0;};
 }
 
 @keyframes spinoffShine {
@@ -305,13 +225,6 @@ animation: ShineText 5s infinite linear;
 100% {box-shadow: 0 0 75px #E351FF, inset 0 0 5px #E351FF;};
 }
 
-@-moz-keyframes spinoffShine {
-0% {-moz-box-shadow: 0 0 75px #E351FF, inset 0 0 5px #E351FF;}
-20% {-moz-box-shadow: 0 0 20px #E351FF, inset 0 0 40px #E351FF;}
-80% {-moz-box-shadow: 0 0 20px #E351FF, inset 0 0 20px #E351FF;}
-100% {-moz-box-shadow: 0 0 75px #E351FF, inset 0 0 5px #E351FF;};
-}
-
 @-webkit-keyframes spinoffShine {
 0% {-webkit-box-shadow: 0 0 75px #E351FF, inset 0 0 5px #E351FF; -webkit-transform: rotate(0deg);}
 20% {-webkit-box-shadow: 0 0 20px #E351FF, inset 0 0 40px #E351FF; -webkit-transform: rotate(45deg);}
@@ -319,18 +232,39 @@ animation: ShineText 5s infinite linear;
 100% {-webkit-box-shadow: 0 0 75px #E351FF, inset 0 0 5px #E351FF; -webkit-transform: rotate(180deg);};
 }
 
-@-ms-keyframes spinoffShine {
-0% {-ms-box-shadow: 0 0 75px #E351FF, inset 0 0 5px #E351FF;}
-20% {-ms-box-shadow: 0 0 20px #E351FF, inset 0 0 40px #E351FF;}
-80% {-ms-box-shadow: 0 0 20px #E351FF, inset 0 0 20px #E351FF;}
-100% {-ms-box-shadow: 0 0 75px #E351FF, inset 0 0 5px #E351FF;};
-}
 /* ************* Fim do avatar ********************* */
 
-/* * Elementos ocultos nesse tamanho de tela * */
-#rel, #rel-decoracao:after, #rel-decoracao:before, #q {
-display: none;
+
+
+/* * Relogio digital * */
+#rel {
+cursor: default;
+display: block;
+position: fixed; bottom: 20px; right: 200px;
+width: 150px; height: 150px;
+margin: -75px 0 0 -75px;
+z-index: 1;
 }
+
+
+#rel:active {
+border: 5px solid #420647;
+-webkit-transform: scale(1.1);
+border-radius: 50%;
+  -webkit-border-radius: 50%;
+}
+
+#hor {cursor: default; -webkit-user-select: none; color: #fff; font-family: Agency FB, Segoe UI, sans-serif; font-size: 45pt; text-shadow: 0 0 20px #E351FF; background: transparent; width: 50px; z-index: 1;}
+#min {cursor: default; -webkit-user-select: none; color: #fff; font-family: Agency FB, Segoe UI, sans-serif; font-size: 45pt; text-shadow: 0 0 20px #E351FF; background: transparent; width: 50px; border: none; z-index: 1;}
+#semana {padding: 7px; border: 1px solid #00E2FF;
+cursor: default; -webkit-user-select: none; color: #fff; font-family: Agency FB, Segoe UI, sans-serif; font-size: 18pt; vertical-align: top; text-shadow: 0 0 10px #E351FF; background: transparent; width: 20px;
+z-index: 2;}
+#seg, #dia, #mes, #ano {cursor: default; -webkit-user-select: none; color: #fff; font-family: Agency FB, Segoe UI, sans-serif; font-size: 18pt; vertical-align: top; text-shadow: 0 0 10px #E351FF; background: transparent; width: 20px; border: none; z-index: 2;
+}
+/* ********** Fim do relógio ************** */
+
+
+
 
 .falar {
 display: inline;
@@ -355,7 +289,7 @@ visibility: hidden;
 }
 
 /* * Elementos ocultos nesse tamanho de tela * */
-.cc, #rel, #rel-decoracao:after, #rel-decoracao:before, #q {
+.cc, #rel, #rel-decoracao:after, #rel-decoracao:before, #q, #def-img-srch {
 display: none;
 }
 
@@ -365,8 +299,12 @@ display: none;
 @media screen and (max-width: 480px) { /* Smartphones*/
 
 body {
-padding-bottom: 150px;
+background-image: url('../img/miley/miley.background-1.png');
 background-color: #000;
+background-attachment: fixed;
+font-family: Agency FB, Arial, sans-serif;
+color: #fff;
+font-size: 10pt;
 }
 
 #config {
@@ -385,6 +323,27 @@ z-index: 20;
 cursor: default;
 }
 
+#lado2 {
+max-width: 100%;
+height: auto;
+position: absolute;
+top: 0px;
+right: 0;
+}
+
+
+.options {
+position: fixed;
+top: 5px;
+right: 3px;
+cursor: pointer;
+width: 35px;
+height: 30px;
+background: url('../img/miley/miley.op-1.png') no-repeat;
+background-size: 100% 100%;
+z-index: 6;
+}
+
 .close {
 color: #fff;
 border: none;
@@ -397,7 +356,7 @@ position: absolute;
 top: 0;
 right: 100px;
 outline: none;
-border-radius: 0 0 0 10px; -webkit-border-radius: 0 0 0 10px; -moz-border-radius: 0 0 0 10px; -ms-border-radius: 0 0 0 10px;
+border-radius: 0 0 0 10px; -webkit-border-radius: 0 0 0 10px;
 opacity: 1;
 }
 
@@ -480,7 +439,7 @@ z-index: 1;
 .ajuda {
 position: absolute;
 top: 0;
-right: 0;
+left: 10px;
  }
 
 #miley-avatar {
@@ -496,20 +455,10 @@ right: 0;
     opacity: .9;
   border-radius: 50%;
     -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
     width: 40px;
     height: 40px;
-    -webkit-animation: spinoffShine 4s infinite linear;
-    -ms-animation: spinoffShine 4s infinite linear;
-    -o-animation: spinoffShine 4s infinite linear;
+  -webkit-animation: spinoffShine 4s infinite linear;
     animation: spinoffShine 4s infinite linear;
-}
-
-#miley-avatar:active {
-    width: 50px;
-    height: 50px;
 }
 
 #miley-avatar:before {
@@ -527,13 +476,7 @@ right: 0;
     border-left: 5px solid transparent;
   border-radius: 50%;
     -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
-  -moz-animation: spinPulse 2s infinite ease-in-out;
-    -webkit-animation: spinPulse 6s infinite linear;
-    -ms-animation: spinPulse 2s infinite linear;
-    -o-animation: spinPulse 2s infinite linear;
+  -webkit-animation: spinPulse 6s infinite linear;
     animation: spinPulse 2s infinite linear;
 }
 
@@ -543,22 +486,10 @@ right: 0;
 100% {transform: rotate(-90deg); opacity: 0;};
 }
 
-@-moz-keyframes spinPulse {
-0% {-moz-transform: rotate(90deg); opacity: 0;}
-50% {-moz-transform: rotate(-180deg); opacity: 1;}
-100% {-moz-transform: rotate(-90deg); opacity: 0;};
-}
-
 @-webkit-keyframes spinPulse {
 0% {-webkit-transform: rotate(90deg); opacity: 0;}
 50% {-webkit-transform: rotate(-180deg); opacity: 1;}
 100% {-webkit-transform: rotate(-90deg); opacity: 0;};
-}
-
-@-ms-keyframes spinPulse {
-0% {-ms-transform: rotate(90deg); opacity: 0;}
-50% {-ms-transform: rotate(-180deg); opacity: 1;}
-100% {-ms-transform: rotate(-90deg); opacity: 0;};
 }
 
 @keyframes spinoffShine {
@@ -568,27 +499,12 @@ right: 0;
 100% {box-shadow: 0 0 75px #E351FF, inset 0 0 5px #E351FF;};
 }
 
-@-moz-keyframes spinoffShine {
-0% {-moz-box-shadow: 0 0 75px #E351FF, inset 0 0 5px #E351FF;}
-20% {-moz-box-shadow: 0 0 20px #E351FF, inset 0 0 40px #E351FF;}
-80% {-moz-box-shadow: 0 0 20px #E351FF, inset 0 0 20px #E351FF;}
-100% {-moz-box-shadow: 0 0 75px #E351FF, inset 0 0 5px #E351FF;};
-}
-
 @-webkit-keyframes spinoffShine {
 0% {-webkit-box-shadow: 0 0 75px #E351FF, inset 0 0 5px #E351FF; -webkit-transform: rotate(0deg);}
 20% {-webkit-box-shadow: 0 0 20px #E351FF, inset 0 0 40px #E351FF; -webkit-transform: rotate(45deg);}
 80% {-webkit-box-shadow: 0 0 20px #E351FF, inset 0 0 20px #E351FF; -webkit-transform: rotate(90deg);}
 100% {-webkit-box-shadow: 0 0 75px #E351FF, inset 0 0 5px #E351FF; -webkit-transform: rotate(180deg);};
 }
-
-@-ms-keyframes spinoffShine {
-0% {-ms-box-shadow: 0 0 75px #E351FF, inset 0 0 5px #E351FF;}
-20% {-ms-box-shadow: 0 0 20px #E351FF, inset 0 0 40px #E351FF;}
-80% {-ms-box-shadow: 0 0 20px #E351FF, inset 0 0 20px #E351FF;}
-100% {-ms-box-shadow: 0 0 75px #E351FF, inset 0 0 5px #E351FF;};
-}
-
 
 
 /* * Elementos ocultos nesse tamanho de tela * */
@@ -618,48 +534,48 @@ background: transparent;
 }
 
 /*//////////////////////////////////////////////////////////////*/
+
+
+
+
+
 .miley {
 position: fixed;
+background: rgba(0,0,0, .5);
 top: 150px;
 left: 15px;
 margin-top: 60px;
 width: 350px;
 max-width: 90%;
-border-right: 1px solid #ee56fc;
 }
 
-.miley-dialog {
+#miley-dialog {
+display: none;
 background: #000;
-position: relative;
-float: right;
+position: fixed;
+top: 250px;
+right: 200px;
 margin-top: 60px;
 width: 295px;
 max-width: 90%;
-}
-.miley-fb {
-background: #000;
-position: relative;
-float: right;
-margin-top: 5px;
-width: 295px;
-max-width: 90%;
+z-index: 20
 }
 
 .miley-widget-header {
 font-size: 12pt;
-text-align: center;
+text-align: ;
 cursor: default;
 background: none;
 color: #ee56fc;
 margin-top: -20px;
 padding: 10px;
-width: 95%;
+width: 94%;
 background: #000;
 opacity: .7;
 border: 1px solid #ee56fc
 }
 .miley-widget-header:hover {
-cursor: hand;
+cursor: default;
 background: #49164D;
 }
 .miley-widget-header:active {
@@ -668,7 +584,8 @@ background: #49164D;
 }
 
 #canvas {
-background: url('../img/miley/miley.img-srch-spin.gif') transparent no-repeat; background-position: center center;
+background: url(../img/miley/miley.img-srch-spin.gif) no-repeat;
+background-position: 50% 50%;
 cursor: default;
 width: 100%;
 height: 100%;
@@ -699,14 +616,14 @@ color: #fff;
 background: #000;
 padding: 5px;
 border: 3px solid #fff;
-border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px;
+border-radius: 5px; -webkit-border-radius: 5px;
 }
 #q:hover {
 padding: 5px;
 border: 3px solid #E351FF;
 }
 #def-img-srch {cursor: default; background: #000; opacity: .7; padding: 20px; border: 1px solid #ee56fc; text-align: center; position: fixed; top: 50px; left: 43%;}
-#def-img-srch:active {cursor: move; background: #310D38; opacity: .7; padding: 20px; border: 1px solid #ee56fc; text-align: center; position: absolute; top: 50px; left: 43%;}
+#def-img-srch:active {cursor: move; background: #310D38; opacity: .7; padding: 20px; border: 1px solid #ee56fc; text-align: center; position: fixed; top: 50px; left: 43%;}
 #img-srch, #def-srch, #def-img-srch-x {display: none; z-index: 1; padding: 10px; position: relative; margin-top: 50px; color: #fff; font-family: Agency FB, Arial, sans-serif; font-size: 16pt; background: #8E2498; border: 1px solid #000; transition: .2s ease-out; margin: 3px;}
 #img-srch:hover, #def-srch:hover, #def-img-srch-x:hover {color: #fff; background: #ee56fc; border: 1px solid #fff; box-shadow: 0 0 20px #ee56fc;}
 
@@ -722,8 +639,6 @@ height: 40px;
 width: 100%;
 transition: .2s ease-in-out;
 -webkit-transition: .2s ease-in-out;
--moz-transition: .2s ease-in-out;
--ms-transition: .2s ease-in-out;
 }
 #navbar:hover {
 background: #000;
@@ -737,8 +652,8 @@ width: 100%;
 background: #000;
 display: none;
 width: 450px;
-height: auto;
-position: absolute;
+height: 100%;
+position: fixed;
 top: 0px;
 left: 0;
 padding-top: 50px;
@@ -748,7 +663,7 @@ z-index: 20;
 cursor: default;
 border-top: 5px solid #ee56fc;
 border-right: 1px solid #ee56fc;
--ms-border-radius: 0px 20px 0 0; -moz-border-radius: 0px 20px 0 0; -webkit-border-radius: 0 20px 0 0; border-radius: 0px 20px 0 0;
+-webkit-border-radius: 0 20px 0 0; border-radius: 0px 20px 0 0;
 }
 
 /* * Botão de opções * */
@@ -771,7 +686,7 @@ right: 55px;
 cursor: pointer;
 width: 35px;
 height: 30px;
-background: url('../img/miley/miley.op-1.png') no-repeat;
+background: url('../img/miley/miley.op-2.png') no-repeat;
 background-size: 100% 100%;
 z-index: 6;
 }
@@ -780,6 +695,7 @@ content: "APPS";
 position: absolute;
 top: 5px;
 left: 35px;
+paddding: 10px;
 cursor: pointer;
 }
 
@@ -787,7 +703,7 @@ cursor: pointer;
 .nomeField {
 padding: 5px;
 border: 3px solid #fff;
-border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px;
+border-radius: 5px; -webkit-border-radius: 5px;
 text-transform: capitalize;
 }
 
@@ -799,7 +715,7 @@ color: #EDA3FF;
 font-size: 12pt;
 padding: 5px;
 padding-bottom: 0;
-border-radius: 5px 5px 0 0; -webkit-border-radius: 5px 5px 0 0; -moz-border-radius: 5px 5px 0 0; -ms-border-radius: 5px 5px 0 0;
+border-radius: 5px 5px 0 0; -webkit-border-radius: 5px 5px 0 0;
 border-bottom: 3px solid #ee56fc;
 }
 
@@ -831,6 +747,7 @@ background: #fff;
 }
 
 .close {
+z-index: 3;
 color: #fff;
 border: none;
 font-weight: bold;
@@ -842,7 +759,7 @@ position: absolute;
 top: 0;
 right: 0;
 outline: none;
--ms-border-radius: 0px 15px 0 15px; -moz-border-radius: 0px 15px 0 15px; -webkit-border-radius: 0px 15px 0 15px; border-radius: 0px 15px 0 15px;
+-webkit-border-radius: 0px 15px 0 15px; border-radius: 0px 15px 0 15px;
 opacity: 1;
 }
 .close:hover {
@@ -851,31 +768,6 @@ background: #f00;
 .close:active {
 background: #fff;
 color: #000;
-}
-
-body {
-background-image: url('../img/miley/miley.background-1.png');
-background-color: #000;
-background-attachment: fixed;
-font-family: Agency FB, Arial, sans-serif;
-color: #fff;
-font-size: 10pt;
-max-width: 100%;
-width: 450px;
-}
-
-a, a:link, a:visited {
-color: #EDA3FF;
-font-size: 12pt;
-font-family: Segoe UI;
-cursor: pointer;
-transition: 0.2s ease-in-out;
--moz-transition: 0.2s ease-in-out;
--webkit-transition: 0.2s ease-in-out;
-}
-
-a:hover {
-color: #E351FF;
 }
 
 .button { /* O que posso dizer */
@@ -948,7 +840,6 @@ list-style: square;
 }
 
 #dialogo {
-display: none;
 font-family: Agency FB, Segoe UI, sans-serif;
 color: #00FFFF;
 text-shadow: 0 0 15px #fff;
@@ -983,7 +874,7 @@ text-shadow: 0 0 25px #fff;
 font-size: 18pt;
 background: transparent;
 color: #f893ff;
-user-select: none; -webkit-user-select: none; -moz-user-select: none; -o-user-select: none; -ms-user-select: none;
+user-select: none; -webkit-user-select: none;
 cursor: default;
 resize: none;
 border: none;
@@ -1001,7 +892,7 @@ float: left;
 font-size: 12pt;
 background: transparent;
 color: #A4A5B1;
-user-select: none; -webkit-user-select: none; -moz-user-select: none; -o-user-select: none; -ms-user-select: none;
+user-select: none; -webkit-user-select: none;
 cursor: default;
 resize: none;
 border: none;
@@ -1019,7 +910,7 @@ font-weight: lighter;
 resize: none;
 background: #fff;
 border: 1px solid #fff;
-border-radius: 7px 0 0 7px; -webkit-border-radius: 7px 0 0 7px; -moz-border-radius: 7px 0 0 7px; -ms-border-radius: 7px 0 0 7px;
+border-radius: 7px 0 0 7px; -webkit-border-radius: 7px 0 0 7px;
 width: 100%;
 max-width: 80%;
 min-width: 50%;
@@ -1082,9 +973,6 @@ padding: 0;
 font-family: Segoe UI, sans-serif;
 user-select: none;
 -webkit-user-select: none;
--moz-user-select: none;
--ms-user-select: none;
--o-user-select: none;
 }
 
 ul {
@@ -1097,11 +985,9 @@ border: 2px solid #A020F0;
 background: #fff;
 width: 200px;
 font-size: 12pt;
-position: absolute;
+position: fixed;
 display: none;
 z-index: 13;
--ms-border-radius: 0px 15px 15px 15px;
--moz-border-radius: 0px 15px 15px 15px;
 -webkit-border-radius: 0px 15px 15px 15px;
 border-radius: 0px 15px 15px 15px;
 }
@@ -1110,17 +996,14 @@ border-radius: 0px 15px 15px 15px;
 padding: 2px 10px;
 cursor: default;
 transition: .1s ease-in-out;
--moz-transition: .1s ease-in-out;
 -webkit-transition: .1s ease-in-out;
--ms-transition: .1s ease-in-out;
--o-transition: .1s ease-in-out;
 list-style: none;
 }
 
 #context_menu ul li:hover {
 background: #A020F0;
 color: #FFF;
--ms-border-radius: 0px 15px 15px 15px; -moz-border-radius: 0px 15px 15px 15px; -webkit-border-radius: 0px 15px 15px 15px; border-radius: 0px 15px 15px 15px;
+-webkit-border-radius: 0px 15px 15px 15px; border-radius: 0px 15px 15px 15px;
 }
 
 
@@ -1137,7 +1020,7 @@ padding: 15px;
 position: fixed;
 top: 0;
 right: -70px;
-transition: .2s ease-in-out; -webkit-transition: .2s ease-in-out; -moz-transition: .2s ease-in-out; -ms-transition: .2s ease-in-out;
+transition: .2s ease-in-out; -webkit-transition: .2s ease-in-out;
 z-index: 17;
 }
 
@@ -1218,7 +1101,7 @@ width: 100%;
 position: fixed;
 bottom: -65px;
 padding: 5px;
-transition: 0.2s ease-in-out; -webkit-transition: 0.2s ease-in-out; -moz-transition: 0.2s ease-in-out; -ms-transition: 0.2s ease-in-out;
+transition: 0.2s ease-in-out; -webkit-transition: 0.2s ease-in-out;
 }
 
 .cc:hover {
@@ -1297,6 +1180,27 @@ transition: .2s ease-in-out;
 transform: translatey(-5px);
 }
 
+
+/* ***** APP do Facebook ************ */
+#miley-fb {
+background: url('../img/metro/appbar.social.facebook.png') #405D95 no-repeat !important;
+position: fixed;
+top: 300px;
+right: 50%;
+float: right;
+margin-top: 0;
+width: 300px;
+display: none;
+padding: 50px;
+-webkit-border-radius: 0px 15px 15px 15px;
+}
+#miley-fb:active {
+transform: scale(1.05);
+-webkit-box-shadow: 0 0 20px #ee56fc;
+}
+
+
+/* botão "Postar" */
 .fb-postar{
 background: #405D95;
 color: #fff;
@@ -1313,6 +1217,7 @@ background: #26385C;
 color: #fff;
 }
 
+/* botão "Cancelar" */
 .fb-cancelar-post {
 background: #000;
 color: #fff;
@@ -1328,7 +1233,7 @@ background: #575757;
 color: #fff;
 }
 
-
+/* Caixa de texto */
 #fb_message {
 font-family: "Segoe UI Light", Segoe UI, sans-serif;
 font-weight: lighter;
@@ -1344,9 +1249,41 @@ font-size: 12pt;
 opacity: 1;
 }
 
+/* Icone do Log de conversa */
+#convLogIcone {cursor: default; position: fixed; right: 300px; top: 60px; background: url('../img/metro/appbar.page.select.png') #000 no-repeat !important; background-position: center center; background-size: 80% 80%; width: 50px; height: 50px; border: 1px solid #ee56fc; opacity: .8; padding: 20px;
+-webkit-border-radius: 0px 15px 15px 15px; border-radius: 0px 15px 15px 15px;
+}
+#convLogIcone:before {
+content: "Log";
+position: absolute;
+bottom: 5px;
+left: 7px
+}
+#convLogIcone:hover {background: url('../img/metro/appbar.page.select.png') #ee56fc no-repeat !important; opacity: 1; background-position: center center;
+}
+#convLogIcone:active {background: url('../img/metro/appbar.page.select.png') #310D38 no-repeat !important; opacity: .8; background-position: center center; background-size: 70% 70%;
+}
+
+/* Icone do Facebook */
+#fbIcone {cursor: default; position: fixed; right: 100px; top: 60px; background: url('../img/metro/appbar.social.facebook.png') #000 no-repeat !important; background-position: center center; background-size: 80% 80%; width: 50px; height: 50px; border: 1px solid #ee56fc; opacity: .8; padding: 20px;
+-webkit-border-radius: 0px 15px 15px 15px; border-radius: 0px 15px 15px 15px;
+}
+#fbIcone:before {
+content: "Facebook";
+position: absolute;
+bottom: 5px;
+left: 7px
+}
+#fbIcone:hover {background: url('../img/metro/appbar.social.facebook.png') #405D95 no-repeat !important; opacity: 1; background-position: center center;
+}
+#fbIcone:active {background: url('../img/metro/appbar.social.facebook.png') #310D38 no-repeat !important; opacity: .8; background-position: center center; background-size: 70% 70%;
+}
+
+/* ***** Fim do APP do Facebook ************ */
+
 /* ***** Calculadora ************ */
-#calcIcone {cursor: default; position: absolute; right: 400px; top: 60px; background: url('../img/metro/appbar.calculator.png') #000 no-repeat !important; background-position: center center; background-size: 80% 80%; width: 50px; height: 50px; border: 1px solid #ee56fc; opacity: .8; padding: 20px;
--ms-border-radius: 0px 15px 15px 15px; -moz-border-radius: 0px 15px 15px 15px; -webkit-border-radius: 0px 15px 15px 15px; border-radius: 0px 15px 15px 15px;
+#calcIcone {cursor: default; position: fixed; right: 200px; top: 60px; background: url('../img/metro/appbar.calculator.png') #000 no-repeat !important; background-position: center center; background-size: 80% 80%; width: 50px; height: 50px; border: 1px solid #ee56fc; opacity: .8; padding: 20px;
+-webkit-border-radius: 0px 15px 15px 15px; border-radius: 0px 15px 15px 15px;
 }
 #calcIcone:before {
 content: "Calculadora";
@@ -1354,13 +1291,13 @@ position: absolute;
 bottom: 5px;
 left: 7px
 }
-#calcIcone:hover {transition: .2s ease-in-out; background: url('../img/metro/appbar.calculator.png') #000 no-repeat !important; opacity: 1; background-position: center center;
+#calcIcone:hover {background: url('../img/metro/appbar.calculator.png') #ee56fc no-repeat !important; opacity: 1; background-position: center center;
 }
 #calcIcone:active {background: url('../img/metro/appbar.calculator.png') #310D38 no-repeat !important; opacity: .8; background-position: center center; background-size: 70% 70%;
 }
 
 .calc {border: 1px solid #ee56fc; background: #000; opacity: .8; height: 300px; width: 300px; padding: 20px; position: fixed; top: 80px; right: 50%;
--ms-border-radius: 0px 15px 15px 15px; -moz-border-radius: 0px 15px 15px 15px; -webkit-border-radius: 0px 15px 15px 15px; border-radius: 0px 15px 15px 15px;
+-webkit-border-radius: 0px 15px 15px 15px; border-radius: 0px 15px 15px 15px;
 }
 .num-align {display: inline; float: left}
 .num {color: #fff; font-family: Agency FB, Arial, sans-serif; font-size: 16pt; background: #8E2498; width: 50px; height: 30px; border: none; transition: .2s ease-out; margin: 0;}
@@ -1372,3 +1309,98 @@ left: 7px
 .calc-erase {color: #fff; font-family: Agency FB, Arial, sans-serif; font-size: 16pt; background: #f00; width: 50px; height: 30px; border: none; transition: .2s ease-out; margin: 0;}
 .calc-erase:hover {color: #000; background: #00E2FF; border: 1px solid #fff; box-shadow: 0 0 20px #00E2FF;}
 #calc-result {color: #00E2FF; text-shadow: 0 0 5px #fff; font-family: Agency FB, Arial, sans-serif; font-size: 26pt; background: #000; border: none; width: 95%; text-align: right;}
+
+
+ /* Barras*/
+div#mp3_player{ display: inline; width:100%; height:30px; background:transparent; padding:1px; margin:0; position: absolute; right: 0px;}
+div#mp3_player > div > audio { display: inline; width:100%; background:transparent; }
+div#mp3_player > canvas{ display: inline; width:100%; height:30px; background:transparent; border-bottom: 2px solid #0ff }
+
+
+/* Weather - temperatura*/
+@font-face {
+    font-family: 'weather';
+    src: url('../fontes/artill_clean_icons-webfont.eot');
+    src: url('../fontes/artill_clean_icons-webfont.eot (1)') format('embedded-opentype'),
+         url('../fontes/artill_clean_icons-webfont.woff') format('woff'),
+         url('../fontes/artill_clean_icons-webfont.ttf') format('truetype'),
+         url('../fontes/artill_clean_icons-webfont.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+#weather {
+  font: 50px 'Agency FB', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  width: 300px;
+  margin-top: -50px;
+  margin-left: 30px;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+i {
+  color: #fff;
+  font-family: weather;
+  font-size: 50px;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1.0;
+}
+
+.icon-0:before { content: ":"; }
+.icon-1:before { content: "p"; }
+.icon-2:before { content: "S"; }
+.icon-3:before { content: "Q"; }
+.icon-4:before { content: "S"; }
+.icon-5:before { content: "W"; }
+.icon-6:before { content: "W"; }
+.icon-7:before { content: "W"; }
+.icon-8:before { content: "W"; }
+.icon-9:before { content: "I"; }
+.icon-10:before { content: "W"; }
+.icon-11:before { content: "I"; }
+.icon-12:before { content: "I"; }
+.icon-13:before { content: "I"; }
+.icon-14:before { content: "I"; }
+.icon-15:before { content: "W"; }
+.icon-16:before { content: "I"; }
+.icon-17:before { content: "W"; }
+.icon-18:before { content: "U"; }
+.icon-19:before { content: "Z"; }
+.icon-20:before { content: "Z"; }
+.icon-21:before { content: "Z"; }
+.icon-22:before { content: "Z"; }
+.icon-23:before { content: "Z"; }
+.icon-24:before { content: "E"; }
+.icon-25:before { content: "E"; }
+.icon-26:before { content: "3"; }
+.icon-27:before { content: "a"; }
+.icon-28:before { content: "A"; }
+.icon-29:before { content: "a"; }
+.icon-30:before { content: "A"; }
+.icon-31:before { content: "6"; }
+.icon-32:before { content: "1"; }
+.icon-33:before { content: "6"; }
+.icon-34:before { content: "1"; }
+.icon-35:before { content: "W"; }
+.icon-36:before { content: "1"; }
+.icon-37:before { content: "S"; }
+.icon-38:before { content: "S"; }
+.icon-39:before { content: "S"; }
+.icon-40:before { content: "M"; }
+.icon-41:before { content: "W"; }
+.icon-42:before { content: "I"; }
+.icon-43:before { content: "W"; }
+.icon-44:before { content: "a"; }
+.icon-45:before { content: "S"; }
+.icon-46:before { content: "U"; }
+.icon-47:before { content: "S"; }
+
+.w-location {
+font-size: 20px;
+}
+
+.w-data-init {
+font-size: 10px;
+}

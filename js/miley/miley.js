@@ -331,7 +331,9 @@ new Array (
 
 new Array (
 "(.*)(|e)(qual (|o )significado|o(| )(que|q) significa|o(| )(que|q) que significa|o (que|q) é (que|q) significa) ((o seu|do seu|seu|o teu|do teu|teu) nome|dele|ele)(.*)",
-"Meu nome é uma sigla para Sistema Operacional Portátil em HTML5 com Intelingência Artificial. Mas por ser grande demais, use a sigla."
+"Meu nome é composto pelas letras M, I, L, É, Y, componentes do nome Emily, que é o nome da namorada do meu criador, Victor Ribeiro (apenas muda-se a posição da letra \'É\' para o início do nome.",
+"Todos me perguntam isso. Pois bem. "+AIname+" é derivado do nome da namorada do meu criador (Emily). E não pense que é por causa da Miley Cyrus. Algo mais em que eu possa ajudar\?",
+"Basicamente e sem enrolação, meu nome deriva do nome \'Emily\', a namorada do meu criador, Victor Ribeiro. Algo mais que queira saber\?"
 ),
 
 new Array (
