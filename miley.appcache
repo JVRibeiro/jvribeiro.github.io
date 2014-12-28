@@ -48,8 +48,6 @@ img/metro/appbar.calculator.png
 img/metro/appbar.page.select.png
 img/metro/appbar.social.facebook.png
 
-https://www.facebook.com/v2.2/plugins/login_button.php?app_id=410082289142337&channel=http%3A%2F%2Fstatic.ak.facebook.com%2Fconnect%2Fxd_arbiter%2F7r8gQb8MIqE.js%3Fversion%3D41%23cb%3Df3f0ffd4d%26domain%3D%26origin%3Dfile%253A%252F%252F%252Ff31f00120%26relation%3Dparent.parent&locale=pt_BR&login_text=%0A&scope=public_profile%2Cemail%2Cpublish_actions&sdk=joey
-
 # * **** Arquivos a serem ignorados provisoriamente **** * #
 
 # js/jquery/jquery.bgiframe-2.1.2.js
