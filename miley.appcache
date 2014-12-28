@@ -24,6 +24,7 @@ js/jquery/jquery.ui.mouse.js
 js/jquery/jquery.ui.position.js
 js/jquery/jquery.ui.widget.js
 js/jquery/jquery-latest.pack.js
+js/jquery/jquery.ui.tabs.js
 
 # #### CSS #### #
 css/miley.estilo.css
@@ -39,43 +40,39 @@ img/logos/logo_jquery-ui.png
 img/logos/logo_voicerss.png
 img/metro/appbar.calculator.png
 
-# * **** Arquivos a serem ignorados provisóriamente **** * #
-# jscolor/arrow.gif
-# jscolor/cross.gif
-# jscolor/hs.png
-# jscolor/hv.png
-# jscolor/jscolor.js
+https://www.facebook.com/v2.2/plugins/login_button.php?app_id=410082289142337&channel=http%3A%2F%2Fstatic.ak.facebook.com%2Fconnect%2Fxd_arbiter%2F7r8gQb8MIqE.js%3Fversion%3D41%23cb%3Df3f0ffd4d%26domain%3D%26origin%3Dfile%253A%252F%252F%252Ff31f00120%26relation%3Dparent.parent&locale=pt_BR&login_text=%0A&scope=public_profile%2Cemail%2Cpublish_actions&sdk=joey
 
-# js/jquery.bgiframe-2.1.2.js
-# js/jquery.effects.blind.js
-# js/jquery.effects.bounce.js
-# js/jquery.effects.clip.js
-# js/jquery.effects.core.js
-# js/jquery.effects.drop.js
-# js/jquery.effects.explode.js
-# js/jquery.effects.fade.js
-# js/jquery.effects.fold.js
-# js/jquery.effects.highlight.js
-# js/jquery.effects.pulsate.js
-# js/jquery.effects.scale.js
-# js/jquery.effects.shake.js
-# js/jquery.effects.slide.js
-# js/jquery.effects.transfer.js
-# js/jquery.livequery.js
-# js/jquery.ui.accordion.js
-# js/jquery.ui.autocomplete.js
-# js/jquery.ui.button.js
-# js/jquery.ui.datepicker.js
-# js/jquery.ui.dialog.js
-# js/jquery.ui.droppable.js
-# js/jquery.ui.progressbar.js
-# js/jquery.ui.resizable.js
-# js/jquery.ui.selectable.js
-# js/jquery.ui.slider.js
-# js/jquery.ui.sortable.js
-# js/jquery.ui.tabs.js
-# js/jquery-1.8.2.js
-# js/jquery-ui-1.8.24.custom.js
+# * **** Arquivos a serem ignorados provisoriamente **** * #
+
+# js/jquery/jquery.bgiframe-2.1.2.js
+# js/jquery/jquery.effects.blind.js
+# js/jquery/jquery.effects.bounce.js
+# js/jquery/jquery.effects.clip.js
+# js/jquery/jquery.effects.core.js
+# js/jquery/jquery.effects.drop.js
+# js/jquery/jquery.effects.explode.js
+# js/jquery/jquery.effects.fade.js
+# js/jquery/jquery.effects.fold.js
+# js/jquery/jquery.effects.highlight.js
+# js/jquery/jquery.effects.pulsate.js
+# js/jquery/jquery.effects.scale.js
+# js/jquery/jquery.effects.shake.js
+# js/jquery/jquery.effects.slide.js
+# js/jquery/jquery.effects.transfer.js
+# js/jquery/jquery.livequery.js
+# js/jquery/jquery.ui.accordion.js
+# js/jquery/jquery.ui.autocomplete.js
+# js/jquery/jquery.ui.button.js
+# js/jquery/jquery.ui.datepicker.js
+# js/jquery/jquery.ui.dialog.js
+# js/jquery/jquery.ui.droppable.js
+# js/jquery/jquery.ui.progressbar.js
+# js/jquery/jquery.ui.resizable.js
+# js/jquery/jquery.ui.selectable.js
+# js/jquery/jquery.ui.slider.js
+# js/jquery/jquery.ui.sortable.js
+# js/jquery/jquery-1.8.2.js
+# js/jquery/jquery-ui-1.8.24.custom.js
 
 # Online
 NETWORK:

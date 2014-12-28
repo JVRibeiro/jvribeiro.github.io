@@ -345,6 +345,7 @@ z-index: 6;
 }
 
 .close {
+z-index: 17;
 color: #fff;
 border: none;
 font-weight: bold;
@@ -536,7 +537,11 @@ background: transparent;
 /*//////////////////////////////////////////////////////////////*/
 
 
-
+.set {
+position: fixed;
+top: 0px;
+left: 0x;
+}
 
 
 .miley {
@@ -549,17 +554,6 @@ width: 350px;
 max-width: 90%;
 }
 
-#miley-dialog {
-display: none;
-background: #000;
-position: fixed;
-top: 250px;
-right: 200px;
-margin-top: 60px;
-width: 295px;
-max-width: 90%;
-z-index: 20
-}
 
 .miley-widget-header {
 font-size: 12pt;
@@ -747,7 +741,7 @@ background: #fff;
 }
 
 .close {
-z-index: 3;
+z-index: 17;
 color: #fff;
 border: none;
 font-weight: bold;
@@ -839,30 +833,6 @@ color: #a4a5b1;
 list-style: square;
 }
 
-#dialogo {
-font-family: Agency FB, Segoe UI, sans-serif;
-color: #00FFFF;
-text-shadow: 0 0 15px #fff;
-font-size: 12pt;
-
-background: transparent;
-opacity: 1;
-
-border: 1px solid #00FFFF;
--webkit-border-radius: 0 0 0 15px;
-
-padding: 15px;
-width: 100%;
-height: 400px;
-max-width: 90%;
-max-height: 70%;
-
-
-cursor: default;
-resize: none;
-
-z-index: 16;
-}
 
 .resposta {
 width: 100%;
@@ -1183,7 +1153,8 @@ transform: translatey(-5px);
 
 /* ***** APP do Facebook ************ */
 #miley-fb {
-background: url('../img/metro/appbar.social.facebook.png') #405D95 no-repeat !important;
+background: url('../img/metro/appbar.social.facebook.png') rgba(34, 0, 33, 0.5) no-repeat !important;
+border: 1px solid #9F26C0;
 position: fixed;
 top: 300px;
 right: 50%;
@@ -1195,10 +1166,26 @@ padding: 50px;
 -webkit-border-radius: 0px 15px 15px 15px;
 }
 #miley-fb:active {
-transform: scale(1.05);
 -webkit-box-shadow: 0 0 20px #ee56fc;
 }
 
+#fb-login-buttom {
+position: absolute; top: 3px; left: 3px;
+}
+#fb-logout-buttom {
+padding: 3px;
+background: #405D95;
+color: #fff;
+border: 1px solid #fff;
+border-top: none;
+border-right: none;
+position: absolute; top: 0px; right: 0px;
+-webkit-border-radius: 0 15px 0 15px;
+}
+#fb-logout-buttom:hover {
+background: rgba(0,0,0,.5);
+color: #fff;
+}
 
 /* botão "Postar" */
 .fb-postar{
@@ -1250,6 +1237,48 @@ opacity: 1;
 }
 
 /* Icone do Log de conversa */
+
+#miley-dialog {
+padding: 15px;
+display: none;
+background: rgba(0,0,0,.5);
+position: fixed;
+top: 50px;
+right: 50px;
+margin-top: 60px;
+width: 295px;
+max-width: 90%;
+cursor: move;
+z-index: 20
+}
+
+#dialogo {
+font-family: Agency FB, Segoe UI, sans-serif;
+color: #00FFFF;
+text-shadow: 0 0 15px #fff;
+font-size: 12pt;
+cursor: text;
+
+position: relative;
+
+background: transparent;
+opacity: 1;
+
+border: 1px solid #00FFFF;
+-webkit-border-radius: 0 0 0 15px;
+
+padding: 15px;
+width: 350px;
+height: 400px;
+max-width: 90%;
+
+
+cursor: default;
+resize: none;
+
+z-index: 16;
+}
+
 #convLogIcone {cursor: default; position: fixed; right: 300px; top: 60px; background: url('../img/metro/appbar.page.select.png') #000 no-repeat !important; background-position: center center; background-size: 80% 80%; width: 50px; height: 50px; border: 1px solid #ee56fc; opacity: .8; padding: 20px;
 -webkit-border-radius: 0px 15px 15px 15px; border-radius: 0px 15px 15px 15px;
 }
@@ -1259,10 +1288,14 @@ position: absolute;
 bottom: 5px;
 left: 7px
 }
-#convLogIcone:hover {background: url('../img/metro/appbar.page.select.png') #ee56fc no-repeat !important; opacity: 1; background-position: center center;
+#convLogIcone:hover {background: url('../img/metro/appbar.page.select.png') #220021 no-repeat !important; opacity: 1; background-position: center center;
 }
 #convLogIcone:active {background: url('../img/metro/appbar.page.select.png') #310D38 no-repeat !important; opacity: .8; background-position: center center; background-size: 70% 70%;
 }
+
+
+
+
 
 /* Icone do Facebook */
 #fbIcone {cursor: default; position: fixed; right: 100px; top: 60px; background: url('../img/metro/appbar.social.facebook.png') #000 no-repeat !important; background-position: center center; background-size: 80% 80%; width: 50px; height: 50px; border: 1px solid #ee56fc; opacity: .8; padding: 20px;
@@ -1291,13 +1324,16 @@ position: absolute;
 bottom: 5px;
 left: 7px
 }
-#calcIcone:hover {background: url('../img/metro/appbar.calculator.png') #ee56fc no-repeat !important; opacity: 1; background-position: center center;
+#calcIcone:hover {background: url('../img/metro/appbar.calculator.png') #220021 no-repeat !important; opacity: 1; background-position: center center;
 }
 #calcIcone:active {background: url('../img/metro/appbar.calculator.png') #310D38 no-repeat !important; opacity: .8; background-position: center center; background-size: 70% 70%;
 }
 
-.calc {border: 1px solid #ee56fc; background: #000; opacity: .8; height: 300px; width: 300px; padding: 20px; position: fixed; top: 80px; right: 50%;
+.calc {border: 1px solid #ee56fc; background: #000; opacity: .8; height: 300px; width: 300px; padding: 20px; position: fixed; top: 150px; right: 50%;
 -webkit-border-radius: 0px 15px 15px 15px; border-radius: 0px 15px 15px 15px;
+}
+.calc:active {
+-webkit-box-shadow: 0 0 20px #ee56fc;
 }
 .num-align {display: inline; float: left}
 .num {color: #fff; font-family: Agency FB, Arial, sans-serif; font-size: 16pt; background: #8E2498; width: 50px; height: 30px; border: none; transition: .2s ease-out; margin: 0;}
@@ -1312,7 +1348,7 @@ left: 7px
 
 
  /* Barras*/
-div#mp3_player{ display: inline; width:100%; height:30px; background:transparent; padding:1px; margin:0; position: absolute; right: 0px;}
+div#mp3_player{ display: inline; width:100%; height:30px; background:transparent; padding:1px; margin:0; position: absolute; right: -1px;}
 div#mp3_player > div > audio { display: inline; width:100%; background:transparent; }
 div#mp3_player > canvas{ display: inline; width:100%; height:30px; background:transparent; border-bottom: 2px solid #0ff }
 

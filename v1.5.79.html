@@ -8,38 +8,14 @@
 Miley BETA
 </title>
 <script src="js/jquery/jquery.min.js">			</script>
-<script src="js/miley/miley.brain.js"> 	  	</script>
 
+<script src="js/miley/miley.brain.js"> 	  	</script>
 		<link rel="icon" href="img/miley/f-Miley.png" />
 		<link rel="stylesheet" href="css/miley.estilo.css" media="all" />
 		<link rel="stylesheet" href="css/jquery.ui.all.css" media="all" />
 
-<!--
 <script src="//fast.eager.io/9KSntCKm2z.js"></script>
--->
 
-
-
-
-<script>
-// Check if a new cache is available on page load.
-window.addEventListener('load', function(e) {
-
-  window.applicationCache.addEventListener('updateready', function(e) {
-    if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
-      // Browser downloaded a new app cache.
-      // Swap it in and reload the page to get the new hotness.
-      window.applicationCache.swapCache();
-      if (confirm('A Miley recebeu melhorias. \nElas serão carregadas na próxima atualização. \nDeseja carregá-las agora?')) {
-        window.location.reload();
-      }
-    } else {
-      // Manifest didn't changed. Nothing new to server.
-    }
-  }, false);
-
-}, false);
-</script>
 
 	</head>
 
@@ -72,7 +48,32 @@ window.addEventListener('load', function(e) {
 <div onclick="mileyApps()" class="optionsApps" title="Aplicativos"></div>
 </div>
 
+<div class="miley"><!-- App de feedback de conversação -->
 
+<div class="ui-widget-header miley-widget-header">Miley <span class="v"><!-- Versão --></span>
+
+<div id="mp3_player">
+	<div id="voz"></div>
+	<canvas id="analyser_render"></canvas>
+</div>
+
+</div><!-- .ui-widget-header - .miley-widget-header -->
+
+
+	<form name="miley">
+
+	<textarea id="resposta" class="resposta text_box" readonly name="Resposta" rows="6" cols="30">Inicializando sistema...</textarea><br />
+	<textarea id="pergunta" class="pergunta" readonly name="Pergunta" rows="2" cols="30"></textarea><br />
+
+<div id="m_fix"></div><!-- Box semitransparente atrás da div #texto em dispositivos de 480px -->
+
+			<div id="teclado">
+	<textarea id="texto" placeholder="Digite e aperte Enter" name="Texto" rows="2" cols="25" onkeypress="if(event.keyCode == 13) {textoFalar(); return false;}" autofocus></textarea>
+	<input id="botaoFalar" class="falar" type="button" value="&#8594;" name="falar" onClick="textoFalar();" title="Falar" />
+			</div><!-- #teclado -->
+	</form> <!-- name: miley -->
+
+</div> <!-- .miley -->
 
 
 	<div id='rel' class="ui-draggable">
@@ -89,33 +90,7 @@ window.addEventListener('load', function(e) {
 <br>
 <br>
 <div id="miley-avatar"></div>
-<div class="miley">
-<div class="ui-widget-header miley-widget-header">Miley <span class="v"></span>
 
-<div id="mp3_player">
-	<div id="voz"></div>
-	<canvas id="analyser_render"></canvas>
-</div>
-
-</div>
-
-	<center>
-	<form name="miley">
-
-	<textarea id="resposta" class="resposta text_box" readonly name="Resposta" rows="6" cols="30">Inicializando sistema...</textarea><br />
-	<textarea id="pergunta" class="pergunta" readonly name="Pergunta" rows="2" cols="30"></textarea><br />
-
-<div id="m_fix"></div><!-- Box semitransparente atrás da div #texto em dispositivos de 480px -->
-
-		<div id="teclado">
-	<textarea id="texto" placeholder="Digite e aperte Enter" name="Texto" rows="2" cols="25" onkeypress="if(event.keyCode == 13) {textoFalar(); return false;}" autofocus></textarea>
-	<input id="botaoFalar" class="falar" type="button" value="&#8594;" name="falar" onClick="textoFalar();" title="Falar" />
-		</div><!-- #teclado -->
-<br><br>
-
-	</form>
-</center>
-</div> <!-- .miley -->
 
 
 	<div id="m_rep"></div>
@@ -311,9 +286,18 @@ Creative Commons Atribuição 2.0 Brasil
 
 
 <div class="set">
+
+
 <div id="convLogIcone" class="ui-draggable" onclick="mileyConvLog()"></div>
 <div id="calcIcone" class="ui-draggable" onclick="mileyCalc()"></div>
-<div id="fbIcone" class="ui-draggable" onclick="mileyFb()"></div>
+<div id="fbIcone" class="ui-draggable" onclick="mileyFb()">
+<fb:login-button title="Fazer login no Facebook" id="fb-login-buttom" class="fb-login-button" scope="public_profile,email,publish_actions" onlogin="checkLoginState();">
+</fb:login-button>
+
+
+<input title="Fazer logout no Facebook" id="fb-logout-buttom" type="button" value="Sair" onclick="FB.logout(function(response) {statusChangeCallback(response);});" />
+
+</div>
 </div> <!-- .set -->
 
 
@@ -331,34 +315,28 @@ Creative Commons Atribuição 2.0 Brasil
 </div>
 
 
-<script src="js/miley/miley.js">  			 	</script>
-<script src="js/miley/miley.comandos.js">	</script>
-<script src="js/miley/miley.config.js"></script>
-
-<script src="js/mrdoob/sphere.js">					</script>
-
-<!-- <script src="jscolor/jscolor.js">				</script> -->
-
-
-        <script src="js/jquery/jquery-latest.pack.js"></script>
-        <script src="js/jquery/jquery.ui.core.js"></script>
-        <script src="js/jquery/jquery.ui.widget.js"></script>
-        <script src="js/jquery/jquery.ui.mouse.js"></script>
-        <script src="js/jquery/jquery.ui.draggable.js"></script>
-				<script src="js/jquery/jquery.ui.tabs.js"></script>
-
-<script src="js/simpleWeather/jquery.simpleWeather.min.js"></script>
-
-
 <div class="set">
 
-<!-- Log de conversação -->
+
 <div id="miley-dialog">
-<button class="close" onClick="mileyConvLogClose()" title="Fechar" style="margin-top: -20px; margin-right: -4px;">x</button>
-<form name="mileyDialog">
-<textarea id="dialogo" style="" name="dialogo" rows="30" cols="30" onBlur="d.getElementById('texto').focus()"></textarea><br />
-</form>
-</div> <!-- .miley-dialog -->
+	<button class="close" onClick="mileyConvLogClose()" title="Fechar" style="margin-top: -20px; margin-right: -4px;">x</button>
+
+	<center>
+	<form name="mileyDialog">
+
+	<textarea id="dialogo" style="" name="dialogo" rows="30" cols="30" onBlur="d.getElementById('texto').focus()"></textarea><br />
+
+
+	</form>
+</center>
+</div> <!-- .miley -->
+
+
+
+
+
+
+
 
 <!-- Calculadora manual -->
 <div id="calc" class="calc tit-app-calc ui-draggable" style="display: none">
@@ -415,25 +393,40 @@ Creative Commons Atribuição 2.0 Brasil
 
 
 <div id="miley-fb" class="ui-draggable">
-<button class="close" onmousedown="mileyFbClose()" title="Fechar">x</button>
+<button class="close" onclick="mileyFbClose()" title="Fechar">x</button>
 		<textarea placeholder="No que você está pensando?" id="fb_message" name="fb_message"></textarea> <br />
 		<input class="fb-postar" id="fb-postar" type="button" value="Postar" onClick="post_on_wall();" title="Postar essa publicação no seu perfil" />
 
-		<input class="fb-cancelar-post" type="button" value="Cancelar" onmousedown="mileyFbClose()" title="Cancelar postagem" />
+		<input class="fb-cancelar-post" type="button" value="Cancelar" onclick="mileyFbClose()" title="Cancelar postagem" />
 
 		<div id="status"></div>
-
-
-<fb:login-button title="Fazer login no Facebook" id="fb-login-buttom" class="fb-login-button" scope="public_profile,email,publish_actions" onlogin="checkLoginState();">
-</fb:login-button>
-
-
-<input title="Fazer logout no Facebook" id="fb-logout-buttom" type="button" value="Sair" onclick="FB.logout(function(response) {statusChangeCallback(response);});" />
 
 
 </div> <!-- #miley-fb -->
 
 </div> <!-- .set -->
 
+
+
+<!-- JavaScript -->
+
+<script src="js/miley/miley.js">  			 		</script>
+<script src="js/miley/miley.comandos.js">		</script>
+<script src="js/miley/miley.config.js">			</script>
+
+<script src="js/mrdoob/sphere.js">					</script>
+
+<!-- <script src="jscolor/jscolor.js">				</script> -->
+
+
+				<script src="js/jquery/jquery-latest.pack.js"></script>
+				<script src="js/jquery/jquery.ui.core.js"></script>
+				<script src="js/jquery/jquery.ui.widget.js"></script>
+				<script src="js/jquery/jquery.ui.mouse.js"></script>
+				<script src="js/jquery/jquery.ui.draggable.js"></script>
+				<script src="js/jquery/jquery.ui.tabs.js"></script>
+
+<script src="js/simpleWeather/jquery.simpleWeather.min.js"></script>
+<!-- JavaScript END -->
 </body>
 </html>

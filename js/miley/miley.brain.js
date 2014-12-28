@@ -9,13 +9,29 @@
 // * Informações da I.A.
 var AIname = "Miley";   // * Nome da I.A.
 var AInick = "Mi";      // * Apelido da I.A.
-var version = "1.5.79";  // * Versão da I.A.
+var version = "1.5.80";  // * Versão da I.A.
 //
 
 // * Abreviação de window e document
 var w = window;
 var d = document;
 //
+
+// Checar atualizações na inicialização
+window.addEventListener('load', function(e) {
+
+  window.applicationCache.addEventListener('updateready', function(e) {
+    if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
+      window.applicationCache.swapCache();
+      if (confirm('A Miley recebeu melhorias. \nElas serão carregadas na próxima atualização. \nDeseja carregá-las agora?')) {
+        window.location.reload();
+      }
+    } else {
+      // Sem atualização...
+    }
+  }, false);
+
+}, false);
 
 // * Simplificação das chamadas de funções
 function mileyOnLoad() {/*mileyCorGet();*/ fbCaps(); mileyIni(); getHist(); clock(); onLoad(); $(".v").html("v"+version);}
@@ -24,11 +40,11 @@ function mileyApps() {d.getElementById('lado2').style.display = 'block'; d.getEl
 function mileyAppsClose() {d.getElementById('lado2').style.display = "none"}
 function textoFalar() {d.getElementById('resposta').value = ""; rotina(); espera(); saveHist(); d.getElementById('texto').focus(); voz();}
 function mileyAbrirAjuda() {d.getElementById('ajuda').focus(); w.open('ajuda.html', 'ajuda', 'width=500, height=700, top=25, left=0'); abrirAjuda(); voz();}
-function mileyFb() {d.getElementById('miley-fb').style.display = 'block'; d.getElementById('fb_message').focus();}
+function mileyFb() {d.getElementById('miley-fb').style.display = 'block'; d.getElementById('fb_message').focus(); mileyAppsClose()}
 function mileyFbClose() {d.getElementById('miley-fb').style.display = 'none';}
-function mileyCalc() {d.getElementById('calc').style.display = 'block';}
+function mileyCalc() {d.getElementById('calc').style.display = 'block'; mileyAppsClose()}
 function mileyCalcClose() {d.getElementById('calc').style.display = 'none';}
-function mileyConvLog() {d.getElementById('miley-dialog').style.display = 'block'; d.getElementById('dialogo').focus()}
+function mileyConvLog() {d.getElementById('miley-dialog').style.display = 'block'; d.getElementById('dialogo').focus(); mileyAppsClose()}
 function mileyConvLogClose() {d.getElementById('miley-dialog').style.display = 'none';}
 //
 
@@ -261,12 +277,16 @@ $(function() {
   // Muda a posição do cursor do mouse ao arrastar os ícones para que, ao soltá-los não haja a função "click".
     $( "#calcIcone" ).draggable({ cursor: "defalut", cursorAt: { top: -5, left: -5 } });
     $( "#fbIcone" ).draggable({ cursor: "defalut", cursorAt: { top: -5, left: -5 } });
+    $( "#convLogIcone" ).draggable({ cursor: "defalut", cursorAt: { top: -5, left: -5 } });
+
   // Permite que os elementos sejam arrastados apenas por um manipulador
     $( ".miley" ).draggable({ handle: "div" });
+
   // Define em qual conteiner o elemento estará contido
     $( "#miley-avatar" ).draggable({ containment: "body", scroll: false });
     $( "#calcIcone" ).draggable({ containment: "#lado2", scroll: false });
     $( "#fbIcone" ).draggable({ containment: "#lado2", scroll: false });
+    $( "#convLogIcone" ).draggable({ containment: "#lado2", scroll: false });
     $( "#calc" ).draggable({ containment: "body", scroll: false });
     $( ".miley" ).draggable({ containment: "body", scroll: false });
     $( "#def-img-srch" ).draggable({ containment: "body", scroll: false });
@@ -301,7 +321,7 @@ function defImgSrchX() {
 // Seleciona as abas do menu de configurações com um clique.
 $(function() {
   $( "#tabs" ).tabs({
-    event: "click"
+    event: "mousedown"
   });
 });
 
