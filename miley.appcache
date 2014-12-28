@@ -1,5 +1,5 @@
 ﻿CACHE MANIFEST
-# 14:25 23/12/2014
+# 17:40 28/12/2014
 
 # * **** Arquivos a serem armazenados em cache **** * #
 
@@ -8,6 +8,9 @@ CACHE:
 # #### HTML #### #
 index.html
 privacy.htm
+ajuda.html
+1.5.80.html
+sobre.html
 
 # #### JavaScript #### #
 js/miley/miley.brain.js
@@ -33,12 +36,17 @@ css/miley.estilo.css
 img/miley/miley.img-srch-spin.gif
 img/miley/miley.background-1.png
 img/miley/miley.op-1.png
+img/miley/miley.op-2.png
+
 img/logos/logo_annyang.png
 img/logos/logo_cc.png
 img/logos/logo_fb.jpg
 img/logos/logo_jquery-ui.png
 img/logos/logo_voicerss.png
+
 img/metro/appbar.calculator.png
+img/metro/appbar.page.select.png
+img/metro/appbar.social.facebook.png
 
 https://www.facebook.com/v2.2/plugins/login_button.php?app_id=410082289142337&channel=http%3A%2F%2Fstatic.ak.facebook.com%2Fconnect%2Fxd_arbiter%2F7r8gQb8MIqE.js%3Fversion%3D41%23cb%3Df3f0ffd4d%26domain%3D%26origin%3Dfile%253A%252F%252F%252Ff31f00120%26relation%3Dparent.parent&locale=pt_BR&login_text=%0A&scope=public_profile%2Cemail%2Cpublish_actions&sdk=joey
 
