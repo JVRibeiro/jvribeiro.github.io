@@ -1,0 +1,212 @@
+@-webkit-keyframes fadeIn {
+0% { opacity: 0;}
+100% { opacity: 1; }
+}
+
+@-moz-keyframes fadeIn {
+0% { opacity: 0;}
+100% { opacity: 1; }
+}
+
+@-o-keyframes fadeIn {
+0% { opacity: 0;}
+100% { opacity: 1; }
+}
+
+@keyframes fadeIn {
+0% { opacity: 0;}
+100% { opacity: 1; }
+}
+
+.fadeIn {
+-webkit-animation: fadeIn 1s ease-in-out;
+-moz-animation: fadeIn 1s ease-in-out;
+-o-animation: fadeIn 1s ease-in-out;
+animation: fadeIn 1s ease-in-out;
+}
+
+
+
+
+/*------------------------------------------------------*/
+@-webkit-keyframes fadeIn1 {
+0% { opacity: 0; margin-left: -400px;}
+100% { opacity: 1; }
+}
+
+@-moz-keyframes fadeIn1 {
+0% { opacity: 0; margin-left: -400px;}
+100% { opacity: 1; }
+}
+
+@-o-keyframes fadeIn1 {
+0% { opacity: 0; margin-left: -400px;}
+100% { opacity: 1; padding-left: 0;}
+}
+
+@keyframes fadeIn1 {
+0% { opacity: 0; margin-left: -400px;}
+100% { opacity: 1;}
+}
+
+.fadeIn1 {
+-webkit-animation: fadeIn1 1s ease-in-out;
+-moz-animation: fadeIn1 1s ease-in-out;
+-o-animation: fadeIn1 1s ease-in-out;
+animation: fadeIn1 1s ease-in-out;
+transition-delay: 1s;
+}
+
+
+
+/*------------------------------------------------------*/
+@-webkit-keyframes fadeIn2 {
+0% { opacity: 0; margin-left: 300px;}
+100% { opacity: 1; }
+}
+
+@-moz-keyframes fadeIn2 {
+0% { opacity: 0; margin-left: 300px;}
+100% { opacity: 1; }
+}
+
+@-o-keyframes fadeIn2 {
+0% { opacity: 0; margin-left: 300px;}
+100% { opacity: 1; padding-left: 0;}
+}
+
+@keyframes fadeIn2 {
+0% { opacity: 0; margin-left: 300px;}
+100% { opacity: 1;}
+}
+
+.fadeIn2 {
+-webkit-animation: fadeIn2 5s ease-in-out;
+-moz-animation: fadeIn2 5s ease-in-out;
+-o-animation: fadeIn2 5s ease-in-out;
+animation: fadeIn2 5s ease-in-out;
+transition-delay: 5s;
+}
+
+
+
+/*------------------------------------------------------*/
+@-webkit-keyframes fadeIn3 {
+0% { opacity: 0; margin-left: -400px;}
+100% { opacity: 1; }
+}
+
+@-moz-keyframes fadeIn3 {
+0% { opacity: 0; margin-left: -400px;}
+100% { opacity: 1; }
+}
+
+@-o-keyframes fadeIn3 {
+0% { opacity: 0; margin-left: -400px;}
+100% { opacity: 1; padding-left: 0;}
+}
+
+@keyframes fadeIn3 {
+0% { opacity: 0; margin-left: -400px;}
+100% { opacity: 1;}
+}
+
+.fadeIn3 {
+-webkit-animation: fadeIn3 10s ease-in-out;
+-moz-animation: fadeIn3 10s ease-in-out;
+-o-animation: fadeIn3 10s ease-in-out;
+animation: fadeIn3 10s ease-in-out;
+transition-delay: 3s;
+}
+
+
+/*------------------------------------------------------*/
+@-webkit-keyframes fadeIn4 {
+0% { opacity: 0; margin-left: 500px;}
+50% { opacity: 0; margin-left: 250px;}
+100% { opacity: 1; }
+}
+
+@-moz-keyframes fadeIn4 {
+0% { opacity: 0; margin-left: 500px;}
+100% { opacity: 1; }
+}
+
+@-o-keyframes fadeIn4 {
+0% { opacity: 0; margin-left: 500px;}
+100% { opacity: 1; }
+}
+
+@keyframes fadeIn4 {
+0% { opacity: 0; margin-left: 500px;}
+100% { opacity: 1;}
+}
+
+.fadeIn4 {
+-webkit-animation: fadeIn4 14s ease-in-out;
+-moz-animation: fadeIn4 14s ease-in-out;
+-o-animation: fadeIn4 14s ease-in-out;
+animation: fadeIn4 14s ease-in-out;
+transition-delay: fadeIn4 4s ease-in;
+}
+
+
+
+/*------------------------------------------------------*/
+@-webkit-keyframes fadeIn5 {
+0% { opacity: 0; margin-left: -500px;}
+50% { opacity: 0; margin-left: -250px;}
+100% { opacity: 1; }
+}
+
+@-moz-keyframes fadeIn5 {
+0% { opacity: 0; margin-left: -500px;}
+100% { opacity: 1; }
+}
+
+@-o-keyframes fadeIn5 {
+0% { opacity: 0; margin-left: -500px;}
+100% { opacity: 1; }
+}
+
+@keyframes fadeIn5 {
+0% { opacity: 0; margin-left: -500px;}
+100% { opacity: 1;}
+}
+
+.fadeIn5 {
+-webkit-animation: fadeIn5 5s ease-in-out;
+-moz-animation: fadeIn5 5s ease-in-out;
+-o-animation: fadeIn5 5s ease-in-out;
+animation: fadeIn5 5s ease-in-out;
+transition-delay: fadeIn5 5s ease-in;
+}
+
+
+/*------------------------------------------------------*/
+@-webkit-keyframes fadeIn6 {
+0% { font-size: 50pt; position: absolute; top: 5%; left: 8%;}
+100% { font-size: 60pt; position: absolute; top: 20%; left: 32%;}
+}
+
+@-moz-keyframes fadeIn6 {
+0% { font-size: 50pt; position: absolute; top: 5%; left: 8%;}
+100% { font-size: 60pt; position: absolute; top: 20%; left: 32%; }
+}
+
+@-o-keyframes fadeIn6 {
+0% { font-size: 50pt; position: absolute; top: 5%; left: 8%;}
+100% { font-size: 60pt; position: absolute; top: 20%; left: 32%; }
+}
+
+@keyframes fadeIn6 {
+0% { font-size: 50pt; position: absolute; top: 5%; left: 8%;}
+100% { font-size: 60pt; position: absolute; top: 20%; left: 32%;}
+}
+
+.fadeIn6 {
+-webkit-animation: fadeIn6 2s ease-in-out;
+-moz-animation: fadeIn6 2s ease-in-out;
+-o-animation: fadeIn6 2s ease-in-out;
+animation: fadeIn5 2s ease-in-out;
+}
