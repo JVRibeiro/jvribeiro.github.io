@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="css/main.css">
   <script src="js/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
-  <script src="js/vendor/jquery.hashchange.min.js"></script>
+<script src="js/vendor/jquery.hashchange.min.js"></script>
   <script src="js/vendor/jquery.easytabs.min.js"></script>
 
   <script src="js/main.js"></script>
@@ -58,7 +58,7 @@
                   <a href="#resume"><i class="icon-file-text"></i><span> Meu Resumo</span></a>
                 </li>
                 <li class='tab'>
-                  <a href="#portfolio"><i class="icon-heart"></i><span> Projetos</span></a>
+                  <a href="#portfolio"><i class="icon-heart"></i><span> Projeto Sophia</span></a>
                 </li>
                 <li class='tab'>
                   <a href="#contact"><i class="icon-envelope"></i><span> Contato</span></a>
@@ -77,11 +77,8 @@
                                 <h2>
                                     Victor Ribeiro
                                 </h2>
-                                <h4>
-                                    Programador e aspirante a web designer
-                                </h4>
                                 <p>
-                                Olá! Sou um programador novo que iniciou o Projeto S.O.P.H.I.A., uma assistente pessoal baseada na web. Confira a aba <a href="#portfolio">Projetos</a>. ;)
+                                Olá! Sou o programador e web-designer que iniciou o Projeto S.O.P.H.I.A., uma assistente pessoal baseada na web. Confira a aba <a href="#portfolio">Projeto Sophia</a> para saber o que está sendo feito, ou a aba <a href="#resume">Meu Resumo</a> para me conhecer um pouco melhor. ;)
                                 </p>
                             </div>
                         </div>
@@ -92,7 +89,7 @@
                                         <a href="#resume">Veja meu resumo</a>
                                     </li>
                                     <li>
-                                        <a href="#portfolio">Projetos</a>
+                                        <a href="#portfolio">Projeto Sophia</a>
                                     </li>
                                     <li>
                                         <a href="#contact">Contate-me</a>
@@ -138,6 +135,7 @@
                     <section class="clearfix">
                         <div class="g2">
 
+  <p>Olá, meu nome é João Victor Ribeiro, embora eu prefira omitir o primeiro nome. Tenho atualmente <span id='idade'></span> anos e sou de uma cidadezinha no interior do Pará chamada Moju.</p>
   <h3>Início no mundo da web</h3>
 
   <p>Tudo começou quando entrei no universo dos blogs. Criei meu primeiro blog intitulado "JV Ribeiro", um blog inútil em que eu só escrevia bobagens (sabe como é criança...). Bem, não vale a pena falar disso.</p>
@@ -158,7 +156,7 @@
 <br>
 <p>Mesmo depois dessa melhora senti que faltava algo, Miley precisava de um upgrade. O que me inspirou a fazer esse upgrade foi o filme Iron Man (Homem de Ferro aqui no Brasil) com a inteligência artificial <b>J.A.R.V.I.S.</b>, assistente pessoal do protagonista Tony Stark.</p>
 
-<p>Aí comecei a implementar comandos, variados comandos, desde acesso às redes sociais até busca de definições da web. A partir de então, Miley passou a se chamar <b>S.O.P.H.I.A.</b> (Sophia), uma sigla para <b>Sistema Operacional Portátil em HTML5 com Inteligência Artificial</b> e... Bem... o resto você pode acompanhar ao vivo na aba "Projetos" lá no topo do site. :)</p>
+<p>Aí comecei a implementar comandos, variados comandos, desde acesso às redes sociais até busca de definições da web. A partir de então, Miley passou a se chamar <b>S.O.P.H.I.A.</b> (Sophia), uma sigla para <b>Sistema Operacional Portátil em HTML5 com Inteligência Artificial</b> e... Bem... o resto você pode acompanhar ao vivo na aba "Projeto Sophia" lá no topo do site. :)</p>
 
                         </div>
                         <div class="g1">
@@ -193,13 +191,15 @@
                             <div class="image">
                                 <img src="sopvhia.png" alt="SOPHIA">
                                 <div class="image-overlay">
-                                    <div class="image-link">
-                                        <a href="http://jvribeiro.github.io/sophia" class="btn">Ver projeto</a>
-                                    </div>
                                 </div>
                             </div>
                         </div>
-
+<p style="font-size: 14pt; text-align: justify;"><b>Sophia</b> é um projeto de inteligência artificial baseado na web. Sophia pode conversar com você usando linguagem natural inteiramente em <b>português do Brasil</b>. Além disso, ela será sua assistente pessoal que fará pesquisas, poderá postar no Facebook ou Twitter pra você, escrever um texto pra você se você ditar, dar o significado que quase qualquer coisa<b>*</b>, etc.
+</p>
+<p style="font-size: 14pt; text-align: justify;">Após alguns meses da sua data de lançamento, ela também terá integração com o <a href="http://arduino.cc/">Arduino</a>, podendo assim controlar parte da sua casa. Acompanhe essa página para ter novidades do projeto.
+</p>
+<br><br>
+* Os significados são extraídos da Wikipédia (<a href="http://pt.wikipedia.org" target="_blank">pt.wikipedia.org</a>).
 
                     </section>
                 </div>
@@ -224,7 +224,7 @@
                               <i class="icon-phone"></i>
                             </div>
                             <div class="sny-icon-content">
-                              <h4>Telefone</h4>
+                              <h4>Telefones</h4>
                               <p>(91) 98371-6335<br/>(91) 99181-0301</p>
                             </div>
                          </div>
@@ -256,7 +256,15 @@
     </div><!-- #main -->
 </div><!-- #main-container -->
 
+<script>
+var n = new Date();
+var nascimento = 1995;
+var hoje = n.getFullYear();
+var x = hoje - nascimento;
 
+
+$('#idade').html(x);
+</script>
 
 </body>
 </html>
