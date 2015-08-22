@@ -511,7 +511,7 @@ body {width: 92%; margin: 0 auto} /* Center page without wrapper */
   margin-bottom: 1em;
 }
 .meter > span {
-  display: inline;
+  display: block;
   height: 100%;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
