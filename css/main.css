@@ -509,6 +509,7 @@ body {width: 92%; margin: 0 auto} /* Center page without wrapper */
   -webkit-border-radius: 4px;
   border-radius: 4px;
   margin-bottom: 1em;
+  background: #12406F;
 }
 .meter > span {
   display: block;
@@ -520,7 +521,7 @@ body {width: 92%; margin: 0 auto} /* Center page without wrapper */
 
   position: relative;
   overflow: visible;
-  text-shadow: 2px 2px 1px #000;
+  text-shadow: 0px 0px 3px #000;
 }
 .meter > span  > span{
   margin-left: 4px;
