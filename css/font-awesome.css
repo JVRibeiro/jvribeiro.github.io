@@ -749,6 +749,7 @@ a .icon-flip-vertical:before {
 }
 .icon-facebook-sign:before {
   content: "\f082";
+  color: #2B4D8C;
 }
 .icon-camera-retro:before {
   content: "\f083";
@@ -820,6 +821,7 @@ a .icon-flip-vertical:before {
 }
 .icon-facebook:before {
   content: "\f09a";
+  color: #2B4D8C;
 }
 .icon-github:before {
   content: "\f09b";
