@@ -1,5 +1,5 @@
-var pre = "<a href='http://www.acessoriosparablogs.com.br/emoticons-postagens.html' title='Emoticons nas Postagens do Blogger' target='_blank'><img src='http://acessoriosparablogs.com.br/emoticons/";
-var pos = ".png' style='border:none' border='0'></a>";
+var pre = "<img src='http://acessoriosparablogs.com.br/emoticons/";
+var pos = ".png' style='border:none' border='0' />";
 var PALETA = pre + '002' + pos;
 var SOM = pre + '003' + pos;
 var VOLTAR = pre + '004' + pos;
