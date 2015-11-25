@@ -99,5 +99,5 @@ $('.instagram-lite').instagramLite({
         clientID: '43568de1eb8c4a74a9a1aca8db3f172e',
         username: 'estantedaemi',
         urls:true,
-        limit:6
+        limit:9
       });
