@@ -94,3 +94,10 @@ emoji.innerHTML = emoji.innerHTML.replace(/\[\[cima\]\]/gi ,CIMA);
 emoji.innerHTML = emoji.innerHTML.replace(/\[\[banana\]\]/gi ,BANANA);
 emoji.innerHTML = emoji.innerHTML.replace(/\[\[blogger\]\]/gi ,BLOGGER);
 })(window);
+
+$('.instagram-lite').instagramLite({
+        clientID: '43568de1eb8c4a74a9a1aca8db3f172e',
+        username: 'estantedaemi',
+        urls:true,
+        limit:6
+      });
