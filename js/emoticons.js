@@ -109,16 +109,14 @@ width: calc(100% - 30px);\
 }\
 </style>\
 \
-<div id='' class='app'>\
 <div class=\"spoiler\">\
    <div class=\"icon\"><\/div>\
    <div class=\"text\">\
      <h2>Alerta de Spoiler!<\/h2>\
-     <p>Atenção! Este post contém <a href=\"http:\/\/estantedaemi.blogspot.com\/p\/politica-de-spoilers.html\" title=\"Política de Spoilers\">SPOILERS<\/a>! Caso ainda não tenha lido o livro em questão e\/ou não quer revelações do enredo, <span class=\"red\">NÃO CONTINUE LENDO<\/span>.<\/p>\
+     <p>Atenção! Este post contém <a href=\"http:\/\/estantedaemi.blogspot.com\/p\/politica-de-spoilers.html\" title=\"Política de Spoilers\"><b>SPOILERS<\/b><\/a>! Caso ainda não tenha lido o livro em questão e\/ou não quer revelações do enredo, <span class=\"red\">NÃO CONTINUE LENDO<\/span>.<\/p>\
      <p>Se você se sente confortável com spoilers, prossiga por sua conta e risco.<\/p>\
    <\/div>\
  <\/div>\
-</div>\
 ",
 
     emoji = document.body;
