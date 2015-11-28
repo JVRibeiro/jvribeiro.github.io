@@ -1,47 +1,127 @@
-var pre = "<img src='http://acessoriosparablogs.com.br/emoticons/";
-var pos = ".png' style='border:none' border='0' />";
-var PALETA = pre + '002' + pos;
-var SOM = pre + '003' + pos;
-var VOLTAR = pre + '004' + pos;
-var ESTRELA = pre + '005' + pos;
-var MUNDO = pre + '006' + pos;
-var CANCELAR = pre + '007' + pos;
-var OK = pre + '008' + pos;
-var OCULOS = pre + '009' + pos;
-var SORRISO1 = pre + '010' + pos;
-var LINGUA_PISCANDO = pre + '011' + pos;
-var IDEIA = pre + '012' + pos;
-var CASA = pre + '013' + pos;
-var BAIXO = pre + '014' + pos;
-var TACA = pre + '015' + pos;
-var FOTO = pre + '016' + pos;
-var ZANGADO = pre + '017' + pos;
-var GOZANDO = pre + '018' + pos;
-var BOCA_ABERTA = pre + '019' + pos;
-var PEIXE = pre + '020' + pos;
-var PISCANDO = pre + '021' + pos;
-var CONTRARIADO = pre + '022' + pos;
-var SERIO = pre + '023' + pos;
-var LINGUA = pre + '024' + pos;
-var NOTA = pre + '025' + pos;
-var BLOGGER = pre + '026' + pos;
-var CORACAO = pre + '027' + pos;
-var FELIZ = pre + '028' + pos;
-var ESPANTADO = pre + '029' + pos;
-var TRISTE = pre + '030' + pos;
-var SORRISO2 = pre + '031' + pos;
-var RAIO = pre + '032' + pos;
-var CHAVE = pre + '033' + pos;
-var MSN = pre + '034' + pos;
-var MSN2 = pre + '035' + pos;
-var TELEFONE = pre + '036' + pos;
-var PIZZA = pre + '037' + pos;
-var PRESENTE = pre + '038' + pos;
-var CORACAO_PARTIDO = pre + '039' + pos;
-var CIMA = pre + '040' + pos;
-var BANANA = pre + '041' + pos;
-var RELOGIO = pre + '001' + pos;
-var emoji = document.body;
+var pre = "<img src='http://acessoriosparablogs.com.br/emoticons/",
+    pos = ".png' style='border:none' border='0' />",
+    PALETA = pre + '002' + pos,
+    SOM = pre + '003' + pos,
+    VOLTAR = pre + '004' + pos,
+    ESTRELA = pre + '005' + pos,
+    MUNDO = pre + '006' + pos,
+    CANCELAR = pre + '007' + pos,
+    OK = pre + '008' + pos,
+    OCULOS = pre + '009' + pos,
+    SORRISO1 = pre + '010' + pos,
+    LINGUA_PISCANDO = pre + '011' + pos,
+    IDEIA = pre + '012' + pos,
+    CASA = pre + '013' + pos,
+    BAIXO = pre + '014' + pos,
+    TACA = pre + '015' + pos,
+    FOTO = pre + '016' + pos,
+    ZANGADO = pre + '017' + pos,
+    GOZANDO = pre + '018' + pos,
+    BOCA_ABERTA = pre + '019' + pos,
+    PEIXE = pre + '020' + pos,
+    PISCANDO = pre + '021' + pos,
+    CONTRARIADO = pre + '022' + pos,
+    SERIO = pre + '023' + pos,
+    LINGUA = pre + '024' + pos,
+    NOTA = pre + '025' + pos,
+    BLOGGER = pre + '026' + pos,
+    CORACAO = pre + '027' + pos,
+    FELIZ = pre + '028' + pos,
+    ESPANTADO = pre + '029' + pos,
+    TRISTE = pre + '030' + pos,
+    SORRISO2 = pre + '031' + pos,
+    RAIO = pre + '032' + pos,
+    CHAVE = pre + '033' + pos,
+    MSN = pre + '034' + pos,
+    MSN2 = pre + '035' + pos,
+    TELEFONE = pre + '036' + pos,
+    PIZZA = pre + '037' + pos,
+    PRESENTE = pre + '038' + pos,
+    CORACAO_PARTIDO = pre + '039' + pos,
+    CIMA = pre + '040' + pos,
+    BANANA = pre + '041' + pos,
+    RELOGIO = pre + '001' + pos,
+    SPOILER = "\
+<style>\
+.cont {\
+  width: 650px;\
+  max-width: 90%;\
+    height: 800px;\
+    font-size: 12pt;\
+    border: 1px solid #ccc;\
+    border-radius: 5px;\
+    padding: 15px;\
+    color: #636363;\
+    background: #FFFFFF;\
+    margin: 0;\
+}\
+\
+.spoiler {\
+width: calc(100% - 30px);\
+    width: -webkit-calc(100% - 30px);\
+    width: -moz-calc(100% - 30px);\
+    width: -o-calc(100% - 30px);\
+    width: -ms-calc(100% - 30px);\
+    height: auto;\
+    display: inline-block;\
+    font-size: 12pt;\
+    box-shadow: 0 0 20px #000;\
+    -webkit-box-shadow: 0 0 20px #000;\
+    -moz-box-shadow: 0 0 20px #000;\
+    -ms-box-shadow: 0 0 20px #000;\
+    -o-box-shadow: 0 0 20px #000;\
+    border-radius: 5px;\
+    padding: 15px;\
+    background: #FFFDB3;\
+    text-align: justify;\
+    margin: 0;\
+    }\
+\
+.spoiler .icon {\
+  width: 150px;\
+    height: 150px;\
+    display: inline-block;\
+    position: relative;\
+    background-image: url(spoiler_alert.png);\
+    background-size: 100%;\
+    background-repeat: no-repeat;\
+    background-position: 50%;\
+}\
+.spoiler .text {\
+  font-family: Segoe UI, Trebucuhet, sans-serif;\
+    color: #000;\
+    font-size: 13pt;\
+    width: 70%;\
+    min-width: 230px;\
+    height: auto;\
+    padding-left: 15px;\
+    padding-right: 15px;\
+    display: inline-block;\
+    top: 0;\
+    left: 170px;\
+}\
+.spoiler .red {\
+  color: #f00;\
+}\
+.spoiler h2 {\
+  color: #f00;\
+  text-align: center;\
+}\
+</style>\
+\
+<div id='' class='app'>\
+<div class=\"spoiler\">\
+   <div class=\"icon\"><\/div>\
+   <div class=\"text\">\
+     <h2>Alerta de Spoiler!<\/h2>\
+     <p>Atenção! Este post contém <a href=\"http:\/\/estantedaemi.blogspot.com\/p\/politica-de-spoilers.html\" title=\"Política de Spoilers\">SPOILERS<\/a>! Caso ainda não tenha lido o livro em questão e\/ou não quer revelações do enredo, <span class=\"red\">NÃO CONTINUE LENDO<\/span>.<\/p>\
+     <p>Se você se sente confortável com spoilers, prossiga por sua conta e risco.<\/p>\
+   <\/div>\
+ <\/div>\
+</div>\
+",
+
+    emoji = document.body;
 
 (function (window) {
 emoji.innerHTML = emoji.innerHTML.replace(/\[\[relogio\]\]/gi ,RELOGIO);
@@ -93,6 +173,8 @@ emoji.innerHTML = emoji.innerHTML.replace(/( \<\/3)/gi ," "+CORACAO_PARTIDO);
 emoji.innerHTML = emoji.innerHTML.replace(/\[\[cima\]\]/gi ,CIMA);
 emoji.innerHTML = emoji.innerHTML.replace(/\[\[banana\]\]/gi ,BANANA);
 emoji.innerHTML = emoji.innerHTML.replace(/\[\[blogger\]\]/gi ,BLOGGER);
+emoji.innerHTML = emoji.innerHTML.replace(/\[\[spoiler\]\]/gi ,SPOILER);
+emoji.innerHTML = emoji.innerHTML.replace(/\[\[SPOILER\]\]/gi ,SPOILER);
 })(window);
 
 $('.instagram-lite').instagramLite({
