@@ -102,6 +102,7 @@ width: calc(100% - 30px);\
 }\
 .spoiler .red {\
   color: #f00;\
+  font-weight: bold;\
 }\
 .spoiler .h2 {\
   font-size: 16pt;\
