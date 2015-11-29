@@ -105,9 +105,10 @@ width: calc(100% - 30px);\
   font-weight: bold;\
 }\
 .spoiler .h2 {\
-  font-size: 16pt;\
+  font-size: 24pt;\
   color: #f00;\
   text-align: center;\
+  font-weight: bold;\
 }\
 </style>\
 \
