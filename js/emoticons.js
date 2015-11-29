@@ -103,7 +103,7 @@ width: calc(100% - 30px);\
 .spoiler .red {\
   color: #f00;\
 }\
-.spoiler h2 {\
+.spoiler .h2 {\
   color: #f00;\
   text-align: center;\
 }\
@@ -112,7 +112,7 @@ width: calc(100% - 30px);\
 <div class=\"spoiler\">\
    <div class=\"icon\"><\/div>\
    <div class=\"text\">\
-     <h2>Alerta de Spoiler!<\/h2>\
+     <div class=\"h2\">Alerta de Spoiler!<\/div>\
      <p>Atenção! Este post contém <a href=\"http:\/\/estantedaemi.blogspot.com\/p\/politica-de-spoilers.html\" title=\"Política de Spoilers\"><b>SPOILERS<\/b><\/a>! Caso ainda não tenha lido o livro em questão e\/ou não quer revelações do enredo, <span class=\"red\">NÃO CONTINUE LENDO<\/span>.<\/p>\
      <p>Se você se sente confortável com spoilers, prossiga por sua conta e risco.<\/p>\
    <\/div>\
