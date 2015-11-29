@@ -175,7 +175,7 @@ emoji.innerHTML = emoji.innerHTML.replace(/\[\[spoiler\]\]/gi ,SPOILER);
 emoji.innerHTML = emoji.innerHTML.replace(/\[\[SPOILER\]\]/gi ,SPOILER);
 })(window);
 
-$(body).contextmenu(function() {
+$(document).contextmenu(function() {
 	return false;	
 });
 
