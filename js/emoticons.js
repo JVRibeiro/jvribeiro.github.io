@@ -88,8 +88,7 @@ width: calc(100% - 30px);\
     background-position: 50%;\
 }\
 .spoiler .text {\
-  font-family: Segoe UI, Trebucuhet, sans-serif;\
-    color: #000;\
+  color: #000;\
     font-size: 13pt;\
     width: 70%;\
     min-width: 230px;\
@@ -105,7 +104,7 @@ width: calc(100% - 30px);\
   font-weight: bold;\
 }\
 .spoiler .h2 {\
-  font-size: 24pt;\
+  font-size: 20pt;\
   color: #f00;\
   text-align: center;\
   font-weight: bold;\
@@ -117,7 +116,7 @@ width: calc(100% - 30px);\
    <div class=\"text\">\
      <div class=\"h2\">Alerta de Spoiler!<\/div>\
      <p>Atenção! Este post contém <a href=\"http:\/\/estantedaemi.blogspot.com\/p\/politica-de-spoilers.html\" title=\"Política de Spoilers\"><b>SPOILERS<\/b><\/a>! Caso ainda não tenha lido o livro em questão e\/ou não quer revelações do enredo, <span class=\"red\">NÃO CONTINUE LENDO<\/span>.<\/p>\
-     <p>Se você se sente confortável com spoilers, prossiga por sua conta e risco.<\/p>\
+     <p>Se você se sente confortável com spoilers, <span class=\"red\">prossiga por sua conta e risco<\/span>.<\/p>\
    <\/div>\
  <\/div>\
 ",
