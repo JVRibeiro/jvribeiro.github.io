@@ -180,7 +180,7 @@ emoji.innerHTML = emoji.innerHTML.replace(/\[\[SPOILER\]\]/gi ,SPOILER);
 
 $('.instagram-lite').instagramLite({
         clientID: '43568de1eb8c4a74a9a1aca8db3f172e',
-        username: 'estantedaemi',
+        username: 'livrofilia',
         urls:true,
         limit:9
       });
