@@ -175,9 +175,6 @@ emoji.innerHTML = emoji.innerHTML.replace(/\[\[spoiler\]\]/gi ,SPOILER);
 emoji.innerHTML = emoji.innerHTML.replace(/\[\[SPOILER\]\]/gi ,SPOILER);
 })(window);
 
-$(document).contextmenu(function() {
-	return false;	
-});
 
 $('.instagram-lite').instagramLite({
         clientID: '43568de1eb8c4a74a9a1aca8db3f172e',
