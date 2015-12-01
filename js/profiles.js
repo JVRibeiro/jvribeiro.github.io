@@ -5,23 +5,23 @@ var emilyIcon = "http://jvribeiro.github.io/emily.jpg",
 
     emilyFacebookUrl = "https://facebook.com/emily.abreu.31",
     emilyInstagramUsername = "emiiilysantoos",
-    emilyFacebook = "<a class=\"facebook\" href=\""+ emilyFacebookUrl +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-facebook\"><\/i><\/a>",
-    emilyInstagram = "<a class=\"instagram\" href=\"http:\/\/instagram.com\/"+ emilyInstagramUsername +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-instagram\"><\/i><\/a>",
+    emilyFacebook = "<a title=\"Facebook de Emily\" class=\"facebook\" href=\""+ emilyFacebookUrl +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-facebook\"><\/i><\/a>",
+    emilyInstagram = "<a title=\"Instagram de Emily\" class=\"instagram\" href=\"http:\/\/instagram.com\/"+ emilyInstagramUsername +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-instagram\"><\/i><\/a>",
 
     camilaFacebookUrl = "https://facebook.com/CGabriely",
     camilaInstagramUsername = "camilagcorrea",
-    camilaFacebook = "<a class=\"facebook\" href=\""+ camilaFacebookUrl +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-facebook\"><\/i><\/a>",
-    camilaInstagram = "<a class=\"instagram\" href=\"http:\/\/instagram.com\/"+ camilaInstagramUsername +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-instagram\"><\/i><\/a>",
+    camilaFacebook = "<a title=\"Facebook de Camila\" class=\"facebook\" href=\""+ camilaFacebookUrl +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-facebook\"><\/i><\/a>",
+    camilaInstagram = "<a title=\"Instagram de Camila\" class=\"instagram\" href=\"http:\/\/instagram.com\/"+ camilaInstagramUsername +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-instagram\"><\/i><\/a>",
 
     tataFacebookUrl = "#",
     tataInstagramUsername = "thamirisalmeida22",
-    tataFacebook = "<a class=\"facebook\" href=\""+ tataFacebookUrl +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-facebook\"><\/i><\/a>",
-    tataInstagram = "<a class=\"instagram\" href=\"http:\/\/instagram.com\/"+ tataInstagramUsername +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-instagram\"><\/i><\/a>",
+    tataFacebook = "<a title=\"Facebook de Thamiris\" class=\"facebook\" href=\""+ tataFacebookUrl +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-facebook\"><\/i><\/a>",
+    tataInstagram = "<a title=\"Instagram de Thamiris\" class=\"instagram\" href=\"http:\/\/instagram.com\/"+ tataInstagramUsername +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-instagram\"><\/i><\/a>",
 
     victorFacebookUrl = "https://facebook.com/OVictorRibeiro",
     victorInstagramUsername = "_jvribeiro",
-    victorFacebook = "<a class=\"facebook\" href=\""+ victorFacebookUrl +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-facebook\"><\/i><\/a>",
-    victorInstagram = "<a class=\"instagram\" href=\"http:\/\/instagram.com\/"+ victorInstagramUsername +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-instagram\"><\/i><\/a>",
+    victorFacebook = "<a title=\"Facebook de Victor\" class=\"facebook\" href=\""+ victorFacebookUrl +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-facebook\"><\/i><\/a>",
+    victorInstagram = "<a title=\"Instagram de Victor\" class=\"instagram\" href=\"http:\/\/instagram.com\/"+ victorInstagramUsername +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-instagram\"><\/i><\/a>",
 
 
 EMILY = "\
@@ -146,9 +146,9 @@ CAMILA = "\
    <div class=\"icon\"><\/div>\
    <div class=\"text\">\
      <h2>Camila Correa<\/h2>\
-     "+camilaFacebook+"\
      "+camilaInstagram+"\
-     <p><\/p>\
+     <p>Camila tem 18 anos, é publicadora de boas novas, devoradora de livros e desastrada ao extremo.<\/p>\
+     <p>Tenta ser uma pessoa responsável e criativa, mas tem memória de peixe e esquece tudo de uma hora pra outra. Inclusive, ela esqueceu algo bem legal que iria escrever aqui.<\/p>\
    <\/div>\
 </div>\
 ",
@@ -279,7 +279,7 @@ VICTOR = "\
      <h2>Victor Ribeiro<\/h2>\
      "+victorFacebook+"\
      "+victorInstagram+"\
-     <p><\/p>\
+     <p>Insira uma bio aqui. ^^<\/p>\
    <\/div>\
 </div>\
 ",
