@@ -203,7 +203,9 @@ THAMIRIS = "\
     left: 170px;\
 }\
 .tata h2 {\
-    color: #FF00E9;\
+    color: #BD66FD !important;\
+    background-color: #FFF2F8 !important;\
+    border-bottom-color: #FF00E9 !important;\
 }\
 </style>\
 <div class=\"tata\">\
