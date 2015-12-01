@@ -213,7 +213,7 @@ THAMIRIS = "\
      "+tataFacebook+"\
      "+tataInstagram+"\
      <p>16 anos, geminiana, apaixonada por livros — na verdade, eles que são apaixonados por mim. Tenho super mega medo de animais.<\/p>\
-     <p>Cores: <b>preta</b> e <b style=\'color: #FF5AF1\'>rosa</b>.<\/p>\
+     <p>Cores favoritas: <b>preta</b> e <b style=\'color: #FF5AF1\'>rosa</b>.<\/p>\
      <p>Falou em diversão e palhaçada, pode me chamar.<\/p>\
    <\/div>\
 </div>\
