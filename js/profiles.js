@@ -63,7 +63,7 @@ EMILY = "\
     color: #000;\
     font-size: 12pt;\
     border-right: 3px solid #FEDFFF;\
-    width: 340px;\
+    width: 400px;\
     max-width: 90%;\
     min-width: 230px;\
     height: auto;\
@@ -128,7 +128,7 @@ CAMILA = "\
     color: #000;\
     font-size: 12pt;\
     border-right: 3px solid #FEDFFF;\
-    width: 340px;\
+    width: 400px;\
     max-width: 90%;\
     min-width: 230px;\
     height: auto;\
@@ -192,7 +192,7 @@ THAMIRIS = "\
     color: #000;\
     font-size: 12pt;\
     border-right: 3px solid #FEDFFF;\
-    width: 340px;\
+    width: 400px;\
     max-width: 90%;\
     min-width: 230px;\
     height: auto;\
@@ -258,7 +258,7 @@ VICTOR = "\
     color: #000;\
     font-size: 12pt;\
     border-right: 3px solid #E0E0E0;\
-    width: 340px;\
+    width: 400px;\
     max-width: 90%;\
     min-width: 230px;\
     height: auto;\
@@ -269,7 +269,9 @@ VICTOR = "\
     left: 170px;\
 }\
 .victor h2 {\
-    color: #6693FD;\
+    color: #6693FD !important;\
+    background-color: #F2FFFE !important;\
+    border-bottom-color: #9CB3FF !important;\
 }\
 </style>\
 <div class=\"victor\">\
