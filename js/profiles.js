@@ -3,23 +3,23 @@ var emilyIcon = "http://jvribeiro.github.io/emily.jpg",
     tataIcon = "http://jvribeiro.github.io/tata.jpg",
     victorIcon = "http://jvribeiro.github.io/perfil.jpg",
 
-    emilyFacebookUrl = "",
-    emilyInstagramUsername = "",
+    emilyFacebookUrl = "https://www.facebook.com/emily.abreu.31",
+    emilyInstagramUsername = "emiiilysantoos",
     emilyFacebook = "<a class=\"facebook\" href=\""+ emilyFacebookUrl +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-facebook\"><\/i><\/a>",
     emilyInstagram = "<a class=\"instagram\" href=\"http:\/\/instagram.com\/"+ emilyInstagramUsername +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-instagram\"><\/i><\/a>",
 
-    camilaFacebookUrl = "",
-    camilaInstagramUsername = "",
+    camilaFacebookUrl = "https://www.facebook.com/",
+    camilaInstagramUsername = "camilagcorrea",
     camilaFacebook = "<a class=\"facebook\" href=\""+ camilaFacebookUrl +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-facebook\"><\/i><\/a>",
     camilaInstagram = "<a class=\"instagram\" href=\"http:\/\/instagram.com\/"+ camilaInstagramUsername +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-instagram\"><\/i><\/a>",
 
-    tataFacebookUrl = "",
-    tataInstagramUsername = "",
+    tataFacebookUrl = "https://www.facebook.com/",
+    tataInstagramUsername = "thamirisalmeida22",
     tataFacebook = "<a class=\"facebook\" href=\""+ tataFacebookUrl +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-facebook\"><\/i><\/a>",
     tataInstagram = "<a class=\"instagram\" href=\"http:\/\/instagram.com\/"+ tataInstagramUsername +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-instagram\"><\/i><\/a>",
 
-    victorFacebookUrl = "",
-    victorInstagramUsername = "",
+    victorFacebookUrl = "https://www.facebook.com/OVictorRibeiro",
+    victorInstagramUsername = "_jvribeiro",
     victorFacebook = "<a class=\"facebook\" href=\""+ victorFacebookUrl +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-facebook\"><\/i><\/a>",
     victorInstagram = "<a class=\"instagram\" href=\"http:\/\/instagram.com\/"+ victorInstagramUsername +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-instagram\"><\/i><\/a>",
 
@@ -148,7 +148,7 @@ CAMILA = "\
      <h2>Camila Correa<\/h2>\
      "+camilaFacebook+"\
      "+camilaInstagram+"\
-     <p>Lorem ipson Lorem ipson Lorem ipson Lorem ipson Lorem ipson Lorem ipson Lorem ipson Lorem ipson Lorem ipson Lorem ipson Lorem ipson Lorem ipson Lorem ipson Lorem ipson Lorem ipson Lorem ipson Lorem ipson Lorem ipson <\/p>\
+     <p><\/p>\
    <\/div>\
 </div>\
 ",
@@ -210,7 +210,6 @@ THAMIRIS = "\
    <div class=\"icon\"><\/div>\
    <div class=\"text\">\
      <h2>Thamiris Almeida<\/h2>\
-     "+tataFacebook+"\
      "+tataInstagram+"\
      <p>16 anos, geminiana, apaixonada por livros — na verdade, eles que são apaixonados por mim. Tenho super mega medo de animais.<\/p>\
      <p>Cores favoritas: <b>preta</b> e <b style=\'color: #FF5AF1\'>rosa</b>.<\/p>\
@@ -280,7 +279,7 @@ VICTOR = "\
      <h2>Victor Ribeiro<\/h2>\
      "+victorFacebook+"\
      "+victorInstagram+"\
-     <p>Lorem ipson Lorem ipson Lorem ipson Lorem ipson Lorem ipson Lorem ipson Lorem ipson Lorem ipson Lorem ipson Lorem ipson Lorem ipson Lorem ipson Lorem ipson Lorem ipson Lorem ipson Lorem ipson Lorem ipson Lorem ipson <\/p>\
+     <p><\/p>\
    <\/div>\
 </div>\
 ",
