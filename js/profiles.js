@@ -1,7 +1,7 @@
-var emilyIcon = "../emily.jpg",
-    camilaIcon = "../camila.jpg",
-    tataIcon = "../tata.jpg",
-    victorIcon = "../perfil.jpg",
+var emilyIcon = "http://jvribeiro.github.io/emily.jpg",
+    camilaIcon = "http://jvribeiro.github.io/camila.jpg",
+    tataIcon = "http://jvribeiro.github.io/tata.jpg",
+    victorIcon = "http://jvribeiro.github.io/perfil.jpg",
 
     emilyFacebookUrl = "",
     emilyInstagramUsername = "",
