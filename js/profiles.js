@@ -81,7 +81,6 @@ EMILY = "\
    <div class=\"icon\"><\/div>\
    <div class=\"text\">\
      <h2>Emily Abreu<\/h2>\
-     "+emilyFacebook+"\
      "+emilyInstagram+"\
      <p>22 anos, filha, irmã e namorada. Uma romântica levemente <s>(risos)</s> viciada em livros e na cor <b style=\'color: #FF5AF1\'>rosa</b>, além de sorridente, falante e dorminhoca.<\/p>\
      <p>Apaixonada por animais, mais com uma queda gigantesca por cachorros.<\/p>\
@@ -115,11 +114,11 @@ CAMILA = "\
     -moz-border-radius: 30%;\
     -ms-border-radius: 30%;\
     -o-border-radius: 30%;\
-    border: 2px solid #FC92FF;\
+    border: 2px solid #CB9CFF;\
     display: inline-block;\
     position: relative;\
     background-image: url('"+camilaIcon+"');\
-    background-size: auto 100%;\
+    background-size: 100% auto;\
     background-repeat: no-repeat;\
     background-position: 50%;\
 }\
@@ -127,7 +126,7 @@ CAMILA = "\
     font-family: Segoe UI, Trebucuhet, sans-serif;\
     color: #000;\
     font-size: 12pt;\
-    border-right: 3px solid #FEDFFF;\
+    border-right: 3px solid #EDDDFF;\
     width: 400px;\
     max-width: 90%;\
     min-width: 230px;\
@@ -139,7 +138,9 @@ CAMILA = "\
     left: 170px;\
 }\
 .camila h2 {\
-    color: #FF00E9;\
+    color: #A500AF !important;\
+    border-bottom: 3px solid #CB9CFF !important;\
+    background-color: #F8F3FF !important;\
 }\
 </style>\
 <div class=\"camila\">\
@@ -279,7 +280,6 @@ VICTOR = "\
    <div class=\"icon\"><\/div>\
    <div class=\"text\">\
      <h2>Victor Ribeiro<\/h2>\
-     "+victorFacebook+"\
      "+victorInstagram+"\
      <p>Insira uma bio aqui. ^^<\/p><br><br><br><br>\
    <\/div>\
