@@ -279,7 +279,7 @@ VICTOR = "\
      <h2>Victor Ribeiro<\/h2>\
      "+victorFacebook+"\
      "+victorInstagram+"\
-     <p>Insira uma bio aqui. ^^<\/p>\
+     <p>Insira uma bio aqui. ^^<\/p><br><br><br><br>\
    <\/div>\
 </div>\
 ",
