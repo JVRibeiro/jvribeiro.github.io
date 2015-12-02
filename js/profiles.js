@@ -4,21 +4,25 @@ var emilyIcon = "http://jvribeiro.github.io/emily.jpg",
     victorIcon = "http://jvribeiro.github.io/perfil.jpg",
 
     emilyFacebookUrl = "https://facebook.com/emily.abreu.31",
+    emilyPosts = "http://www.livrofilia.com/search/label/Emily Abreu",
     emilyInstagramUsername = "emiiilysantoos",
     emilyFacebook = "<a title=\"Facebook de Emily\" class=\"facebook\" href=\""+ emilyFacebookUrl +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-facebook\"><\/i><\/a>",
     emilyInstagram = "<a title=\"Instagram de Emily\" class=\"instagram\" href=\"http:\/\/instagram.com\/"+ emilyInstagramUsername +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-instagram\"><\/i><\/a>",
 
     camilaFacebookUrl = "https://facebook.com/CGabriely",
+    camilaPosts = "http://www.livrofilia.com/search/label/Camila Correa",
     camilaInstagramUsername = "camilagcorrea",
     camilaFacebook = "<a title=\"Facebook de Camila\" class=\"facebook\" href=\""+ camilaFacebookUrl +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-facebook\"><\/i><\/a>",
     camilaInstagram = "<a title=\"Instagram de Camila\" class=\"instagram\" href=\"http:\/\/instagram.com\/"+ camilaInstagramUsername +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-instagram\"><\/i><\/a>",
 
     tataFacebookUrl = "#",
+    tataPosts = "http://www.livrofilia.com/search/label/Thamiris Almeida",
     tataInstagramUsername = "thamirisalmeida22",
     tataFacebook = "<a title=\"Facebook de Thamiris\" class=\"facebook\" href=\""+ tataFacebookUrl +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-facebook\"><\/i><\/a>",
     tataInstagram = "<a title=\"Instagram de Thamiris\" class=\"instagram\" href=\"http:\/\/instagram.com\/"+ tataInstagramUsername +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-instagram\"><\/i><\/a>",
 
     victorFacebookUrl = "https://facebook.com/OVictorRibeiro",
+    victorPosts = "http://www.livrofilia.com/search/label/Victor Ribeiro",
     victorInstagramUsername = "_jvribeiro",
     victorFacebook = "<a title=\"Facebook de Victor\" class=\"facebook\" href=\""+ victorFacebookUrl +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-facebook\"><\/i><\/a>",
     victorInstagram = "<a title=\"Instagram de Victor\" class=\"instagram\" href=\"http:\/\/instagram.com\/"+ victorInstagramUsername +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-instagram\"><\/i><\/a>",
@@ -81,7 +85,7 @@ EMILY = "\
    <div class=\"icon\"><\/div>\
    <div class=\"text\">\
      <h2>Emily Abreu<\/h2>\
-     "+emilyInstagram+"\
+     "+emilyInstagram+" - <a href=\""+emilyPosts+"\">Ver todos os posts<\/a>\
      <p>22 anos, filha, irmã e namorada. Uma romântica levemente <s>(risos)</s> viciada em livros e na cor <b style=\'color: #FF5AF1\'>rosa</b>, além de sorridente, falante e dorminhoca.<\/p>\
      <p>Apaixonada por animais, mais com uma queda gigantesca por cachorros.<\/p>\
    <\/div>\
@@ -147,7 +151,7 @@ CAMILA = "\
    <div class=\"icon\"><\/div>\
    <div class=\"text\">\
      <h2>Camila Correa<\/h2>\
-     "+camilaInstagram+"\
+     "+camilaInstagram+" - <a href=\""+camilaPosts+"\">Ver todos os posts<\/a>\
      <p>Camila tem 18 anos, é publicadora de boas novas, devoradora de livros e desastrada ao extremo.<\/p>\
      <p>Tenta ser uma pessoa responsável e criativa, mas tem memória de peixe e esquece tudo de uma hora pra outra. Inclusive, ela esqueceu algo bem legal que iria escrever aqui.<\/p>\
    <\/div>\
@@ -213,7 +217,7 @@ THAMIRIS = "\
    <div class=\"icon\"><\/div>\
    <div class=\"text\">\
      <h2>Thamiris Almeida<\/h2>\
-     "+tataInstagram+"\
+     "+tataInstagram+" - <a href=\""+tataPosts+"\">Ver todos os posts<\/a>\
      <p>16 anos, geminiana, apaixonada por livros — na verdade, eles que são apaixonados por mim. Tenho super mega medo de animais.<\/p>\
      <p>Cores favoritas: <b>preta</b> e <b style=\'color: #FF5AF1\'>rosa</b>.<\/p>\
      <p>Falou em diversão e palhaçada, pode me chamar.<\/p>\
@@ -280,7 +284,7 @@ VICTOR = "\
    <div class=\"icon\"><\/div>\
    <div class=\"text\">\
      <h2>Victor Ribeiro<\/h2>\
-     "+victorInstagram+"\
+     "+victorInstagram+" - <a href=\""+victorPosts+"\">Ver todos os posts<\/a>\
      <p>Insira uma bio aqui. ^^<\/p><br><br><br><br>\
    <\/div>\
 </div>\
