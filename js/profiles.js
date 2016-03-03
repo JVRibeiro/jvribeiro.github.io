@@ -87,7 +87,7 @@ EMILY = "\
      <h2>Emily Abreu<\/h2>\
      "+emilyInstagram+" - <a href=\""+emilyPosts+"\">Ver todos os posts<\/a>\
      <p>22 anos, filha, irmã e namorada. Uma romântica levemente <s>(risos)</s> viciada em livros e na cor <b style=\'color: #FF5AF1\'>rosa</b>, além de sorridente, falante e dorminhoca.<\/p>\
-     <p>Apaixonada por animais, mais com uma queda gigantesca por cachorros.<\/p>\
+     <p>Apaixonada por animais, mas com uma queda gigantesca por cachorros.<\/p>\
    <\/div>\
 </div>\
 ",
