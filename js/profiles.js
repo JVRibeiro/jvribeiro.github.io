@@ -115,8 +115,8 @@ EMILYP = "\
     font-weight: bold;\
 }\
 </style>\
-<a href=\"/search/label/Emily Abreu\" target=\"\">\
-<div class=\"icon-p-emily\"><\/div> <span class='emily-p-name'>Emily: <\/span><\/a>\
+<a href=\"/search/label/Emily Abreu\" target=\"_blank\">\
+<div class=\"icon-p-emily\"><\/div><\/a> <span class='emily-p-name'><a href=\"/search/label/Emily Abreu\" target=\"_blank\">Emily<\/a>: <\/span>\
 ",
 
 CAMILA = "\
@@ -203,8 +203,8 @@ CAMILAP = "\
     font-weight: bold;\
 }\
 </style>\
-<a href=\"/search/label/Camila Correa\" target=\"\">\
-<div class=\"icon-p-camila\"><\/div> <span class='camila-p-name'>Camila: <\/span><\/a>\
+<a href=\"/search/label/Camila Correa\" target=\"_blank\">\
+<div class=\"icon-p-camila\"><\/div><\/a> <span class='camila-p-name'><a href=\"/search/label/Camila Correa\" target=\"_blank\">Camila<\/a>: <\/span>\
 ",
 
 THAMIRIS = "\
@@ -292,8 +292,8 @@ TATAP = "\
     font-weight: bold;\
 }\
 </style>\
-<a href=\"/search/label/Thamiris Almeida\" target=\"\">\
-<div class=\"icon-p-tata\"><\/div> <span class='tata-p-name'>Thamiris: <\/span><\/a>\
+<a href=\"/search/label/Thamiris Almeida\" target=\"_blank\">\
+<div class=\"icon-p-tata\"><\/div><\/a> <span class='tata-p-name'><a href=\"/search/label/Camila Correa\" target=\"_blank\">Thamiris<\/a>: <\/span>\
 ",
 
 VICTOR = "\
