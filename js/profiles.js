@@ -110,8 +110,12 @@ EMILYP = "\
     background-repeat: no-repeat;\
     background-position: 50%;\
 }\
+.emily-p-name {\
+    color: #CB9CFF;\
+    font-weight: bold;\
+}\
 </style>\
-<div class=\"icon-p-emily\"><\/div>\
+<div class=\"icon-p-emily\"><\/div> <span class='emily-p-name'>Emily: <\/span>\
 ",
 
 CAMILA = "\
@@ -193,8 +197,12 @@ CAMILAP = "\
     background-repeat: no-repeat;\
     background-position: 50%;\
 }\
+.camila-p-name {\
+    color: #CB9CFF;\
+    font-weight: bold;\
+}\
 </style>\
-<div class=\"icon-p-camila\"><\/div>\
+<div class=\"icon-p-camila\"><\/div> <span class='camila-p-name'>Camila: <\/span>\
 ",
 
 THAMIRIS = "\
@@ -277,8 +285,12 @@ TATAP = "\
     background-repeat: no-repeat;\
     background-position: 50%;\
 }\
+.tata-p-name {\
+    color: #CB9CFF;\
+    font-weight: bold;\
+}\
 </style>\
-<div class=\"icon-p-tata\"><\/div>\
+<div class=\"icon-p-tata\"><\/div> <span class='tata-p-name'>Thamiris: <\/span>\
 ",
 
 VICTOR = "\
@@ -359,8 +371,12 @@ VICTORP = "\
     background-repeat: no-repeat;\
     background-position: 50%;\
 }\
+.victor-p-name {\
+    color: #CB9CFF;\
+    font-weight: bold;\
+}\
 </style>\
-<div class=\"icon-p-victor\"><\/div>\
+<div class=\"icon-p-victor\"><\/div> <span class='victor-p-name'>Victor: <\/span>\
 ",
 
 profile = document.body;
