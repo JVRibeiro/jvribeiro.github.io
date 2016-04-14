@@ -16,7 +16,7 @@ var emilyIcon = "http://jvribeiro.github.io/emily.jpg",
     emilyFacebook = "<a title=\"Facebook de Emily\" class=\"facebook\" href=\""+ emilyFacebookUrl +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-facebook\"><\/i><\/a>",
     emilyTwitter = "<a title=\"Twitter de Emily\" class=\"twitter\" href=\""+ emilyTwitterUrl +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-twitter\"><\/i><\/a>",
     emilyInstagram = "<a title=\"Instagram de Emily\" class=\"instagram\" href=\"http:\/\/instagram.com\/"+ emilyInstagramUsername +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-instagram\"><\/i><\/a>",
-    emilySkoob = "<a title=\"Emily no Skoob\" class=\"skoob\" href=\"http:\/\/instagram.com\/"+ emilySkoobUrl +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-tripadvisor\"><\/i> Skoob<\/a>",
+    emilySkoob = "<a title=\"Emily no Skoob\" class=\"skoob\" href=\"http:\/\/instagram.com\/"+ emilySkoobUrl +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-book\"><\/i> Skoob<\/a>",
 
     camilaFacebookUrl = "https://facebook.com/CGabriely",
     camilaPosts = "http://www.livrofilia.com/search/label/Camila Correa",
