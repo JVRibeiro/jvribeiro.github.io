@@ -92,6 +92,11 @@ EMILY = "\
     font-family: 'Book Antiqua', Palatino, 'Palatino Linotype', 'Palatino LT STD', Georgia, serif;\
     font-size: 30pt;\
     font-style: italic;\
+    border-radius: none;\
+    -webkit-border-radius: none;\
+    -moz-border-radius: none;\
+    -ms-border-radius: none;\
+    -o-border-radius: none;\
 }\
 </style>\
 <div class=\"emily\">\
