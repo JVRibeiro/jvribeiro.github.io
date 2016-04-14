@@ -158,6 +158,23 @@ CAMILA = "\
 </div>\
 ",
 
+CAMILAP = "\
+<style>\
+.icon-p {\
+    margin-right: 10px;\
+    width: 50px;\
+    height: 50px;\
+    border: 1px solid #CB9CFF;\
+    float: left;\
+    background-image: url('"+camilaIcon+"');\
+    background-size: 100% auto;\
+    background-repeat: no-repeat;\
+    background-position: 50%;\
+}\
+</style>\
+<div class=\"icon-p\"><\/div>\
+",
+
 THAMIRIS = "\
 <style>\
 .tata {\
@@ -315,4 +332,10 @@ profile.innerHTML = profile.innerHTML.replace(/\[\[victor\]\]/gi,VICTOR);
 profile.innerHTML = profile.innerHTML.replace(/\[\[Victor\]\]/gi,VICTOR);
 profile.innerHTML = profile.innerHTML.replace(/\[\[VICTOR\]\]/gi,VICTOR);
 profile.innerHTML = profile.innerHTML.replace(/\[\[jv\]\]/gi,VICTOR);
+
+
+profile.innerHTML = profile.innerHTML.replace(/\[camila-p\]/gi,CAMILAP);
+profile.innerHTML = profile.innerHTML.replace(/\[CAMILA-P\]/gi,CAMILAP);
+profile.innerHTML = profile.innerHTML.replace(/\[Camila-p\]/gi,CAMILAP);
+profile.innerHTML = profile.innerHTML.replace(/\[Camila-P\]/gi,CAMILAP);
 })(window);
