@@ -10,6 +10,7 @@ var emilyIcon = "http://jvribeiro.github.io/emily.jpg",
 
     emilyFacebookUrl = "https://facebook.com/bloglivrofilia",
     emilySkoobUrl = "https://www.skoob.com.br/usuario/2751418-livrofilia",
+    emilyTwitterUrl = "https://www.twitter.com/livrofilia",
     emilyPosts = "http://www.livrofilia.com/search/label/Emily Abreu",
     emilyInstagramUsername = "emiiilysantoos",
     emilyFacebook = "<a title=\"Facebook de Emily\" class=\"facebook\" href=\""+ emilyFacebookUrl +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-facebook\"><\/i> Facebook<\/a>",
