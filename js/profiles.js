@@ -94,7 +94,7 @@ EMILY = "\
 
 EMILYP = "\
 <style>\
-.icon-p {\
+.icon-p-emily {\
     margin-right: 10px;\
     width: 50px;\
     height: 50px;\
@@ -106,7 +106,7 @@ EMILYP = "\
     background-position: 50%;\
 }\
 </style>\
-<div class=\"icon-p\"><\/div>\
+<div class=\"icon-p-emily\"><\/div>\
 ",
 
 CAMILA = "\
@@ -177,7 +177,7 @@ CAMILA = "\
 
 CAMILAP = "\
 <style>\
-.icon-p {\
+.icon-p-camila {\
     margin-right: 10px;\
     width: 50px;\
     height: 50px;\
@@ -189,7 +189,7 @@ CAMILAP = "\
     background-position: 50%;\
 }\
 </style>\
-<div class=\"icon-p\"><\/div>\
+<div class=\"icon-p-camila\"><\/div>\
 ",
 
 THAMIRIS = "\
@@ -261,7 +261,7 @@ THAMIRIS = "\
 
 TATAP = "\
 <style>\
-.icon-p {\
+.icon-p-tata {\
     margin-right: 10px;\
     width: 50px;\
     height: 50px;\
@@ -273,7 +273,7 @@ TATAP = "\
     background-position: 50%;\
 }\
 </style>\
-<div class=\"icon-p\"><\/div>\
+<div class=\"icon-p-tata\"><\/div>\
 ",
 
 VICTOR = "\
@@ -343,7 +343,7 @@ VICTOR = "\
 
 VICTORP = "\
 <style>\
-.icon-p {\
+.icon-p-victor {\
     margin-right: 10px;\
     width: 50px;\
     height: 50px;\
@@ -355,7 +355,7 @@ VICTORP = "\
     background-position: 50%;\
 }\
 </style>\
-<div class=\"icon-p\"><\/div>\
+<div class=\"icon-p-victor\"><\/div>\
 ",
 
 profile = document.body;
