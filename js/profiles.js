@@ -8,11 +8,14 @@ var emilyIcon = "http://jvribeiro.github.io/emily.jpg",
     tataIconP = "http://jvribeiro.github.io/tatap.jpg",
     victorIconP = "http://jvribeiro.github.io/perfilp.jpg",
 
-    emilyFacebookUrl = "https://facebook.com/emily.abreu.31",
+    emilyFacebookUrl = "https://facebook.com/bloglivrofilia",
+    emilySkoobUrl = "https://www.skoob.com.br/usuario/2751418-livrofilia",
     emilyPosts = "http://www.livrofilia.com/search/label/Emily Abreu",
     emilyInstagramUsername = "emiiilysantoos",
-    emilyFacebook = "<a title=\"Facebook de Emily\" class=\"facebook\" href=\""+ emilyFacebookUrl +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-facebook\"><\/i><\/a>",
-    emilyInstagram = "<a title=\"Instagram de Emily\" class=\"instagram\" href=\"http:\/\/instagram.com\/"+ emilyInstagramUsername +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-instagram\"><\/i><\/a>",
+    emilyFacebook = "<a title=\"Facebook de Emily\" class=\"facebook\" href=\""+ emilyFacebookUrl +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-facebook\"><\/i> Facebook<\/a>",
+    emilyTwitter = "<a title=\"Twitter de Emily\" class=\"twitter\" href=\""+ emilyTwitterUrl +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-twitter\"><\/i> Twitter<\/a>",
+    emilyInstagram = "<a title=\"Instagram de Emily\" class=\"instagram\" href=\"http:\/\/instagram.com\/"+ emilyInstagramUsername +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-instagram\"><\/i> Instagram<\/a>",
+    emilySkoob = "<a title=\"Emily no Skoob\" class=\"skoob\" href=\"http:\/\/instagram.com\/"+ emilySkoobUrl +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-tripadvisor\"><\/i> Skoob<\/a>",
 
     camilaFacebookUrl = "https://facebook.com/CGabriely",
     camilaPosts = "http://www.livrofilia.com/search/label/Camila Correa",
@@ -44,21 +47,21 @@ EMILY = "\
     height: auto;\
     display: inline-block;\
     font-size: 12pt;\
-    border-top: 1px solid #D6D6D6;\
+    border: 1px solid #D6D6D6;\
+    background-color: #FFF6FF;\
     padding: 10px;\
     text-align: justify;\
     margin-bottom: 30px;\
     }\
 \
 .emily .icon {\
-    margin-top: 15px;\
-    width: 200px;\
-    height: 200px;\
-    border-radius: 30%;\
-    -webkit-border-radius: 30%;\
-    -moz-border-radius: 30%;\
-    -ms-border-radius: 30%;\
-    -o-border-radius: 30%;\
+    width: 150px;\
+    height: 150px;\
+    border-radius: 50%;\
+    -webkit-border-radius: 50%;\
+    -moz-border-radius: 50%;\
+    -ms-border-radius: 50%;\
+    -o-border-radius: 50%;\
     border: 2px solid #FC92FF;\
     display: inline-block;\
     position: relative;\
@@ -71,7 +74,6 @@ EMILY = "\
     font-family: Segoe UI, Trebucuhet, sans-serif;\
     color: #000;\
     font-size: 12pt;\
-    border-right: 3px solid #FEDFFF;\
     width: 400px;\
     max-width: 90%;\
     min-width: 230px;\
@@ -84,16 +86,18 @@ EMILY = "\
 }\
 .emily h2 {\
     color: #FF00E9;\
+    border-bottom: 1px solid #F49CFF;\
+    font-family: 'Book Antiqua', Palatino, 'Palatino Linotype', 'Palatino LT STD', Georgia, serif;\
+    font-size: 30pt;\
+    font-style: italic;\
 }\
 </style>\
 <div class=\"emily\">\
    <div class=\"icon\"><\/div>\
    <div class=\"text\">\
      <h2>Emily Abreu<\/h2>\
-     "+emilyInstagram+" - <a href=\""+emilyPosts+"\">Ver todos os posts<\/a>\
-     <p>22 anos, filha, irmã e namorada. Uma romântica levemente <s>(risos)</s> viciada em livros e na cor <b style=\'color: #FF5AF1\'>rosa</b>, além de sorridente, falante e dorminhoca.<\/p>\
-     <p>Apaixonada por animais, mas com uma queda gigantesca por cachorros.<\/p>\
-   <\/div>\
+      <a href=\""+emilyPosts+"\">Meus posts<\/a> | "+emilyInstagram+" | "+emilySkoob+" | "+emilyFacebook+" | "+emilyTwitter+"\
+     <\/div>\
 </div>\
 ",
 
