@@ -3,6 +3,11 @@ var emilyIcon = "http://jvribeiro.github.io/emily.jpg",
     tataIcon = "http://jvribeiro.github.io/tata.jpg",
     victorIcon = "http://jvribeiro.github.io/perfil.jpg",
 
+    emilyIconP = "http://jvribeiro.github.io/emilyp.jpg",
+    camilaIconP = "http://jvribeiro.github.io/camilap.jpg",
+    tataIconP = "http://jvribeiro.github.io/tatap.jpg",
+    victorIconP = "http://jvribeiro.github.io/perfilp.jpg",
+
     emilyFacebookUrl = "https://facebook.com/emily.abreu.31",
     emilyPosts = "http://www.livrofilia.com/search/label/Emily Abreu",
     emilyInstagramUsername = "emiiilysantoos",
@@ -100,7 +105,7 @@ EMILYP = "\
     height: 50px;\
     border: 1px solid #CB9CFF;\
     float: left;\
-    background-image: url('"+emilyIcon+"');\
+    background-image: url('"+emilyIconP+"');\
     background-size: 100% auto;\
     background-repeat: no-repeat;\
     background-position: 50%;\
@@ -183,7 +188,7 @@ CAMILAP = "\
     height: 50px;\
     border: 1px solid #CB9CFF;\
     float: left;\
-    background-image: url('"+camilaIcon+"');\
+    background-image: url('"+camilaIconP+"');\
     background-size: 100% auto;\
     background-repeat: no-repeat;\
     background-position: 50%;\
@@ -267,7 +272,7 @@ TATAP = "\
     height: 50px;\
     border: 1px solid #CB9CFF;\
     float: left;\
-    background-image: url('"+tataIcon+"');\
+    background-image: url('"+tataIconP+"');\
     background-size: 100% auto;\
     background-repeat: no-repeat;\
     background-position: 50%;\
@@ -349,7 +354,7 @@ VICTORP = "\
     height: 50px;\
     border: 1px solid #CB9CFF;\
     float: left;\
-    background-image: url('"+victorIcon+"');\
+    background-image: url('"+victorIconP+"');\
     background-size: 100% auto;\
     background-repeat: no-repeat;\
     background-position: 50%;\
