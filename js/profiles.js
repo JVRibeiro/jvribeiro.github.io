@@ -106,7 +106,7 @@ EMILYP = "\
     border: 1px solid #CB9CFF;\
     float: left;\
     background-image: url('"+emilyIconP+"');\
-    background-size: 100% auto;\
+    background-size: auto 100%;\
     background-repeat: no-repeat;\
     background-position: 50%;\
 }\
@@ -273,7 +273,7 @@ TATAP = "\
     border: 1px solid #CB9CFF;\
     float: left;\
     background-image: url('"+tataIconP+"');\
-    background-size: 100% auto;\
+    background-size: auto 100%;\
     background-repeat: no-repeat;\
     background-position: 50%;\
 }\
@@ -355,7 +355,7 @@ VICTORP = "\
     border: 1px solid #CB9CFF;\
     float: left;\
     background-image: url('"+victorIconP+"');\
-    background-size: 100% auto;\
+    background-size: auto 100%;\
     background-repeat: no-repeat;\
     background-position: 50%;\
 }\
