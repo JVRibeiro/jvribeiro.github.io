@@ -70,6 +70,7 @@ EMILY = "\
     background-size: auto 100%;\
     background-repeat: no-repeat;\
     background-position: 50%;\
+    float: left;\
 }\
 .emily .text {\
     font-family: Segoe UI, Trebucuhet, sans-serif;\
@@ -97,7 +98,7 @@ EMILY = "\
    <div class=\"icon\"><\/div>\
    <div class=\"text\">\
      <h2>Emily Abreu<\/h2>\
-      <a href=\""+emilyPosts+"\">Meus posts<\/a> | "+emilyInstagram+" | "+emilySkoob+" | "+emilyFacebook+" | "+emilyTwitter+"\
+      <a href=\""+emilyPosts+"\">Meus posts<\/a> | "+emilyInstagram+" | "+emilyTwitter+" | "+emilyFacebook+" | "+emilySkoob+"\
      <\/div>\
 </div>\
 ",
