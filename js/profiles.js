@@ -92,6 +92,23 @@ EMILY = "\
 </div>\
 ",
 
+EMILYP = "\
+<style>\
+.icon-p {\
+    margin-right: 10px;\
+    width: 50px;\
+    height: 50px;\
+    border: 1px solid #CB9CFF;\
+    float: left;\
+    background-image: url('"+emilyIcon+"');\
+    background-size: 100% auto;\
+    background-repeat: no-repeat;\
+    background-position: 50%;\
+}\
+</style>\
+<div class=\"icon-p\"><\/div>\
+",
+
 CAMILA = "\
 <style>\
 .camila {\
@@ -242,6 +259,23 @@ THAMIRIS = "\
 </div>\
 ",
 
+TATAP = "\
+<style>\
+.icon-p {\
+    margin-right: 10px;\
+    width: 50px;\
+    height: 50px;\
+    border: 1px solid #CB9CFF;\
+    float: left;\
+    background-image: url('"+tataIcon+"');\
+    background-size: 100% auto;\
+    background-repeat: no-repeat;\
+    background-position: 50%;\
+}\
+</style>\
+<div class=\"icon-p\"><\/div>\
+",
+
 VICTOR = "\
 <style>\
 .victor {\
@@ -307,6 +341,23 @@ VICTOR = "\
 </div>\
 ",
 
+VICTORP = "\
+<style>\
+.icon-p {\
+    margin-right: 10px;\
+    width: 50px;\
+    height: 50px;\
+    border: 1px solid #CB9CFF;\
+    float: left;\
+    background-image: url('"+victorIcon+"');\
+    background-size: 100% auto;\
+    background-repeat: no-repeat;\
+    background-position: 50%;\
+}\
+</style>\
+<div class=\"icon-p\"><\/div>\
+",
+
 profile = document.body;
 
 (function (window) {
@@ -334,8 +385,18 @@ profile.innerHTML = profile.innerHTML.replace(/\[\[VICTOR\]\]/gi,VICTOR);
 profile.innerHTML = profile.innerHTML.replace(/\[\[jv\]\]/gi,VICTOR);
 
 
+profile.innerHTML = profile.innerHTML.replace(/\[emily-p\]/gi,EMILYP);
+profile.innerHTML = profile.innerHTML.replace(/\[EMILY-P\]/gi,EMILYP);
+profile.innerHTML = profile.innerHTML.replace(/\[Emily-p\]/gi,EMILYP);
+profile.innerHTML = profile.innerHTML.replace(/\[Emily-P\]/gi,EMILYP);
+
 profile.innerHTML = profile.innerHTML.replace(/\[camila-p\]/gi,CAMILAP);
 profile.innerHTML = profile.innerHTML.replace(/\[CAMILA-P\]/gi,CAMILAP);
 profile.innerHTML = profile.innerHTML.replace(/\[Camila-p\]/gi,CAMILAP);
 profile.innerHTML = profile.innerHTML.replace(/\[Camila-P\]/gi,CAMILAP);
+
+profile.innerHTML = profile.innerHTML.replace(/\[tata-p\]/gi,TATAP);
+profile.innerHTML = profile.innerHTML.replace(/\[TATA-P\]/gi,TATAP);
+profile.innerHTML = profile.innerHTML.replace(/\[Tata-p\]/gi,TATAP);
+profile.innerHTML = profile.innerHTML.replace(/\[Tata-P\]/gi,TATAP);
 })(window);
