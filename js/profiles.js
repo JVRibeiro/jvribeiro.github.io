@@ -185,6 +185,7 @@ CAMILA = "\
     font-family: 'Book Antiqua', Palatino, 'Palatino Linotype', 'Palatino LT STD', Georgia, serif;\
     font-size: 30pt;\
     font-style: italic;\
+    background-color: transparent !important;\
     border-radius: none !important;\
     -webkit-border-radius: none !important;\
     -moz-border-radius: none !important;\
