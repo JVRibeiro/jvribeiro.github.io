@@ -141,21 +141,21 @@ CAMILA = "\
     height: auto;\
     display: inline-block;\
     font-size: 12pt;\
-    border-top: 1px solid #D6D6D6;\
+    border: 1px solid #CB9CFF;\
+    background-color: #F8F3FF;\
     padding: 10px;\
     text-align: justify;\
     margin-bottom: 30px;\
     }\
 \
 .camila .icon {\
-    margin-top: 15px;\
-    width: 200px;\
-    height: 200px;\
-    border-radius: 30%;\
-    -webkit-border-radius: 30%;\
-    -moz-border-radius: 30%;\
-    -ms-border-radius: 30%;\
-    -o-border-radius: 30%;\
+    width: 150px;\
+    height: 150px;\
+    border-radius: 50%;\
+    -webkit-border-radius: 50%;\
+    -moz-border-radius: 50%;\
+    -ms-border-radius: 50%;\
+    -o-border-radius: 50%;\
     border: 2px solid #CB9CFF;\
     display: inline-block;\
     position: relative;\
@@ -163,12 +163,12 @@ CAMILA = "\
     background-size: 100% auto;\
     background-repeat: no-repeat;\
     background-position: 50%;\
+    float: left;\
 }\
 .camila .text {\
     font-family: Segoe UI, Trebucuhet, sans-serif;\
     color: #000;\
     font-size: 12pt;\
-    border-right: 3px solid #EDDDFF;\
     width: 400px;\
     max-width: 90%;\
     min-width: 230px;\
@@ -180,19 +180,24 @@ CAMILA = "\
     left: 170px;\
 }\
 .camila h2 {\
-    color: #A500AF !important;\
-    border-bottom: 3px solid #CB9CFF !important;\
-    background-color: #F8F3FF !important;\
+    color: #A500AF;\
+    border-bottom: 1px solid #CB9CFF;\
+    font-family: 'Book Antiqua', Palatino, 'Palatino Linotype', 'Palatino LT STD', Georgia, serif;\
+    font-size: 30pt;\
+    font-style: italic;\
+    border-radius: none !important;\
+    -webkit-border-radius: none !important;\
+    -moz-border-radius: none !important;\
+    -ms-border-radius: none !important;\
+    -o-border-radius: none !important;\
 }\
 </style>\
 <div class=\"camila\">\
    <div class=\"icon\"><\/div>\
    <div class=\"text\">\
      <h2>Camila Correa<\/h2>\
-     "+camilaInstagram+" - <a href=\""+camilaPosts+"\">Ver todos os posts<\/a>\
-     <p>Camila tem 18 anos, é publicadora de boas novas, devoradora de livros e desastrada ao extremo.<\/p>\
-     <p>Tenta ser uma pessoa responsável e criativa, mas tem memória de peixe e esquece tudo de uma hora pra outra. Inclusive, ela esqueceu algo bem legal que iria escrever aqui.<\/p>\
-   <\/div>\
+      <a href=\""+camilaPosts+"\">Meus posts<\/a> | "+camilaInstagram+"\
+     <\/div>\
 </div>\
 ",
 
