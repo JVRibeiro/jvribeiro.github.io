@@ -111,7 +111,7 @@ span.amp{font-family:Adobe Caslon Pro,Baskerville,"Goudy Old Style","Palatino","
 /* DEFAULT MOBILE STYLE */
 body {width: 92%; margin: 0 auto} /* Center page without wrapper */
 /* column grid */
-.g1,.g2,.g3{display:block; position: relative; margin-left: 1%; margin-right: 1%}
+.g1,.g2,.g3{display:block; position: relative; margin-left: 1%; margin-right: 2%}
 /* 1 column grid */
 .g1,.g2,.g3{width:98.0%}
 
@@ -679,7 +679,7 @@ Change widths as necessary
   padding-top: 20px;
 }
   /* 3 COLUMN GRID */
-  .g1 {width:31.333%}
+  .g1 {width:20%}
   .g2 {width:64.667%;}
   .g3 {width:98.0%}
 }
