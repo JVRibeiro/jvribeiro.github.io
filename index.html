@@ -18,301 +18,405 @@
 
   <link rel="stylesheet" href="css/normalize.min.css">
   <link rel="stylesheet" href="css/main.css">
+  
   <script src="js/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
-<script src="js/vendor/jquery.hashchange.min.js"></script>
+  <script src="js/vendor/jquery.hashchange.min.js"></script>
   <script src="js/vendor/jquery.easytabs.min.js"></script>
 
   <script src="js/main.js"></script>
   <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-      <script>window.html5 || document.write('<script src="js/vendor/html5shiv.js"><\/script>')</script>
-      <![endif]-->
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script>window.html5 || document.write('<script src="js/vendor/html5shiv.js"><\/script>')</script>
+  <![endif]-->
 </head>
-  <body class="bg-fixed bg-1">
-<!--[if lt IE 7]>
+
+<body class="bg-fixed bg-1">
+  <!--[if lt IE 7]>
     <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-    <![endif]-->
-   <div class="main-container">
+  <![endif]-->
+  
+  <div class="main-container">
     <div class="main wrapper clearfix">
       <!-- Header Start -->
-        <header id="header">
-            <div id="logo">
-                <h2>
-                    Victor Ribeiro
-                </h2>
-                <h4>
-                Programador e web-designer
-                </h4>
-            </div>
-        </header>
-        <!-- Header End -->
-        <!-- Main Tab Container -->
-        <div id="tab-container" class="tab-container">
-          <!-- Tab List -->
-            <ul class='etabs'>
-                <li class='tab' id="tab-about">
-                  <a href="#about"><i class="icon-user"></i><span> Perfil</span></a>
-                </li>
-                <li class='tab'>
-                  <a href="#resume"><i class="icon-file-text"></i><span> Meu Resumo</span></a>
-                </li>
-                <li class='tab'>
-                  <a href="#projects"><i class="icon-heart"></i><span> Projetos</span></a>
-                </li>
-                <li class='tab'>
-                  <a href="#contact"><i class="icon-envelope"></i><span> Contato</span></a>
-                </li>
-            </ul>
-          <!-- End Tab List -->
-            <div id="tab-data-wrap">
-              <!-- About Tab Data -->
-                <div id="about">
-                    <section class="clearfix">
-                        <div class="g2">
-                            <div class="photo">
-                                <img src="WP_20160622_13_53_06_Pro (3).jpg" alt="Victor Ribeiro">
-                            </div>
-                            <div class="info">
-                                <h2>
-                                    Victor Ribeiro
-                                </h2>
-                                <p>
-                                Programador front-end e web-designer, estudante de Sistemas de Informação da Universidade Federal do Pará.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="g1">
-                            <div class="main-links sidebar">
-                                
-<br><br>
-                                <h5>
-                                    Habilidades
-                                </h5>
-                                
-                                <div title="95%" class="meter emerald">
-                                    <span style="width: 95%"><span>HTML/CSS</span></span>
-                                </div>
-                                Linguagens de programação
-                                <div title="80%" class="meter emerald">
-                                    <span style="width: 80%"><span>JavaScript</span></span>
-                                </div>
-                                Frameworks
-                                <div title="60%" class="meter sunflower">
-                                    <span style="width: 60%"><span>JQuery</span></span>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="break"></div>
-                        <div class="contact-info">
-
-                          <div class="g1">
-                            <div class="item-box clearfix">
-                              <i class="icon-github" style="color: #000"></i>
-                              <div class="item-data">
-                                <a href="http://github.com/JVRibeiro">JVRibeiro</a>
-                                <p>GitHub</p>
-                              </div>
-                            </div>
-                          </div>
-
-
-                          <div class="g1">
-                            <a href="http://facebook.com/OVictorRibeiro">
-                            <div class="item-box clearfix">
-                              <i class="icon-facebook-sign" style="color: #2369BF"></i>
-                              <div class="item-data">
-                                <a href="http://facebook.com/OVictorRibeiro">OVictorRibeiro</a>
-                                <p>Facebook</p>
-                              </div>
-                            </div>
-                          </a>
-                          </div>
-
-
-                          <div class="g1">
-                            <a href="http://twitter.com/_jvribeiro">
-                            <div class="item-box clearfix">
-                              <i class="icon-twitter-sign" style="color: #1CC0FF"></i>
-                              <div class="item-data">
-                                <a href="http://twitter.com/_jvribeiro">_jvribeiro</a>
-                                <p>Twitter</p>
-                              </div>
-                            </div>
-                          </a>
-                          </div>
-                        </div>
-<br><br><br><br><br><br>
-                        <hr>
-                        <div class="fb-comments" data-href="http://jvribeiro.github.io/" data-numposts="10"></div>
-                    </section><!-- content -->
-                </div>
-              <!-- End About Tab Data -->
-              <!-- Resume Tab Data -->
-                <div id="resume">
-                    <section class="clearfix">
-                        <div class="g2">
-
-  <p>Olá, meu nome é <b>João Victor Ribeiro</b>, embora eu prefira omitir o primeiro nome. Tenho atualmente <span class='idade'></span> anos e faço faculdade de Computação na UFPA.</p>
-  <h3>Início no mundo da web</h3>
-   <span class="label label-info" style='float: right'>2010</span><br><br>
-
-  <p>Tudo começou quando entrei no universo dos blogs. Criei meu primeiro blog intitulado "JV Ribeiro", um blog inútil em que eu só escrevia o que pensava. Não vale a pena falar dele.</p>
-
-  <p>Depois disso criei, com a brilhante ideia do meu primo Magno Malcher, algo um pouco maior: um site voltado para desenhistas, o Desenhos Brasileiros. Não era lá aquelas coisas, eu ainda nem entendia de programação, apenas pegava códigos prontos da internet, apesar de já ter noções de HTML e CSS. Ainda assim rendeu alguns milhares de acessos, <strong>mais de 8.000</strong>. Basicamente, o visitante enviava seu desenho e era automaticamente postado lá. Eu gostava do DB, comprei até um domínio <b>.com.br</b> pra ele, mas tive que encerrar minhas atividades nele por motivos pessoais.</p>
-
-  <h3>Aprendendo a programar</h3>
-    <span class="label label-info" style='float: right'>2012</span><br><br>
-
-  <p>Tudo o que sei sobre programação em JavaScript até agora, aprendi na internet. <s>Não fiz faculdade ainda, mas pretendo</s> Atualmente estou fazendo faculdade e ampliando os conhecimentos que adquiri. De início não me interessava aprender a programar, porém, me vi na necessidade de saber montar meu próprio web app. Lia questões no <a href="http://pt.stackoverflow.com/" target="_blank">Stack Overflow</a>, via projetos no <a href="http://codepen.io/" target="_blank">Codepen</a>, exemplos no <a href="http://jsfiddle.net/" target="_blank">JSFiddle</a> e afins, estudava o que cada código fazia e tentava reproduzir eles do zero.</p>
-
-  <p>Daí resolvi iniciar um mini curso online no <a href="http://codecademy.com/pt" target="_blank">Codecademy</a>. Com o tempo e depois de fazer várias mini experiências com tudo o que aprendi de programação, eu iria desenvolver algo muito COOL.</p>
-
-  <h3>O projeto SOPHiA</h3>
-   <span class="label label-info" style='float: right'>27/11/2014</span><br><br>
-  <p>Tudo começou com os chatterbots — programas que simulam uma conversa em linguagem natural —. Eu assistia muitos filmes relacionados com I.A. e ficava encantado. Daí resolvi criar um chatterbot também, chamei de <b>Miley</b> (anagrama do nome da minha namorada). Funcionava! Mas precisava de algo mais pra parecer com os filmes, basicamente ela só recebia um texto digitado e retornava um outro texto de resposta. Foi quando procurei por serviços de TTS e STT (Text-To-Speech e Speech-To-Text, respectivamente), sendo o primeiro um conversor de texto em áudio e o segundo o contrário. Eu encontrei os serviços perfeitos para as duas coisas: <b>Voice RSS</b> e o <b>Annyang!</b>.</p>
-
-<li><a href="http://voicerss.org/" target="_blank" rel='nofollow'>Acesse o site da Voice RSS</a>.</li>
-<li><a href="https://talater.com/annyang" target="_blank" rel='nofollow'>Acesse o site do Annyang</a>, um projeto de Tal Ater.</li>
-<br>
-<p>Mesmo depois dessa pequena melhora, ela era apenas um chatterbot e não costumo pensar pequeno. Senti que faltava algo, Miley precisava de um upgrade. O que me inspirou a fazer esse upgrade foi o filme Iron Man (Homem de Ferro aqui no Brasil) com a inteligência artificial <b>J.A.R.V.I.S.</b>, assistente pessoal do protagonista Tony Stark.</p>
-
-<p>Aí comecei a implementar comandos, variados comandos, desde acesso às redes sociais até busca de definições da web. A partir de então, Miley passou a se chamar <b>S.O.P.H.I.A.</b>, uma sigla para <b>Sistema Operacional Portátil em HTML5 com Inteligência Artificial</b> — nomezinho bem audacioso, hein? — e... Bem... o resto você pode acompanhar na aba <a href="#projects">Projetos</a>. :)</p>
-
-                        </div>
-                        <div class="g1">
-                            <div class="sidebar">
-                              <div class="photo">
-                                  <img src="WP_20160622_13_53_06_Pro (3).jpg" alt="Victor Ribeiro">
-                              </div>
-
-
-                            </div>
-                        </div>
-                    </section>
-                </div>
-              <!-- End Resume Tab Data -->
-              <!-- Portfolio Tab Data -->
-                <div id="projects">
-                    <section class="clearfix">
-                        <div class="g1">
-                            <div class="image">
-                                <img src="sopvhia.png" alt="SOPHiA">
-                                <div class="image-overlay">
-                                </div>
-                            </div>
-                        </div>
-                        
-    <h3>SOPHiA</h3>
-<p style="font-size: 14pt; text-align: justify;">
-  <b>SOPHiA</b> é um projeto de inteligência artificial baseado na web. SOPHiA pode conversar com você 
-  usando linguagem natural inteiramente em <b>português do Brasil</b>. Além disso, ela será sua assistente 
-  pessoal que fará pesquisas, poderá postar no Facebook ou Twitter pra você, escrever um texto pra você 
-  se você ditar, dar o significado que quase qualquer coisa<b style='color: red'>*</b>, etc.
-</p>
-<p style="font-size: 14pt; text-align: justify;">
-  Em breve, sairão novos detalhes (e vídeos!) sobre a nossa assistente. Estou trabalhando em uma nova versão completamente reestruturada 
-  e com um design novo. SOPHiA será distribuída em breve para Windows e como extensão para Google Chrome.
-</p>
-<br><br>
- <b style='color: red'>*</b> Os significados para as definições são extraídos da <b>Wikipédia em português</b> (<a href="http://pt.wikipedia.org" target="_blank">pt.wikipedia.org</a>).
-<br><br><br><br>
-<h3></h3>
-
-
-
-
-<div class="g1">
-  <div class="image">
-        <img src="https://cloud.githubusercontent.com/assets/8026741/18367105/e0acda36-75ef-11e6-9028-8563e8ad504a.png" alt="SOPHiA">
-        <div class="image-overlay">
+      <header id="header">
+        <div id="logo">
+          <h2>Victor Ribeiro</h2>
+          <h4>Programador e web-designer</h4>
         </div>
-    </div>
-</div>
-
-<h3>Sortegram</h3>
-
-<p style="font-size: 14pt; text-align: justify;">O <b>Sortegram</b> é um aplicativo HTML5 feito pra web para sorteios em geral. Sorteie números, nomes ou jogue Cara ou Coroa.
-</p>
-<p>Acesse o <a href='http://sortegram.com/' target='_blank'>Sortegram</a>.</p>
-<br><br>
-<hr />
-<br>
-
-
-                    </section>
+      </header><!-- Header End -->
+      
+      <!-- Main Tab Container -->
+      <div id="tab-container" class="tab-container">
+        <!-- Tab List -->
+        <ul class='etabs'>
+          <li class='tab' id="tab-about">
+            <a href="#about"><i class="icon-user"></i><span> Perfil</span></a>
+          </li>
+          
+          <li class='tab'>
+            <a href="#resume"><i class="icon-file-text"></i><span> Meu Resumo</span></a>
+          </li>
+          
+          <li class='tab'>
+            <a href="#projects"><i class="icon-heart"></i><span> Projetos</span></a>
+          </li>
+          
+          <li class='tab'>
+            <a href="#contact"><i class="icon-envelope"></i><span> Contato</span></a>
+          </li>
+        </ul><!-- End Tab List -->
+           
+        <div id="tab-data-wrap">
+          <!-- About Tab Data -->
+          <div id="about">
+            <section class="clearfix">
+              <div class="g2">
+                <div class="photo">
+                  <img src="WP_20160622_13_53_06_Pro (3).jpg" alt="Victor Ribeiro">
                 </div>
-              <!-- End Portfolio Data -->
-              <!-- Contact Tab Data -->
-                <div id="contact">
-                    <section class="clearfix">
-                       <div class="g1">
-                         <div class="sny-icon-box">
-                           <div class="sny-icon">
-                              <i class="icon-globe"></i>
-                            </div>
-                            <div class="sny-icon-content">
-                              <h4>De onde sou?</h4>
-                              <span>Belém, Pará, Brasil</span>
-                            </div>
-                         </div>
-                       </div>
-                       <div class="g1">
-                         <div class="sny-icon-box">
-                           <div class="sny-icon">
-                              <i class="icon-phone"></i>
-                            </div>
-                            <div class="sny-icon-content">
-                              <h4>Telefone de contato</h4>
-                              <span>(91) 98371-6335 / 98400-5131</span>
-                            </div>
-                         </div>
-                       </div>
-                       <div class="g1">
-                         <div class="sny-icon-box">
-                           <div class="sny-icon">
-                              <i class="icon-user"></i>
-                            </div>
-                            <div class="sny-icon-content">
-                              <h4>Quer fazer parte do projeto?</h4>
-                              <span><a href="mailto:victor_ribeiro135@hotmail.com" title="victor_ribeiro135@hotmail.com">Estou a um email de distância</a>. :)</span>
-                            </div>
-                         </div>
-                       </div>
-                       <div class="break"></div>
-        <h3>Se preferir, use o formulário abaixo</h3>
-<iframe id="JotFormIFrame" onload="window.parent.scrollTo(0,0)" allowtransparency="true" src="http://form.jotformz.com/form/52464964233661" frameborder="0" style="width:400px; height:550px; border:none;" scrolling="no"></iframe>
-<script type="text/javascript">window.handleIFrameMessage = function(e) {var args = e.data.split(":");var iframe = document.getElementById("JotFormIFrame");if (!iframe)return;switch (args[0]) {case "scrollIntoView":iframe.scrollIntoView();break;case "setHeight":iframe.style.height = args[1] + "px";break;case "collapseErrorPage":if (iframe.clientHeight > window.innerHeight) {iframe.style.height = window.innerHeight + "px";}break;case "reloadPage":window.location.reload();break;}};if (window.addEventListener) {window.addEventListener("message", handleIFrameMessage, false);} else if (window.attachEvent) {window.attachEvent("onmessage", handleIFrameMessage);}if(window.location.href && window.location.href.indexOf("?") > -1) {var ifr = document.getElementById("JotFormIFrame");var get = window.location.href.substr(window.location.href.indexOf("?") + 1);if(ifr && get.length > 0) {var src = ifr.src;src = src.indexOf("?") > -1 ? src + "&" + get : src  + "?" + get;ifr.src = src;}}</script>
-                    </section>
+
+                <div class="info">
+                  <h2>Victor Ribeiro</h2>
+                  <h4>Programador front-end e web-designer</h4>
+
+                  <p>Olá, sou o Victor Ribeiro (também conhecido como JV Ribeiro), estudante de Sistemas de Informação 
+                    da Universidade Federal do Pará. Desenvolvo aplicações web que trabalham completamente client-side 
+                    e também com um design que as tornam únicas.</p>
                 </div>
-              <!-- End Contact Data -->
-            </div>
+              </div>
+
+              <div class="g1">
+                <div class="main-links sidebar">
+                <br><br>
+                  <h5>Habilidades</h5>
+
+                  <div title="95%" class="meter carrot">
+                    <span style="width: 95%">
+                      <span>HTML5</span>
+                    </span>
+                  </div>
+
+                  <div title="90%" class="meter asbestos">
+                    <span style="width: 90%">
+                      <span>CSS3</span>
+                    </span>
+                  </div>
+
+                  Linguagens de programação
+                  <div title="80%" class="meter sunflower">
+                    <span style="width: 80%">
+                      <span>JavaScript</span>
+                    </span>
+                  </div>
+
+                  Frameworks
+                  <div title="70%" class="meter wisteria">
+                    <span style="width: 70%">
+                      <span>JQuery</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="break"></div>
+
+              <div class="contact-info">
+                <div class="g1">
+                  <div class="item-box clearfix">
+                    <i class="icon-github" style="color: #000"></i>
+                    <div class="item-data">
+                      <a href="http://github.com/JVRibeiro">JVRibeiro</a>
+                      <p>GitHub</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="g1">
+                  <div class="item-box clearfix">
+                    <i class="icon-facebook-sign" style="color: #2369BF"></i>
+                    <div class="item-data">
+                      <a href="http://facebook.com/OVictorRibeiro">OVictorRibeiro</a>
+                      <p>Facebook</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="g1">
+                  <div class="item-box clearfix">
+                    <i class="icon-twitter-sign" style="color: #1CC0FF"></i>
+                    <div class="item-data">
+                      <a href="http://twitter.com/_jvribeiro">@_jvribeiro</a>
+                      <p>Twitter</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <br><br>
+              <br><br>
+              <br><br>
+
+              <div class="fb-comments" data-href="http://jvribeiro.github.io/" data-numposts="10"></div>
+            </section><!-- content -->
+          </div><!-- End About Tab Data -->
+
+          <!-- Resume Tab Data -->
+          <div id="resume">
+            <section class="clearfix">
+              <div class="g2">
+                <p>Olá, meu nome é <b>João Victor Ribeiro</b>, embora eu prefira omitir o primeiro nome. Tenho 
+                  atualmente <span class='idade'></span> anos e faço faculdade de Computação na UFPA.
+                </p>
+
+                <h3>Início no mundo da web</h3>
+                 <span class="label label-info" style='float: right'>2010</span>
+
+                 <br><br>
+
+                <p>Tudo começou quando entrei no universo dos blogs. Criei meu primeiro blog intitulado "JV Ribeiro", 
+                  um blog inútil em que eu só escrevia o que pensava. Não vale a pena falar dele.
+                </p>
+
+                <p>Depois disso criei, com a brilhante ideia do meu primo Magno Malcher, algo um pouco maior: um site 
+                  voltado para desenhistas, o Desenhos Brasileiros. Não era lá aquelas coisas, eu ainda nem entendia 
+                  de programação, apenas pegava códigos prontos da internet, apesar de já ter noções de HTML e CSS. Ainda 
+                  assim rendeu alguns milhares de acessos, <strong>mais de 8.000</strong>. Basicamente, o visitante 
+                  enviava seu desenho e era automaticamente postado lá. Eu gostava do DB, comprei até um domínio <b>.com.br</b> 
+                  pra ele, mas tive que encerrar minhas atividades nele por motivos pessoais.
+                </p>
+
+                <h3>Aprendendo a programar</h3>
+                  <span class="label label-info" style='float: right'>2012</span>
+
+                  <br><br>
+
+                <p>Tudo o que sei sobre programação em JavaScript até agora, aprendi na internet. <s>Não fiz faculdade ainda, 
+                  mas pretendo</s> Atualmente estou fazendo faculdade e ampliando os conhecimentos que adquiri. De início não 
+                  me interessava aprender a programar, porém, me vi na necessidade de saber montar meu próprio web app. Lia 
+                  questões no <a href="http://pt.stackoverflow.com/" target="_blank">Stack Overflow</a>, via projetos 
+                  no <a href="http://codepen.io/" target="_blank">Codepen</a>, exemplos 
+                  no <a href="http://jsfiddle.net/" target="_blank">JSFiddle</a> e afins, estudava o que cada código fazia 
+                  e tentava reproduzir eles do zero.
+                </p>
+
+                <p>Daí resolvi iniciar um mini curso online no <a href="http://codecademy.com/pt" target="_blank">Codecademy</a>. Com 
+                  o tempo e depois de fazer várias mini experiências com tudo o que aprendi de programação, eu iria desenvolver algo 
+                  muito COOL.
+                </p>
+
+                <h3>O projeto SOPHiA</h3>
+                <span class="label label-info" style='float: right'>27/11/2014</span>
+
+                 <br><br>
+
+                <p>Tudo começou com os chatterbots — programas que simulam uma conversa em linguagem natural —. Eu assistia a muitos 
+                  filmes relacionados com I.A. e ficava encantado. Daí resolvi criar um chatterbot também, chamei de <b>Miley</b> 
+                  (anagrama do nome da minha namorada). Funcionava! Mas precisava de algo mais pra parecer com os filmes, basicamente 
+                  ela só recebia um texto digitado e retornava um outro texto de resposta. Foi quando procurei por serviços de TTS 
+                  e STT (Text-To-Speech e Speech-To-Text, respectivamente), sendo o primeiro um conversor de texto em áudio e o segundo 
+                  o contrário. Eu encontrei os serviços perfeitos para as duas coisas: <b>Voice RSS</b> e o <b>Annyang!</b>.
+                </p>
+
+                <li>
+                  <a href="http://voicerss.org/" target="_blank" rel='nofollow'>Acesse o site da Voice RSS</a>.
+                </li>
+                <li>
+                  <a href="https://talater.com/annyang" target="_blank" rel='nofollow'>Acesse o site do Annyang</a>, um projeto de Tal Ater.
+                </li>
+
+                <br>
+
+                <p>Mesmo depois dessa pequena melhora, ela era apenas um chatterbot e não costumo pensar pequeno. Senti que faltava algo, 
+                  Miley precisava de um upgrade. O que me inspirou a fazer esse upgrade foi o filme Iron Man (Homem de Ferro aqui no 
+                  Brasil) com a inteligência artificial <b>J.A.R.V.I.S.</b>, assistente pessoal do protagonista Tony Stark.
+                </p>
+
+                <p>Aí comecei a implementar comandos, variados comandos, desde acesso às redes sociais até busca de definições da 
+                  web. A partir de então, Miley passou a se chamar <b>S.O.P.H.I.A.</b>, uma sigla para <b>Sistema Operacional Portátil 
+                  em HTML5 com Inteligência Artificial</b> — nomezinho bem audacioso, hein? — e... Bem... o resto você pode acompanhar 
+                  na aba <a href="#projects">Projetos</a>. :)
+                </p>
+              </div>
+
+              <div class="g1">
+                <div class="sidebar">
+                  <div class="photo">
+                    <img src="WP_20160622_13_53_06_Pro (3).jpg" alt="Victor Ribeiro" title='Esse sou eu!' />
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div><!-- End Resume Tab Data -->
+
+          <!-- Portfolio Tab Data -->
+          <div id="projects">
+            <section class="clearfix">
+              <div class="g1">
+                <div class="image">
+                  <img src="sopvhia.png" alt="SOPHiA" />
+                  <div class="image-overlay"></div>
+                </div>
+              </div>
+
+              <h3>SOPHiA</h3>
+              <p style="font-size: 14pt; text-align: justify;">
+                <b>SOPHiA</b> é um projeto de inteligência artificial baseado na web. SOPHiA pode conversar com você 
+                usando linguagem natural inteiramente em <b>português do Brasil</b>. Além disso, ela será sua assistente 
+                pessoal que fará pesquisas, poderá postar no Facebook ou Twitter pra você, escrever um texto pra você 
+                se você ditar, dar o significado que quase qualquer coisa<b style='color: red'>*</b>, etc.
+              </p>
+
+              <p style="font-size: 14pt; text-align: justify;">
+                Em breve, sairão novos detalhes (e vídeos!) sobre a nossa assistente. Estou trabalhando em uma nova versão completamente reestruturada 
+                e com um design novo. SOPHiA será distribuída em breve para Windows e como extensão para Google Chrome.
+              </p>
+
+              <br><br>
+
+              <b style='color: red'>*</b> Os significados para as definições são extraídos 
+              da <b>Wikipédia em português</b> (<a href="http://pt.wikipedia.org" target="_blank">pt.wikipedia.org</a>).
+
+              <br><br>
+              <br><br>
+
+              <div class="g1">
+                <div class="image">
+                  <img src="https://cloud.githubusercontent.com/assets/8026741/18367105/e0acda36-75ef-11e6-9028-8563e8ad504a.png" alt="SOPHiA">
+                  <div class="image-overlay"></div>
+                </div>
+              </div>
+
+              <h3>Sortegram</h3>
+              <p style="font-size: 14pt; text-align: justify;">
+                O <b>Sortegram</b> é um aplicativo HTML5 feito pra web para sorteios em geral. Sorteie números, 
+                nomes ou jogue Cara ou Coroa.
+              </p>
+
+              <p>
+                Acesse o <a href='http://sortegram.com/' target='_blank'>Sortegram</a>.
+              </p>
+
+              <br><br>
+              <br><br>
+            </section>
+          </div><!-- End Portfolio Data -->
+
+          <!-- Contact Tab Data -->
+          <div id="contact">
+            <section class="clearfix">
+              <div class="g1">
+                <div class="sny-icon-box">
+                  <div class="sny-icon">
+                    <i class="icon-globe"></i>
+                  </div>
+
+                  <div class="sny-icon-content">
+                    <h4>De onde sou?</h4>
+                    <span>Belém, Pará, Brasil</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="g1">
+                <div class="sny-icon-box">
+                  <div class="sny-icon">
+                    <i class="icon-phone"></i>
+                  </div>
+
+                  <div class="sny-icon-content">
+                    <h4>Telefone de contato</h4>
+                    <span>(91) 98371-6335 / 98400-5131</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="g1">
+                <div class="sny-icon-box">
+                  <div class="sny-icon">
+                    <i class="icon-user"></i>
+                  </div>
+
+                  <div class="sny-icon-content">
+                    <h4>Quer me contratar?</h4>
+                    <span>Eu amo programar, então não seja tímid(o|a). <a href="mailto:victor_ribeiro135@hotmail.com" title="victor_ribeiro135@hotmail.com">Estou a um email de distância</a>. :)</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="break"></div>
+
+              <h3>Se preferir, use o formulário abaixo</h3>
+              <iframe id="JotFormIFrame" onload="window.parent.scrollTo(0,0)" allowtransparency="true" src="http://form.jotformz.com/form/52464964233661" frameborder="0" style="width:400px; height:550px; border:none;" scrolling="no"></iframe>
+              <script type="text/javascript">
+                window.handleIFrameMessage = function(e) {
+                  var args = e.data.split(":");
+                  var iframe = document.getElementById("JotFormIFrame");
+
+                  if (!iframe) return;
+
+                  switch (args[0]) {
+                    case "scrollIntoView": iframe.scrollIntoView();
+                      break;
+                    case "setHeight": iframe.style.height = args[1] + "px";
+                      break;
+                    case "collapseErrorPage": if (iframe.clientHeight > window.innerHeight) {
+                      iframe.style.height = window.innerHeight + "px";
+                    }
+                      break;
+                    case "reloadPage": window.location.reload();
+                      break;
+                  }
+                };
+
+                if (window.addEventListener) {
+                  window.addEventListener("message", handleIFrameMessage, false);
+                } 
+                else if (window.attachEvent) {
+                  window.attachEvent("onmessage", handleIFrameMessage);
+                }
+
+                if(window.location.href && window.location.href.indexOf("?") > -1) {
+                  var ifr = document.getElementById("JotFormIFrame");
+                  var get = window.location.href.substr(window.location.href.indexOf("?") + 1);
+
+                  if(ifr && get.length > 0) {
+                    var src = ifr.src;
+                    src = src.indexOf("?") > -1 ? src + "&" + get : src  + "?" + get;
+                    ifr.src = src;
+                  }
+                }
+              </script>
+            </section>
+          </div><!-- End Contact Data -->
         </div>
-        <!-- End Tab Container -->
-        <footer>
-            <p>
-                Design desse portfólio por <a href="http://www.mrova.com" title="Pune web designing company" target="_blank" rel='nofollow'>mRova</a> | <a href="http://pages.github.com" rel="no-follow" target="_blank">Hospedado com ♥ pelo GitHub Pages</a>
-            </p>
-        </footer>
+      </div><!-- End Tab Container -->
+      
+      <footer>
+        <p>
+          Design desse portfólio por <a href="http://www.mrova.com" title="Pune web designing company" target="_blank" rel='nofollow'>mRova</a> | <a href="http://pages.github.com" rel="no-follow" target="_blank">Hospedado com ♥ pelo GitHub Pages</a>
+        </p>
+      </footer>
     </div><!-- #main -->
-</div><!-- #main-container -->
+  </div><!-- #main-container -->
 
-<script>
-var n = new Date();
-var nascimento = 1995;
-var hoje = n.getFullYear();
-var x = hoje - nascimento;
-$('.idade').html(x);
-</script>
+  <script>
+    var n = new Date();
+    var nascimento = 1995;
+    var hoje = n.getFullYear();
+    var x = hoje - nascimento;
+    $('.idade').html(x);
+  </script>
 
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.4&appId=410082289142337";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+  <div id="fb-root"></div>
+  <script>
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.4&appId=410082289142337";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
 </body>
 </html>
