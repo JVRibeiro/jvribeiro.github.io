@@ -72,7 +72,7 @@
           <div id="about">
             <section class="clearfix">
               <div class="g2">
-                <div class="photo">
+                <div class="photo" style='margin-bottom: 100px;'>
                   <img src="WP_20160622_13_53_06_Pro (3).jpg" alt="Victor Ribeiro">
                 </div>
 
@@ -81,8 +81,13 @@
                   <h4>Programador / web-designer</h4>
 
                   <p>Olá, sou o Victor Ribeiro (também conhecido como JV Ribeiro), estudante de Sistemas de Informação 
-                    da Universidade Federal do Pará. Desenvolvo aplicações web que trabalham completamente client-side 
-                    e também com um design que as tornam únicas.</p>
+                    da Universidade Federal do Pará.
+                  </p>
+                  
+                  <p>
+                    Desenvolvo aplicações web que trabalham completamente sem a necessidade de um servidor 
+                    e também com o design que as tornam únicas.
+                  </p>
                 </div>
               </div>
 
@@ -90,7 +95,9 @@
                 <div class="main-links sidebar">
                 <br><br>
                   <h5>Habilidades</h5>
-                  Linguagens
+                  <span class="label label-info">Linguagens</span>
+                  <br><br>
+                  
                   <div title="95%" class="meter carrot">
                     <span style="width: 95%">
                       <span>HTML5</span>
@@ -108,11 +115,38 @@
                       <span>JavaScript</span>
                     </span>
                   </div>
+                  
+                  <br><br>
 
-                  Frameworks
+                  <span class="label label-info">Frameworks</span>
+                  <br><br>
+                  
                   <div title="70%" class="meter wisteria">
                     <span style="width: 70%">
                       <span>JQuery</span>
+                    </span>
+                  </div>
+                  
+                  <br><br>
+
+                  <span class="label label-info">Software</span>
+                  <br><br>
+                  
+                  <div title="85%" class="meter midnight">
+                    <span style="width: 85%">
+                      <span>Photoshop</span>
+                    </span>
+                  </div>
+                  
+                  <div title="60%" class="meter midnight">
+                    <span style="width: 60%">
+                      <span>CorelDraw</span>
+                    </span>
+                  </div>
+                  
+                  <div title="85%" class="meter midnight">
+                    <span style="width: 85%">
+                      <span>Microsoft Office</span>
                     </span>
                   </div>
                 </div>
@@ -336,7 +370,7 @@
               </p>
 
               <p>
-                Acesse o <a href='http://sortegram.com/' target='_blank'>Sortegram</a>.
+                <a href='http://sortegram.com/' target='_blank'>Acesse o Sortegram</a> | <a href='http://github.com/sortegram/sortegram' target='_blank'>Open source</a>
               </p>
 
               <br><br>
@@ -448,17 +482,6 @@
     var hoje = n.getFullYear();
     var x = hoje - nascimento;
     $('.idade').html(x);
-  </script>
-
-  <div id="fb-root"></div>
-  <script>
-    (function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.4&appId=410082289142337";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
   </script>
 </body>
 </html>
