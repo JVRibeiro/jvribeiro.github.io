@@ -40,11 +40,7 @@ var emilyIcon = "http://jvribeiro.github.io/emily.jpg",
 EMILY = "\
 <style>\
 .emily {\
-    width: calc(100% - 30px);\
-    width: -webkit-calc(100% - 30px);\
-    width: -moz-calc(100% - 30px);\
-    width: -o-calc(100% - 30px);\
-    width: -ms-calc(100% - 30px);\
+    width: 100%;\
     height: auto;\
     display: inline-block;\
     font-size: 12pt;\
@@ -133,11 +129,7 @@ EMILYP = "\
 CAMILA = "\
 <style>\
 .camila {\
-    width: calc(100% - 30px);\
-    width: -webkit-calc(100% - 30px);\
-    width: -moz-calc(100% - 30px);\
-    width: -o-calc(100% - 30px);\
-    width: -ms-calc(100% - 30px);\
+    width: 100%;\
     height: auto;\
     display: inline-block;\
     font-size: 12pt;\
