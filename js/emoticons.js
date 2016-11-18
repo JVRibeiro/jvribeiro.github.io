@@ -115,8 +115,8 @@ width: calc(100% - 30px);\
    <div class=\"icon\"><\/div>\
    <div class=\"text\">\
      <div class=\"h2\">Alerta de Spoiler!<\/div>\
-     <p>Atenção! Este post contém <a href=\"http://www.livrofilia.com\/p\/politica-de-spoilers.html\" title=\"Política de Spoilers\"><b>SPOILERS<\/b><\/a>! Caso ainda não tenha lido o livro em questão e\/ou não quer revelações do enredo, <span class=\"red\">NÃO CONTINUE LENDO<\/span>.<\/p>\
-     <p>Se você se sente confortável com spoilers, <span class=\"red\">prossiga por sua conta e risco<\/span>. Veja nossa <a href=\"http://www.livrofilia.com\/p\/politica-de-spoilers.html\" title=\"Política de Spoilers\"><b>Política de Spoilers<\/b><\/a> para mais informações.<\/p>\
+     <p>Atenção! Este post contém alguns <a href=\"http://www.livrofilia.com\/p\/politica-de-spoilers.html\" title=\"Política de Spoilers\"><b>SPOILERS<\/b><\/a>! Caso ainda não tenha lido o livro em questão e não quer revelações do enredo, <span class=\"red\">NÃO CONTINUE LENDO<\/span>.<\/p>\
+     <p>Se você se sente confortável com spoilers, <b>prossiga por sua conta e risco<\/b>. Veja nossa <a href=\"http://www.livrofilia.com\/p\/politica-de-spoilers.html\" title=\"Política de Spoilers\"><b>Política de Spoilers<\/b><\/a> para mais informações.<\/p>\
    <\/div>\
  <\/div>\
 ",
@@ -157,7 +157,8 @@ emoji.innerHTML = emoji.innerHTML.replace(/( \:\|)/gi ," "+SERIO);
 emoji.innerHTML = emoji.innerHTML.replace(/( \:P)/gi ," "+LINGUA);
 emoji.innerHTML = emoji.innerHTML.replace(/\[\[8\]\]/gi ,NOTA);
 emoji.innerHTML = emoji.innerHTML.replace(/♥/gi ,CORACAO);
-emoji.innerHTML = emoji.innerHTML.replace(/(\<3)/gi ," "+CORACAO);
+emoji.innerHTML = emoji.innerHTML.replace(/([coração])/gi ,CORACAO);
+emoji.innerHTML = emoji.innerHTML.replace(/( <3)/gi ," "+CORACAO);
 emoji.innerHTML = emoji.innerHTML.replace(/( \:D)/gi ," "+FELIZ);
 emoji.innerHTML = emoji.innerHTML.replace(/\[\[espantado\]\]/gi ,ESPANTADO);
 emoji.innerHTML = emoji.innerHTML.replace(/( \:\()/gi ," "+TRISTE);
@@ -169,18 +170,10 @@ emoji.innerHTML = emoji.innerHTML.replace(/\[\[msn2\]\]/gi ,MSN2);
 emoji.innerHTML = emoji.innerHTML.replace(/\[\[telefone\]\]/gi ,TELEFONE);
 emoji.innerHTML = emoji.innerHTML.replace(/\[\[pizza\]\]/gi ,PIZZA);
 emoji.innerHTML = emoji.innerHTML.replace(/\[\[presente\]\]/gi ,PRESENTE);
-emoji.innerHTML = emoji.innerHTML.replace(/( \<\/3)/gi ," "+CORACAO_PARTIDO);
+emoji.innerHTML = emoji.innerHTML.replace(/( <\/3)/gi ," "+CORACAO_PARTIDO);
 emoji.innerHTML = emoji.innerHTML.replace(/\[\[cima\]\]/gi ,CIMA);
 emoji.innerHTML = emoji.innerHTML.replace(/\[\[banana\]\]/gi ,BANANA);
 emoji.innerHTML = emoji.innerHTML.replace(/\[\[blogger\]\]/gi ,BLOGGER);
 emoji.innerHTML = emoji.innerHTML.replace(/\[\[spoiler\]\]/gi ,SPOILER);
 emoji.innerHTML = emoji.innerHTML.replace(/\[\[SPOILER\]\]/gi ,SPOILER);
 })(window);
-
-
-$('.instagram-lite').instagramLite({
-        clientID: '43568de1eb8c4a74a9a1aca8db3f172e',
-        username: 'estantedaemi',
-        urls:true,
-        limit:8
-      });
