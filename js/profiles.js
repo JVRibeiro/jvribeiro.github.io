@@ -13,16 +13,16 @@ var emilyIcon = "http://jvribeiro.github.io/emily.jpg",
     emilyTwitterUrl = "https://www.twitter.com/livrofilia",
     emilyPosts = "http://www.livrofilia.com/search/label/Emily Abreu",
     emilyInstagramUsername = "emiiilysantoos",
-    emilyFacebook = "<a title=\"Facebook de Emily\" class=\"facebook\" href=\""+ emilyFacebookUrl +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-facebook\"><\/i><\/a>",
-    emilyTwitter = "<a title=\"Twitter de Emily\" class=\"twitter\" href=\""+ emilyTwitterUrl +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-twitter\"><\/i><\/a>",
-    emilyInstagram = "<a title=\"Instagram de Emily\" class=\"instagram\" href=\"http:\/\/instagram.com\/"+ emilyInstagramUsername +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-instagram\"><\/i><\/a>",
+    emilyFacebook = "<a title=\"Facebook de Emily\" class=\"facebook\" href=\""+ emilyFacebookUrl +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-facebook\"><\/i> Facebook<\/a>",
+    emilyTwitter = "<a title=\"Twitter de Emily\" class=\"twitter\" href=\""+ emilyTwitterUrl +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-twitter\"><\/i> Twitter<\/a>",
+    emilyInstagram = "<a title=\"Instagram de Emily\" class=\"instagram\" href=\"http:\/\/instagram.com\/"+ emilyInstagramUsername +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-instagram\"><\/i> Instagram<\/a>",
     emilySkoob = "<a title=\"Emily no Skoob\" class=\"skoob\" href=\""+ emilySkoobUrl +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-book\"><\/i> Skoob<\/a>",
 
     camilaFacebookUrl = "https://facebook.com/CGabriely",
     camilaPosts = "http://www.livrofilia.com/search/label/Camila Correa",
     camilaInstagramUsername = "camilagcorrea",
-    camilaFacebook = "<a title=\"Facebook de Camila\" class=\"facebook\" href=\""+ camilaFacebookUrl +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-facebook\"><\/i><\/a>",
-    camilaInstagram = "<a title=\"Instagram de Camila\" class=\"instagram\" href=\"http:\/\/instagram.com\/"+ camilaInstagramUsername +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-instagram\"><\/i><\/a>",
+    camilaFacebook = "<a title=\"Facebook de Camila\" class=\"facebook\" href=\""+ camilaFacebookUrl +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-facebook\"><\/i> Facebook<\/a>",
+    camilaInstagram = "<a title=\"Instagram de Camila\" class=\"instagram\" href=\"http:\/\/instagram.com\/"+ camilaInstagramUsername +"\" rel=\"nofollow\" target=\"_blank\"><i class=\"fa fa-instagram\"><\/i> Instagram<\/a>",
 
     tataFacebookUrl = "#",
     tataPosts = "http://www.livrofilia.com/search/label/Thamiris Almeida",
@@ -39,6 +39,7 @@ var emilyIcon = "http://jvribeiro.github.io/emily.jpg",
 
 EMILY = "\
 <style>\
+@media all and (min-width: 480px) {\
 .emily {\
     width: calc(100% + 10px);\
     width: -webkit-calc(100% + 10px);\
@@ -86,24 +87,16 @@ EMILY = "\
     top: 0;\
     left: 170px;\
 }\
-.emily h2 {\
+.emily h1 {\
     color: #FF00E9;\
-    border-bottom: 1px solid #F49CFF;\
-    font-family: 'Book Antiqua', Palatino, 'Palatino Linotype', 'Palatino LT STD', Georgia, serif;\
-    font-size: 30pt;\
-    font-style: italic;\
-    border-radius: none !important;\
-    -webkit-border-radius: none !important;\
-    -moz-border-radius: none !important;\
-    -ms-border-radius: none !important;\
-    -o-border-radius: none !important;\
+}\
 }\
 </style>\
 <div class=\"emily\">\
    <div class=\"icon\"><\/div>\
    <div class=\"text\">\
-     <h2>Emily Abreu<\/h2>\
-      <a href=\""+emilyPosts+"\">Meus posts<\/a> | "+emilyInstagram+" | "+emilyTwitter+" | "+emilyFacebook+" | "+emilySkoob+"\
+     <h1>Emily Abreu<\/h1>\
+      <a href=\"" + emilyPosts + "\">Meus posts<\/a> | " + emilyInstagram+" | " + emilyTwitter + " | " + emilyFacebook + " | " + emilySkoob + "\
      <\/div>\
 </div>\
 ",
@@ -179,25 +172,15 @@ CAMILA = "\
     top: 0;\
     left: 170px;\
 }\
-.camila h2 {\
+.camila h1 {\
     color: #A500AF;\
-    border-bottom: 1px solid #CB9CFF;\
-    font-family: 'Book Antiqua', Palatino, 'Palatino Linotype', 'Palatino LT STD', Georgia, serif;\
-    font-size: 30pt;\
-    font-style: italic;\
-    background-color: transparent !important;\
-    border-radius: none !important;\
-    -webkit-border-radius: none !important;\
-    -moz-border-radius: none !important;\
-    -ms-border-radius: none !important;\
-    -o-border-radius: none !important;\
 }\
 </style>\
 <div class=\"camila\">\
    <div class=\"icon\"><\/div>\
    <div class=\"text\">\
-     <h2>Camila Correa<\/h2>\
-      <a href=\""+camilaPosts+"\">Meus posts<\/a> | "+camilaInstagram+"\
+     <h1>Camila Correa<\/h1>\
+      <a href='" + camilaPosts + "'>Meus posts<\/a> | " + camilaInstagram + " | <a href='http://calmomila.com' target='_blank' rel='nofollow'>Calmomila.com<\/a>\
      <\/div>\
 </div>\
 ",
