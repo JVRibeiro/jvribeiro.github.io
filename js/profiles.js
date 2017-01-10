@@ -269,7 +269,7 @@ CAMILA = "\
     display: inline-block;\
     position: relative;\
     background-image: url('"+camilaIcon+"');\
-    background-size: auto 100%;\
+    background-size: 100% auto;\
     background-repeat: no-repeat;\
     background-position: 50%;\
     left: calc(50% - 50px);\
