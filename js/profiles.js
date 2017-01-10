@@ -113,8 +113,8 @@ EMILY = "\
     }\
 \
 .emily .icon {\
-    width: 150px;\
-    height: 150px;\
+    width: 100px;\
+    height: 100px;\
     border-radius: 50%;\
     -webkit-border-radius: 50%;\
     -moz-border-radius: 50%;\
@@ -127,7 +127,11 @@ EMILY = "\
     background-size: auto 100%;\
     background-repeat: no-repeat;\
     background-position: 50%;\
-    float: left;\
+    left: calc(50% - 50px);\
+    left: -webkit-calc(50% - 50px);\
+    left: -moz-calc(50% - 50px);\
+    left: -ms-calc(50% - 50px);\
+    left: -o-calc(50% - 50px);\
 }\
 .emily .text {\
     font-family: Segoe UI, Trebucuhet, sans-serif;\
@@ -142,6 +146,7 @@ EMILY = "\
     display: inline-block;\
     top: 0;\
     left: 170px;\
+    text-align: center;\
 }\
 .emily h1 {\
     color: #FF00E9;\
@@ -152,7 +157,7 @@ EMILY = "\
    <div class=\"icon\"><\/div>\
    <div class=\"text\">\
      <h1>Emily Abreu<\/h1>\
-      <a href=\"" + emilyPosts + "\"><i class='fa fa-bookmark-o'></i> Meus posts<\/a> • " + emilyInstagram+" • " + emilyFacebook + " • " + emilySkoob + "\
+      <a href=\"" + emilyPosts + "\"><i class='fa fa-bookmark-o'></i> Meus posts<\/a> • " + emilyInstagram+" <br> " + emilyFacebook + " • " + emilySkoob + "\
      <\/div>\
 </div>\
 ",
@@ -181,6 +186,7 @@ EMILYP = "\
 
 CAMILA = "\
 <style>\
+@media all and (min-width: 480px) {\
 .camila {\
     width: calc(100% + 10px);\
     width: -webkit-calc(100% + 10px);\
@@ -231,12 +237,75 @@ CAMILA = "\
 .camila h1 {\
     color: #A500AF;\
 }\
+}\
+}\
+\
+\
+\
+\
+@media all and (max-width: 479px) {\
+.camila {\
+    width: calc(100% + 10px);\
+    width: -webkit-calc(100% + 10px);\
+    width: -moz-calc(100% + 10px);\
+    width: -ms-calc(100% + 10px);\
+    width: -o-calc(100% + 10px);\
+    height: auto;\
+    display: inline-block;\
+    font-size: 12pt;\
+    background-color: #FFF6FF;\
+    padding: 10px;\
+    text-align: justify;\
+    margin-bottom: 30px;\
+    margin-left: -15px;\
+    }\
+\
+.camila .icon {\
+    width: 100px;\
+    height: 100px;\
+    border-radius: 50%;\
+    -webkit-border-radius: 50%;\
+    -moz-border-radius: 50%;\
+    -ms-border-radius: 50%;\
+    -o-border-radius: 50%;\
+    border: 2px solid #CB9CFF;\
+    display: inline-block;\
+    position: relative;\
+    background-image: url('"+camilaIcon+"');\
+    background-size: auto 100%;\
+    background-repeat: no-repeat;\
+    background-position: 50%;\
+    left: calc(50% - 50px);\
+    left: -webkit-calc(50% - 50px);\
+    left: -moz-calc(50% - 50px);\
+    left: -ms-calc(50% - 50px);\
+    left: -o-calc(50% - 50px);\
+}\
+.camila .text {\
+    font-family: Segoe UI, Trebucuhet, sans-serif;\
+    color: #000;\
+    font-size: 12pt;\
+    width: 400px;\
+    max-width: 90%;\
+    min-width: 230px;\
+    height: auto;\
+    padding-left: 15px;\
+    padding-right: 15px;\
+    display: inline-block;\
+    top: 0;\
+    left: 170px;\
+    text-align: center;\
+}\
+.camila h1 {\
+    color: #A500AF;\
+}\
+}\
 </style>\
 <div class=\"camila\">\
    <div class=\"icon\"><\/div>\
    <div class=\"text\">\
      <h1>Camila Correa<\/h1>\
-      <a href='" + camilaPosts + "'><i class='fa fa-bookmark-o'></i> Meus posts<\/a> • " + camilaInstagram + " • <a href='http://calmomila.com' target='_blank' rel='nofollow'>Calmomila.com<\/a>\
+      <a href='" + camilaPosts + "'><i class='fa fa-bookmark-o'></i> Meus posts<\/a> • " + camilaInstagram + " <br> <a href='http://calmomila.com' target='_blank' rel='nofollow'><i class='fa fa-external-link'></i> Calmomila.com<\/a>\
      <\/div>\
 </div>\
 ",
