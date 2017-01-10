@@ -96,7 +96,7 @@ EMILY = "\
    <div class=\"icon\"><\/div>\
    <div class=\"text\">\
      <h1>Emily Abreu<\/h1>\
-      <a href=\"" + emilyPosts + "\">Meus posts<\/a> | " + emilyInstagram+" | " + emilyTwitter + " | " + emilyFacebook + " | " + emilySkoob + "\
+      <a href=\"" + emilyPosts + "\"><i class='fa fa-bookmark-o'></i> Meus posts<\/a> | " + emilyInstagram+" | " + emilyTwitter + " | " + emilyFacebook + " | " + emilySkoob + "\
      <\/div>\
 </div>\
 ",
@@ -180,7 +180,7 @@ CAMILA = "\
    <div class=\"icon\"><\/div>\
    <div class=\"text\">\
      <h1>Camila Correa<\/h1>\
-      <a href='" + camilaPosts + "'>Meus posts<\/a> | " + camilaInstagram + " | <a href='http://calmomila.com' target='_blank' rel='nofollow'>Calmomila.com<\/a>\
+      <a href='" + camilaPosts + "'><i class='fa fa-bookmark-o'></i> Meus posts<\/a> | " + camilaInstagram + " | <a href='http://calmomila.com' target='_blank' rel='nofollow'>Calmomila.com<\/a>\
      <\/div>\
 </div>\
 ",
