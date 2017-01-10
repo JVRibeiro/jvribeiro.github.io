@@ -40,15 +40,19 @@ var emilyIcon = "http://jvribeiro.github.io/emily.jpg",
 EMILY = "\
 <style>\
 .emily {\
-    width: 100%;\
+    width: calc(100% + 10px);\
+    width: -webkit-calc(100% + 10px);\
+    width: -moz-calc(100% + 10px);\
+    width: -ms-calc(100% + 10px);\
+    width: -o-calc(100% + 10px);\
     height: auto;\
     display: inline-block;\
     font-size: 12pt;\
-    border: 1px solid #D6D6D6;\
     background-color: #FFF6FF;\
     padding: 10px;\
     text-align: justify;\
     margin-bottom: 30px;\
+    margin-left: -15px;\
     }\
 \
 .emily .icon {\
@@ -129,16 +133,20 @@ EMILYP = "\
 CAMILA = "\
 <style>\
 .camila {\
-    width: 100%;\
+    width: calc(100% + 10px);\
+    width: -webkit-calc(100% + 10px);\
+    width: -moz-calc(100% + 10px);\
+    width: -ms-calc(100% + 10px);\
+    width: -o-calc(100% + 10px);\
     height: auto;\
     display: inline-block;\
     font-size: 12pt;\
-    border: 1px solid #CB9CFF;\
     background-color: #F8F3FF;\
     padding: 10px;\
     text-align: justify;\
     margin-bottom: 30px;\
-    }\
+    margin-left: -15px;\
+}\
 \
 .camila .icon {\
     width: 150px;\
