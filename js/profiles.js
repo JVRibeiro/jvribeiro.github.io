@@ -54,6 +54,10 @@ EMILY = "\
     text-align: justify;\
     margin-bottom: 5px;\
     margin-left: -15px;\
+    background-image: url(http://jvribeiro.github.io/livrofilia-logo-icon-500-alt-2.png);\
+    background-size: auto 135%;\
+    background-repeat: no-repeat;\
+    background-position: 110% -40px;\
     }\
 \
 .emily .icon {\
@@ -199,6 +203,10 @@ CAMILA = "\
     text-align: justify;\
     margin-bottom: 5px;\
     margin-left: -15px;\
+    background-image: url(http://jvribeiro.github.io/livrofilia-logo-icon-500-alt-2.png);\
+    background-size: auto 135%;\
+    background-repeat: no-repeat;\
+    background-position: 110% -40px;\
 }\
 \
 .camila .icon {\
