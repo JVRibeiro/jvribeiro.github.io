@@ -49,10 +49,10 @@ EMILY = "\
     height: auto;\
     display: inline-block;\
     font-size: 12pt;\
-    background-color: #FFF6FF;\
+    background-color: #fde7fc;\
     padding: 10px;\
     text-align: justify;\
-    margin-bottom: 30px;\
+    margin-bottom: 5px;\
     margin-left: -15px;\
     }\
 \
@@ -93,8 +93,6 @@ EMILY = "\
 }\
 \
 \
-\
-\
 @media all and (max-width: 479px) {\
 .emily {\
     width: calc(100% + 10px);\
@@ -105,10 +103,10 @@ EMILY = "\
     height: auto;\
     display: inline-block;\
     font-size: 12pt;\
-    background-color: #FFF6FF;\
+    background-color: #fde7fc;\
     padding: 10px;\
     text-align: justify;\
-    margin-bottom: 30px;\
+    margin-bottom: 5px;\
     margin-left: -15px;\
     }\
 \
@@ -196,10 +194,10 @@ CAMILA = "\
     height: auto;\
     display: inline-block;\
     font-size: 12pt;\
-    background-color: #F8F3FF;\
+    background-color: #f1e8ff;\
     padding: 10px;\
     text-align: justify;\
-    margin-bottom: 30px;\
+    margin-bottom: 5px;\
     margin-left: -15px;\
 }\
 \
@@ -252,10 +250,10 @@ CAMILA = "\
     height: auto;\
     display: inline-block;\
     font-size: 12pt;\
-    background-color: #FFF6FF;\
+    background-color: #f1e8ff;\
     padding: 10px;\
     text-align: justify;\
-    margin-bottom: 30px;\
+    margin-bottom: 5px;\
     margin-left: -15px;\
     }\
 \
