@@ -1,0 +1,46 @@
+.no-display {
+  display: none;
+}
+
+.lf-select {
+  padding: 10px;
+    font-size: 12pt;
+    font-weight: bold;
+    border-radius: 5px;
+  outline: none;
+}
+
+.lf-banner {
+  background-color: #ffefff;
+  background-image: url(../img/lf-banner-s-res.png);
+  background-size: auto 100%;
+  background-position: 0%;
+  background-repeat: repeat-x;;
+  border: 1px solid #fbd4ff;
+  margin-bottom: 5px;
+  text-align: center;
+  transition: .3s ease-in-out;
+  overflow: hidden;
+}
+
+.lf-banner-130-60 {
+  width: 130px;
+  height: 60px;
+}
+
+.lf-banner-130-60 .lf-banner-130-60-logo-hover {
+  width: auto;
+  height: 100%;
+  transition: .3s ease-in-out;
+  margin-top: 60px;
+}
+
+.lf-banner-130-60-logo-res {
+  margin-left: 130px;
+}
+
+.overlay-130-60 {
+  width: 130px;
+  height: 60px;
+  position: absolute;
+}
