@@ -86,6 +86,7 @@
   border-right: 1px solid #e3e3e3;
   display: -webkit-inline-box;
   overflow: hidden;
+  margin-bottom: 100px;
 }
 
 .lf-book-info-cover img {
