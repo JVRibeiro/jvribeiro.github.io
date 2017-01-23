@@ -5,16 +5,15 @@
     height: 335px;
     margin-left: -15px;
     padding-right: 20px;
-    padding-left: 10px;
+    padding-left: 0px;
     background-color: #fbcdff;
     border: none;
-    border-top: 1px solid #e3e3e3;
-    border-bottom: 1px solid #e3e3e3;
     background-size: 100% auto;
     background-position: 50%;
     background-repeat: no-repeat;
     background-attachment: fixed;
     overflow: hidden;
+    border-radius: 0 20px 20px 0;
   }
 
   .lf-book-info-overlay {
@@ -27,7 +26,7 @@
     position: static;
     margin-top: -145px;
     margin-bottom: -100px;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.9);
   }
 
   .lf-book-info-info {
