@@ -22,11 +22,14 @@
     width: -moz-calc(100% + 60px);
     width: -ms-calc(100% + 60px);
     width: -o-calc(100% + 60px);
-    height: auto;
+    height: 350px;
     position: static;
-    margin-top: -145px;
-    margin-bottom: -100px;
+    margin-bottom: 85px;
     background-color: rgba(255, 255, 255, 0.9);
+    background-image: url(http://4.bp.blogspot.com/-RQb3g1VtDS4/WIZn2tsFlVI/AAAAAAAACWE/Bds9LHzYT1wCYawPqzlWxNOBtHwm1h3KQCK4B/s1600/livrofilia-logo-400x180-alt-2.png);
+    background-repeat: no-repeat;
+    background-size: 40%;
+    background-position: 90% 95%;
   }
 
   .lf-book-info-info {
@@ -39,7 +42,11 @@
 
   .lf-book-info-info ul {
     list-style: none;
-    margin-left: -450px;
+    margin-left: 0;
+    margin-top: 20px;
+    line-height: 18px;
+    position: absolute;
+    left: 250px;
   }
 }
 
