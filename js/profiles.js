@@ -152,6 +152,7 @@ EMILY = "\
 }\
 .emily h1 {\
     color: #FF00E9;\
+    text-align: center;\
 }\
 }\
 </style>\
@@ -242,6 +243,7 @@ CAMILA = "\
 }\
 .camila h1 {\
     color: #A500AF;\
+    text-align: center;\
 }\
 }\
 \
