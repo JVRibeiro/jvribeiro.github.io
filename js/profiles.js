@@ -243,7 +243,6 @@ CAMILA = "\
 }\
 .camila h1 {\
     color: #A500AF;\
-    text-align: center;\
 }\
 }\
 \
@@ -305,6 +304,7 @@ CAMILA = "\
 }\
 .camila h1 {\
     color: #A500AF;\
+    text-align: center;\
 }\
 }\
 </style>\
