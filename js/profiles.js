@@ -58,6 +58,11 @@ EMILY = "\
     background-size: auto 135%;\
     background-repeat: no-repeat;\
     background-position: 110% -40px;\
+    border-radius: 90px 30px 30px 90px;\
+    -webkit-border-radius: 90px 30px 30px 90px;\
+    -moz-border-radius: 90px 30px 30px 90px;\
+    -ms-border-radius: 90px 30px 30px 90px;\
+    -o-border-radius: 90px 30px 30px 90px;\
     }\
 \
 .emily .icon {\
@@ -208,6 +213,11 @@ CAMILA = "\
     background-size: auto 135%;\
     background-repeat: no-repeat;\
     background-position: 110% -40px;\
+    border-radius: 90px 30px 30px 90px;\
+    -webkit-border-radius: 90px 30px 30px 90px;\
+    -moz-border-radius: 90px 30px 30px 90px;\
+    -ms-border-radius: 90px 30px 30px 90px;\
+    -o-border-radius: 90px 30px 30px 90px;\
 }\
 \
 .camila .icon {\
