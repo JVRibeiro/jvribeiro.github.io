@@ -31,6 +31,16 @@
     background-size: 40%;
     background-position: 90% 95%;
   }
+  
+ .lf-book-info-cover {
+  width: 240px;
+  max-width: 100%;
+  height: 100%;
+  border-right: 1px solid #e3e3e3;
+  display: -webkit-inline-box;
+  overflow: hidden;
+  margin-bottom: 100px;
+}
 
   .lf-book-info-info {
     display: -webkit-inline-box;
@@ -55,18 +65,29 @@
     width: 100%;
     height: auto;
     margin-left: -10px;
+    padding-top: 10px;
     padding-right: 10px;
     padding-left: 10px;
-    background: #fbcdff !important;
+    background: #feffe8 !important;
     text-align: center;
   }
+  
+.lf-book-info-cover {
+  width: 160px;
+  max-width: 100%;
+  height: 100%;
+  border-right: 1px solid #e3e3e3;
+  display: -webkit-inline-box;
+  overflow: hidden;
+}
 
   .lf-book-info-info {
     display: -webkit-inline-box;
-    width: 330px;
+    width: 100%;
     max-width: 100%;
     height: auto;
     margin-left: -5px;
+    line-height: 18px;
   }
 
   .lf-book-info-info ul {
@@ -80,20 +101,6 @@
 
 
 
-
-
-
-
-
-.lf-book-info-cover {
-  width: 240px;
-  max-width: 100%;
-  height: 100%;
-  border-right: 1px solid #e3e3e3;
-  display: -webkit-inline-box;
-  overflow: hidden;
-  margin-bottom: 100px;
-}
 
 .lf-book-info-cover img {
   width: 100%;
