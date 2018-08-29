@@ -52,7 +52,7 @@ function voice ()
       }
 
       console.log( 'Sophia parou de falar.' );
-    }
+    };
 
     speechSynthesis.speak( _spRec_ );
     avatar._animation( 'speaking' );
@@ -60,4 +60,4 @@ function voice ()
 
     console.log( 'Sophia começou a falar.' );
   }, 500);
-};
+}

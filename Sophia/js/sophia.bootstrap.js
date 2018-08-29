@@ -1,6 +1,6 @@
 // Variáveis globais
   var customTreatment = false,
-      actualScreen = undefined,
+      actualScreen,
       intro = 1,
 
       minLoadTime = 0,
@@ -75,7 +75,7 @@
       intScr_confirmButton = document.querySelector( '.introducing-screen-conf-button' ),
 
   // localStorage
-      _isFirstBoot = localStorage[ 'introduction' ],
+      _isFirstBoot = localStorage.introduction,
       _micPermission = localStorage[ 'mic-permission' ],
 
   // Array de títulos da apresentação
@@ -126,7 +126,7 @@
       // Se for a primeira inicialização
       if ( !_isFirstBoot )
       {
-        localStorage[ 'introduction' ] = 'yes';
+        localStorage.introduction = 'yes';
         document.location.reload();
       }
 
@@ -171,14 +171,13 @@
       {
         micPermission = false;
       }
-    };
+    }
 
 
   // Validação de nome (não permite números, espaços, pontuação [exceto - e ']) e símbolos.
     intScr_nameInput.addEventListener( 'input', function ()
     {
-      if ( intScr_nameInput.value.length <= 0
-        || intScr_nameInput.value.match( /([,.;/<>:?"!@#$%¨&*()_+=¹²³£¢¬§~^´`\[\]{}]|[\d]|[\s])/gi ) )
+      if ( intScr_nameInput.value.length <= 0 || intScr_nameInput.value.match( /([,.;/<>:?"!@#$%¨&*()_+=¹²³£¢¬§~^´`\[\]{}]|[\d]|[\s])/gi ) )
       {
         intScr_confirmButton.disabled = true;
         notification.create(
@@ -197,8 +196,7 @@
   // Validação de tratamento personalizado (não permite pontuação [exceto - e ']) e símbolos.
     intScr_treatmentInput_custom.addEventListener( 'input', function ()
     {
-      if ( intScr_treatmentInput_custom.value.length <= 0
-        || intScr_treatmentInput_custom.value.match( /([,.;/<>:?"!@#$%¨&*()_+=¹²³£¢¬§~^´`\[\]{}])/gi ) )
+      if ( intScr_treatmentInput_custom.value.length <= 0 || intScr_treatmentInput_custom.value.match( /([,.;/<>:?"!@#$%¨&*()_+=¹²³£¢¬§~^´`\[\]{}])/gi ) )
       {
         intScr_confirmButton.disabled = true;
         notification.create(
@@ -463,7 +461,7 @@
         5000
       );
     }
-  };
+  }
 
 
   function genderFirstSetting ()
@@ -514,7 +512,7 @@
     changeCommands( genderInputCommands );
 
     ai.say( 'Ok, ' + user.name + '. Agora me diga se você é do sexo masculino ou feminino.' );
-  };
+  }
 
 
   function treatmentFirstSetting ()
@@ -583,14 +581,13 @@
     changeCommands( treatmentInputCommands );
 
     ai.say( 'Como você prefere que eu ' + user.article + ' chame, ' + user.name + '? Você pode escolher uma das opções sugeridas ou pode dizer uma forma de tratamento de sua preferência.' );
-  };
+  }
 
 
   // Verifica se o usuário escolheu a opção de tratamento personalizado.
   function customTreatmentFn ()
   {
-    if ( actualScreen === 'treatment'
-      && !$( 'li[data-value*="outro"]' ).hasClass( 'cs-selected' ) )
+    if ( actualScreen === 'treatment' && !$( 'li[data-value*="outro"]' ).hasClass( 'cs-selected' ) )
     {
       intScr_treatmentDiv_custom.style.display = 'none';
 
@@ -600,8 +597,7 @@
 
       intScr_confirmButton.disabled = false;
     }
-    if ( actualScreen === 'treatment'
-      && $( 'li[data-value*="outro"]' ).hasClass( 'cs-selected' ) )
+    if ( actualScreen === 'treatment' && $( 'li[data-value*="outro"]' ).hasClass( 'cs-selected' ) )
     {
       intScr_treatmentDiv_custom.style.display = 'block';
 
@@ -613,14 +609,12 @@
 
       intScr_confirmButton.disabled = true;
     }
-  };
+  }
 
 
   function introDoneScreen ()
   {
-    if ( customTreatment
-      && intScr_treatmentInput_custom.value !== ''
-      || !customTreatment )
+    if ( customTreatment && intScr_treatmentInput_custom.value !== '' || !customTreatment )
     {
       actualScreen = null;
 
@@ -649,15 +643,14 @@
         break;
       }
 
-      if ( user.gender === 'feminino'
-        && user.treatment === 'outro' )
+      if ( user.gender === 'feminino' && user.treatment === 'outro' )
       {
         user._treatment = 'você';
       }
 
       salvarDados();
 
-      localStorage[ 'introduction' ] = 'no';
+      localStorage.introduction = 'no';
 
       annyang.abort();
 
@@ -702,7 +695,7 @@
         // * console.log(user);
       }, 6000);
     }
-  };
+  }
 // Fim das funções
 
 

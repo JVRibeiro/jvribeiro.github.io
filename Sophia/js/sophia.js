@@ -72,7 +72,7 @@ var brain = [
 'Olá' + userRef + '.'
 ],
 
-['^(ei|hey so(ph|f)ia|fala so(ph|f)ia|fala, so(ph|f)ia|so(ph|f)ia)?',
+['^(ei|hey so(ph|f)ia|fala so(ph|f)ia|fala, so(ph|f)ia|so(ph|f)ia)',
 'Em que posso ajudar' + userRef + '?',
 'Pode falar' + userRef + '.',
 'Estou ouvindo' + userRef + '.'
@@ -435,8 +435,10 @@ ai.name+' é o meu nome.',
 
 ['(.*)(qual (|(é|e) )(|o)|fal(a|e)(| o)|(diz|sabe|lembra)(| (|d)o)) meu nome(.*)',
 'Seu nome é '+user.name+'.',
-'Por mais que você já saiba, seu nome é '+user.name+', '+user.treatment+'.',
-'Você se esqueceu do seu nome, '+user.treatment+' '+user.name+'\?'
+'Acho que seu nome é '+user.name+', '+user.treatment+'.',
+'Acho que é '+user.name+'.',
+user.name,
+'Pelo que me lembro, seu nome é '+user.name+'.'
 ],
 
 ['(.*)(meu nome não é |não me chamo |não me chama de |não sou )(.*)',
@@ -653,7 +655,7 @@ ai.name+' é o meu nome.',
 '...'
 ],
 
-['^(sim|yes|é|eh|yeah|isso|aha(n|m)|afirmativo|positivo)(.*)',
+['^(sim|yes|é|eh|yeah|isso|aha(n|m)|afirmativo|positivo|ok)(.*)',
 '...'
 ],
 
