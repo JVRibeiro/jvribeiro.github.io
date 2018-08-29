@@ -1,0 +1,267 @@
+#introducing-screen {
+  width: 635px;
+  height: 500px;
+  max-width: 100%;
+  max-height: 100%;
+  position: absolute;
+    top: 180px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  margin: auto;
+}
+
+#introducing-screen-title {
+  width: 300px;
+  text-align: center;
+  color: #81FEFF;
+  text-shadow: 0 0 10px #81FEFE;
+  position: absolute;
+    top: 35px;
+    left: calc(50% - 150px);
+      left: -webkit-calc(50% - 150px);
+      left: -moz-calc(50% - 150px);
+      left: -ms-calc(50% - 150px);
+      left: -o-calc(50% - 150px);
+  cursor: default;
+}
+
+.title_Bigger {
+  font-size: 40pt;
+}
+
+.title_Big {
+  font-size: 30pt;
+}
+
+.title_Med {
+  font-size: 25pt;
+}
+
+.title_Small {
+  font-size: 20pt;
+}
+
+.title_SmallLeft {
+  text-align: left !important;
+  margin-left: 100px;
+}
+
+.gloss {
+  transition: .2s ease;
+    -webkit-transition: .2s ease;
+    -moz-transition: .2s ease;
+    -ms-transition: .2s ease;
+    -o-transition: .2s ease;
+}
+.glossing-letter {
+  color: #fff;
+  text-shadow: 0 0 10px #fff;
+}
+
+.spacing-letter {
+  margin-right: 10px;
+}
+
+#introducing-screen-name-input {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  color: #81FEFF;
+  font-size: 20pt;
+  text-align: center;
+  text-shadow: 0 0 10px #81FEFE;
+  border: none;
+  transition: .2s ease;
+    -webkit-transition: .2s ease;
+    -moz-transition: .2s ease;
+    -ms-transition: .2s ease;
+    -o-transition: .2s ease;
+}
+
+#introducing-screen-name-input:focus {
+  background-color: #021621;
+  box-shadow: 0 0 10px #81FEFE;
+    -webkit-box-shadow: 0 0 10px #81FEFE;
+    -moz-box-shadow: 0 0 10px #81FEFE;
+    -ms-box-shadow: 0 0 10px #81FEFE;
+    -o-box-shadow: 0 0 10px #81FEFE;
+}
+
+#introducing-screen-name-div {
+  width: 500px;
+  height: 75px;
+  border-bottom: 5px solid #81fefe;
+  position: absolute;
+    top: 50%;
+    left: calc(50% - 250px);
+      left: -webkit-calc(50% - 250px);
+      left: -moz-calc(50% - 250px);
+      left: -ms-calc(50% - 250px);
+      left: -o-calc(50% - 250px);
+  overflow: hidden;
+}
+
+#introducing-screen-gender-div {
+  width: 500px;
+  color: #81FEFF;
+  text-shadow: 0 0 10px #81FEFE;
+  position: absolute;
+    top: 50%;
+    left: calc(50% - 150px);
+      left: -webkit-calc(50% - 250px);
+      left: -moz-calc(50% - 250px);
+      left: -ms-calc(50% - 250px);
+      left: -o-calc(50% - 250px);
+}
+
+#introducing-screen-treatment-div {
+  width: 500px;
+  color: #81FEFF;
+  text-shadow: 0 0 10px #81FEFE;
+  position: absolute;
+    top: 50%;
+    left: calc(50% - 150px);
+      left: -webkit-calc(50% - 250px);
+      left: -moz-calc(50% - 250px);
+      left: -ms-calc(50% - 250px);
+      left: -o-calc(50% - 250px);
+}
+
+#introducing-screen-treatment-input-custom {
+  width: 100%;
+  height: 100%;
+  padding-left: 15px;
+  background-color: #01121B;
+  border: none;
+  font-size: 16pt;
+  color: #81FEFF;
+  text-shadow: 0 0 10px #81FEFE;
+  transition: .2s ease;
+    -webkit-transition: .2s ease;
+    -moz-transition: .2s ease;
+    -ms-transition: .2s ease;
+    -o-transition: .2s ease;
+}
+
+#introducing-screen-treatment-input-custom:focus {
+  background-color: #02070A;
+}
+
+#introducing-screen-treatment-div-custom {
+  width: 230px;
+  height: 80px;
+  position: absolute;
+    right: 70px;
+  overflow: hidden;
+  z-index: 105;
+}
+
+
+@media screen and (max-width: 30em) {
+  #introducing-screen-treatment-div-custom {
+    width: 140px;
+    height: 55px;
+    position: absolute;
+    right: 170px;
+    overflow: hidden;
+    z-index: 105;
+  }
+
+  #introducing-screen-treatment-input-custom {
+    width: 100%;
+    height: 100%;
+    padding-left: 5px;
+    background-color: #01121B;
+    border: none;
+    font-size: 12pt;
+    color: #81FEFF;
+    text-shadow: 0 0 10px #81FEFE;
+    transition: .2s ease;
+      -webkit-transition: .2s ease;
+      -moz-transition: .2s ease;
+      -ms-transition: .2s ease;
+      -o-transition: .2s ease;
+  }
+}
+
+#introducing-screen-done-div {
+  width: 500px;
+  color: #81FEFF;
+  text-shadow: 0 0 10px #81FEFE;
+  text-align: center;
+  font-size: 18pt;
+  position: absolute;
+    top: 65%;
+    left: calc(50% - 250px);
+      left: -webkit-calc(50% - 250px);
+      left: -moz-calc(50% - 250px);
+      left: -ms-calc(50% - 250px);
+      left: -o-calc(50% - 250px);
+}
+
+#introducing-screen-conf-button {
+  width: 140px;
+  height: 90px;
+  text-align: center;
+  position: absolute;
+    top: calc(50% + 100px);
+      top: -webkit-calc(50% + 100px);
+      top: -moz-calc(50% + 100px);
+      top: -ms-calc(50% + 100px);
+      top: -o-calc(50% + 100px);
+    left: calc(50% - 70px);
+      left: -webkit-calc(50% - 70px);
+      left: -moz-calc(50% - 70px);
+      left: -ms-calc(50% - 70px);
+      left: -o-calc(50% - 70px);
+}
+
+.introducing-screen-conf-button {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  font-size: 30pt;
+  color: #fff;
+  border: 3px solid transparent;
+  border-left: 3px solid #00FF1C;
+  border-right: 3px solid #00FF1C;
+  border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+  transition: .2s ease;
+    -webkit-transition: .2s ease;
+    -moz-transition: .2s ease;
+    -ms-transition: .2s ease;
+    -o-transition: .2s ease;
+}
+
+.introducing-screen-conf-button:active {
+  transform: scale(.9);
+    -webkit-transform: scale(.9);
+    -moz-transform: scale(.9);
+    -ms-transform: scale(.9);
+    -o-transform: scale(.9);
+}
+
+.introducing-screen-conf-button:hover {
+  border: 3px solid transparent;
+    border-left: 3px solid #81fefe;
+    border-right: 3px solid #81fefe;
+}
+
+.introducing-screen-conf-button:focus {
+  border: 3px solid transparent;
+    border-left: 3px solid #81fefe;
+    border-right: 3px solid #81fefe;
+  text-shadow: 0 0 15px #00ff1c;
+}
+
+.introducing-screen-conf-button:disabled {
+  color: #4C4C4C;
+  border: 3px solid transparent;
+    border-left: 3px solid #2B2F31;
+    border-right: 3px solid #2B2F31;
+}

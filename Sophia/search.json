@@ -1,0 +1,531 @@
+// API callback
+hndlr({
+ "kind": "customsearch#search",
+ "url": {
+  "type": "application/json",
+  "template": "https://www.googleapis.com/customsearch/v1?q={searchTerms}&num={count?}&start={startIndex?}&lr={language?}&safe={safe?}&cx={cx?}&cref={cref?}&sort={sort?}&filter={filter?}&gl={gl?}&cr={cr?}&googlehost={googleHost?}&c2coff={disableCnTwTranslation?}&hq={hq?}&hl={hl?}&siteSearch={siteSearch?}&siteSearchFilter={siteSearchFilter?}&exactTerms={exactTerms?}&excludeTerms={excludeTerms?}&linkSite={linkSite?}&orTerms={orTerms?}&relatedSite={relatedSite?}&dateRestrict={dateRestrict?}&lowRange={lowRange?}&highRange={highRange?}&searchType={searchType}&fileType={fileType?}&rights={rights?}&imgSize={imgSize?}&imgType={imgType?}&imgColorType={imgColorType?}&imgDominantColor={imgDominantColor?}&alt=json"
+ },
+ "queries": {
+  "request": [
+   {
+    "title": "Google Custom Search - batman",
+    "totalResults": "41300000",
+    "searchTerms": "batman",
+    "count": 10,
+    "startIndex": 1,
+    "inputEncoding": "utf8",
+    "outputEncoding": "utf8",
+    "safe": "off",
+    "cx": "008195120041713150793:s-xhymfewee",
+    "hl": "pt-br"
+   }
+  ],
+  "nextPage": [
+   {
+    "title": "Google Custom Search - batman",
+    "totalResults": "41300000",
+    "searchTerms": "batman",
+    "count": 10,
+    "startIndex": 11,
+    "inputEncoding": "utf8",
+    "outputEncoding": "utf8",
+    "safe": "off",
+    "cx": "008195120041713150793:s-xhymfewee",
+    "hl": "pt-br"
+   }
+  ]
+ },
+ "context": {
+  "title": "SOPHiA"
+ },
+ "searchInformation": {
+  "searchTime": 0.481095,
+  "formattedSearchTime": "0,48",
+  "totalResults": "41300000",
+  "formattedTotalResults": "41.300.000"
+ },
+ "items": [
+  {
+   "kind": "customsearch#result",
+   "title": "Batman – Wikipédia, a enciclopédia livre",
+   "htmlTitle": "\u003cb\u003eBatman\u003c/b\u003e – Wikipédia, a enciclopédia livre",
+   "link": "https://pt.wikipedia.org/wiki/Batman",
+   "displayLink": "pt.wikipedia.org",
+   "snippet": "Batman é um personagem fictício, um super-herói da banda desenhada \namericana publicada pela DC Comics. Foi criado pelo escritor Bill Finger e pelo \nartista ...",
+   "htmlSnippet": "\u003cb\u003eBatman\u003c/b\u003e é um personagem fictício, um super-herói da banda desenhada \u003cbr\u003e\namericana publicada pela DC Comics. Foi criado pelo escritor Bill Finger e pelo \u003cbr\u003e\nartista&nbsp;...",
+   "cacheId": "z4-WmBbdVDQJ",
+   "formattedUrl": "https://pt.wikipedia.org/wiki/Batman",
+   "htmlFormattedUrl": "https://pt.wikipedia.org/wiki/\u003cb\u003eBatman\u003c/b\u003e",
+   "pagemap": {
+    "metatags": [
+     {
+      "referrer": "origin-when-cross-origin"
+     }
+    ],
+    "cse_image": [
+     {
+      "src": "https://upload.wikimedia.org/wikipedia/pt/8/8d/Batman_por_Jim_Lee.jpg",
+      "type": "1",
+      "width": "177",
+      "height": "284"
+     }
+    ]
+   }
+  },
+  {
+   "kind": "customsearch#result",
+   "title": "Batman - Wikipedia, the free encyclopedia",
+   "htmlTitle": "\u003cb\u003eBatman\u003c/b\u003e - Wikipedia, the free encyclopedia",
+   "link": "https://en.wikipedia.org/wiki/Batman",
+   "displayLink": "en.wikipedia.org",
+   "snippet": "Batman is a fictional superhero appearing in American comic books published by \nDC Comics. The character was created by artist Bob Kane and writer Bill ...",
+   "htmlSnippet": "\u003cb\u003eBatman\u003c/b\u003e is a fictional superhero appearing in American comic books published by \u003cbr\u003e\nDC Comics. The character was created by artist Bob Kane and writer Bill&nbsp;...",
+   "cacheId": "aZ8pZwJYWREJ",
+   "formattedUrl": "https://en.wikipedia.org/wiki/Batman",
+   "htmlFormattedUrl": "https://en.wikipedia.org/wiki/\u003cb\u003eBatman\u003c/b\u003e",
+   "pagemap": {
+    "metatags": [
+     {
+      "referrer": "origin-when-cross-origin"
+     }
+    ],
+    "cse_image": [
+     {
+      "src": "https://upload.wikimedia.org/wikipedia/en/thumb/2/22/Batman-DC-Comics.jpg/250px-Batman-DC-Comics.jpg",
+      "type": "1",
+      "width": "184",
+      "height": "274"
+     }
+    ]
+   }
+  },
+  {
+   "kind": "customsearch#result",
+   "title": "Batman (1989) - IMDb",
+   "htmlTitle": "\u003cb\u003eBatman\u003c/b\u003e (1989) - IMDb",
+   "link": "http://www.imdb.com/title/tt0096895/",
+   "displayLink": "www.imdb.com",
+   "snippet": "Action · The Dark Knight of Gotham City begins his war on crime with his first \nmajor enemy being ... Videos. Batman -- Michael Keaton stars as the nocturnal \ncrime-fighter. Jack Nicholson is · Batman -- Here's a clip from the movie Batman.",
+   "htmlSnippet": "Action &middot; The Dark Knight of Gotham City begins his war on crime with his first \u003cbr\u003e\nmajor enemy being ... Videos. \u003cb\u003eBatman\u003c/b\u003e -- Michael Keaton stars as the nocturnal \u003cbr\u003e\ncrime-fighter. Jack Nicholson is &middot; \u003cb\u003eBatman\u003c/b\u003e -- Here&#39;s a clip from the movie \u003cb\u003eBatman\u003c/b\u003e.",
+   "cacheId": "V1rXKJdyEB4J",
+   "formattedUrl": "www.imdb.com/title/tt0096895/",
+   "htmlFormattedUrl": "www.imdb.com/title/tt0096895/",
+   "pagemap": {
+    "audience": [
+     {
+      "url": "View content advisory"
+     }
+    ],
+    "movie": [
+     {
+      "name": "Batman (1989)",
+      "contentrating": "PG-13",
+      "duration": "PT126M",
+      "genre": "Action",
+      "datepublished": "1989-06-23",
+      "image": "https://images-na.ssl-images-amazon.com/images/M/MV5BMTYwNjAyODIyMF5BMl5BanBnXkFtZTYwNDMwMDk2._V1_UX182_CR0,0,182,268_AL_.jpg",
+      "trailer": "http://www.imdb.com/video/imdb/vi940246809?playlistId=tt0096895&ref_=tt_ov_vi",
+      "description": "The Dark Knight of Gotham City begins his war on crime with his first major enemy being the clownishly homicidal Joker.",
+      "headline": "Full Batman: Return of the Caped Crusaders Voice Cast Announced",
+      "provider": "MovieWeb",
+      "url": "Show HTML",
+      "awards": "Won 1 Oscar.",
+      "thumbnailurl": "http://www.imdb.com/title/tt0096895/mediaviewer/rm1736571392?context=default&ref_=tt_pv_md_1",
+      "keywords": "Plot Keywords: pantyhose | dc comics | city | gotham | police | See All (342) »"
+     }
+    ],
+    "person": [
+     {
+      "url": "Tim Burton",
+      "name": "Tim Burton"
+     },
+     {
+      "url": "Bob Kane",
+      "name": "Bob Kane"
+     },
+     {
+      "url": "Sam Hamm",
+      "name": "Sam Hamm"
+     },
+     {
+      "url": "Michael Keaton",
+      "name": "Michael Keaton"
+     },
+     {
+      "url": "Jack Nicholson",
+      "name": "Jack Nicholson"
+     },
+     {
+      "url": "Kim Basinger",
+      "name": "Kim Basinger"
+     },
+     {
+      "url": "Michael Keaton",
+      "name": "Michael Keaton"
+     },
+     {
+      "url": "Jack Nicholson",
+      "name": "Jack Nicholson"
+     },
+     {
+      "url": "Kim Basinger",
+      "name": "Kim Basinger"
+     },
+     {
+      "url": "Robert Wuhl",
+      "name": "Robert Wuhl"
+     },
+     {
+      "url": "Pat Hingle",
+      "name": "Pat Hingle"
+     },
+     {
+      "url": "Billy Dee Williams",
+      "name": "Billy Dee Williams"
+     },
+     {
+      "url": "Michael Gough",
+      "name": "Michael Gough"
+     },
+     {
+      "url": "Jack Palance",
+      "name": "Jack Palance"
+     },
+     {
+      "url": "Jerry Hall",
+      "name": "Jerry Hall"
+     },
+     {
+      "url": "Tracey Walter",
+      "name": "Tracey Walter"
+     },
+     {
+      "url": "Lee Wallace",
+      "name": "Lee Wallace"
+     },
+     {
+      "url": "William Hootkins",
+      "name": "William Hootkins"
+     },
+     {
+      "url": "Richard Strange",
+      "name": "Richard Strange"
+     },
+     {
+      "url": "Carl Chase",
+      "name": "Carl Chase"
+     },
+     {
+      "url": "Mac McDonald",
+      "name": "Mac McDonald"
+     }
+    ],
+    "review": [
+     {
+      "name": "A Tim Burton Classic!",
+      "author": "Kristine (kristinedrama14@msn.com)",
+      "datepublished": "2002-09-19",
+      "reviewbody": "Tim Burton takes a darker twist to a cheesy over the top silly TV show that was loved by everyone. Batman is now played by Michael Keaton. Michael as Batman was perfect, he had the look, humor,..."
+     }
+    ],
+    "aggregaterating": [
+     {
+      "ratingvalue": "7.6",
+      "bestrating": "10",
+      "ratingcount": "272,010",
+      "reviewcount": "821 user"
+     }
+    ],
+    "organization": [
+     {
+      "url": "Warner Bros.",
+      "name": "Warner Bros."
+     },
+     {
+      "url": "Guber-Peters Company, The",
+      "name": "Guber-Peters Company, The"
+     },
+     {
+      "url": "PolyGram Filmed Entertainment",
+      "name": "PolyGram Filmed Entertainment"
+     }
+    ],
+    "rating": [
+     {
+      "worstrating": "1",
+      "ratingvalue": "10",
+      "bestrating": "10"
+     }
+    ],
+    "metatags": [
+     {
+      "apple-itunes-app": "app-id=342792525, app-argument=imdb:///title/tt0096895?src=mdot",
+      "og:url": "http://www.imdb.com/title/tt0096895/",
+      "theme-color": "#000000",
+      "pageid": "tt0096895",
+      "pagetype": "title",
+      "subpagetype": "main",
+      "og:image": "https://images-na.ssl-images-amazon.com/images/M/MV5BMTYwNjAyODIyMF5BMl5BanBnXkFtZTYwNDMwMDk2._V1_UY1200_CR84,0,630,1200_AL_.jpg",
+      "og:type": "video.movie",
+      "fb:app_id": "115109575169727",
+      "og:title": "Batman (1989)",
+      "og:site_name": "IMDb",
+      "title": "Batman (1989) - IMDb",
+      "og:description": "Directed by Tim Burton.  With Michael Keaton, Jack Nicholson, Kim Basinger, Robert Wuhl. The Dark Knight of Gotham City begins his war on crime with his first major enemy being the clownishly homicidal Joker.",
+      "request_id": "0TQZS3NG5PTFA90KJY7Y"
+     }
+    ],
+    "videoobject": [
+     {
+      "duration": "T126M0S",
+      "url": "http://www.imdb.com/offsite/?page-action=watch-aiv&token=BCYqlEfYMMMvnoxnBMxImRmxE2nzwiYbTls0BKuYUzzb4v1HdREoc8Yy84866gtYevpmMZhWdq7R%0D%0A0CQcbo5FvIJLSpNb8ev-YJBmKKUVSaVVIsmeW7Pk1x3oaP7h7NmWpty_Syb-XXmYILW1aWj4qyoA%0D%0At4QyDKbLx9NYFbnT92krTL7RPaSfVZMLtYjiI2vJtD3ntf0YbtRSk-p8-O1cDAKH7zl7hz9_zaZi%0D%0AL_QcQ86Q_bjnzsBP8zXX2c73qbWKL9JGAdAH-cjrR0RBGklrxjSk6KhajqmIPSErkDbGXTJYshQ%0D%0A&ref_=tt_pv_vi_aiv_1",
+      "image": "https://images-na.ssl-images-amazon.com/images/M/MV5BMTYwNjAyODIyMF5BMl5BanBnXkFtZTYwNDMwMDk2._V1_BR-65_CT-15_SP229,229,0,C,0,0,0_CR45,62,139,105_PIimdb-blackband-204-14,TopLeft,0,0_PIimdb-blackband-204-28,BottomLeft,0,1_CR0,0,139,105_PIimdb-goldbutton-big,BottomRight,-1,-1_ZAFull%2520Movie,2,76,16,137,verdenab,8,255,255,255,1_ZAat%2520Amazon%2520%25BB,2,1,14,137,verdenab,7,255,255,255,1_ZA126:00,103,1,14,36,verdenab,7,255,255,255,1_.jpg"
+     },
+     {
+      "duration": "T1M49S",
+      "url": "http://www.imdb.com/video/imdb/vi1117585945?ref_=tt_pv_vi_aiv_2",
+      "image": "http://ia.media-imdb.com/images/M/MV5BMjE3NjUzMzU0Ml5BMl5BanBnXkFtZTgwODExNTM4MjE@._V1_SP229,229,0,C,0,0,0_CR45,62,139,105_PIimdb-blackband-204-14,TopLeft,0,0_PIimdb-blackband-204-28,BottomLeft,0,1_CR0,0,139,105_PIimdb-bluebutton-big,BottomRight,-1,-1_ZAClip,2,76,16,137,verdenab,8,255,255,255,1_ZAon%2520IMDb,2,1,14,137,verdenab,7,255,255,255,1_ZA01:49,103,1,14,36,verdenab,7,255,255,255,1_.jpg"
+     }
+    ],
+    "moviereview": [
+     {
+      "ratingstars": "4.0",
+      "best": "10",
+      "originalrating": "7.6",
+      "votes": "272,010",
+      "ratingcount": "821 user",
+      "image_href": "https://images-na.ssl-images-amazon.com/images/M/MV5BMTAxMjQ0ODc0MDBeQTJeQWpwZ15BbWU4MDYyMzYxMDMx._V1_UY105_CR27,0,105,105_AL_.jpg",
+      "name": "Batman (1989)",
+      "release_date": "1989-06-23",
+      "release_year": "1989",
+      "runtime": "PT126M",
+      "genre": "Action/Adventure",
+      "directed_by": "Tim Burton",
+      "starring": "Michael Keaton, Jack Nicholson, Kim Basinger",
+      "summary": "Gotham City. Crime boss Carl Grissom (Jack Palance) effectively runs the town but there's a new crime fighter in town - Batman (Michael Keaton). Grissom's..."
+     }
+    ],
+    "cse_image": [
+     {
+      "src": "http://ia.media-imdb.com/images/M/MV5BMTM1ODYxNDU4N15BMl5BanBnXkFtZTcwNjAwMjg0Mw@@._V1_CR0,25,266,150_AL_UX477_CR0,0,477,268_AL_.jpg",
+      "type": "1",
+      "width": "300",
+      "height": "168"
+     }
+    ]
+   }
+  },
+  {
+   "kind": "customsearch#result",
+   "title": "Batman | DC",
+   "htmlTitle": "\u003cb\u003eBatman\u003c/b\u003e | DC",
+   "link": "http://www.dccomics.com/characters/batman",
+   "displayLink": "www.dccomics.com",
+   "snippet": "DCComics.com: Welcome to the Official Site for DC. DC is home to the \"World's \nGreatest Super Heroes,” including SUPERMAN, BATMAN, WONDER WOMAN, ...",
+   "htmlSnippet": "DCComics.com: Welcome to the Official Site for DC. DC is home to the &quot;World&#39;s \u003cbr\u003e\nGreatest Super Heroes,” including SUPERMAN, \u003cb\u003eBATMAN\u003c/b\u003e, WONDER WOMAN,&nbsp;...",
+   "cacheId": "m6J6QrzCuGUJ",
+   "formattedUrl": "www.dccomics.com/characters/batman",
+   "htmlFormattedUrl": "www.dccomics.com/characters/\u003cb\u003ebatman\u003c/b\u003e",
+   "pagemap": {
+    "metatags": [
+     {
+      "og:site_name": "DC",
+      "og:url": "http://www.dccomics.com/characters/batman",
+      "og:type": "article",
+      "apple-itunes-app": "app-id=1063865559",
+      "google-play-app": "app-id=com.topfan.TopFan.DcAllAccess",
+      "viewport": "width = device-width, initial-scale = 1.0",
+      "characterid": "130854",
+      "p:domain_verify": "22dd502d9b408c83b51b974303bc8729",
+      "og:title": "Batman",
+      "fb:app_id": "192596080844540",
+      "og:description": "Dark Knight. Caped Crusader. World’s Greatest Detective. Whatever you know him as, wherever you know him from—the blockbuster movies, TV shows, video games, cartoons, or millions of comics—Batman is proof you don’t need superpowers to be a superhero… and the poster boy for what a bad childhood can do to you.Millionaire Bruce Wayne was just a kid when he watched his parents get gunned down during a mugging in Gotham City. The crime would define his life, as he dedicated himself to becoming the world’s greatest weapon against crime—the Batman."
+     }
+    ],
+    "cse_image": [
+     {
+      "src": "http://media.dcentertainment.com/sites/default/files/GalleryChar_1920x1080_Hush_54b5d1be8e4ca8.68343525.jpg",
+      "type": "1",
+      "width": "300",
+      "height": "168"
+     }
+    ]
+   }
+  },
+  {
+   "kind": "customsearch#result",
+   "title": "Batman | Facebook",
+   "htmlTitle": "\u003cb\u003eBatman\u003c/b\u003e | Facebook",
+   "link": "https://www.facebook.com/batman/",
+   "displayLink": "www.facebook.com",
+   "snippet": "Wherever you know him from - movies, TV shows, video games or comics - \nBatman is proof you don't need superpowers to be a superhero.",
+   "htmlSnippet": "Wherever you know him from - movies, TV shows, video games or comics - \u003cbr\u003e\n\u003cb\u003eBatman\u003c/b\u003e is proof you don&#39;t need superpowers to be a superhero.",
+   "cacheId": "ZXh_bMcHRvMJ",
+   "formattedUrl": "https://www.facebook.com/batman/",
+   "htmlFormattedUrl": "https://www.facebook.com/\u003cb\u003ebatman\u003c/b\u003e/",
+   "pagemap": {
+    "metatags": [
+     {
+      "referrer": "default",
+      "al:android:app_name": "Facebook",
+      "al:android:package": "com.facebook.katana",
+      "al:android:url": "fb://page/6939574006",
+      "al:ios:app_name": "Facebook",
+      "al:ios:app_store_id": "284882215",
+      "al:ios:url": "fb://page/?id=6939574006"
+     }
+    ]
+   }
+  },
+  {
+   "kind": "customsearch#result",
+   "title": "Batman v Superman: Dawn of Justice – Wikipédia, a enciclopédia livre",
+   "htmlTitle": "\u003cb\u003eBatman\u003c/b\u003e v Superman: Dawn of Justice – Wikipédia, a enciclopédia livre",
+   "link": "http://pt.wikipedia.org/wiki/Batman_v_Superman:_Dawn_of_Justice",
+   "displayLink": "pt.wikipedia.org",
+   "snippet": "Batman v Superman: Dawn of Justice (no Brasil, Batman vs Superman: A Origem \nda Justiça; em Portugal, Batman vs Super-Homem: O Despertar da Justiça) é ...",
+   "htmlSnippet": "\u003cb\u003eBatman\u003c/b\u003e v Superman: Dawn of Justice (no Brasil, \u003cb\u003eBatman\u003c/b\u003e vs Superman: A Origem \u003cbr\u003e\nda Justiça; em Portugal, \u003cb\u003eBatman\u003c/b\u003e vs Super-Homem: O Despertar da Justiça) é&nbsp;...",
+   "cacheId": "uq6wEpaVU9IJ",
+   "formattedUrl": "pt.wikipedia.org/wiki/Batman_v_Superman:_Dawn_of_Justice",
+   "htmlFormattedUrl": "pt.wikipedia.org/wiki/\u003cb\u003eBatman\u003c/b\u003e_v_Superman:_Dawn_of_Justice",
+   "pagemap": {
+    "metatags": [
+     {
+      "referrer": "origin-when-cross-origin"
+     }
+    ],
+    "cse_image": [
+     {
+      "src": "https://upload.wikimedia.org/wikipedia/pt/thumb/1/13/Batman_v_Superman_-_Poster_cinema.jpg/250px-Batman_v_Superman_-_Poster_cinema.jpg",
+      "type": "1",
+      "width": "184",
+      "height": "273"
+     }
+    ]
+   }
+  },
+  {
+   "kind": "customsearch#result",
+   "title": "The Batman subreddit",
+   "htmlTitle": "The \u003cb\u003eBatman\u003c/b\u003e subreddit",
+   "link": "https://www.reddit.com/r/batman/",
+   "displayLink": "www.reddit.com",
+   "snippet": "Big thanks to hightrolla for the subreddit logo and to massivejoe for the \nbackground. Batman and all characters, their distinctive likenesses, and related \nelements ...",
+   "htmlSnippet": "Big thanks to hightrolla for the subreddit logo and to massivejoe for the \u003cbr\u003e\nbackground. \u003cb\u003eBatman\u003c/b\u003e and all characters, their distinctive likenesses, and related \u003cbr\u003e\nelements&nbsp;...",
+   "cacheId": "shSUTpGnp1UJ",
+   "formattedUrl": "https://www.reddit.com/r/batman/",
+   "htmlFormattedUrl": "https://www.reddit.com/r/\u003cb\u003ebatman\u003c/b\u003e/",
+   "pagemap": {
+    "metatags": [
+     {
+      "referrer": "always",
+      "viewport": "width=1024",
+      "og:image": "https://www.redditstatic.com/icon.png",
+      "og:site_name": "reddit",
+      "og:description": "The Dark Knight. The Caped Crusader. The World's Greatest Detective. Ol' Pointy Ears. A place to discuss the Batman and all things Batman related.",
+      "og:title": "The Batman subreddit • /r/batman",
+      "twitter:site": "reddit",
+      "twitter:card": "summary",
+      "twitter:title": "The Batman subreddit • /r/batman"
+     }
+    ],
+    "cse_image": [
+     {
+      "src": "https://www.redditstatic.com/icon.png",
+      "type": "1",
+      "width": "204",
+      "height": "204"
+     }
+    ]
+   }
+  },
+  {
+   "kind": "customsearch#result",
+   "title": "Batman: Arkham – Wikipédia, a enciclopédia livre",
+   "htmlTitle": "\u003cb\u003eBatman\u003c/b\u003e: Arkham – Wikipédia, a enciclopédia livre",
+   "link": "http://pt.wikipedia.org/wiki/Batman:_Arkham",
+   "displayLink": "pt.wikipedia.org",
+   "snippet": "Batman: Arkham é uma série de videojogos de acção-aventura baseados no ... O \nprimeiro jogo, Batman: Arkham Asylum (2009), foca-se na luta de Batman ...",
+   "htmlSnippet": "\u003cb\u003eBatman\u003c/b\u003e: Arkham é uma série de videojogos de acção-aventura baseados no ... O \u003cbr\u003e\nprimeiro jogo, \u003cb\u003eBatman\u003c/b\u003e: Arkham Asylum (2009), foca-se na luta de \u003cb\u003eBatman\u003c/b\u003e&nbsp;...",
+   "cacheId": "RGKVn7_R6SAJ",
+   "formattedUrl": "pt.wikipedia.org/wiki/Batman:_Arkham",
+   "htmlFormattedUrl": "pt.wikipedia.org/wiki/\u003cb\u003eBatman\u003c/b\u003e:_Arkham",
+   "pagemap": {
+    "metatags": [
+     {
+      "referrer": "origin-when-cross-origin"
+     }
+    ]
+   }
+  },
+  {
+   "kind": "customsearch#result",
+   "title": "Batman: Return to Arkham",
+   "htmlTitle": "\u003cb\u003eBatman\u003c/b\u003e: Return to Arkham",
+   "link": "https://www.batmanreturntoarkham.com/",
+   "displayLink": "www.batmanreturntoarkham.com",
+   "snippet": "Pre-order the most critically acclaimed superhero games ever made - Batman: \nArkham Asylum and Batman: Arkham City - rebuilt for next-gen in one amazing ...",
+   "htmlSnippet": "Pre-order the most critically acclaimed superhero games ever made - \u003cb\u003eBatman\u003c/b\u003e: \u003cbr\u003e\nArkham Asylum and \u003cb\u003eBatman\u003c/b\u003e: Arkham City - rebuilt for next-gen in one amazing&nbsp;...",
+   "cacheId": "LwmVg46rpwAJ",
+   "formattedUrl": "https://www.batmanreturntoarkham.com/",
+   "htmlFormattedUrl": "https://www.\u003cb\u003ebatman\u003c/b\u003ereturntoarkham.com/",
+   "pagemap": {
+    "metatags": [
+     {
+      "viewport": "width=device-width, initial-scale=1",
+      "og:title": "Batman: Return to Arkham",
+      "og:site_name": "Batman: Return to Arkham",
+      "og:type": "website",
+      "og:url": "https://www.batmanreturntoarkham.com/",
+      "og:image": "https://www.batmanreturntoarkham.com/img/share.jpg",
+      "og:image:width": "1200",
+      "og:image:height": "675",
+      "og:description": "Batman: Return to Arkham",
+      "og:locale": "en",
+      "og:locale:alternate": "en"
+     }
+    ],
+    "cse_image": [
+     {
+      "src": "https://www.batmanreturntoarkham.com/img/share.jpg",
+      "type": "1",
+      "width": "300",
+      "height": "168"
+     }
+    ]
+   }
+  },
+  {
+   "kind": "customsearch#result",
+   "title": "Batman: Arkham Knight - Out Now",
+   "htmlTitle": "\u003cb\u003eBatman\u003c/b\u003e: Arkham Knight - Out Now",
+   "link": "https://www.batmanarkhamknight.com/",
+   "displayLink": "www.batmanarkhamknight.com",
+   "snippet": "Batman Arkham Knight - The Epic Conclusion to the Arkham Trilogy. Be The \nBatman.",
+   "htmlSnippet": "\u003cb\u003eBatman\u003c/b\u003e Arkham Knight - The Epic Conclusion to the Arkham Trilogy. Be The \u003cbr\u003e\n\u003cb\u003eBatman\u003c/b\u003e.",
+   "cacheId": "LtLDnEhbV34J",
+   "formattedUrl": "https://www.batmanarkhamknight.com/",
+   "htmlFormattedUrl": "https://www.\u003cb\u003ebatman\u003c/b\u003earkhamknight.com/",
+   "pagemap": {
+    "metatags": [
+     {
+      "viewport": "width=device-width, initial-scale=1, user-scalable=no",
+      "og:title": "Batman: Arkham Knight - Out Now",
+      "og:description": "In the explosive finale to the Arkham series, Batman faces the ultimate threat against the city he is sworn to protect.",
+      "og:type": "website",
+      "og:image": "/assets/images/facebook_image.jpg",
+      "og:image:type": "image/jpeg",
+      "og:image:width": "398",
+      "og:image:height": "208"
+     }
+    ],
+    "cse_image": [
+     {
+      "src": "/assets/images/facebook_image.jpg"
+     }
+    ]
+   }
+  }
+ ]
+}
+);

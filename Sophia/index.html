@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang='pt-BR'>
+  <head>
+    <meta charset='utf-8'>
+    <meta content='IE=edge' http-equiv='X-UA-Compatible'>
+    <meta content='chrome=1' http-equiv='X-UA-Compatible'>
+
+    <meta property='og:url' content='http://'>
+    <meta http-equiv='Content-Language' content='pt-br'>
+    <meta name='author' content='Victor Ribeiro'>
+    <meta name='email' content='victor_ribeiro135@hotmail.com'>
+
+    <meta name='description' content=''>
+    <meta property='og:description' content=''>
+
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'>
+    <meta content='user-scalable=no, initial-scale=1, width=device-width' id='viewport' name='viewport'>
+    <meta name='application-name' content=''>
+
+    <meta content='notranslate' name='google'>
+    <meta name='format-detection' content='telephone=no'>
+    <meta name='msapplication-tap-highlight' content='no'>
+
+
+
+    <title>SOPHiA</title>
+
+    <link rel='icon' href='img/sophia.icone-64x64.png' />
+
+    <link rel='stylesheet' type='text/css' href='css/sophia.interface.css' />
+    <link rel='stylesheet' type='text/css' href='css/sophia.bootstrap.css' />
+    <link rel='stylesheet' type='text/css' href='css/sophia.animations.css' />
+    <link rel='stylesheet' type='text/css' href='css/third_party/animate.css' />
+    <link rel='stylesheet' type='text/css' href='css/third_party/normalize.css' />
+    <link rel='stylesheet' type='text/css' href='css/third_party/cs-select.css' />
+		<link rel='stylesheet' type='text/css' href='css/third_party/cs-skin-slide.css' />
+    <link rel='stylesheet' type='text/css' href='css/third_party/ionicons.min.css' />
+
+    <script src='js/third_party/jquery.min.js'></script>
+    <script src='js/third_party/jquery-ui.min.js'></script>
+
+<!--
+    [if lt IE 9]>
+    	<script charset='utf-8' src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js'></script>
+    	<script charset='utf-8' src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js'></script>
+    <![endif]
+-->
+
+<style>
+#drawn-arrow-permissions {
+  width: 150px;
+  height: 150px;
+  background-image: url(img/rounded-arrow-clipart-21.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  transform: rotateY(180deg) rotate(240deg);
+  position: fixed;
+  top: 130px;
+  left: 130px;
+  z-index: 1;
+}
+
+#speaking-log {
+  width: 245px;
+  height: auto;
+  padding: 10px;
+  background-color: rgba(0,0,0,0.3);
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  border-radius: 5px;
+}
+</style>
+
+  </head>
+
+  <body onLoad='appLoad()'>
+    <div id='screen' class='animated fadeIn'>
+      <div id='load-screen'></div>
+
+      <div id='avatar' class='av-loading av-centered'></div>
+
+      <div id='notif-central'></div>
+
+      <div id='speaking-log'></div>
+
+      <div id='introducing-screen' class='no-display'>
+        <div id='introducing-screen-title'></div>
+
+        <div id='drawn-arrow-permissions' class='no-display'></div>
+
+        <div class='no-display' id='introducing-screen-name-div'>
+          <input id='introducing-screen-name-input' placeholder='Digite-o aqui' />
+        </div>
+
+        <div class='no-display' id='introducing-screen-gender-div'>
+        	<select id='introducing-screen-gender-input' class='cs-select cs-skin-slide'>
+        		<option value='masculino' data-class='icon ion-man' selected>
+              Masculino
+            </option>
+
+        		<option value='feminino' data-class='icon ion-woman'>
+              Feminino
+            </option>
+        	</select>
+        </div>
+
+        <div class='no-display' id='introducing-screen-treatment-div'>
+          <select id='introducing-screen-treatment-input' class='cs-select cs-skin-slide'>
+            <option value='senhor' data-class='icon ion-man'>
+              Senhor
+            </option>
+
+            <option value='senhorita' data-class='icon ion-woman'>
+              Senhorita
+            </option>
+
+            <option value='senhora' data-class='icon ion-woman'>
+              Senhora
+            </option>
+
+            <option value='patrão' data-class='icon ion-briefcase'>
+              Patrão
+            </option>
+
+            <option value='patroa' data-class='icon ion-briefcase'>
+              Patroa
+            </option>
+
+            <option value='outro' data-class='icon ion-compose'>
+              Outro
+            </option>
+
+            <option value='nenhum' data-class='icon ion-ios-close-outline' selected>
+              Apenas pelo nome
+            </option>
+          </select>
+
+          <div class='no-display' id='introducing-screen-treatment-div-custom'>
+            <input id='introducing-screen-treatment-input-custom' placeholder='Diga ou digite aqui' />
+          </div>
+        </div>
+
+        <div class='no-display' id='introducing-screen-done-div'>
+          <div class='introducing-screen-done-loading'>
+            Carregando interface...
+          </div>
+        </div>
+
+        <div id='introducing-screen-conf-button' class='no-display'>
+          <button class='introducing-screen-conf-button' id='introducing-screen-conf-button-yes'>
+            <span class='icon ion-ios-arrow-right'></span>
+          </button>
+        </div>
+      </div>
+
+      <div id='content' class='no-display'>
+        <div id='sophia-reply'></div>
+        <div id='task-bar'>
+          <div id='user-submited-text'></div>
+          <input id='user-input' placeholder='Falar' autofocus />
+        </div>
+
+        <div id='system-status' class='no-display'>
+          <div id='voice-recognition'></div>
+          <div id='network-connection'></div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <script charset='utf-8' src='js/sophia.bootstrap.js'></script>
+
+    <script src='js/third_party/annyang.min.js'></script>
+
+    <script charset='utf-8' src='js/sophia.ears.js'></script>
+    <script charset='utf-8' src='js/sophia.commands.js'></script>
+    <script charset='utf-8' src='js/sophia.notifications.js'></script>
+
+    <script src='js/third_party/classie.js'></script>
+    <script src='js/third_party/selectFx.js'></script>
+  </body>
+</html>

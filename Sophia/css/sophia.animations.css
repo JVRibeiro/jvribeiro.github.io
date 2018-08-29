@@ -1,0 +1,260 @@
+/* Animações CSS da SOPHiA
+    Compatibilidade com:
+    *  Google Chrome
+    *  Mozilla Firefox
+    *  Internet Explorer (sim)
+    *  Opera
+*/
+
+/* Animação de loading */
+@keyframes avatar-loading {
+  0% {transform: rotate(0deg) scale(1);}
+  50% {transform: rotate(360deg) scale(1.05);}
+  100% {transform: rotate(360deg) scale(1);}
+}
+@-webkit-keyframes avatar-loading {
+  0% {-webkit-transform: rotate(0deg) scale(1);}
+  50% {-webkit-transform: rotate(360deg) scale(1.05);}
+  100% {-webkit-transform: rotate(360deg) scale(1);}
+}
+@-moz-keyframes avatar-loading {
+  0% {-moz-transform: rotate(0deg) scale(1);}
+  50% {-moz-transform: rotate(360deg) scale(1.05);}
+  100% {-moz-transform: rotate(360deg) scale(1);}
+}
+@-ms-keyframes avatar-loading {
+  0% {-ms-transform: rotate(0deg) scale(1);}
+  50% {-ms-transform: rotate(360deg) scale(1.05);}
+  100% {-ms-transform: rotate(360deg) scale(1);}
+}
+@-o-keyframes avatar-loading {
+  0% {-o-transform: rotate(0deg) scale(1);}
+  50% {-o-transform: rotate(360deg) scale(1.05);}
+  100% {-o-transform: rotate(360deg) scale(1);}
+}
+
+
+
+/* Animação padrão
+  TODO: fazer uma animação melhor
+ */
+@keyframes avatar-pulse {
+  0% {transform: rotate(0deg) scale(1);}
+  50% {transform: rotate(180deg) scale(1.05);}
+  100% {transform: rotate(360deg) scale(1);}
+}
+@-webkit-keyframes avatar-pulse {
+  0% {-webkit-transform: rotate(0deg) scale(1);}
+  50% {-webkit-transform: rotate(180deg) scale(1.05);}
+  100% {-webkit-transform: rotate(360deg) scale(1);}
+}
+@-moz-keyframes avatar-pulse {
+  0% {-moz-transform: rotate(0deg) scale(1);}
+  50% {-moz-transform: rotate(180deg) scale(1.05);}
+  100% {-moz-transform: rotate(360deg) scale(1);}
+}
+@-ms-keyframes avatar-pulse {
+  0% {-ms-transform: rotate(0deg) scale(1);}
+  50% {-ms-transform: rotate(180deg) scale(1.05);}
+  100% {-ms-transform: rotate(360deg) scale(1);}
+}
+@-o-keyframes avatar-pulse {
+  0% {-o-transform: rotate(0deg) scale(1);}
+  50% {-o-transform: rotate(180deg) scale(1.05);}
+  100% {-o-transform: rotate(360deg) scale(1);}
+}
+
+
+
+/* Animação de fala da assistente (acionada quando ela começa a falar)
+  TODO: substituir por um audio analyser feito em HTML5 CANVAS
+ */
+@keyframes avatar-speaking {
+  0% {transform: scale(1);}
+  50% {transform: scale(1.05);}
+  100% {transform: scale(1);}
+}
+
+@-webkit-keyframes avatar-speaking {
+  0% {-webkit-transform: scale(1);}
+  50% {-webkit-transform: scale(1.05);}
+  100% {-webkit-transform: scale(1);}
+}
+
+@-moz-keyframes avatar-speaking {
+  0% {-moz-transform: scale(1);}
+  50% {-moz-transform: scale(1.05);}
+  100% {-moz-transform: scale(1);}
+}
+
+@-ms-keyframes avatar-speaking {
+  0% {-ms-transform: scale(1);}
+  50% {-ms-transform: scale(1.05);}
+  100% {-ms-transform: scale(1);}
+}
+
+@-o-keyframes avatar-speaking {
+  0% {-o-transform: scale(1);}
+  50% {-o-transform: scale(1.05);}
+  100% {-o-transform: scale(1);}
+}
+
+
+
+
+/* Animação de abertura de notificação */
+@keyframes notif-open {
+  from {width: 70px;}
+  to {width: 300px;}
+}
+
+@-webkit-keyframes notif-open {
+  from {width: 70px;}
+  to {width: 300px;}
+}
+
+@-moz-keyframes notif-open {
+  from {width: 70px;}
+  to {width: 300px;}
+}
+
+@-ms-keyframes notif-open {
+  from {width: 70px;}
+  to {width: 300px;}
+}
+
+@-o-keyframes notif-open {
+  from {width: 70px;}
+  to {width: 300px;}
+}
+
+
+
+/* Animação de fechamento de notificação */
+@keyframes notif-close {
+  from {width: 300px;}
+  to {width: 70px;}
+}
+
+@-webkit-keyframes notif-close {
+  from {width: 300px;}
+  to {width: 70px;}
+}
+
+@-moz-keyframes notif-close {
+  from {width: 300px;}
+  to {width: 70px;}
+}
+
+@-ms-keyframes notif-close {
+  from {width: 300px;}
+  to {width: 70px;}
+}
+
+@-o-keyframes notif-close {
+  from {width: 300px;}
+  to {width: 70px;}
+}
+
+
+
+
+
+/* Problema no reconhecimento de voz */
+@keyframes voice-recognition-notlistening {
+  0% {opacity: 0;}
+  50% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+@-webkit-keyframes voice-recognition-notlistening {
+  0% {opacity: 0;}
+  50% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+@-moz-keyframes voice-recognition-notlistening {
+  0% {opacity: 0;}
+  50% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+@-ms-keyframes voice-recognition-notlistening {
+  0% {opacity: 0;}
+  50% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+@-o-keyframes voice-recognition-notlistening {
+  0% {opacity: 0;}
+  50% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+
+
+
+/* Atenção desligada */
+@keyframes voice-recognition-halflistening {
+  0% {opacity: 0;}
+  50% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+@-webkit-keyframes voice-recognition-halflistening {
+  0% {opacity: 0;}
+  50% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+@-moz-keyframes voice-recognition-halflistening {
+  0% {opacity: 0;}
+  50% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+@-ms-keyframes voice-recognition-halflistening {
+  0% {opacity: 0;}
+  50% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+@-o-keyframes voice-recognition-halflistening {
+  0% {opacity: 0;}
+  50% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+
+
+
+/* Problema na conexão */
+@keyframes network-connection-notworking {
+  0% {opacity: 0;}
+  50% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+@-webkit-keyframes network-connection-notworking {
+  0% {opacity: 0;}
+  50% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+@-moz-keyframes network-connection-notworking {
+  0% {opacity: 0;}
+  50% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+@-ms-keyframes network-connection-notworking {
+  0% {opacity: 0;}
+  50% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+@-o-keyframes network-connection-notworking {
+  0% {opacity: 0;}
+  50% {opacity: 1;}
+  100% {opacity: 0;}
+}

@@ -1,0 +1,243 @@
+// API callback
+hndlr({
+ "kind": "customsearch#search",
+ "url": {
+  "type": "application/json",
+  "template": "https://www.googleapis.com/customsearch/v1?q={searchTerms}&num={count?}&start={startIndex?}&lr={language?}&safe={safe?}&cx={cx?}&cref={cref?}&sort={sort?}&filter={filter?}&gl={gl?}&cr={cr?}&googlehost={googleHost?}&c2coff={disableCnTwTranslation?}&hq={hq?}&hl={hl?}&siteSearch={siteSearch?}&siteSearchFilter={siteSearchFilter?}&exactTerms={exactTerms?}&excludeTerms={excludeTerms?}&linkSite={linkSite?}&orTerms={orTerms?}&relatedSite={relatedSite?}&dateRestrict={dateRestrict?}&lowRange={lowRange?}&highRange={highRange?}&searchType={searchType}&fileType={fileType?}&rights={rights?}&imgSize={imgSize?}&imgType={imgType?}&imgColorType={imgColorType?}&imgDominantColor={imgDominantColor?}&alt=json"
+ },
+ "queries": {
+  "request": [
+   {
+    "title": "Google Custom Search - batman",
+    "totalResults": "372000000",
+    "searchTerms": "batman",
+    "count": 10,
+    "startIndex": 1,
+    "inputEncoding": "utf8",
+    "outputEncoding": "utf8",
+    "safe": "off",
+    "cx": "008195120041713150793:s-xhymfewee",
+    "hl": "pt-br",
+    "searchType": "image"
+   }
+  ],
+  "nextPage": [
+   {
+    "title": "Google Custom Search - batman",
+    "totalResults": "372000000",
+    "searchTerms": "batman",
+    "count": 10,
+    "startIndex": 11,
+    "inputEncoding": "utf8",
+    "outputEncoding": "utf8",
+    "safe": "off",
+    "cx": "008195120041713150793:s-xhymfewee",
+    "hl": "pt-br",
+    "searchType": "image"
+   }
+  ]
+ },
+ "context": {
+  "title": "SOPHiA"
+ },
+ "searchInformation": {
+  "searchTime": 0.220386,
+  "formattedSearchTime": "0,22",
+  "totalResults": "372000000",
+  "formattedTotalResults": "372.000.000"
+ },
+ "items": [
+  {
+   "kind": "customsearch#result",
+   "title": "Batman – Wikipédia, a enciclopédia livre",
+   "htmlTitle": "\u003cb\u003eBatman\u003c/b\u003e – Wikipédia, a enciclopédia livre",
+   "link": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Batman_and_Robin_1966.JPG",
+   "displayLink": "pt.wikipedia.org",
+   "snippet": "... de TV de Batman e Robin, ...",
+   "htmlSnippet": "... de TV de \u003cb\u003eBatman\u003c/b\u003e e Robin, ...",
+   "mime": "image/jpeg",
+   "image": {
+    "contextLink": "https://pt.wikipedia.org/wiki/Batman",
+    "height": 877,
+    "width": 732,
+    "byteSize": 134285,
+    "thumbnailLink": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTR7CQbcHmTtbVIAHngF2wCS7f9-lefH0ohwlKSgIK4bB2J3CrFENK4oeA",
+    "thumbnailHeight": 146,
+    "thumbnailWidth": 122
+   }
+  },
+  {
+   "kind": "customsearch#result",
+   "title": "Batman - Free images on Pixabay",
+   "htmlTitle": "\u003cb\u003eBatman\u003c/b\u003e - Free images on Pixabay",
+   "link": "https://pixabay.com/static/uploads/photo/2014/04/03/11/51/batman-312342_960_720.png",
+   "displayLink": "pixabay.com",
+   "snippet": "Batman, Bat, Signal, Black, ...",
+   "htmlSnippet": "\u003cb\u003eBatman\u003c/b\u003e, Bat, Signal, Black, ...",
+   "mime": "image/png",
+   "fileFormat": "Image Document",
+   "image": {
+    "contextLink": "https://pixabay.com/en/photos/batman/",
+    "height": 558,
+    "width": 960,
+    "byteSize": 92400,
+    "thumbnailLink": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTkzU43oMbJBlyvVr4aGwgL60rW8ZJ7zOufLKHCwdzs-97GX5Mb8Pji3Hc",
+    "thumbnailHeight": 86,
+    "thumbnailWidth": 148
+   }
+  },
+  {
+   "kind": "customsearch#result",
+   "title": "Batman – Wikipédia, a enciclopédia livre",
+   "htmlTitle": "\u003cb\u003eBatman\u003c/b\u003e – Wikipédia, a enciclopédia livre",
+   "link": "https://upload.wikimedia.org/wikipedia/pt/8/8d/Batman_por_Jim_Lee.jpg",
+   "displayLink": "pt.wikipedia.org",
+   "snippet": "Batman por Jim Lee.jpg",
+   "htmlSnippet": "\u003cb\u003eBatman\u003c/b\u003e por Jim Lee.jpg",
+   "mime": "image/jpeg",
+   "image": {
+    "contextLink": "https://pt.wikipedia.org/wiki/Batman",
+    "height": 400,
+    "width": 250,
+    "byteSize": 71511,
+    "thumbnailLink": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQn1dQUyLKmTXajSd9aJV9OQl3nOxsexQEOUN3EPVABEHdamnH2-rZ90QU",
+    "thumbnailHeight": 124,
+    "thumbnailWidth": 78
+   }
+  },
+  {
+   "kind": "customsearch#result",
+   "title": "Batman Dark Flight",
+   "htmlTitle": "\u003cb\u003eBatman\u003c/b\u003e Dark Flight",
+   "link": "http://www.studiocity-macau.com/uploads/images/SC/Entertainment/Batman/batman_share.jpg",
+   "displayLink": "www.studiocity-macau.com",
+   "snippet": "Batman Dark Flight",
+   "htmlSnippet": "\u003cb\u003eBatman\u003c/b\u003e Dark Flight",
+   "mime": "image/jpeg",
+   "image": {
+    "contextLink": "http://www.studiocity-macau.com/en/entertainment/detail/batman-dark-flight",
+    "height": 630,
+    "width": 1200,
+    "byteSize": 362327,
+    "thumbnailLink": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRFFkD6ZyRHi65MYAXs3xJ3PsPXlptVdMo5jETwkdfOroyGcJC_yZyL-qg",
+    "thumbnailHeight": 79,
+    "thumbnailWidth": 150
+   }
+  },
+  {
+   "kind": "customsearch#result",
+   "title": "BATMAN #51 | DC",
+   "htmlTitle": "\u003cb\u003eBATMAN\u003c/b\u003e #51 | DC",
+   "link": "http://media.dcentertainment.com/sites/default/files/GalleryComics_1920x1080_20160427_BM_Cv51_56f33d0526d1a5.59154201.jpg",
+   "displayLink": "www.dccomics.com",
+   "snippet": "BATMAN #51 | DC",
+   "htmlSnippet": "\u003cb\u003eBATMAN\u003c/b\u003e #51 | DC",
+   "mime": "image/jpeg",
+   "image": {
+    "contextLink": "http://www.dccomics.com/comics/batman-2011/batman-51",
+    "height": 1080,
+    "width": 1920,
+    "byteSize": 46088,
+    "thumbnailLink": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQr2rxGW_2yXUYW0KmPB8dXCLwdXqJ6S_P8Prukz8WtRE6fup5GNB6xsgQ",
+    "thumbnailHeight": 84,
+    "thumbnailWidth": 150
+   }
+  },
+  {
+   "kind": "customsearch#result",
+   "title": "Batman V Superman' & 'Suicide Squad' Movie Connections Revealed",
+   "htmlTitle": "\u003cb\u003eBatman\u003c/b\u003e V Superman&#39; &amp; &#39;Suicide Squad&#39; Movie Connections Revealed",
+   "link": "http://screenrant.com/wp-content/uploads/Joker-Batman-DC-Movie-Universe.jpg",
+   "displayLink": "screenrant.com",
+   "snippet": "Batman + Suicide Squad",
+   "htmlSnippet": "\u003cb\u003eBatman\u003c/b\u003e + Suicide Squad",
+   "mime": "image/jpeg",
+   "image": {
+    "contextLink": "http://screenrant.com/batman-v-superman-suicide-squad-movie-connections",
+    "height": 1077,
+    "width": 2505,
+    "byteSize": 223675,
+    "thumbnailLink": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSFaqbWK7PbBXFA0LOEnT9Dq8hESX5YiAHO6MTnh8IBy8XG8DLr_nIYbaiI",
+    "thumbnailHeight": 64,
+    "thumbnailWidth": 150
+   }
+  },
+  {
+   "kind": "customsearch#result",
+   "title": "Batman - Wikipedia, the free encyclopedia",
+   "htmlTitle": "\u003cb\u003eBatman\u003c/b\u003e - Wikipedia, the free encyclopedia",
+   "link": "https://upload.wikimedia.org/wikipedia/en/1/17/Batman-BenAffleck.jpg",
+   "displayLink": "en.wikipedia.org",
+   "snippet": "Batman - Wikipedia, the free ...",
+   "htmlSnippet": "\u003cb\u003eBatman\u003c/b\u003e - Wikipedia, the free ...",
+   "mime": "image/jpeg",
+   "image": {
+    "contextLink": "https://en.wikipedia.org/wiki/Batman",
+    "height": 376,
+    "width": 387,
+    "byteSize": 33373,
+    "thumbnailLink": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4PqNr2PaFTptlsSoUg6E_-zZanMpyQ5_1HmP1FqZ6Zh-Yl4a6_v-eYCQ",
+    "thumbnailHeight": 120,
+    "thumbnailWidth": 123
+   }
+  },
+  {
+   "kind": "customsearch#result",
+   "title": "Batman | DC",
+   "htmlTitle": "\u003cb\u003eBatman\u003c/b\u003e | DC",
+   "link": "http://media.dcentertainment.com/sites/default/files/GalleryChar_1920x1080_BM_Cv38_54b5d0d1ada864.04916624.jpg",
+   "displayLink": "www.dccomics.com",
+   "snippet": "Batman | DC",
+   "htmlSnippet": "\u003cb\u003eBatman\u003c/b\u003e | DC",
+   "mime": "image/jpeg",
+   "image": {
+    "contextLink": "http://www.dccomics.com/characters/batman",
+    "height": 1080,
+    "width": 1920,
+    "byteSize": 75583,
+    "thumbnailLink": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTl4ter77YTDbGi9yRuY4QT2CAlRXutuRedS_5J_hk1Z1eNkZocsCgsBgc",
+    "thumbnailHeight": 84,
+    "thumbnailWidth": 150
+   }
+  },
+  {
+   "kind": "customsearch#result",
+   "title": "Batman-News.com - Batman v Superman: Dawn of Justice News, Rumors ...",
+   "htmlTitle": "\u003cb\u003eBatman\u003c/b\u003e-News.com - \u003cb\u003eBatman\u003c/b\u003e v Superman: Dawn of Justice News, Rumors ...",
+   "link": "http://i1.wp.com/cdn.batman-news.com/wp-content/uploads/2014/06/Batman-News-Default.jpg",
+   "displayLink": "batman-news.com",
+   "snippet": "Batman-News.com - Batman v ...",
+   "htmlSnippet": "\u003cb\u003eBatman\u003c/b\u003e-News.com - \u003cb\u003eBatman\u003c/b\u003e v ...",
+   "mime": "image/jpeg",
+   "image": {
+    "contextLink": "http://batman-news.com/",
+    "height": 720,
+    "width": 1280,
+    "byteSize": 31568,
+    "thumbnailLink": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSc8P4CUoUxh1tpj-ziHZxkHAfUFMW37vBZ13P3h3L57CkfhXGgclGOQZk",
+    "thumbnailHeight": 84,
+    "thumbnailWidth": 150
+   }
+  },
+  {
+   "kind": "customsearch#result",
+   "title": "New Details On BATMAN v SUPERMAN's Dark Knight; He Put The SUICIDE ...",
+   "htmlTitle": "New Details On \u003cb\u003eBATMAN\u003c/b\u003e v SUPERMAN&#39;s Dark Knight; He Put The SUICIDE ...",
+   "link": "http://i.imgur.com/vNlsRbF.jpg",
+   "displayLink": "www.comicbookmovie.com",
+   "snippet": "New Details On BATMAN v ...",
+   "htmlSnippet": "New Details On \u003cb\u003eBATMAN\u003c/b\u003e v ...",
+   "mime": "image/jpeg",
+   "image": {
+    "contextLink": "https://www.comicbookmovie.com/batman_vs_superman/new-details-on-batman-v-supermans-dark-knight-he-put-the-a123365",
+    "height": 952,
+    "width": 1900,
+    "byteSize": 519333,
+    "thumbnailLink": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcS0vfBq-yyGYtlfIjh2DqGi4MTlnGIM9t9V8RLTqn8m3YnWjuO0c-56jc-6",
+    "thumbnailHeight": 75,
+    "thumbnailWidth": 150
+   }
+  }
+ ]
+}
+);
