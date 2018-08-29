@@ -1,4 +1,4 @@
-html, body {
+﻿html, body {
   background-color: #072433;
   color: #FFF;
   font-family: Segoe UI Light;
@@ -209,19 +209,21 @@ button, input, select, textarea {
 
 #sophia-reply {
   width: 440px;
+  max-width: 70%;
   max-height: 390px;
   overflow-y: auto;
   color: #81FEFF;
   text-shadow: 0 0 10px #81FEFE;
   text-align: center;
-  font-size: 18pt;
-  position: absolute;
-  top: 30%;
-  left: calc(50% - 220px);
-    left: -webkit-calc(50% - 220px);
-    left: -moz-calc(50% - 220px);
-    left: -ms-calc(50% - 220px);
-    left: -o-calc(50% - 220px);
+  font-size: 1.2em;
+  /* position: absolute; */
+  margin:  0 auto;
+  margin-top: 200px;
+  /* left: calc(50% - 220px); */
+  /* left: -webkit-calc(50% - 220px); */
+  left: -moz-calc(50% - 220px);
+  left: -ms-calc(50% - 220px);
+  left: -o-calc(50% - 220px);
   cursor: default;
 }
 

@@ -72,7 +72,7 @@ var brain = [
 'Olá' + userRef + '.'
 ],
 
-['^(ei|hey so(ph|f)ia|fala so(ph|f)ia|fala, so(ph|f)ia|so(ph|f)ia)',
+['^(ei|hey so(ph|f)ia|fala so(ph|f)ia|fala, so(ph|f)ia|so(ph|f)ia)?',
 'Em que posso ajudar' + userRef + '?',
 'Pode falar' + userRef + '.',
 'Estou ouvindo' + userRef + '.'

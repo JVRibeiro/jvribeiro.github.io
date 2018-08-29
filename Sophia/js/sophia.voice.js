@@ -4,10 +4,10 @@ var _spRec_ = new SpeechSynthesisUtterance(),
 
     var voices = window.speechSynthesis.getVoices();
     _spRec_.voice = voices[0];
-    _spRec_.rate = 1.6;
-    _spRec_.pitch = 1.2;
+    _spRec_.rate = 1.2;
+    _spRec_.pitch = 1.4;
     _spRec_.volume = 1;
-    _spRec_.voiceURI = 'native';
+    //_spRec_.voiceURI = 'native';
     _spRec_.lang = 'pt-BR';
 
 //Speech Synthesis
@@ -19,9 +19,9 @@ function voice ()
     var voices = window.speechSynthesis.getVoices();
 
     _spRec_.voice = voices[0];
-    _spRec_.rate = 1.6;
-    _spRec_.pitch = 1.2;
-    _spRec_.voiceURI = 'native';
+    _spRec_.rate = 1.2;
+    _spRec_.pitch = 1.4;
+    //_spRec_.voiceURI = 'native';
     _spRec_.lang = 'pt-BR';
 
     voiceText = document.querySelector( '#sophia-reply' );

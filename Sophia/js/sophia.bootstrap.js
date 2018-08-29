@@ -103,9 +103,13 @@
   s_4 = document.createElement( 'script' );
 
   s_1.id = scripts[0]; s_1.src = scripts[1];
-  s_2.id = scripts[2]; s_2.src = scripts[3];
-  s_3.id = scripts[4]; s_3.src = scripts[5];
-  s_4.id = scripts[6]; s_4.src = scripts[7];
+
+  setTimeout(function() {
+    s_2.id = scripts[2]; s_2.src = scripts[3];
+    s_3.id = scripts[4]; s_3.src = scripts[5];
+    s_4.id = scripts[6]; s_4.src = scripts[7];
+  }, 1000);
+
 
   document.body.appendChild( s_1 );
   document.body.appendChild( s_2 );
