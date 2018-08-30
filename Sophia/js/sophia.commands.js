@@ -32,18 +32,7 @@ if (annyang) {
       tempscript = document.createElement("script");
       tempscript.type = "text/javascript";
       tempscript.id = "tempscript";
-      tempscript.src = "https://pt.wikipedia.org/w/api.php" +
-        "?action=query" +
-        "&titles=" +
-        algo + // Palavra ou sentença a ser definida
-        "&redirects=1" +
-        "&prop=extracts" +
-        "&exchars=" +
-        maxchars + // Máximo de caracteres a ser "puxado"
-        "&exintro" +
-        "&format=json" +
-        "&callback=onFetchComplete" +
-        "&requestid=" +
+      tempscript.src = "https://pt.wikipedia.org/w/api.php?action=query&titles=" + algo + "&redirects=1&prop=extracts&exchars=" + maxchars + "&exintro&format=json&callback=onFetchComplete&requestid=" +
         Math.floor(Math.random() * 999999).toString();
       $("body").append(tempscript);
     };
@@ -55,7 +44,7 @@ if (annyang) {
       tempscript = null;
       var s = getFirstProp(data.query.pages).extract;
       s = htmlDecode(stripTags(s));
-      s = s.replace(/(\n\n|^\n([A-Z]))/gi, ' $2');
+      s = s.replace(/(\n\n|\n\n\n|^\n([A-Z]))/gi, ' $2');
       s = s.replace(/\n/gi, ', ');
 
       s = /[^.]*/.exec(s)[0] + '.';
@@ -310,25 +299,35 @@ if (annyang) {
         ai.say('Olá, ' + nome + '!');
       },
 
-      '(Sophia)(Sofia) defin(e)(a) :algo': definir,
-      '(Sophia)(Sofia) defin(e)(a) (a) *algo': definir,
+
+      '(Sophia)(Sofia) defin(e)(a) a *algo': definir,
       '(Sophia)(Sofia) defin(e)(a) o *algo': definir,
       '(Sophia)(Sofia) defin(e)(a) as *algo': definir,
       '(Sophia)(Sofia) defin(e)(a) os *algo': definir,
+      '(Sophia)(Sofia) defin(e)(a) *algo': definir,
+      '(Sophia)(Sofia) defin(e)(a) :algo': definir,
+
       '(Sophia)(Sofia) quem é *algo (Sophia)(Sofia)': definir,
     	'(Sophia)(Sofia) quem foi *algo (Sophia)(Sofia)': definir,
     	'(Sophia)(Sofia) quem era *algo (Sophia)(Sofia)': definir,
-      '(Sophia)(Sofia) o que é (o) *algo (Sophia)(Sofia)': definir,
-    	'(Sophia)(Sofia) o que é (a) *algo (Sophia)(Sofia)': definir,
+
+      '(Sophia)(Sofia) o que é o *algo (Sophia)(Sofia)': definir,
+    	'(Sophia)(Sofia) o que é a *algo (Sophia)(Sofia)': definir,
     	'(Sophia)(Sofia) o que é um *algo (Sophia)(Sofia)': definir,
     	'(Sophia)(Sofia) o que é uma *algo (Sophia)(Sofia)': definir,
+      '(Sophia)(Sofia) o que é *algo (Sophia)(Sofia)': definir,
+
     	'(Sophia)(Sofia) o que significa *algo (Sophia)(Sofia)': definir,
     	'(Sophia)(Sofia) qual (é) o significado de *algo (Sophia)(Sofia)': definir,
     	'(Sophia)(Sofia) qual (é) o significado da palavra *algo (Sophia)(Sofia)': definir,
+
+      '(Sophia)(Sofia) o que são *algo (Sophia)(Sofia)': definir,
     	'(Sophia)(Sofia) o que são os *algo (Sophia)(Sofia)': definir,
     	'(Sophia)(Sofia) o que são as *algo (Sophia)(Sofia)': definir,
+
     	'(Sophia)(Sofia) o que foi o *algo (Sophia)(Sofia)': definir,
     	'(Sophia)(Sofia) o que foi a *algo (Sophia)(Sofia)': definir,
+
     	'(Sophia)(Sofia) o que era o *algo (Sophia)(Sofia)': definir,
     	'(Sophia)(Sofia) o que era a *algo (Sophia)(Sofia)': definir,
     	'(Sophia)(Sofia) o que era os *algo (Sophia)(Sofia)': definir,
@@ -337,6 +336,7 @@ if (annyang) {
     	'(Sophia)(Sofia) o que era uma *algo (Sophia)(Sofia)': definir,
     	'(Sophia)(Sofia) o que era uns *algo (Sophia)(Sofia)': definir,
     	'(Sophia)(Sofia) o que era umas *algo (Sophia)(Sofia)': definir,
+
       '(Sophia)(Sofia) (*jdhnibf) informação d(e)(o)(a)(os)(as) *algo (Sophia)(Sofia)': definir,
     	'(Sophia)(Sofia)( )(me) fala sobre (o)(a) *algo (Sophia)(Sofia)': definir,
       '(Sophia)(Sofia)( )(me) fala (um pouco) sobre (o)(a) *algo (Sophia)(Sofia)': definir,
@@ -348,16 +348,33 @@ if (annyang) {
         ai.attention.off();
         changeCommands(noAttentionCommands);
         ai.say('Se precisar de algo é só chamar.');
+
+        bootstrap.title.animation('fadeInUp', 'fadeOut');
+        bootstrap.title.text('<span class="title_Med">Se precisar</span>');
       },
-      '(*a) não tô falando co(ntigo)(m você)': () => {
+      '(*a) não (tô)(estou) falando co(ntigo)(m você)': () => {
         ai.attention.off();
         changeCommands(noAttentionCommands);
         ai.say('Se precisar de algo é só chamar.');
+
+        bootstrap.title.animation('fadeInUp', 'fadeOut');
+        bootstrap.title.text('<span class="title_Med">Se precisar</span>');
       },
       'não é co(ntigo)(m você)': () => {
         ai.attention.off();
         changeCommands(noAttentionCommands);
         ai.say('Se precisar de algo é só chamar.');
+
+        bootstrap.title.animation('fadeInUp', 'fadeOut');
+        bootstrap.title.text('<span class="title_Med">Se precisar</span>');
+      },
+      'desliga(r) (o) microfone': () => {
+        ai.attention.off();
+        changeCommands(noAttentionCommands);
+        ai.say('Se precisar de algo é só chamar.');
+
+        bootstrap.title.animation('fadeInUp', 'fadeOut');
+        bootstrap.title.text('<span class="title_Med">Se precisar</span>');
       },
 
       '*sentence': function(sentence) {
@@ -368,6 +385,25 @@ if (annyang) {
         sentence = sentence.toLowerCase();
 
         ai.action(sentence);
+      }
+    },
+
+    speakingCommands = {
+      'ok': () => {
+        changeCommands(defaultCommands);
+
+        actualInput.value = 'ok';
+        rotina();
+
+        console.log('ouvindo: sim');
+      },
+      'So(ph)(f)ia': () => {
+        changeCommands(defaultCommands);
+
+        actualInput.value = 'Sophia';
+        rotina();
+
+        console.log('ouvindo: sim');
       }
     },
 
@@ -714,12 +750,12 @@ if (annyang) {
   });
 
   annyang.addCallback('error', function() {
-    notification.create(
+    /*notification.create(
       'warning',
       'Problema temporário no reconhecimento de voz.',
       'img/icons/ionicons/ios7-mic-off.png',
       5000
-    );
+    );*/
 
     console.log('Problema temporário no reconhecimento de voz.');
   });

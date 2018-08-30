@@ -27,6 +27,7 @@ var aiCorrectAgeYear,
   aiFinalAge,
   aiAgeYears_str,
   aiAgeMonths_str,
+  previousCommandObj,
   actualCommandObj,
 
   greeting,
@@ -57,13 +58,65 @@ var aiCorrectAgeYear,
     happiness: 10, // | 0--[triste]--3--[ficando triste]--7--[feliz]--10 |
     angry: 0, // | 0--[normal]--3--[se irritando]--7--[brava]--10 |
 
-    say: function say(words) {
+    say: function (words, fallback) {
             document.querySelector('#sophia-reply')
               .innerHTML = words;
-            voice();
 
             bootstrap.title.animation('fadeInUp', 'fadeOut');
-            bootstrap.title.text('<span class="title_Med"' + words + '</span>');
+
+
+
+            var _spRec_ = new SpeechSynthesisUtterance(),
+                voicePlaying,
+                voiceText;
+
+            //Speech Synthesis
+              if ( voicePlaying ) {
+                speechSynthesis.cancel( _spRec_ );
+                voicePlaying = false;
+                changeCommands(previousCommandObj);
+              }
+
+            var voices = window.speechSynthesis.getVoices();
+
+            _spRec_.voice = voices[0];
+            _spRec_.rate = 1.6;
+            _spRec_.pitch = 1.2;
+            //_spRec_.voiceURI = 'native';
+            _spRec_.lang = 'pt-BR';
+
+            voiceText = document.querySelector( '#sophia-reply' );
+            _spRec_.text = JSON.stringify( voiceText.innerHTML );
+
+            speechSynthesis.speak( _spRec_ );
+            avatar._animation( 'speaking' );
+            voicePlaying = true;
+
+            console.log( 'Sophia começou a falar.' );
+
+            changeCommands(speakingCommands);
+
+            _spRec_.onend = function ( event ) {
+              voicePlaying = false;
+
+              avatar._animation( 'default' );
+
+              if ( !listening ) {
+
+                ai.listening( true );
+                console.log( 'Ouvindo: sim' );
+              }
+
+              if (fallback !== null) {
+                changeCommands(fallback);
+                console.log('changed: fallback');
+              }
+              else {
+                changeCommands(defaultCommands);
+                console.log('changed: defaultCommands');
+              }
+              console.log( 'Sophia parou de falar.' );
+            };
           },
 
           listening: function(param) {
@@ -127,7 +180,7 @@ var aiCorrectAgeYear,
 
                   notification.create(
                     '',
-                    'Se precisar de algo é só chamar.',
+                    'Modo de escuta passiva.',
                     'img/icons/ionicons/ios7-mic.png',
                     5000
                   );
@@ -367,13 +420,11 @@ var aiCorrectAgeYear,
         function capitalize(cap) {
           cap = cap.substr(0, 1).toUpperCase() + cap.substr(1).toLowerCase();
           return cap;
-          loop;
         }
 
         function capitalize_s(cap) {
           cap = cap.substr(0, 1).toUpperCase() + cap.substr(1);
           return cap;
-          loop;
         }
 
 
@@ -382,8 +433,6 @@ var aiCorrectAgeYear,
         actualInput.addEventListener('keydown', function() {
           if (actualInput.value !== '' && event.keyCode === 13) {
             rotina();
-            // * voice();
-            // * saveHist();
             return false;
           }
         });
@@ -393,38 +442,52 @@ var aiCorrectAgeYear,
             case defaultCommands:
               annyang.removeCommands();
               annyang.addCommands(defaultCommands);
+              previousCommandObj = actualCommandObj;
               actualCommandObj = defaultCommands;
-              console.log('Changed to "defaultCommands"');
+              isLearning = false;
               break;
             case noAttentionCommands:
               annyang.removeCommands();
               annyang.addCommands(noAttentionCommands);
+              previousCommandObj = actualCommandObj;
               actualCommandObj = noAttentionCommands;
-              console.log('Changed to "noAttentionCommands"');
+              isLearning = false;
               break;
             case learnCommands:
               annyang.removeCommands();
               annyang.addCommands(learnCommands);
+              isLearning = true;
+
+              previousCommandObj = actualCommandObj;
               actualCommandObj = learnCommands;
-              console.log('Changed to "learnCommands"');
               break;
             case nameInputCommands:
               annyang.removeCommands();
               annyang.addCommands(nameInputCommands);
+              previousCommandObj = actualCommandObj;
               actualCommandObj = nameInputCommands;
-              console.log('Changed to "nameInputCommands"');
+              isLearning = false;
               break;
             case genderInputCommands:
               annyang.removeCommands();
               annyang.addCommands(genderInputCommands);
+              previousCommandObj = actualCommandObj;
               actualCommandObj = genderInputCommands;
-              console.log('Changed to "genderInputCommands"');
+              isLearning = false;
               break;
             case treatmentInputCommands:
               annyang.removeCommands();
               annyang.addCommands(treatmentInputCommands);
+              previousCommandObj = actualCommandObj;
               actualCommandObj = treatmentInputCommands;
-              console.log('Changed to "treatmentInputCommands"');
+              isLearning = false;
+              break;
+            case speakingCommands:
+              annyang.removeCommands();
+              annyang.addCommands(speakingCommands);
+              previousCommandObj = actualCommandObj;
+              actualCommandObj = speakingCommands;
+              isLearning = false;
               break;
           }
         }
@@ -489,12 +552,11 @@ var aiCorrectAgeYear,
 
 
 
+
         function rotina() {
           patterns();
 
           updt();
-          // * saveHist();
-          voice();
           Reload();
           balloon.i = 5;
         }
@@ -512,6 +574,8 @@ var aiCorrectAgeYear,
               reply = brain[i][index]; // cria uma variável temporária "reply" para manter a resposta escolhida aleatoriamente
               sOutput = uInput.replace(regex, reply); // usa o método de expressão regular replace para transformar o padrão de resposta e colocar o resultado variável na "soutput"
               sOutput = capitalize_s(sOutput); // faz da primeira letra da variavel "sOutput" maiúscula se ela ainda não for
+
+              ai.say(sOutput);
 
               break;
             }

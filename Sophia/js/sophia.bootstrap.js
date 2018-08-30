@@ -91,30 +91,26 @@
 
 // Carrega os scripts restantes
   var scripts = [
-  'brain-script', 'js/sophia.brain.js',
-  'config-script', 'js/sophia.config.js',
-  'brain-arr-script', 'js/sophia.js',
-  'voice-script', 'js/sophia.voice.js'
+    'brain-script', 'js/sophia.brain.js',
+    'config-script', 'js/sophia.config.js',
+    'brain-arr-script', 'js/sophia.js'
   ],
 
   s_1 = document.createElement( 'script' ),
   s_2 = document.createElement( 'script' ),
   s_3 = document.createElement( 'script' );
-  s_4 = document.createElement( 'script' );
 
   s_1.id = scripts[0]; s_1.src = scripts[1];
 
   setTimeout(function() {
     s_2.id = scripts[2]; s_2.src = scripts[3];
     s_3.id = scripts[4]; s_3.src = scripts[5];
-    s_4.id = scripts[6]; s_4.src = scripts[7];
   }, 1000);
 
 
   document.body.appendChild( s_1 );
   document.body.appendChild( s_2 );
   document.body.appendChild( s_3 );
-  document.body.appendChild( s_4 );
 
 // Event Listeners
   // Instruções executadas quando o documento estiver carregado.
@@ -144,7 +140,6 @@
           avatar._animation( 'default' );
 
           // Começa a ouvir
-          changeCommands( defaultCommands );
           changeActualInput( '#user-input' );
           annyangStart();
 
@@ -319,7 +314,7 @@
 
             window.setTimeout( function ()
             {
-              bootstrap.title.animation( 'fadeInUp', 'fadeOut' );
+
               bootstrap.title.text( intScr_titleMsg[4] );
             }, 8000);
 
@@ -343,7 +338,7 @@
         {
           avatar._animation( 'jello' );
 
-          bootstrap.title.animation( 'fadeInUp', 'fadeOut' );
+
           bootstrap.title.text( intScr_titleMsg[2] );
 
           annyangStart();
@@ -380,7 +375,7 @@
 
           if ( !micPermission && listening )
           {
-            ai.say( 'Clique no botão permitir e logo após, diga okey para continuarmos.' );
+            ai.say( 'Clique no botão permitir e logo após, diga ok para continuarmos.' );
             $( '#drawn-arrow-permissions' )
               .fadeIn();
           }
@@ -415,7 +410,7 @@
   {
     actualScreen = 'name';
 
-    bootstrap.title.animation( 'fadeInUp', 'fadeOut' );
+
     bootstrap.title.text( intScr_titleMsg[2] );
 
     intScr_genderDiv.style.display = 'none';
@@ -431,7 +426,7 @@
       changeActualInput( '#introducing-screen-name-input' );
     }, 4000);
 
-    changeCommands( nameInputCommands );
+
 
     $( intScr_confirmButtonDiv )
       .show({
@@ -447,10 +442,9 @@
 
     intScr_confirmButton.disabled = true;
 
-    window.setTimeout( function ()
-    {
-    ai.say( 'Agora preciso que me informe seu primeiro nome apenas.' );
-    }, 400);
+    ai.say( 'Agora preciso que me informe seu primeiro nome apenas.', nameInputCommands );
+
+
 
     if ( !listening )
     {
@@ -495,7 +489,6 @@
 
     intScr_confirmButton.disabled = true;
 
-    bootstrap.title.animation( 'fadeInUp', 'fadeOut' );
     bootstrap.title.text( '<span class="title_Small">Você é do sexo masculino ou feminino, ' + user.name + '?</span>' );
 
     window.setTimeout( function ()
@@ -562,7 +555,7 @@
 
     intScr_confirmButton.disabled = true;
 
-    bootstrap.title.animation( 'fadeInUp', 'fadeOut' );
+
     bootstrap.title.text( '<span class="title_Small">E como você prefere que eu ' + user.article + ' chame?</span>' );
 
     window.setTimeout( function ()
