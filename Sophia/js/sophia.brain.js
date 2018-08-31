@@ -89,14 +89,16 @@ var aiCorrectAgeYear,
             _spRec_.text = JSON.stringify( voiceText.innerHTML );
 
             speechSynthesis.speak( _spRec_ );
+            console.log(words);
             avatar._animation( 'speaking' );
             voicePlaying = true;
 
             console.log( 'Sophia começou a falar.' );
 
-            changeCommands(speakingCommands);
+            ai.listening( false );
 
             _spRec_.onend = function ( event ) {
+              console.log( 'Sophia parou de falar.' );
               voicePlaying = false;
 
               avatar._animation( 'default' );
@@ -107,15 +109,17 @@ var aiCorrectAgeYear,
                 console.log( 'Ouvindo: sim' );
               }
 
-              if (fallback !== null) {
+              if (fallback !== undefined) {
                 changeCommands(fallback);
                 console.log('changed: fallback');
+                console.log(fallback);
               }
               else {
-                changeCommands(defaultCommands);
-                console.log('changed: defaultCommands');
+                changeCommands(actualCommandObj);
+                console.log('changed: actualCommandObj');
+                console.log(actualCommandObj);
               }
-              console.log( 'Sophia parou de falar.' );
+
             };
           },
 
@@ -480,13 +484,6 @@ var aiCorrectAgeYear,
               annyang.addCommands(treatmentInputCommands);
               previousCommandObj = actualCommandObj;
               actualCommandObj = treatmentInputCommands;
-              isLearning = false;
-              break;
-            case speakingCommands:
-              annyang.removeCommands();
-              annyang.addCommands(speakingCommands);
-              previousCommandObj = actualCommandObj;
-              actualCommandObj = speakingCommands;
               isLearning = false;
               break;
           }

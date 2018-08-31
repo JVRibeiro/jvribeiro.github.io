@@ -502,9 +502,8 @@
       intScr_confirmButton.disabled = false;
     }, 1000);
 
-    changeCommands( genderInputCommands );
 
-    ai.say( 'Ok, ' + user.name + '. Agora me diga se você é do sexo masculino ou feminino.' );
+    ai.say( 'Ok, ' + user.name + '. Agora me diga se você é do sexo masculino ou feminino.', genderInputCommands );
   }
 
 

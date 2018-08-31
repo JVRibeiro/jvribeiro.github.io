@@ -180,42 +180,40 @@ if (annyang) {
 
     // Função chamada ao usuário escolher a opção 'masculino'
     genderSelect_male = function() {
-      if (!$('.cs-select').hasClass('cs-active')) // Se não estiver aberto
-      {
-        $('.cs-placeholder').click();
-        console.log('Evento 1: Click no selectFx');
+      setTimeout(function() {
+        if (!$('.cs-select').hasClass('cs-active')) {
+          console.log('if');
+          $('.cs-placeholder').click();
 
-        window.setTimeout(function() {
-          $('.cs-options ul li[data-value="masculino"]').click();
-          console.log('Evento 2: Click na opção masculino');
-        }, 700);
-
-        bootstrap.title.animation('fadeInUp', 'fadeOut');
-        bootstrap.title.text('<span class="title_Med">Continuando...</span>');
-
-        ai.say('Certo. Avançando.');
-
-        window.setTimeout(function() {
-          $(intScr_confirmButton).click();
-          console.log('Evento 3: Click no confirmButton');
-        }, 3000);
-      } else // Se estiver aberto
-      {
-        window.setTimeout(function() {
-          $('.cs-options ul li[data-value="masculino"]').click();
-          console.log('Evento 1: Click na opção masculino');
+          window.setTimeout(function() {
+            $('.cs-options ul li[data-value="masculino"]')
+              .click();
+          }, 700);
 
           bootstrap.title.animation('fadeInUp', 'fadeOut');
           bootstrap.title.text('<span class="title_Med">Continuando...</span>');
-        }, 400);
 
-        ai.say('Certo.');
+          ai.say('Certo.');
 
-        window.setTimeout(function() {
-          $(intScr_confirmButton).click();
-          console.log('Evento 3: Click no confirmButton');
-        }, 1500);
-      }
+          window.setTimeout(function() {
+            $(intScr_confirmButton).click();
+          }, 1500);
+        }
+        else if ($('.cs-select').hasClass('cs-active')) {
+          console.log('else if');
+          $('.cs-options ul li[data-value="masculino"]').click();
+
+          bootstrap.title.animation('fadeInUp', 'fadeOut');
+          bootstrap.title.text('<span class="title_Med">Continuando...</span>');
+
+          ai.say('Certo.');
+
+          window.setTimeout(function() {
+            treatmentFirstSetting();
+          }, 1500);
+        }
+      },100);
+
     },
 
     // Função chamada ao usuário escolher a opção 'feminino'
@@ -244,8 +242,8 @@ if (annyang) {
 
         ai.say('Certo.');
 
-        window.setTimeout(function() {
-          $(intScr_confirmButton).click();
+        setTimeout(function() {
+          treatmentFirstSetting();
         }, 1500);
       }
     },
@@ -497,7 +495,7 @@ if (annyang) {
         'callback': genderCommand_no
       },
 
-      'as*x': genderSelect_male,
+      '(m)as*x': genderSelect_male,
 
       'fe*minino': genderSelect_female
     },
