@@ -82,7 +82,7 @@ var aiCorrectAgeYear,
             _spRec_.voice = voices[14];
             _spRec_.rate = 0.8;
             _spRec_.pitch = 0.9;
-            // _spRec_.voiceURI = 'native';
+            _spRec_.voiceURI = 'native';
             _spRec_.lang = 'pt-BR';
 
             voiceText = document.querySelector( '#sophia-reply' );
